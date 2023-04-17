@@ -50,6 +50,12 @@ h6 {
   font-family: "Saira", sans-serif;
 }
 
+.btn-filtrar{
+  background-color: #32c36c;
+  color: white;
+  font-family: "Saira", sans-serif;
+}
+
 body {
   margin: 0;
   padding: 0;
