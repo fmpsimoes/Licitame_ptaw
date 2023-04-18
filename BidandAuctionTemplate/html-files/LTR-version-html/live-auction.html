@@ -228,7 +228,7 @@
 
     <!-- =============== category-section start  =============== -->
 
-    <div class="category-section pt-120 pb-120">
+    <div class="category-section pt-120 ">
         <div class="container position-relative">
             <div class="row d-flex justify-content-center">
                 <div class="swiper category1-slider">
@@ -573,31 +573,78 @@
 
     <!-- =============== category-section end  =============== -->
 
-    <!-- =============== filter-section start  =============== -->
+    <!-- =============== filter-section start  =============== 
 
-    <div data-wow-duration="1.5s" data-wow-delay="0.2s" class="wow fadeInDown">
-        <div class="col-2 offset-9">
-            <div class="dropdown">
-                <button class="btn  dropdown-toggle btn-filtrar" type="button" id="dropdownMenuButtonLight"
-                    data-bs-toggle="dropdown" aria-expanded="false">
-                    Filtrar
-                </button>
-                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButtonLight">
-                    <li><a class="dropdown-item active" href="#">Mais baratos primeiro</a></li>
-                    <li><a class="dropdown-item" href="#">Mais caros primeiro</a></li>
-                    <li><a class="dropdown-item" href="#">Prestes a acabar</a></li>
-                    <li><a class="dropdown-item" href="#">A começar</a></li>
-                </ul>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 text-left">
+                <div data-wow-duration="1.5s" data-wow-delay="0.2s" class="wow fadeInDown">
+                    <button type="button" class="btn btn-filtrar">Leilões mais licitados</button>
+                    <button type="button" class="btn btn-filtrar">Leilões a terminar</button>
+                    <button type="button" class="btn btn-filtrar">Leilões mais recentes</button>
+                </div>
+                <div class="col-lg-8">
+                    <div class="dropdown">
+                        <button class="btn  dropdown-toggle btn-filtrar" type="button"
+                            id="dropdownMenuButtonLight" data-bs-toggle="dropdown" aria-expanded="false">
+                            Filtrar
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButtonLight">
+                            <li><a class="dropdown-item active" href="#">Mais baratos primeiro</a></li>
+                            <li><a class="dropdown-item" href="#">Mais caros primeiro</a></li>
+                            <li><a class="dropdown-item" href="#">Prestes a acabar</a></li>
+                            <li><a class="dropdown-item" href="#">A começar</a></li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 
+
+
+    Outro tipo de filtro
+
+    <div class="col-xl-2 col-lg-5 col-md-2 text-left">
+                    <div class="form-inner">
+                        <select id="city">
+                            <option>Filtrar por...</option>
+                            <option>Mais barato</option>
+                            <option>Mais caro</option>
+                            <option>Mais recente</option>
+                        </select>
+                    </div>
+                  </div>
+-->
     <!-- =============== filter-section end  =============== -->
 
     <div class="live-auction-section pt-120 pb-120">
         <img alt="image" src="assets/images/bg/section-bg.png" class="img-fluid section-bg-top">
         <img alt="image" src="assets/images/bg/section-bg.png" class="img-fluid section-bg-bottom">
         <div class="container">
+            <div class="container">
+                <div class="row gy-4 mb-60 d-flex justify-content-center">
+                  <div class="col-lg-11">
+                    <button type="button" class="btn btn-filtrar">Leilões mais licitados</button>
+                    <button type="button" class="btn btn-filtrar">Leilões a terminar</button>
+                    <button type="button" class="btn btn-filtrar">Leilões mais recentes</button>
+                  </div>
+                  <div class="col-lg-1 text-left">
+                    <div class="dropdown">
+                        <button class="btn  dropdown-toggle btn-filtrar" type="button"
+                            id="dropdownMenuButtonLight" data-bs-toggle="dropdown" aria-expanded="false">
+                            Filtrar
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButtonLight">
+                            <li><a class="dropdown-item active" href="#">Mais baratos primeiro</a></li>
+                            <li><a class="dropdown-item" href="#">Mais caros primeiro</a></li>
+                            <li><a class="dropdown-item" href="#">Prestes a acabar</a></li>
+                            <li><a class="dropdown-item" href="#">A começar</a></li>
+                        </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
             <div class="row gy-4 mb-60 d-flex justify-content-center">
                 <div class="col-lg-4 col-md-6 col-sm-10 ">
                     <div data-wow-duration="1.5s" data-wow-delay="0.2s" class="eg-card auction-card1 wow fadeInDown">
