@@ -6304,7 +6304,7 @@ footer.style-3 .footer-bottom .footer-logo-list li:hover img {
 }
 
 .inner-banner {
-  min-height: 400px;
+  min-height: 300px;
   background: rgba(12, 3, 33, 0.9);
   position: relative;
   overflow: hidden;
@@ -7303,7 +7303,7 @@ live-auction Page
 }
 
 .tab-content .auction-gallery-timer h3 {
-  font-size: 2rem;
+  font-size: 1.7rem;
   font-weight: 600;
   color: #fff;
   margin-bottom: 0;
@@ -7484,6 +7484,10 @@ live-auction Page
 
 .offer-banner img {
   width: 100%;
+}
+
+#auction-details-container{
+  margin-bottom: 50px;
 }
 
 /*================================================
