@@ -1,3 +1,8 @@
+let cur_bid=465.00;
+let base_bid=400.00;
+let avaliacao_perito=600.00;
+let preco_imediato_vendedor=500.00;
+
 (function($) { "use strict";
 
 
@@ -704,4 +709,66 @@ $('.popup-youtube').magnificPopup({
   type: 'iframe'
 });
 
+//licitar option
+
+$('#licitar_form').append(gerform());
+
 }(jQuery));
+
+function gerform(){
+  let form =document.createElement("div")
+  form.setAttribute("class","bid-form")
+  form.append(gerformtitle())
+  form.append(gerformbody())
+  return form;
+}
+
+function gerformtitle(){
+  let formtitle=document.createElement("div")
+  formtitle.setAttribute("class","form-title")
+  let lich5=document.createElement("h5")
+  lich5.innerHTML="Licite agora"
+  let licp=document.createElement("p")
+  lich5.innerHTML="Montante : Mínimo "+minbid()+"€"
+  formtitle.append(lich5)
+  formtitle.append(licp)
+  return formtitle;
+}
+
+function gerformbody(){
+  let forminput=document.createElement("input")
+  forminput.setAttribute("type","text")
+  forminput.setAttribute("value",minbid())
+  let formbut=document.createElement("button")
+  formbut.setAttribute("type","submit")
+  formbut.setAttribute("class","eg-btn btn--primary btn--sm")
+  formbut.setAttribute("value","licitar")
+  formbut.innerHTML="Licitar"
+  let forminner=document.createElement("div")
+  forminner.setAttribute("class","form-inner gap-2")
+  forminner.append(forminput)
+  forminner.append(formbut)
+  let forminputcj=document.createElement("p")
+  forminputcj.innerHTML=precocomprarja()+"€"
+  let formbutcj=document.createElement("button")
+  formbutcj.setAttribute("type","submit")
+  formbutcj.setAttribute("class","eg-btn btn--primary btn--sm")
+  formbutcj.setAttribute("value",precocomprarja())
+  formbutcj.innerHTML="Comprar já"
+  let forminnercj=document.createElement("div")
+  forminnercj.setAttribute("class","form-inner gap-2")
+  forminnercj.append(forminputcj)
+  forminnercj.append(formbutcj)
+  let formbody=document.createElement("form")
+  formbody.append(forminner)
+  formbody.append(forminnercj)
+  return formbody;
+}
+
+function minbid(){
+  return cur_bid+base_bid*0.05;
+}
+
+function precocomprarja(){
+  return Math.max(avaliacao_perito,preco_imediato_vendedor,cur_bid*1.5)
+}
