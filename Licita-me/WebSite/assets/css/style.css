@@ -1145,8 +1145,7 @@ header.style-1 .header-logo {
 }
 
 header.style-1 .header-logo img {
-  min-width: 130px;
-  max-width: 100%;
+  width: 200px;
 }
 
 header.style-1 .header-btn {
@@ -8865,4 +8864,17 @@ live-auction Page
 #collapse{
   background-color: #dddddd;
 }
+
+@media (min-width: 768px) {
+  .col-md-2 {
+    width: 50%;
+}
+}
+
+@media (min-width: 992px){
+  .col-lg-4 {
+    width: 33.3333333333%;
+}
+}
+
 /*# sourceMappingURL=style.css.map */

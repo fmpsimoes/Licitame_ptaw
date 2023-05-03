@@ -501,7 +501,7 @@ function makeTimer() {
   var now = new Date();
   var now = (Date.parse(now) / 1000);
   var timeLeft = endTime - now;
-  var days = Math.floor(timeLeft / 86400);
+  var days = (Math.floor(timeLeft / 86400));
   var hours = Math.floor((timeLeft - (days * 86400)) / 3600);
   var Xmas95 = new Date('December 25, 1995 23:15:30');
   // console.log(Xmas95);
@@ -519,57 +519,57 @@ function makeTimer() {
   if (seconds < "10") {
     seconds = "0" + seconds;
   }
-  $("#timer #days").html( days);
+  $("#timer #days").html( days.toString().substring(1));
   $("#timer #hours").html( hours);
   $("#timer #minutes").html( minutes);
   $("#timer #seconds").html( seconds);
 
-  $("#timer1 #days1").html( days);
+  $("#timer1 #days1").html( days.toString().substring(1));
   $("#timer1 #hours1").html( hours);
   $("#timer1 #minutes1").html( minutes);
   $("#timer1 #seconds1").html( seconds);
 
-  $("#timer2 #days2").html( days);
+  $("#timer2 #days2").html( days.toString().substring(1));
   $("#timer2 #hours2").html( hours);
   $("#timer2 #minutes2").html( minutes);
   $("#timer2 #seconds2").html( seconds);
 
-  $("#timer3 #days3").html( days);
+  $("#timer3 #days3").html( days.toString().substring(1));
   $("#timer3 #hours3").html( hours);
   $("#timer3 #minutes3").html( minutes);
   $("#timer3 #seconds3").html( seconds);
 
-  $("#timer4 #days4").html( days);
+  $("#timer4 #days4").html( days.toString().substring(1));
   $("#timer4 #hours4").html( hours);
   $("#timer4 #minutes4").html( minutes);
   $("#timer4 #seconds4").html( seconds);
 
-  $("#timer5 #days5").html( days);
+  $("#timer5 #days5").html( days.toString().substring(1));
   $("#timer5 #hours5").html( hours);
   $("#timer5 #minutes5").html( minutes);
   $("#timer5 #seconds5").html( seconds);
 
-  $("#timer6 #days6").html( days);
+  $("#timer6 #days6").html( days.toString().substring(1));
   $("#timer6 #hours6").html( hours);
   $("#timer6 #minutes6").html( minutes);
   $("#timer6 #seconds6").html( seconds);
 
-  $("#timer7 #days7").html( days);
+  $("#timer7 #days7").html( days.toString().substring(1));
   $("#timer7 #hours7").html( hours);
   $("#timer7 #minutes7").html( minutes);
   $("#timer7 #seconds7").html( seconds);
 
-  $("#timer8 #days8").html( days);
+  $("#timer8 #days8").html( days.toString().substring(1));
   $("#timer8 #hours8").html( hours);
   $("#timer8 #minutes8").html( minutes);
   $("#timer8 #seconds8").html( seconds);
 
-  $("#timer9 #days9").html( days);
+  $("#timer9 #days9").html( days.toString().substring(1));
   $("#timer9 #hours9").html( hours);
   $("#timer9 #minutes9").html( minutes);
   $("#timer9 #seconds9").html( seconds);
 
-  $("#timer10 #days10").html( days);
+  $("#timer10 #days10").html( days.toString().substring(1));
   $("#timer10 #hours10").html( hours);
   $("#timer10 #minutes10").html( minutes);
   $("#timer10 #seconds10").html( seconds);
