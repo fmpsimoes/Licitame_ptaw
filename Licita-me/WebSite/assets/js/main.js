@@ -618,7 +618,7 @@ setInterval(function() {
       // Output the result in an element with countdown-timer-x"
       var el_up = document.getElementById(targetDOM);
       if(el_up){
-        document.querySelector("#" + targetDOM).textContent = days + "D : " + hours + "H : " + minutes + "M : " + seconds + "S ";
+        document.querySelector("#" + targetDOM).textContent = days.toString().substring(2) + "D : " + hours.toString().substring(2) + "H : " + minutes.toString().substring(2) + "M : " + seconds.toString().substring(2) + "S ";
       }
       
       
@@ -741,27 +741,64 @@ function gerformbody(){
   forminput.setAttribute("value",minbid())
   let formbut=document.createElement("button")
   formbut.setAttribute("type","submit")
-  formbut.setAttribute("class","eg-btn btn--primary btn--sm")
+  formbut.setAttribute("class","eg-btn btn--primary3 btn--sm")
   formbut.setAttribute("value","licitar")
   formbut.innerHTML="Licitar"
   let forminner=document.createElement("div")
   forminner.setAttribute("class","form-inner gap-2")
   forminner.append(forminput)
   forminner.append(formbut)
-  let forminputcj=document.createElement("p")
-  forminputcj.innerHTML=precocomprarja()+"€"
+  let coldiv=document.createElement("div")
+  coldiv.setAttribute("class","col-xl-12 col-lg-12 col-md-12")
+  coldiv.append(forminner)
+  let rowdiv=document.createElement("div")
+  rowdiv.setAttribute("class","row")
+  rowdiv.append(coldiv)
+  let forminputcj=document.createElement("input")
+  forminputcj.setAttribute("type","text")
+  forminputcj.setAttribute("disabled","disabled")
+  forminputcj.setAttribute("value",precocomprarja()+"€")
   let formbutcj=document.createElement("button")
   formbutcj.setAttribute("type","submit")
-  formbutcj.setAttribute("class","eg-btn btn--primary btn--sm")
+  formbutcj.setAttribute("class","eg-btn btn--primary2 btn--sm")
   formbutcj.setAttribute("value",precocomprarja())
   formbutcj.innerHTML="Comprar já"
   let forminnercj=document.createElement("div")
   forminnercj.setAttribute("class","form-inner gap-2")
   forminnercj.append(forminputcj)
   forminnercj.append(formbutcj)
+  let coldiv2=document.createElement("div")
+  coldiv2.setAttribute("class","col-xl-12 col-lg-12 col-md-12")
+  coldiv2.append(forminnercj)
+  let rowdiv2=document.createElement("div")
+  rowdiv2.setAttribute("class","row")
+  rowdiv2.append(coldiv2)
   let formbody=document.createElement("form")
-  formbody.append(forminner)
-  formbody.append(forminnercj)
+  formbody.append(rowdiv)
+  formbody.append(document.createElement("br"))
+  let p1=document.createElement("p")
+  p1.innerHTML="Opções alternativas de licitar"
+  p1.setAttribute("id","collapse")
+  p1.setAttribute("href","#collapseExample")
+  p1.setAttribute("data-bs-toggle","collapse")
+  p1.setAttribute("aria-expanded","false")
+  p1.setAttribute("aria-controls","collapseExample")
+  let rowdiv3=document.createElement("div")
+  rowdiv3.setAttribute("class","row")
+  rowdiv3.append(p1)
+  formbody.append(rowdiv3)
+  let collapse=document.createElement("div")
+  collapse.setAttribute("class","collapse")
+  collapse.setAttribute("id","collapseExample")
+  let p=document.createElement("p")
+  p.setAttribute("id","p2")
+  p.innerHTML=""
+  let rowdiv4=document.createElement("div")
+  rowdiv4.setAttribute("class","row")
+  rowdiv4.append(p)
+  collapse.append(rowdiv4)
+  collapse.append(rowdiv2)
+  formbody.append(collapse)
   return formbody;
 }
 
@@ -772,3 +809,19 @@ function minbid(){
 function precocomprarja(){
   return Math.max(avaliacao_perito,preco_imediato_vendedor,cur_bid*1.5)
 }
+/*
+<div class="accordion" id="accordionExample">
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="headingOne">
+                                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                    Where on your site can I access AI for Blog Ideas/Titles?
+                                  </button>
+                                </h2>
+                                <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                                  <div class="accordion-body">
+                                      <p>
+                                        Morbi aliquam quis quam in luctus. Nullam tincidunt pulvinar imperdiet. Sed varius, diam vitae posuere semper, libero ex hendrerit nunc, ac sagittis eros metus ut diam. Donec a nibh in libero maximus vehicula. Etiam sit amet condimentum erat. Pellentesque ultrices sagittis turpis, quis tempus ante viverra et.Morbi aliquam quis quam in luctus. Nullam tincidunt pulvinar imperdiet. Sed varius, diam vitae posuere semper, tincidunt pulvinar imperdiet. Sed varius, diam vitae posuere semper.
+                                      </p>
+                                  </div>
+                                </div>
+                            </div>*/

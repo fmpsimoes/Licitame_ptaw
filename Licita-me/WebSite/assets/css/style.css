@@ -308,7 +308,7 @@ i.bx {
   position: absolute;
   top: 0%;
   left: 0%;
-  background: #029e7c;
+  background: #32c36c;
   transition: all .52s;
   z-index: -1;
   border-radius: 100px;
@@ -322,7 +322,7 @@ i.bx {
   position: absolute;
   top: 0%;
   left: 0%;
-  background: #029e7c;
+  background: #32c36c;
   transition: all .52s;
   z-index: -1;
   border-radius: 100px;
@@ -341,14 +341,14 @@ i.bx {
 }
 
 .btn--primary3-outline {
-  border: 1px solid #029e7c;
-  color: #029e7c;
+  border: 1px solid #32c36c;
+  color: #32c36c;
   white-space: nowrap;
   transition: all 0.52s ease;
 }
 
 .btn--primary3-outline:hover {
-  background: #029e7c;
+  background: #32c36c;
   color: #fff;
 }
 
@@ -7224,6 +7224,35 @@ live-auction Page
   border-radius: 5px;
   background-color: #32c36c;
 }
+#p2 {
+  font-size: 16px;
+  font-weight: 500;
+  color: #696969;
+  font-family: "Inter", sans-serif;
+  position: relative;
+  margin-left: 12px;
+}
+#p2::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -12px;
+  width: 52px;
+  height: 3px;
+  border-radius: 5px;
+  background-color: #32c36c;
+}
+
+#p2::after {
+  content: '';
+  position: absolute;
+  left: 56px;
+  bottom: -12px;
+  width: 4px;
+  height: 3px;
+  border-radius: 5px;
+  background-color: #32c36c;
+}
 
 .product-details-right .bid-form .form-inner {
   display: flex;
@@ -8831,5 +8860,9 @@ live-auction Page
 .margin-zero{
 
   margin-bottom: 0px;
+}
+
+#collapse{
+  background-color: #dddddd;
 }
 /*# sourceMappingURL=style.css.map */
