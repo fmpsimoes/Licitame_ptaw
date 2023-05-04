@@ -776,29 +776,46 @@ function gerformbody(){
   let formbody=document.createElement("form")
   formbody.append(rowdiv)
   formbody.append(document.createElement("br"))
-  let p1=document.createElement("p")
-  p1.innerHTML="Opções alternativas de licitar"
-  p1.setAttribute("id","collapse")
-  p1.setAttribute("href","#collapseExample")
-  p1.setAttribute("data-bs-toggle","collapse")
-  p1.setAttribute("aria-expanded","false")
-  p1.setAttribute("aria-controls","collapseExample")
-  let rowdiv3=document.createElement("div")
-  rowdiv3.setAttribute("class","row")
-  rowdiv3.append(p1)
-  formbody.append(rowdiv3)
-  let collapse=document.createElement("div")
-  collapse.setAttribute("class","collapse")
-  collapse.setAttribute("id","collapseExample")
+  //accordion
+  let accordion=document.createElement("div")
+  accordion.setAttribute("id","accordionExample")
+  accordion.setAttribute("class","accordion")
+  let accordionitem =document.createElement("div")
+  accordionitem.setAttribute("class","accordion-item")
+  let accordionheader=document.createElement("h2")
+  accordionheader.setAttribute("class","accordion-header")
+  accordionheader.setAttribute("id","headingOne")
+  let accordionbut=document.createElement("button")
+  accordionbut.innerHTML="Opções alternativas de licitar"
+  //accordionbut.setAttribute("id","collapse")
+  //accordionbut.setAttribute("href","#collapseExample")
+  accordionbut.setAttribute("class","accordion-button collapsed")
+  accordionbut.setAttribute("type","button")
+  accordionbut.setAttribute("data-bs-toggle","collapse")
+  accordionbut.setAttribute("data-bs-target","#collapseOne")
+  accordionbut.setAttribute("aria-expanded","true")
+  accordionbut.setAttribute("aria-controls","collapseOne")
+  accordionheader.append(accordionbut)
+  accordionitem.append(accordionheader)
+  let accordioncollapse=document.createElement("div")
+  accordioncollapse.setAttribute("id","collapseOne")
+  accordioncollapse.setAttribute("class","accordion-collapse collapse")
+  accordioncollapse.setAttribute("aria-labelledby","headingOne")
+  accordioncollapse.setAttribute("data-bs-parent","#accordionExample")
+  let accordionbody=document.createElement("div")
+  accordionbody.setAttribute("class","accordion-body")
   let p=document.createElement("p")
   p.setAttribute("id","p2")
   p.innerHTML=""
   let rowdiv4=document.createElement("div")
   rowdiv4.setAttribute("class","row")
   rowdiv4.append(p)
-  collapse.append(rowdiv4)
-  collapse.append(rowdiv2)
-  formbody.append(collapse)
+  accordionbody.append(rowdiv4)
+  accordionbody.append(rowdiv2)
+  accordioncollapse.append(accordionbody)
+  accordionitem.append(accordioncollapse)
+  accordion.append(accordionitem)
+  formbody.append(accordion)
   return formbody;
 }
 
@@ -809,19 +826,3 @@ function minbid(){
 function precocomprarja(){
   return Math.max(avaliacao_perito,preco_imediato_vendedor,cur_bid*1.5)
 }
-/*
-<div class="accordion" id="accordionExample">
-                            <div class="accordion-item">
-                                <h2 class="accordion-header" id="headingOne">
-                                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                    Where on your site can I access AI for Blog Ideas/Titles?
-                                  </button>
-                                </h2>
-                                <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                                  <div class="accordion-body">
-                                      <p>
-                                        Morbi aliquam quis quam in luctus. Nullam tincidunt pulvinar imperdiet. Sed varius, diam vitae posuere semper, libero ex hendrerit nunc, ac sagittis eros metus ut diam. Donec a nibh in libero maximus vehicula. Etiam sit amet condimentum erat. Pellentesque ultrices sagittis turpis, quis tempus ante viverra et.Morbi aliquam quis quam in luctus. Nullam tincidunt pulvinar imperdiet. Sed varius, diam vitae posuere semper, tincidunt pulvinar imperdiet. Sed varius, diam vitae posuere semper.
-                                      </p>
-                                  </div>
-                                </div>
-                            </div>*/
