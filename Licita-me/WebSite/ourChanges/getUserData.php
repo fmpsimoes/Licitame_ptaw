@@ -12,7 +12,7 @@ if (isset($_POST['autoFilling'])) {
       exit;
     }
     try{
-      $query = "SELECT nome, apelido, contacto, email, morada, cidade, freguesia, codPostal, pais FROM Utilizadores WHERE email = ? AND password = ?";
+      $query = "SELECT nome, apelido, contacto, email, morada, cidade, concelho, codPostal FROM Utilizadores WHERE email = ? AND password = ?";
 
       $statement = $pdo->prepare( $query );
 

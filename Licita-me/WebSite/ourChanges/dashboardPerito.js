@@ -142,6 +142,7 @@ function getPorRever() {
                 //td4.textContent = response['utilizadores'][i]["idade"];
                 let td5 = document.createElement('td');
                 //td5.textContent = //response['utilizadores'][i]["categoria"];
+                //let id = response['utilizadores'][i]["categoria"];
                 tr.appendChild(td1);
                 tr.appendChild(td2);
                 tr.appendChild(td3);
@@ -228,6 +229,7 @@ function getPorReverTESTE() {
     let td5 = document.createElement('td');
     //td5.setAttribute('data-label', 'Status');
     td5.textContent = "Aprovado";
+    let id = 1;
     tr.appendChild(td1);
     tr.appendChild(td2);
     tr.appendChild(td3);
@@ -261,5 +263,6 @@ function getPorReverTESTE() {
     let row = document.getElementById("row")
     row.addEventListener("click", function () {
         alert("Clicável");
+        window.location.href = `form-perito.html?idLeilao=${id}`;
     });
 }

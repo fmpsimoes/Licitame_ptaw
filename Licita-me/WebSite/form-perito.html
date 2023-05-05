@@ -195,11 +195,10 @@
                         <div class="col-xl-12 col-lg-12 col-md-12">
                             <div class="form-inner">
                                 <label for="materials">Materiais *</label>
-                                <input type="text" placeholder="Materiais" name="materials" id="materials"
-                                    required>
+                                <input type="text" placeholder="Materiais" name="materials" id="materials" required>
                             </div>
                         </div>
-                    </div>   
+                    </div>
                     <div class="row">
                         <div class="col-xl-6 col-lg-12 col-md-6">
                             <div class="form-inner">
@@ -211,7 +210,8 @@
                         <div class="col-xl-6 col-lg-12 col-md-6">
                             <div class="form-inner">
                                 <label for="dataEndItem">Data preferencial para término de leilão *</label>
-                                <input type="datetime-local" placeholder="Data" name="dataEndItem" id="dataEndItem" required>
+                                <input type="datetime-local" placeholder="Data" name="dataEndItem" id="dataEndItem"
+                                    required>
                             </div>
                         </div>
                     </div>
@@ -244,6 +244,7 @@
                             </div>
                         </div>
                     </div>
+
                     <div class="row">
                         <div class="col-xl-6 col-lg-12 col-md-6">
                             <div class="form-inner">
@@ -259,11 +260,36 @@
                             </div>
                         </div>
                     </div>
+
+                    <div class="row">
+                        <div class="col-xl-6 col-lg-12 col-md-6">
+                            <div class="form-inner">
+                                <label for="valueBase">Valor Apreciação Base *</label>
+                                <input type="text" placeholder="Valor Apreciação Base" name="valueBasePerito" id="valueBasePerito" required>
+                            </div>
+                        </div>
+                        <div class="col-xl-6 col-lg-12 col-md-6">
+                            <div class="form-inner">
+                                <label for="valueBuyNow">Valor Apreciação de Compra Imediata *</label>
+                                <input type="text" placeholder="Valor Apreciação de Compra Imediata" name="valueBuyNowPerito"
+                                    id="valueBuyNowPerito" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xl-12 col-lg-12 col-md-12">
+                            <div class="form-inner">
+                                <label for="valueBase">Condição *</label>
+                                <input type="text" placeholder="Condição" name="condicao" id="condicao" required>
+                            </div>
+                        </div>
+                    </div>
                     <div class="row">
                         <div class="col-12">
                             <div class="form-inner">
                                 <label for="description">Descrição *</label>
-                                <textarea  name="description" id="description" placeholder="Descrição da arte" rows="4" cols="50" required ></textarea>
+                                <textarea name="description" id="description" placeholder="Descrição da arte" rows="4"
+                                    cols="50" required></textarea>
                             </div>
                         </div>
                     </div>
@@ -275,18 +301,19 @@
                             </div>
                         </div>
                     </div>
-                        <div class="row">
-                            <div class="col-xl-9 col-lg-12 col-md-9">
-                                <div class="form-inner">
-                                    <label for="certification">Certificado *</label>
-                                    <input type="file" name="certification" id="certification" required multiple>
-                                </div>
+                    <div class="row">
+                        <div class="col-xl-9 col-lg-12 col-md-9">
+                            <div class="form-inner">
+                                <label for="certification">Certificado *</label>
+                                <input type="file" name="certification" id="certification" required multiple>
                             </div>
                         </div>
+                    </div>
                     <div class="row">
                         <div class="col-12">
                             <div class="button-group">
                                 <button type="submit" class="eg-btn profile-btn">Publicar Leilão</button>
+                                <button type="submit" class="eg-btn profile-btn2">Rejeitar Leilão</button>
                                 <button class="eg-btn cancel-btn">Cancelar</button>
                             </div>
                         </div>
@@ -315,7 +342,8 @@
                 <div class="row gy-5">
                     <div class="col-lg-3 col-md-6">
                         <div class="footer-item">
-                            <a href="index.html"><img alt="image" src="assets/images/bg/footer-logo.png" width="200px"></a>
+                            <a href="index.html"><img alt="image" src="assets/images/bg/footer-logo.png"
+                                    width="200px"></a>
                             <p>Escolha a nossa plataforma para suas compras e leilões de obras e desfrute de uma
                                 experiência excepcional de compra, licitação e venda!</p>
                             <form>
@@ -390,7 +418,7 @@
     <script src="assets/js/viewport.jquery.js"></script>
     <script src="assets/js/jquery.magnific-popup.min.js"></script>
     <script src="assets/js/main.js"></script>
-    <script src="ourChanges/form-auctionScript.js"></script>
+    <script src="ourChanges/form-peritoScript.js"></script>
 </body>
 
 </html>

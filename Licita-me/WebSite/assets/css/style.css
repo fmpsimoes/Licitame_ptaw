@@ -8146,6 +8146,29 @@ live-auction Page
   color: #32c36c;
 }
 
+.button-group .profile-btn2 {
+  border-radius: 30px;
+  border: none;
+  outline: none;
+  padding: 13px 20px;
+  background-color:#f9395f ;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+  font-family: "Saira", sans-serif;
+  transition: all 0.42s ease-in-out;
+  border: 1px solid #f9395f;
+  margin-right: 20px;
+  text-align: center;
+}
+
+.button-group .profile-btn2:hover {
+  background-color: #fff;
+  color: #f9395f;
+}
+
+
+
 .button-group .cancel-btn {
   border-radius: 30px;
   border: none;
