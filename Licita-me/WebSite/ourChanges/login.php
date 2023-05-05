@@ -26,7 +26,7 @@
         
         if($row){
             if ($row == 'administrador') {
-                echo json_encode(array('redirect' => 'email.php '));
+                echo json_encode(array('redirect' => 'email.php'));
             } elseif ($row == 'utilizador') {
                 echo json_encode(array('redirect' => 'user.php'));
             } elseif ($row == 'perito') {
