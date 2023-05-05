@@ -127,6 +127,9 @@
                         <button type="submit" class="eg-btn btn--primary btn--sm">Procurar</button>
                     </div>
                 </form>
+                <div class="eg-btn btn--primary mobile-visible header-btn" style="display: block; visibility: initial;">
+                    <a href="dashboard.html">Conta</a>
+                </div>
             </div>
         </div>
         <div class="nav-right d-flex align-items-center">
@@ -148,7 +151,8 @@
 
     <div class="inner-banner">
         <div class="container">
-            <h2 class="inner-banner-title  wow fadeInLeft" data-wow-duration="1.5s" data-wow-delay=".4s">Detalhes do Leilão</h2>
+            <h2 class="inner-banner-title  wow fadeInLeft" data-wow-duration="1.5s" data-wow-delay=".4s">Detalhes do
+                Leilão</h2>
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="index.html">Página Inicial</a></li>
@@ -414,7 +418,8 @@
                                             <div class="auction-timer">
                                                 <div class="countdown" id="timer1">
                                                     <h4><span id="hours1">05</span>H : <span id="minutes1">52</span>M :
-                                                        <span id="seconds1">32</span>S</h4>
+                                                        <span id="seconds1">32</span>S
+                                                    </h4>
                                                 </div>
                                             </div>
                                         </div>
@@ -422,7 +427,8 @@
                                             <h4><a href="auction-details.html">Enfield 250 CC</a></h4>
                                             <p>Preço Atual : <span>85,90€</span> </p>
                                             <div class="auction-card-bttm">
-                                                <a href="auction-details.html" class="eg-btn btn--primary btn--sm">Ver Peça</a>
+                                                <a href="auction-details.html" class="eg-btn btn--primary btn--sm">Ver
+                                                    Peça</a>
                                             </div>
                                         </div>
                                     </div>
@@ -434,7 +440,8 @@
                                             <div class="auction-timer">
                                                 <div class="countdown" id="timer2">
                                                     <h4><span id="hours2">05</span>H : <span id="minutes2">52</span>M :
-                                                        <span id="seconds2">32</span>S</h4>
+                                                        <span id="seconds2">32</span>S
+                                                    </h4>
                                                 </div>
                                             </div>
                                         </div>
@@ -442,7 +449,8 @@
                                             <h4><a href="auction-details.html">Anel</a></h4>
                                             <p>Preço Atual : <span>85,90€</span> </p>
                                             <div class="auction-card-bttm">
-                                                <a href="auction-details.html" class="eg-btn btn--primary btn--sm">Ver Peça</a>
+                                                <a href="auction-details.html" class="eg-btn btn--primary btn--sm">Ver
+                                                    Peça</a>
                                             </div>
                                         </div>
                                     </div>
@@ -469,7 +477,8 @@
                 <div class="row gy-5">
                     <div class="col-lg-3 col-md-6">
                         <div class="footer-item">
-                            <a href="index.html"><img alt="image" src="assets/images/bg/footer-logo.png" width="200px"></a>
+                            <a href="index.html"><img alt="image" src="assets/images/bg/footer-logo.png"
+                                    width="200px"></a>
                             <p>Escolha a nossa plataforma para suas compras e leilões de obras e desfrute de uma
                                 experiência excepcional de compra, licitação e venda!</p>
                             <form>
@@ -544,7 +553,13 @@
     <script src="assets/js/viewport.jquery.js"></script>
     <script src="assets/js/jquery.magnific-popup.min.js"></script>
     <script src="assets/js/main.js"></script>
-
+    <script>
+        // Initialize tooltips
+        var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+        var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+            return new bootstrap.Tooltip(tooltipTriggerEl)
+        })
+    </script>
 </body>
 
 </html>

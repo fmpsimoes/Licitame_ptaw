@@ -1415,6 +1415,9 @@ header.style-1 .main-menu .mobile-logo-area .menu-close-btn .bi {
 header.style-1 .main-menu .mobile-logo-area .menu-close-btn .bi:hover {
   color: #32c36c;
 }
+.mobile-logo-area a img{
+  width: 150px;
+}
 
 header.style-1 .main-menu .mobile-logo-wrap {
   background: #32c36c;
@@ -7218,12 +7221,12 @@ live-auction Page
   position: absolute;
   left: 56px;
   bottom: -12px;
-  width: 4px;
+  width: 15px;
   height: 3px;
   border-radius: 5px;
   background-color: #32c36c;
 }
-#p2 {
+#p2,#p3 {
   font-size: 16px;
   font-weight: 500;
   color: #696969;
@@ -7231,7 +7234,7 @@ live-auction Page
   position: relative;
   margin-left: 12px;
 }
-#p2::before {
+#p2::before,#p3::before {
   content: '';
   position: absolute;
   left: 0;
@@ -7242,12 +7245,12 @@ live-auction Page
   background-color: #32c36c;
 }
 
-#p2::after {
+#p2::after,#p3::after {
   content: '';
   position: absolute;
   left: 56px;
   bottom: -12px;
-  width: 4px;
+  width: 15px;
   height: 3px;
   border-radius: 5px;
   background-color: #32c36c;
