@@ -1,31 +1,29 @@
 $(document).ready(function () {
-    getPorReverTESTE();
-    getPorRever();
-    getRevistos();
+    getLeiloesGanhosTESTE();
+    getHistoricoLicitacoes();
+    getLeiloesGanhos();
 });
 
-
-
-function getRevistos() {
+function getHistoricoLicitacoes() {
     let table;
     let div;
-    div = document.getElementById("tableRevistos");
+    div = document.getElementById("tablelicitacoes");
     table = document.createElement("table");
     table.classList.add('eg-table', 'order-table', 'table', 'mb-0', 'display');
-    table.id = "tabelaRevista";
+    table.id = "tabelaHistoricoLicitacoes";
     let thead = document.createElement('thead');
     thead.id = "theadRev";
     let tr2 = document.createElement('tr');
     let th1 = document.createElement('th');
     th1.textContent = "Imagem";
     let th2 = document.createElement('th');
-    th2.textContent = "Título";
+    th2.textContent = "Título Leilão";
     let th3 = document.createElement('th');
-    th3.textContent = "Data Prevista Inicio";
+    th3.textContent = "Sua Licitação";
     let th4 = document.createElement('th');
-    th4.textContent = "Categoria";
+    th4.textContent = "Valor Atual";
     let th5 = document.createElement('th');
-    th5.textContent = "Status";
+    th5.textContent = "Estado";
     tr2.appendChild(th1);
     tr2.appendChild(th2);
     tr2.appendChild(th3);
@@ -66,7 +64,7 @@ function getRevistos() {
             table.appendChild(thead);
             table.appendChild(tbody);
             div.appendChild(table);
-            $('#tabelaRevista').DataTable({
+            $('#tabelaHistoricoLicitacoes').DataTable({
                 // Enable pagination with 10 rows per page
                 "paging": true,
                 "pageLength": 10,
@@ -92,13 +90,13 @@ function getRevistos() {
         }
     });
 }
-function getPorRever() {
+function getLeiloesGanhos() {
     let table;
     let div;
-    div = document.getElementById("tablePorRever");
+    div = document.getElementById("tableLeiloesGanhos");
     table = document.createElement("table");
     table.classList.add('eg-table', 'order-table', 'table', 'mb-0', 'display');
-    table.id = "tabelaPorRever";
+    table.id = "tabelaLeiloesGanhos";
     let thead = document.createElement('thead');
     thead.id = "theadRev";
     let tr2 = document.createElement('tr');
@@ -107,11 +105,11 @@ function getPorRever() {
     let th2 = document.createElement('th');
     th2.textContent = "Título";
     let th3 = document.createElement('th');
-    th3.textContent = "Data Prevista Inicio";
+    th3.textContent = "Preço";
     let th4 = document.createElement('th');
-    th4.textContent = "Categoria";
+    th4.textContent = "Estado";
     let th5 = document.createElement('th');
-    th5.textContent = "Status";
+    th5.textContent = "Pagamento";
     tr2.appendChild(th1);
     tr2.appendChild(th2);
     tr2.appendChild(th3);
@@ -153,7 +151,7 @@ function getPorRever() {
             table.appendChild(thead);
             table.appendChild(tbody);
             div.appendChild(table);
-            $('#tabelaRevista').DataTable({
+            $('#tabelaLeiloesGanhos').DataTable({
                 // Enable pagination with 10 rows per page
                 "paging": true,
                 "pageLength": 11,
@@ -181,10 +179,10 @@ function getPorRever() {
 }
 
 
-function getPorReverTESTE() {
+function getLeiloesGanhosTESTE() {
     let table;
     let div;
-    div = document.getElementById("tablePorRever");
+    div = document.getElementById("tablelicitacoes");
     table = document.createElement("table");
     table.classList.add('eg-table', 'order-table', 'table', 'mb-0', 'display');
     table.id = "tabelaPorRever";
@@ -245,7 +243,7 @@ function getPorReverTESTE() {
     table.appendChild(thead);
     table.appendChild(tbody);
     div.appendChild(table);
-    $('#tabelaPorRever').DataTable({
+    $('#tablelicitacoes').DataTable({
         // Enable pagination with 10 rows per page
         "paging": true,
         "pageLength": 11,
@@ -263,6 +261,6 @@ function getPorReverTESTE() {
     let row = document.getElementById("row")
     row.addEventListener("click", function () {
         alert("Clicável");
-        window.location.href = `getLeilaoData.php?idLeilao=${id}`;
+        //window.location.href = `getLeilaoData.php?idLeilao=${id}`;
     });
 }
