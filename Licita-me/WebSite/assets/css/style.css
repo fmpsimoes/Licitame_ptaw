@@ -1415,6 +1415,9 @@ header.style-1 .main-menu .mobile-logo-area .menu-close-btn .bi {
 header.style-1 .main-menu .mobile-logo-area .menu-close-btn .bi:hover {
   color: #32c36c;
 }
+.mobile-logo-area a img{
+  width: 150px;
+}
 
 header.style-1 .main-menu .mobile-logo-wrap {
   background: #32c36c;
@@ -6911,16 +6914,16 @@ footer.style-3 .footer-bottom .footer-logo-list li:hover img {
 /*================================================
 FAQ Page
 =================================================*/
-.faq-wrap .accordion-item {
+.accordion-item {
   margin-bottom: 24px;
   border: none;
 }
 
-.faq-wrap .accordion-item:last-child {
+.accordion-item:last-child {
   margin-bottom: 0;
 }
 
-.faq-wrap .accordion-button {
+.accordion-button {
   font-weight: 500;
   font-size: 20px;
   background: #fff;
@@ -6934,17 +6937,17 @@ FAQ Page
 }
 
 @media (max-width: 767px) {
-  .faq-wrap .accordion-button {
+  .accordion-button {
     padding: 25px 60px 25px 25px;
   }
 }
 
-.faq-wrap .accordion-button:hover::after {
+.accordion-button:hover::after {
   background: #32c36c;
   color: #fff;
 }
 
-.faq-wrap .accordion-button:focus {
+.accordion-button:focus {
   z-index: unset;
   border-color: unset;
   outline: 0;
@@ -6952,7 +6955,7 @@ FAQ Page
   box-shadow: 5px 2px 30px rgba(0, 0, 0, 0.06);
 }
 
-.faq-wrap .accordion-button::after {
+.accordion-button::after {
   flex-shrink: 0;
   width: unset;
   height: unset;
@@ -6981,7 +6984,7 @@ FAQ Page
   transition: all 0.4s ease;
 }
 
-.faq-wrap .accordion-button:not(.collapsed)::after {
+.accordion-button:not(.collapsed)::after {
   background-image: none;
   transform: unset;
   font-family: bootstrap-icons !important;
@@ -6992,7 +6995,7 @@ FAQ Page
   transform: translateY(-50%);
 }
 
-.faq-wrap .accordion-body {
+.accordion-body {
   font-weight: 400;
   font-size: 16px;
   line-height: 28px;
@@ -7002,7 +7005,7 @@ FAQ Page
   text-align: left;
 }
 
-.faq-wrap .accordion-button:not(.collapsed) {
+.accordion-button:not(.collapsed) {
   box-shadow: unset;
   color: #1F2230;
   border-radius: 5px 5px 0px 0px;
@@ -7218,12 +7221,12 @@ live-auction Page
   position: absolute;
   left: 56px;
   bottom: -12px;
-  width: 4px;
+  width: 15px;
   height: 3px;
   border-radius: 5px;
   background-color: #32c36c;
 }
-#p2 {
+#p2,#p3 {
   font-size: 16px;
   font-weight: 500;
   color: #696969;
@@ -7231,7 +7234,7 @@ live-auction Page
   position: relative;
   margin-left: 12px;
 }
-#p2::before {
+#p2::before,#p3::before {
   content: '';
   position: absolute;
   left: 0;
@@ -7242,12 +7245,12 @@ live-auction Page
   background-color: #32c36c;
 }
 
-#p2::after {
+#p2::after,#p3::after {
   content: '';
   position: absolute;
   left: 56px;
   bottom: -12px;
-  width: 4px;
+  width: 15px;
   height: 3px;
   border-radius: 5px;
   background-color: #32c36c;
