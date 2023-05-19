@@ -1,7 +1,7 @@
 $(document).ready(function () {
     getPorReverTESTE();
-    getPorRever();
-    getRevistos();
+    //getPorRever();
+    //getRevistos();
 });
 
 
@@ -11,7 +11,7 @@ function getRevistos() {
     let div;
     div = document.getElementById("tableRevistos");
     table = document.createElement("table");
-    table.classList.add('eg-table', 'order-table', 'table', 'mb-0', 'display');
+    table.classList.add('ui', 'celled', 'table');
     table.id = "tabelaRevista";
     let thead = document.createElement('thead');
     thead.id = "theadRev";
@@ -66,21 +66,6 @@ function getRevistos() {
             table.appendChild(thead);
             table.appendChild(tbody);
             div.appendChild(table);
-            $('#tabelaRevista').DataTable({
-                // Enable pagination with 10 rows per page
-                "paging": true,
-                "pageLength": 10,
-
-                // Enable ordering by column
-                "ordering": true,
-
-                // Enable searching with case-insensitive regex
-                "searching": true,
-                "search": {
-                    "regex": true,
-                    "caseInsensitive": true
-                }
-            });
             let row = document.getElementById("row")
             row.addEventListener("click", function () {
                 alert("Clicável");
@@ -153,21 +138,6 @@ function getPorRever() {
             table.appendChild(thead);
             table.appendChild(tbody);
             div.appendChild(table);
-            $('#tabelaRevista').DataTable({
-                // Enable pagination with 10 rows per page
-                "paging": true,
-                "pageLength": 11,
-
-                // Enable ordering by column
-                "ordering": true,
-
-                // Enable searching with case-insensitive regex
-                "searching": true,
-                "search": {
-                    "regex": true,
-                    "caseInsensitive": true
-                }
-            });
             let row = document.getElementById("row")
             row.addEventListener("click", function () {
                 alert("Clicável");
@@ -186,7 +156,7 @@ function getPorReverTESTE() {
     let div;
     div = document.getElementById("tablePorRever");
     table = document.createElement("table");
-    table.classList.add('eg-table', 'order-table', 'table', 'mb-0', 'display');
+    table.classList.add('ui', 'celled', 'table');
     table.id = "tabelaPorRever";
     let thead = document.createElement('thead');
     thead.id = "theadRev";
@@ -245,21 +215,6 @@ function getPorReverTESTE() {
     table.appendChild(thead);
     table.appendChild(tbody);
     div.appendChild(table);
-    $('#tabelaPorRever').DataTable({
-        // Enable pagination with 10 rows per page
-        "paging": true,
-        "pageLength": 11,
-
-        // Enable ordering by column
-        "ordering": true,
-
-        // Enable searching with case-insensitive regex
-        "searching": true,
-        "search": {
-            "regex": true,
-            "caseInsensitive": true
-        }
-    });
     let row = document.getElementById("row")
     row.addEventListener("click", function () {
         alert("Clicável");
@@ -269,12 +224,16 @@ function getPorReverTESTE() {
 
 function logout() {
     $.ajax({
-         type: "POST",
-         url: './ourChanges/logout.php',
-         data:{ data: 'logout'},
-         success:function(response) {
-            
-         }
+        type: "POST",
+        url: './ourChanges/logout.php',
+        data: { data: 'logout' },
+        success: function (response) {
+
+        }
 
     });
 }
+
+$('table').ready(function () {
+    $('table').DataTable();
+});

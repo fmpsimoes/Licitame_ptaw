@@ -1,8 +1,9 @@
+
 <?php
-session_start();
-if(!isset($_SESSION['email'])) {
-    header("Location: login.php"); // redirect to login page if user not logged in
-}
+//session_start();
+//if(!isset($_SESSION['email'])) {
+//    header("Location: login.php"); // redirect to login page if user not logged in
+//}
 ?>
 
 <!DOCTYPE html>
@@ -48,8 +49,11 @@ if(!isset($_SESSION['email'])) {
     <link rel="stylesheet" href="assets/css/odometer.css">
 
     <!-- style css -->
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/fomantic-ui/2.8.8/semantic.min.css" rel="stylesheet"/>
+    <link href="https://cdn.datatables.net/v/se/dt-1.13.4/b-2.3.6/fc-4.2.2/sp-2.1.2/datatables.min.css" rel="stylesheet"/>
+
     <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css">
 </head>
 
 <body>
@@ -250,8 +254,11 @@ if(!isset($_SESSION['email'])) {
                     <div class="tab-content" id="v-pills-tabContent">
                         <div class="tab-pane fade show active" id="v-pills-dashboard" role="tabpanel"
                             aria-labelledby="v-pills-dashboard-tab">
-                            <div class="dashboard-area box--shadow">
+                            <div class="table-title-area">
                                 <h3>Os meus Leilões</h3>
+                            </div>
+                            <div class="table-wrapper" id="tableosmeusleiloes">
+                                <!-- Tabela Os Meus Leiloes -->
                             </div>
                         </div>
                         <div class="tab-pane fade" id="v-pills-profile" role="tabpanel"
@@ -365,7 +372,7 @@ if(!isset($_SESSION['email'])) {
 
                             <!-- table -->
                             <div class="table-wrapper" id="tablelicitacoes">
-                                
+                                <!-- Tabela Licitações -->
                             </div>
                         </div>
                         <div class="tab-pane fade" id="v-pills-purchase" role="tabpanel"
@@ -373,19 +380,11 @@ if(!isset($_SESSION['email'])) {
                             <!-- table title-->
                             <div class="table-title-area">
                                 <h3>Todos os leilões ganhos</h3>
-                                <!--
-                                <select id="order-category">
-                                    <option value="01">Visualizar: Últimas 5 compras</option>
-                                    <option value="02">Visualizar: Últimas 10 compras</option>
-                                    <option value="03">Visualizar: Últimas 15 compras</option>
-                                    <option value="04">Visualizar: Últimas 20 compras</option>
-                                </select>
-                                -->
                             </div>
 
                             <!-- table -->
                             <div class="table-wrapper" id = "tableLeiloesGanhos">
-                            
+                            <!-- Tabela Leiloes Ganhos -->
                             </div>
                         </div>
                     </div>
@@ -471,7 +470,9 @@ if(!isset($_SESSION['email'])) {
 
     <!-- js file link -->
     <script src="assets/js/jquery-3.6.0.min.js"></script>
-    <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/v/se/dt-1.13.4/b-2.3.6/fc-4.2.2/sp-2.1.2/datatables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.4/js/dataTables.semanticui.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fomantic-ui/2.8.8/semantic.min.js"></script>
     <script src="assets/js/jquery-ui.js"></script>
     <script src="assets/js/bootstrap.bundle.min.js"></script>
     <script src="assets/js/wow.min.js"></script>

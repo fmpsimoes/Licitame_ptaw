@@ -8,7 +8,7 @@
     $port = '5432';
     $dbname = 'ptaw-2023-gr1';
     $user = 'ptaw-2023-gr1';
-    $password = '-n?ZR-:$G!h-yQ,r';
+    $password = 'ptaw-2023-gr1';
 
     try {
         $pdo = new PDO("pgsql:host=$host;port=$port;dbname=$dbname;user=$user;password=$password");

@@ -1,8 +1,8 @@
 <?php
-session_start();
-if(!isset($_SESSION['email'])) {
-    header("Location: login.php"); // redirect to login page if user not logged in
-}
+//session_start();
+//if(!isset($_SESSION['email'])) {
+//    header("Location: login.php"); // redirect to login page if user not logged in
+//}
 ?>
 
 <!DOCTYPE html>
@@ -48,10 +48,14 @@ if(!isset($_SESSION['email'])) {
     <link rel="stylesheet" href="assets/css/odometer.css">
 
     <!-- style css -->
+
+
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/fomantic-ui/2.8.8/semantic.min.css" rel="stylesheet"/>
+    <link href="https://cdn.datatables.net/v/se/dt-1.13.4/b-2.3.6/fc-4.2.2/sp-2.1.2/datatables.min.css" rel="stylesheet"/>
+
     <link rel="stylesheet" href="assets/css/style.css">
 
-   
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css">
     
 </head>
 
@@ -485,190 +489,26 @@ if(!isset($_SESSION['email'])) {
                                 </div>
                             </div>
                         </div>
-                        <div class="tab-pane fade" id="v-pills-order" role="tabpanel"
-                            aria-labelledby="v-pills-order-tab">
-                            <!-- table title-->
-                            <div class="table-title-area">
-                                <h3>Lista de Licitações em Leilões</h3>
-                                <select>
-                                    <option value="01">Visualizar: Últimas 5 compras</option>
-                                    <option value="02">Visualizar: Últimas 10 compras</option>
-                                    <option value="03">Visualizar: Últimas 15 compras</option>
-                                    <option value="04">Visualizar: Últimas 20 compras</option>
-                                </select>
-                            </div>
-
-                            <!-- table -->
-                            <div class="table-wrapper">
-                                <table class="eg-table order-table table mb-0">
-                                    <thead>
-                                        <tr>
-                                            <th>Imagem</th>
-                                            <th>ID Licitação</th>
-                                            <th>Valor Licitação</th>
-                                            <th>Maior Licitação</th>
-                                            <th>Status</th>
-                                            <th>Leilão</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td data-label="Image"><img alt="image" src="assets/images/bg/order1.png"
-                                                    class="img-fluid"></td>
-                                            <td data-label="Bidding ID">Licitacao_HvO253gT</td>
-                                            <td data-label="Bid Amount(USD)">1222,89</td>
-                                            <td data-label="Highest Bid">1222,89€</td>
-                                            <td data-label="Status" class="text-green">Approved</td>
-                                            <td data-label="Action"><button class="eg-btn action-btn green"><img
-                                                        alt="image" src="assets/images/icons/aiction-icon.svg"></button>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td data-label="Image"><img alt="image" src="assets/images/bg/order2.png"
-                                                    class="img-fluid"></td>
-                                            <td data-label="Bidding ID">Bidding_HvO253gT</td>
-                                            <td data-label="Bid Amount(USD)">1222.8955</td>
-                                            <td data-label="Highest Bid">$1222.8955</td>
-                                            <td data-label="Status" class="text-green">Approved</td>
-                                            <td data-label="Action"><button class="eg-btn action-btn green"><img
-                                                        alt="image" src="assets/images/icons/aiction-icon.svg"></button>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td data-label="Image"><img alt="image" src="assets/images/bg/order3.png"
-                                                    class="img-fluid"></td>
-                                            <td data-label="Bidding ID">Bidding_HvO253gT</td>
-                                            <td data-label="Bid Amount(USD)">1222.8955</td>
-                                            <td data-label="Highest Bid">$1222.8955</td>
-                                            <td data-label="Status" class="text-green">Approved</td>
-                                            <td data-label="Action"><button class="eg-btn action-btn green"><img
-                                                        alt="image" src="assets/images/icons/aiction-icon.svg"></button>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td data-label="Image"><img alt="image" src="assets/images/bg/order4.png"
-                                                    class="img-fluid"></td>
-                                            <td data-label="Bidding ID">Bidding_HvO253gT</td>
-                                            <td data-label="Bid Amount(USD)">1222.8955</td>
-                                            <td data-label="Highest Bid">$1222.8955</td>
-                                            <td data-label="Status" class="text-green">Approved</td>
-                                            <td data-label="Action"><button class="eg-btn action-btn green"><img
-                                                        alt="image" src="assets/images/icons/aiction-icon.svg"></button>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td data-label="Image"><img alt="image" src="assets/images/bg/order1.png"
-                                                    class="img-fluid"></td>
-                                            <td data-label="Bidding ID">Bidding_HvO253gT</td>
-                                            <td data-label="Bid Amount(USD)">1222.8955</td>
-                                            <td data-label="Highest Bid">$1222.8955</td>
-                                            <td data-label="Status" class="text-green">Approved</td>
-                                            <td data-label="Action"><button class="eg-btn action-btn green"><img
-                                                        alt="image" src="assets/images/icons/aiction-icon.svg"></button>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td data-label="Image"><img alt="image" src="assets/images/bg/order1.png"
-                                                    class="img-fluid"></td>
-                                            <td data-label="Bidding ID">Bidding_HvO253gT</td>
-                                            <td data-label="Bid Amount(USD)">1222.8955</td>
-                                            <td data-label="Highest Bid">$1222.8955</td>
-                                            <td data-label="Status" class="text-green">Approved</td>
-                                            <td data-label="Action"><button class="eg-btn action-btn green"><img
-                                                        alt="image" src="assets/images/icons/aiction-icon.svg"></button>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td data-label="Image"><img alt="image" src="assets/images/bg/order2.png">
-                                            </td>
-                                            <td data-label="Bidding ID">Bidding_HvO253gT</td>
-                                            <td data-label="Bid Amount(USD)">1222.8955</td>
-                                            <td data-label="Highest Bid">$6622.8955</td>
-                                            <td data-label="Status" class="text-red">Reject</td>
-                                            <td data-label="Action"><button class="eg-btn action-btn red"><img
-                                                        alt="image" src="assets/images/icons/aiction-icon.svg"></button>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td data-label="Image"><img alt="image" src="assets/images/bg/order3.png">
-                                            </td>
-                                            <td data-label="Bidding ID">Bidding_HvO253gT</td>
-                                            <td data-label="Bid Amount(USD)">1222.8955</td>
-                                            <td data-label="Highest Bid">$9022.8955</td>
-                                            <td data-label="Status" class="text-green">Approved</td>
-                                            <td data-label="Action"><button class="eg-btn action-btn green"><img
-                                                        alt="image" src="assets/images/icons/aiction-icon.svg"></button>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td data-label="Image"><img alt="image" src="assets/images/bg/order4.png">
-                                            </td>
-                                            <td data-label="Bidding ID">Bidding_HvO253gT</td>
-                                            <td data-label="Bid Amount(USD)">1222.8955</td>
-                                            <td data-label="Highest Bid">$9022.8955</td>
-                                            <td data-label="Status" class="text-red">Reject</td>
-                                            <td data-label="Action"><button class="eg-btn action-btn red"><img
-                                                        alt="image" src="assets/images/icons/aiction-icon.svg"></button>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td data-label="Image"><img alt="image" src="assets/images/bg/order5.png">
-                                            </td>
-                                            <td data-label="Bidding ID">Bidding_HvO253gT</td>
-                                            <td data-label="Bid Amount(USD)">1222.8955</td>
-                                            <td data-label="Highest Bid">$9022.8955</td>
-                                            <td data-label="Status" class="text-green">Approved</td>
-                                            <td data-label="Action"><button class="eg-btn action-btn green"><img
-                                                        alt="image" src="assets/images/icons/aiction-icon.svg"></button>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-
-                            <!-- pagination area -->
-                            <div class="table-pagination">
-                                <p>A mostrar 10 a 20 de 1 entrada</p>
-                                <nav class="pagination-wrap">
-                                    <ul class="pagination style-two d-flex justify-content-center gap-md-3 gap-2">
-                                        <li class="page-item">
-                                            <a class="page-link" href="#" tabindex="-1">Anterior</a>
-                                        </li>
-                                        <li class="page-item active" aria-current="page"><a class="page-link"
-                                                href="#">01</a></li>
-                                        <li class="page-item">
-                                            <a class="page-link" href="#">02</a>
-                                        </li>
-                                        <li class="page-item"><a class="page-link" href="#">03</a></li>
-                                        <li class="page-item">
-                                            <a class="page-link" href="#">Próximo</a>
-                                        </li>
-                                    </ul>
-                                </nav>
-                            </div>
-                        </div>
+                       
                         <div class="tab-pane fade" id="v-pills-porRever" role="tabpanel"
                             aria-labelledby="v-pills-porRever">
                             <!-- table title-->
                             <div class="table-title-area">
                                 <h3>Lista de Leilões Por Rever</h3>
                             </div>
-
                             <!-- table -->
                             <div class="table-wrapper" id = "tablePorRever">
-
+                            <!-- Tabela Por Rever-->
                             </div>
                         </div>
                         <div class="tab-pane fade" id="v-pills-Revistos" role="tabpanel"
                             aria-labelledby="v-pills-Revistos">
                             <!-- table title-->
                             <div class="table-title-area">
-                                <h3>Lista de Leilões Revistos</h3>
-                                
+                                <h3>Lista de Leilões Revistos</h3>             
                             </div>
-                            <!-- table -->
                             <div class="table-wrapper" id = "tableRevistos">
-                             
+                            <!-- Tabela Revistos-->
                             </div>
                         </div>
                     </div>
@@ -756,7 +596,9 @@ if(!isset($_SESSION['email'])) {
 
     <!-- js file link -->
     <script src="assets/js/jquery-3.6.0.min.js"></script>
-    <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/v/se/dt-1.13.4/b-2.3.6/fc-4.2.2/sp-2.1.2/datatables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.4/js/dataTables.semanticui.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fomantic-ui/2.8.8/semantic.min.js"></script>
     <script src="assets/js/jquery-ui.js"></script>
     <script src="assets/js/bootstrap.bundle.min.js"></script>
     <script src="assets/js/wow.min.js"></script>

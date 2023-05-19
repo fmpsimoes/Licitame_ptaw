@@ -1,7 +1,7 @@
 $(document).ready(function () {
     getLeiloesGanhosTESTE();
-    getHistoricoLicitacoes();
-    getLeiloesGanhos();
+    //getHistoricoLicitacoes();
+    //getLeiloesGanhos();
 });
 
 function getHistoricoLicitacoes() {
@@ -64,21 +64,6 @@ function getHistoricoLicitacoes() {
             table.appendChild(thead);
             table.appendChild(tbody);
             div.appendChild(table);
-            $('#tabelaHistoricoLicitacoes').DataTable({
-                // Enable pagination with 10 rows per page
-                "paging": true,
-                "pageLength": 10,
-
-                // Enable ordering by column
-                "ordering": true,
-
-                // Enable searching with case-insensitive regex
-                "searching": true,
-                "search": {
-                    "regex": true,
-                    "caseInsensitive": true
-                }
-            });
             let row = document.getElementById("row")
             row.addEventListener("click", function () {
                 alert("Clicável");
@@ -151,21 +136,6 @@ function getLeiloesGanhos() {
             table.appendChild(thead);
             table.appendChild(tbody);
             div.appendChild(table);
-            $('#tabelaLeiloesGanhos').DataTable({
-                // Enable pagination with 10 rows per page
-                "paging": true,
-                "pageLength": 11,
-
-                // Enable ordering by column
-                "ordering": true,
-
-                // Enable searching with case-insensitive regex
-                "searching": true,
-                "search": {
-                    "regex": true,
-                    "caseInsensitive": true
-                }
-            });
             let row = document.getElementById("row")
             row.addEventListener("click", function () {
                 alert("Clicável");
@@ -243,21 +213,6 @@ function getLeiloesGanhosTESTE() {
     table.appendChild(thead);
     table.appendChild(tbody);
     div.appendChild(table);
-    $('#tablelicitacoes').DataTable({
-        // Enable pagination with 10 rows per page
-        "paging": true,
-        "pageLength": 11,
-
-        // Enable ordering by column
-        "ordering": true,
-
-        // Enable searching with case-insensitive regex
-        "searching": true,
-        "search": {
-            "regex": true,
-            "caseInsensitive": true
-        }
-    });
     let row = document.getElementById("row")
     row.addEventListener("click", function () {
         alert("Clicável");
@@ -276,3 +231,6 @@ function logout() {
 
     });
 }
+$('table').ready(function () {
+    $('table').DataTable();
+});
