@@ -2278,7 +2278,7 @@ header.style-3 .mobile-menu-form input[type=text] {
 }
 
 .hero-style-one .slider-bg-1 {
-  padding: 160px 0px;
+  padding: 40px 0px;
   width: 100%;
   overflow: hidden;
   height: 100%;
@@ -2288,19 +2288,19 @@ header.style-3 .mobile-menu-form input[type=text] {
 
 @media (min-width: 1200px) and (max-width: 1399px) {
   .hero-style-one .slider-bg-1 {
-    padding: 160px 0px;
+    padding: 40px 0px;
   }
 }
 
 @media (min-width: 992px) and (max-width: 1199px) {
   .hero-style-one .slider-bg-1 {
-    padding: 160px 0px;
+    padding: 40px 0px;
   }
 }
 
 @media (max-width: 991px) {
   .hero-style-one .slider-bg-1 {
-    padding: 120px 0px;
+    padding: 20px 0px;
   }
 }
 
@@ -2340,7 +2340,7 @@ header.style-3 .mobile-menu-form input[type=text] {
 }
 
 .hero-style-one .slider-bg-2 {
-  padding: 160px 0px;
+  padding: 40px 0px;
   width: 100%;
   overflow: hidden;
   height: 100%;
@@ -2420,7 +2420,7 @@ header.style-3 .mobile-menu-form input[type=text] {
 
 .hero-style-one .banner1-content h1,
 .hero-style-one .banner1-content h2 {
-  font-size: 4.8rem;
+  font-size: 3rem;
   font-weight: 700;
   color: #fff;
   margin-bottom: 15px;
@@ -3251,14 +3251,14 @@ header.style-3 .mobile-menu-form input[type=text] {
 
 .auction-card1 .auction-img .auction-timer {
   border-radius: 30px;
-  padding: 12px 20px;
+  padding: 6px 10px;
   text-align: center;
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
   bottom: 20px;
   background: #fff;
-  min-width: 230px;
+  min-width: 180px;
 }
 
 .auction-card1 .auction-img .auction-timer .countdown h4 {
@@ -6368,7 +6368,7 @@ footer.style-3 .footer-bottom .footer-logo-list li:hover img {
 }
 
 .inner-banner {
-  min-height: 300px;
+  min-height: 200px;
   background: rgba(12, 3, 33, 0.9);
   position: relative;
   overflow: hidden;

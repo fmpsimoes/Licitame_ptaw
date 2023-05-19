@@ -1,3 +1,16 @@
+<?php
+session_start();
+if(isset($_SESSION['email'])) {
+    if($_SESSION['tipoUtilizador'] == 'Utilizador'){ // redirect to dashboard if user already logged in
+        header("Location: dashboard.php");
+    } elseif($_SESSION['tipoUtilizador'] == 'Administrador'){
+        header("Location: dashboardAdmin.php");
+    } elseif($_SESSION['tipoUtilizador'] == 'Perito'){
+        header("Location: dashboardPerito.php");
+    }
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -128,7 +141,7 @@
                     </div>
                 </form>
                 <div class="eg-btn btn--primary mobile-visible header-btn" style="display: block; visibility: initial;">
-                    <a href="dashboard.html">Conta</a>
+                    <a href="login.php">Conta</a>
                 </div>
             </div>
         </div>
@@ -165,41 +178,40 @@
         <img alt="imges" src="assets/images/bg/section-bg.png" class="img-fluid section-bg-bottom" >
         <div class="container">
             <div class="row d-flex justify-content-center g-4">
-                <div class="col-xl-6 col-lg-8 col-md-10">
+                <div class="col-xl-7 col-lg-9 col-md-10">
                     <div class="form-wrapper wow fadeInUp" data-wow-duration="1.5s" data-wow-delay=".2s">
                         <div class="form-title">
                             <h3>Entrar</h3>
                             <p>Novo membro? <a href="signup.html">Cria conta aqui</a></p>
                         </div>
-                        <form class="w-100">
+                        <form class="w-100" method="POST" onsubmit="return false">
                             <div class="row">
                                 <div class="col-12">
                                     <div class="form-inner">
                                         <label>Email *</label>
-                                        <input type="email" placeholder="Email">
+                                        <input type="email" placeholder="Email" name="email" id="email" required>
                                     </div>
                                 </div>
                                 <div class="col-12">
                                     <div class="form-inner">
                                         <label>Password *</label>
-                                        <input type="password" name="password" id="password" placeholder="Password"/>
+                                        <input type="password" name="password" id="password" placeholder="Password" required/>
                                         <i class="bi bi-eye-slash" id="togglePassword"></i>
                                     </div>
                                 </div>
                                 <div class="col-12">
                                     <div class="form-agreement form-inner d-flex justify-content-between flex-wrap">
                                         <div class="form-group">
-                                            <input type="checkbox" id="html">
-                                            <label for="html">Concordo com a <a href="#">Termos & Política</a></label>
+                                            
                                         </div>
                                         <a href="#" class="forgot-pass">Esqueci-me da palavra-passe</a>
                                     </div>
                                 </div>
                             </div>
-                            <button class="account-btn">Entrar</button>
+                            <button class="account-btn" id="loginButton">Entrar</button>
                         </form>
                         <div class="form-poicy-area">
-                            <p>Ao clicar no botão "Entrar", cria uma conta Licita-me, e concorda com a política de privacidade da Licita-me <a href="#">Termos & Condições</a> & <a href="#">Política de privacidade.</a></p>
+                            <p>Ao clicar no botão "Entrar", cria uma conta LICITAME, e concorda com a política de privacidade da Licita-me <a href="#">Termos & Condições</a> & <a href="#">Política de privacidade.</a></p>
                         </div>
                     </div>
                 </div>
@@ -234,7 +246,7 @@
                             <ul class="footer-list">
                                 <li><a href="live-auction.html">Todos os Leilões</a></li>
                                 <li><a href="how-works.html">Como Funciona</a></li>
-                                <li><a href="login.html">Conta</a></li>
+                                <li><a href="login.php">Conta</a></li>
                                 <li><a href="about.html">Sobre Nós</a></li>
                             </ul>
                         </div>
@@ -263,7 +275,7 @@
                     </div>
                     <div
                         class="col-lg-6 d-flex justify-content-lg-end justify-content-center align-items-center flex-sm-nowrap flex-wrap">
-                        <p class="d-sm-flex d-none">Aceitamos:</p>
+                        <!--<p class="d-sm-flex d-none">Aceitamos:</p>
                         <ul class="footer-logo-list">
                             <li><a href="#"><img alt="image" src="assets/images/bg/footer-pay1.png"></a></li>
                             <li><a href="#"><img alt="image" src="assets/images/bg/footer-pay2.png"></a></li>
@@ -271,6 +283,7 @@
                             <li><a href="#"><img alt="image" src="assets/images/bg/footer-pay4.png"></a></li>
                             <li><a href="#"><img alt="image" src="assets/images/bg/footer-pay5.png"></a></li>
                         </ul>
+                        -->
                     </div>
                 </div>
             </div>
@@ -291,6 +304,7 @@
     <script src="assets/js/viewport.jquery.js"></script>
     <script src="assets/js/jquery.magnific-popup.min.js"></script>
     <script src="assets/js/main.js"></script>
+    <script src="ourChanges/login.js"></script>
 
 </body>
 

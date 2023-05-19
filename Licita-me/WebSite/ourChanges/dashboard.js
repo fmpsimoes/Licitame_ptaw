@@ -264,3 +264,15 @@ function getLeiloesGanhosTESTE() {
         //window.location.href = `getLeilaoData.php?idLeilao=${id}`;
     });
 }
+
+function logout() {
+    $.ajax({
+         type: "POST",
+         url: './ourChanges/logout.php',
+         data:{ data: 'logout'},
+         success:function(response) {
+            
+         }
+
+    });
+}
