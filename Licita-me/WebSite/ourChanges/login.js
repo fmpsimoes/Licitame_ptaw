@@ -12,12 +12,13 @@ $("#loginButton").on("click", function () {
       type: 'POST',
       data: { data: loginDetails },
       success: function (response) {
-          if(response == "dashboardAdmin.php" || response == "dashboard.php" || response == "dashboardPerito.php"){
-              window.location.href = response; //redirecionar para o respetivo painel depois de inciar sessão
+        let jsonResponse = JSON.parse(response);
+
+          if(jsonResponse == "dashboard.php" || jsonResponse == "dashboardAdmin.php" || jsonResponse == "dashboardPerito.php"){
+              window.location.href = jsonResponse; //redirecionar para o respetivo painel depois de inciar sessão
           }
           else{
-              alert(response);
-              console.log(response);
+              alert(jsonResponse);
           }
       },
       error: function (xhr, status, error) {
