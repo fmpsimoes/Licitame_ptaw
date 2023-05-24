@@ -1,4 +1,9 @@
 $(document).ready(function () {
+    getDataPessoal();
+
+    $("#actualizar").on("click", function () {
+        updateDataPessoal();
+    });
     getLeiloesGanhosTESTE();
     //getHistoricoLicitacoes();
     //getLeiloesGanhos();
@@ -222,15 +227,113 @@ function getLeiloesGanhosTESTE() {
 
 function logout() {
     $.ajax({
-         type: "POST",
-         url: './ourChanges/logout.php',
-         data:{ logout: 1},
-         success:function(response) {
+        type: "POST",
+        url: './ourChanges/logout.php',
+        data: { logout: 1 },
+        success: function (response) {
             window.location.href = "login.php"; //redirecionar para o login depois de terminar sessão
-         }
-
+        }
     });
 }
 $('table').ready(function () {
     $('table').DataTable();
 });
+
+
+
+
+function getDataPessoal() {
+    console.log("opaa");
+    $.ajax({
+        type: "POST",
+        url: './ourChanges/getUserData.php',
+        success: function (response) {
+            const data = JSON.parse(response);
+            console.log(data);
+            $('#firstname').val(data['nome']);
+            $('#lastname').val(data['apelido']);
+            $("#contact").val(data['contactotelefonico']);
+            $('#email').val(data['email']);
+            $('#address').val(data['morada']);
+            $("#porta").val(data['porta']);
+            $('#concelho').val(data['concelho']);
+            $('#zipcode').val(data['codigopostal']);
+            $("#ttNome").html(data['nome'] + " " + data['apelido']);
+            $("#ttEmail").html(data['email']);
+        },
+        error: function (xhr, status, error) {
+            console.error(error);
+        }
+    });
+}
+
+function updateDataPessoal() {
+    const obj = {
+        nome: $('#firstname').val(),
+        apelido: $('#lastname').val(),
+        contacto: $("#contact").val(),
+        email: $('#email').val(),
+        morada: $('#address').val(),
+        porta: $("#porta").val(),
+        concelho: $('#concelho').val(),
+        codpostal: $('#zipcode').val(),
+        pass1: $('#password').val(),
+        pass2: $('#password2').val(),
+    }
+    if (obj['pass1'] == obj['pass2']) {
+        $.ajax({
+            type: "POST",
+            url: './ourChanges/setUserData.php',
+            data: { data: obj },
+            success: function (response) {
+                console.log(response)
+                alert(JSON.parse(response));
+                const loginDetails = {
+                    email: obj['email'],
+                    pass: obj['pass1']
+                }
+                $.ajax({
+                    url: './ourChanges/loginTry.php',
+                    type: 'POST',
+                    data: { data: loginDetails },
+                    success: function (response) {
+                        let jsonResponse = JSON.parse(response);
+
+                        if (jsonResponse == "dashboard.php" || jsonResponse == "dashboardAdmin.php" || jsonResponse == "dashboardPerito.php") {
+                            window.location.href = jsonResponse; //redirecionar para o respetivo painel depois de inciar sessão
+                        }
+                        else {
+                            alert(jsonResponse);
+                        }
+                    },
+                    error: function (xhr, status, error) {
+                        console.error(error);
+                    }
+                });
+            },
+            error: function (xhr, status, error) {
+                console.error(error);
+            }
+        });
+    } else {
+        alert("As novas passwords não coincidem");
+        $('#password').val("");
+        $('#password').val("");
+    }
+
+}
+
+/*
+const obj = {
+    nome: response['nome'],
+    apelido: password['apelido'],
+    contacto: password['contactotelefonico'],
+    email: password['email'],
+    morada: password['morada'],
+    porta: password['porta'],
+    concelho: password['concelho'],
+    codigopostal: password['codigopostal'],
+    password: password['pass']
+};
+return obj;
+*/
