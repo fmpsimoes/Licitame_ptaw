@@ -767,7 +767,7 @@ if(!isset($_SESSION['email'])) {
     <script src="assets/js/viewport.jquery.js"></script>
     <script src="assets/js/jquery.magnific-popup.min.js"></script>
     <script src="assets/js/main.js"></script>
-    <script src="ourChanges/dashboardPerito.js"></script>
+    <script src="ourChanges/dashboardAdmin.js"></script>
 </body>
 
 </html>
