@@ -226,7 +226,7 @@ if(!isset($_SESSION['email'])) {
                                 <path
                                     d="M13.9035 10.9263C13.652 10.6746 13.244 10.6746 12.9924 10.9263L10.1154 13.8033L9.00909 12.697C8.75751 12.4454 8.34952 12.4454 8.0979 12.697C7.84627 12.9486 7.84627 13.3566 8.0979 13.6082L9.65977 15.1701C9.78558 15.2959 9.9505 15.3588 10.1153 15.3588C10.2802 15.3588 10.4451 15.2959 10.5709 15.1701L13.9034 11.8375C14.1551 11.5858 14.1551 11.1779 13.9035 10.9263Z" />
                             </svg>Leilões Revistos</button>
-                        <button class="nav-link nav-btn-style mx-auto mb-20" id="v-pills-publish-tab"
+                        <button class="nav-link nav-btn-style mx-auto mb-20" onclick="logout()" id="v-pills-publish-tab"
                             data-bs-toggle="pill" data-bs-target="#v-pills-order" type="button" role="tab"
                             aria-controls="v-pills-order" aria-selected="true"><svg width="22" height="22"
                                 viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">

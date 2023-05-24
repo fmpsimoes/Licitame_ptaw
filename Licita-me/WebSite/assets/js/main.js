@@ -883,3 +883,26 @@ function minbid() {
 function precocomprarja() {
   return Math.max(avaliacao_perito, preco_imediato_vendedor, cur_bid * 1.5)
 }
+
+var button = document.getElementById("termosLink");
+var modal = document.getElementById("myModal");
+
+// Get the close button inside the modal
+var closeBtn = document.getElementsByClassName("close")[0];
+
+// Open the modal popup when the button is clicked
+button.addEventListener("click", function() {
+  modal.style.display = "block";
+});
+
+// Close the modal popup when the close button is clicked
+closeBtn.addEventListener("click", function() {
+  modal.style.display = "none";
+});
+
+// Close the modal popup when the user clicks outside of it
+window.addEventListener("click", function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+});
