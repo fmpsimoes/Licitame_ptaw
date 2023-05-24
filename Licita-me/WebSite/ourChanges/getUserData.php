@@ -1,30 +1,18 @@
 <?php 
-
-$servername = "";
-$username = "";
-$password = "";
-if (isset($_POST['autoFilling'])) {
+session_start();
+$email = $_SESSION;
+$host = 'localhost';
+$port = '5433';
+$dbname = 'ptaw-2023-gr1';
+$user = 'ptaw-2023-gr1';
+$password = 'ptaw-2023-gr1';
     try{
-      $pdo = new PDO("mysql:host=$servername;dbname=ptw", $username, $password);
+      $pdo = new PDO("pgsql:host=$host;port=$port;dbname=$dbname;user=$user;password=$password");
       $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+      echo json_encode($email);
     }catch (PDOException $e) {
       echo 'Connection failed: ' . $e->getMessage();
       exit;
     }
-    try{
-      $query = "SELECT nome, apelido, contacto, email, morada, cidade, concelho, codPostal FROM Utilizadores WHERE email = ? AND password = ?";
-
-      $statement = $pdo->prepare( $query );
-
-      if($statement->execute( array($email, $password) ) ){
-        $row = $statement->fetchAll(PDO::FETCH_ASSOC);
-        echo json_encode($row);
-
-      }else{
-        echo "Erro ao carregar os dados pessoais";
-    }
-   }catch(PDOException $e) {
-    echo "Erro: " . $e->getMessage();
-    }
-}
+    
 ?>
