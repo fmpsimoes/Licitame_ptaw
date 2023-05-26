@@ -139,6 +139,9 @@ if(!isset($_SESSION['email'])) {
                     </div>
                 </form>
                 <div class="eg-btn btn--primary mobile-visible header-btn" style="display: block; visibility: initial;">
+                    <a href="form_auction.php">Anunciar</a>
+                </div>
+                <div class="eg-btn btn--primary mobile-visible header-btn" style="display: block; visibility: initial; margin-top:10px">
                     <a href="login.php">Conta</a>
                 </div>
             </div>
@@ -146,6 +149,9 @@ if(!isset($_SESSION['email'])) {
         <div class="nav-right d-flex align-items-center">
             <div class="search-btn">
                 <i class="bi bi-search"></i>
+            </div>
+            <div class="eg-btn btn--primary header-btn"style="margin-right:10px">
+                <a href="form-auction.php">Anunciar</a>
             </div>
             <div class="eg-btn btn--primary header-btn">
                 <a href="login.php">Conta</a>

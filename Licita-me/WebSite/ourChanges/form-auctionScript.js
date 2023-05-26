@@ -4,17 +4,17 @@ document.getElementById("autoFilling").onchange = function () {
     $.ajax({
       url: 'ourChanges/getUserData.php',
       type: 'POST',
-      data: $(this).serializeArray(),
       success: function (response) {
-        document.getElementById("firstname").value = response['nome'];
-        document.getElementById("lastname").value = response['apelido'];
-        document.getElementById("contact").value = response['contacto'];
-        document.getElementById("email").value = response['email'];
-        document.getElementById("address").value = response['morada'];
-        document.getElementById("city").value = response['cidade'];
-        document.getElementById("freguesia").value = response['freguesia'];
-        document.getElementById("zipcode").value = response['codPostal'];
-        document.getElementById("country").value = response['pais'];
+        const data = JSON.parse(response);
+        console.log(data);
+        $('#firstname').val(data['nome']);
+        $('#lastname').val(data['apelido']);
+        $("#contact").val(data['contactotelefonico']);
+        $('#email').val(data['email']);
+        $('#address').val(data['morada']);
+        $("#porta").val(data['porta']);
+        $('#concelho').val(data['concelho']);
+        $('#zipcode').val(data['codigopostal']);
       },
       error: function (xhr, status, error) {
         console.error(error);
@@ -22,57 +22,147 @@ document.getElementById("autoFilling").onchange = function () {
     });
   } else {
     // Limpa os valores dos campos preenchidos
-    document.getElementById("firstname").value = "";
-    document.getElementById("lastname").value = "";
-    document.getElementById("contact").value = "";
-    document.getElementById("email").value = "";
-    document.getElementById("address").value = "";
-    document.getElementById("city").value = "";
-    document.getElementById("freguesia").value = "";
-    document.getElementById("zipcode").value = "";
-    document.getElementById("country").value = "";
+    $('#firstname').val("");
+    $('#lastname').val("");
+    $("#contact").val("");
+    $('#email').val("");
+    $('#address').val("");
+    $("#porta").val("");
+    $('#concelho').val("");
+    $('#zipcode').val("");
   }
 }
 
-let form = document.getElementById("form");
-let dataStartItem = document.getElementById("dataStartItem");
-let dataEndItem = document.getElementById("dataEndItem");
-let certificationFile = document.getElementById('certification');
-let certifyCheckbox = document.getElementById('certificationCheckBox');
+
+
+
 
 $(document).ready(function () {
+
+  let form = document.getElementById("form");
+  let dataStartItem = document.getElementById("dataStartItem");
+  let dataEndItem = document.getElementById("dataEndItem");
+  let certificationFile = document.getElementById('certification');
+  let certifyCheckbox = document.getElementById('certificationCheckBox');
+
+  certifyCheckbox.addEventListener('change', (event) => {
+    if (event.currentTarget.checked) {
+      certificationFile.value = null;
+      certificationFile.disabled = true;
+    } else {
+      certificationFile.disabled = false;
+    }
+  });
+  certificationFile.addEventListener('change', (event) => {
+    if (certificationFile.files.length > 0) {
+      $("#certificationCheckBox").prop("checked", false);
+      certifyCheckbox.disabled = true;
+    } else {
+      certifyCheckbox.disabled = false;
+    }
+  });
   // Adiciona um evento de envio do formulário
   form.addEventListener("submit", function (event) {
     // Calcula a diferença em dias entre as datas
     var data1 = new Date(dataStartItem.value);
     var data2 = new Date(dataEndItem.value);
     var diferencaDias = (data2 - data1) / (1000 * 60 * 60 * 24);
-
     // Verifica se a diferença do minimo de 7 dias e do maximo de 30
     if (diferencaDias < 7 || diferencaDias > 30) {
       event.preventDefault(); // impede o envio do formulário
       alert("As datas devem ter uma diferença mínima de 7 dias e máxima de 30 dias");
-      
     } else {
-      // Verifica se pelo menos 1 dos campos acerca da sartificação se encontram com ficheiros ou checked
-      if (certificationFile.files.length > 0 || certifyCheckbox.checked) {
-        event.preventDefault();
-        $.ajax({
-          url: 'ourChanges/insert-auction.php',
-          type: 'POST',
-          data: $(this).serializeArray(),
-          success: function (response) { 
-            console.log(response);
-          },
-          error: function (xhr, status, error) {
-            console.error(error);
-          }
-        });
-      } else {
-        event.preventDefault(); // impede o envio do formulário
-        alert('Por favor, seleccione um ficheiro de certificação ou marque a caixa de verificação de certificação.');
-        
-      }
+      //Insere anuncio
+      event.preventDefault();
+      setAnuncio();
     }
   });
 });
+
+
+
+function setAnuncio() {
+  let certificationFile = document.getElementById('certification');
+  const obj = {
+    nome: $('#nameItem').val(),
+    categoria: $('#category').find(":selected").val(),
+    materiais: $('#materials').val(),
+    dataPrefeInicio: $('#dataStartItem').val(),
+    dataPrefeTermino: $('#dataEndItem').val(),
+    dimensoes: $('#dimensions').val(),
+    peso: $('#weight').val(),
+    autor: $('#author').val(),
+    estado: $('#estado').val(),
+    valorInicial: $('#valueBase').val(),
+    valorCompraImediata: $('#valueBuyNow').val(),
+    descricao: $('#description').val()
+  }
+  console.log(obj);
+  $.ajax({
+    url: 'ourChanges/insert-auction.php',
+    type: 'POST',
+    data: { data: obj },
+    success: function (response) {
+      alert("Anuncio publicado sem fotos");
+      //Insere fotos para o anuncio colocado apos receber o id do anuncio colocado
+      insertPhotos(JSON.parse(response));
+      insertCertificado(JSON.parse(response));
+      window.location.href = "./dashboard.php";
+    },
+    error: function (xhr, status, error) {
+      console.error(error);
+    }
+  });
+}
+
+function insertPhotos(id_leilao) {
+  const fileInput = document.querySelector("#images");
+  const endpoint = "./ourChanges/insertImagesAuction.php";
+  const formData = new FormData();
+
+  formData.append("id_leilao", id_leilao);
+
+  for (let i = 0; i < fileInput.files.length; i++) {
+    formData.append("photos[]", fileInput.files[i]);
+  }
+  fetch(endpoint, {
+    method: "post",
+    body: formData
+  })
+    .then(response => {
+      if (response['status'] == 200) {
+        console.log("Anuncio publicado com fotos");
+      } else {
+        console.log(response)
+      };
+    })
+    .catch(error => {
+      console.error("Error:", error);
+    });
+}
+
+function insertCertificado(id_certificado) {
+  const fileInput = document.querySelector("#certification");
+  const endpoint = "./ourChanges/insertCertificadoAuction.php";
+  const formData = new FormData();
+
+  formData.append("id_certificado", id_certificado);
+
+  for (let i = 0; i < fileInput.files.length; i++) {
+    formData.append("certificado[]", fileInput.files[i]);
+  }
+  fetch(endpoint, {
+    method: "post",
+    body: formData
+  })
+    .then(response => {
+      if (response['status'] == 200) {
+        console.log("Anuncio publicado com certificado");
+      } else {
+        console.log(response)
+      };
+    })
+    .catch(error => {
+      console.error("Error:", error);
+    });
+}

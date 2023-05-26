@@ -1,30 +1,29 @@
 <?php 
+session_start();
 
-$servername = "";
-$username = "";
-$password = "";
-try{
-    $pdo = new PDO("mysql:host=$servername;dbname=ptw", $username, $password);
-    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+$data = $_POST['data'];
+
+$host = 'localhost';
+$port = '5433';
+$dbname = 'ptaw-2023-gr1';
+$userbd = 'ptaw-2023-gr1';
+$password = 'ptaw-2023-gr1';
+
+try {
+    $pdo = new PDO("pgsql:host=$host;port=$port;dbname=$dbname;user=$userbd;password=$password");
+    $query = "INSERT INTO pecasarte (emailvendedor, titulo, categoria, materiais, datainicio, datatermino, dimensoes, peso, autor, condicao, precobase, precocomprarja, descricao, estado) 
+            values (?,?,?,?,?,?,?,?,?,?,?,?,?, 'Pendente') RETURNING id";
+    $statement = $pdo->prepare($query);
+    if($statement->execute([$_SESSION['email'], $data['nome'], $data['categoria'], $data['materiais'] ,$data['dataPrefeInicio'], $data['dataPrefeTermino'], $data['dimensoes'], $data['peso'], $data['autor'],  $data['estado'], $data['valorInicial'], $data['valorCompraImediata'], $data['descricao']])){
+        $row = $statement->fetchColumn();
+        echo json_encode($row);
+    }else{
+        echo "Erro ao inserir leilão";
+    }
 }catch (PDOException $e) {
     echo 'Connection failed: ' . $e->getMessage();
     exit;
 }
 
-try{
-    $query = "INSERT INTO pedidoDeLeilao (email, nomeItem, categoria, materiais, dataInicioItem, dataFImItem, dimensoes, peso, autor, periodoEstimado, valorBase, valorCompra, descricao, imagens, certificado, paraCertificar) 
-            values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
-
-    $statement = $pdo->prepare( $query );
-
-    if($statement->execute( array($email, $nameitem, $category, $materials ,$dataStartItem, $dataEndItem, $dimensions, $weight, $author, $periodEstimated, $valueBase, $valueBuyNow, $description, $images, $certification, $certificationCheckBox))){
-        $row = $statement->fetchAll(PDO::FETCH_ASSOC);
-        echo json_encode($row);
-    }else{
-        echo "Erro ao inserir leilão";
-    }
-}catch(PDOException $e) {
-    echo "Erro: " . $e->getMessage();
-}
 
 ?>

@@ -1,6 +1,6 @@
 <?php 
 session_start();
-$data = $_POST['data'];
+$data = $_POST['modalidade'];
 $host = 'localhost';
 $port = '5433';
 $dbname = 'ptaw-2023-gr1';
@@ -12,8 +12,8 @@ try {
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
     try{
-        $query = "SELECT * FROM pecasarte WHERE id= ?";
-        $statement = $pdo->prepare($query);
+        $query = "SELECT id, titulo, datainicio, categoria, estado FROM pecasarte WHERE estado= ?";
+        $statement = $pdo->prepare($query );
         if($statement->execute(array($data))){
             $row = $statement->fetchAll(PDO::FETCH_ASSOC);
             echo json_encode($row);

@@ -1,26 +1,33 @@
 $(document).ready(function () {
-      $.ajax({
-        url: '*.php',
-        type: 'POST',
-        data: $(this).serializeArray(),
-        success: function (response) {
-          document.getElementById("nameItem").value = response['titulo'];
-          document.getElementById("category").value = response['categoria'];
-          document.getElementById("materials").value = response['materiais'];
-          document.getElementById("dataStartItem").value = response['datainicio'];
-          document.getElementById("dataEndItem").value = response['datatermino'];
-          document.getElementById("dimensions").value = response['dimensoes'];
-          document.getElementById("weight").value = response['peso'];
-          document.getElementById("author").value = response['autor'];
-          document.getElementById("periodEstimated").value = response['periodo'];
-          document.getElementById("valueBase").value = response['valorbase'];
-          document.getElementById("valueBuyNow").value = response['valorcomprarja'];
-          document.getElementById("description").value = response['descricao'];
-          document.getElementById("images").value = response['imagem'];
-          document.getElementById("certification").value = response['dircertificado'];
-        },
-        error: function (xhr, status, error) {
-          console.error(error);
-        }
-      });
-    });
+
+  var currentUrl = window.location.href;
+  var idLeilao = currentUrl.substring(currentUrl.lastIndexOf('=') + 1);
+  console.log(idLeilao)
+
+  $.ajax({
+    url: './ourchanges/getLeilaoData.php',
+    type: 'POST',
+    data: {data: idLeilao},
+    success: function (response) {
+      const auxdata = JSON.parse(response);
+      const data = auxdata[0];
+      $("#nameItem").val(data['titulo']);
+      $("#category").val(data['categoria']);
+      $("#materials").val(data['materiais']);
+      $("#dataStartItem").val(data['datainicio']);
+      $("#dataEndItem").val(data['datatermino']);
+      $("#dimensions").val(data['dimensoes']);
+      $("#weight").val(data['peso']);
+      $("#author").val(data['autor']);
+      $("#periodEstimated").val(data['periodo']);
+      $("#valueBase").val(data['precobase']);
+      $("#valueBuyNow").val(data['precocomprarja']);
+      $("#description").val(data['descricao']);
+      $("#images").val(data['imagem']);
+      $("#certification").val(data['dircertificado']);
+    },
+    error: function (xhr, status, error) {
+      console.error(error);
+    }
+  });
+});

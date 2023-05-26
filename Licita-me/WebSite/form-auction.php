@@ -1,3 +1,9 @@
+<?php
+session_start();
+if(!isset($_SESSION['email'])) {
+    header("Location: login.php"); // redirect to login page if user not logged in
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -255,12 +261,13 @@
                                 <label for="category">Categorias *</label>
                                 <select name="category" id="category" required>
                                     <option value="" selected disabled>Escolha a categoria...</option>
-                                    <option value="pintura">Pintura</option>
-                                    <option value="fotografiaNaoDigital">Fotografia não digital</option>
-                                    <option value="escultura">Escultura</option>
-                                    <option value="literatura">Literatura</option>
-                                    <option value="bandaDesenhada">Banda Desenhada</option>
-                                    <option value="outros">Outros</option>
+                                    <option value="Pintura">Pintura</option>
+                                    <option value="Fotografia">Fotografia não digital</option>
+                                    <option value="Escultura">Escultura</option>
+                                    <option value="Literatura">Literatura</option>
+                                    <option value="Banda desenhada">Banda Desenhada</option>
+                                    <option value="Artesanato">Artesanato</option>
+                                    <option value="Outro">Outros</option>
                                 </select>
                             </div>
                         </div>
@@ -312,9 +319,9 @@
                         </div>
                         <div class="col-xl-6 col-lg-12 col-md-6">
                             <div class="form-inner">
-                                <label for="periodEstimated">Período estimado de leilão</label>
-                                <input type="text" placeholder="Período estimado" name="periodEstimated"
-                                    id="periodEstimated">
+                                <label for="estado">Estado</label>
+                                <input type="text" placeholder="Estado da peça" name="estado"
+                                    id="estado">
                             </div>
                         </div>
                     </div>
@@ -345,7 +352,7 @@
                         <div class="col-xl-12 col-lg-12 col-md-12">
                             <div class="form-inner">
                                 <label for="images">Fotografias da Peça *</label>
-                                <input type="file" name="images" id="images" required multiple>
+                                <input type="file" name="images" id="images"  multiple> <!-- required-->
                             </div>
                         </div>
                     </div>
@@ -353,7 +360,7 @@
                             <div class="col-xl-9 col-lg-12 col-md-9">
                                 <div class="form-inner">
                                     <label for="certification">Certificado (Caso já seja uma peça certificada)</label>
-                                    <input type="file" name="certification" id="certification" multiple>
+                                    <input type="file" name="certification" id="certification"  accept="application/pdf" multiple>
                                 </div>
                             </div>
                             <div class="col-xl-3 col-lg-12 col-md-3 align-self-center">
