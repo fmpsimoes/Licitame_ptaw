@@ -1,11 +1,11 @@
 <?php
 session_start();
 if(isset($_SESSION['email'])) {
-    if($_SESSION['tipoutilizador'] == 'Utilizador'){ // redirect to dashboard if user already logged in
+    if($_SESSION['tipoUtilizador'] == 'Utilizador'){ // redirect to dashboard if user already logged in
         header("Location: dashboard.php");
-    } elseif($_SESSION['tipoutilizador'] == 'Administrador'){
+    } elseif($_SESSION['tipoUtilizador'] == 'Administrador'){
         header("Location: dashboardAdmin.php");
-    } elseif($_SESSION['tipoutilizador'] == 'Perito'){
+    } elseif($_SESSION['tipoUtilizador'] == 'Perito'){
         header("Location: dashboardPerito.php");
     }
 }
@@ -55,9 +55,6 @@ if(isset($_SESSION['email'])) {
     
         <!-- style css -->
         <link rel="stylesheet" href="assets/css/style.css">
-
-        <!-- modal css -->
-        <link rel="stylesheet" href="modal.css">
     </head>
 
 <body>
@@ -72,90 +69,14 @@ if(isset($_SESSION['email'])) {
     </div>
 
     <!-- search area -->
-    <div class="mobile-search">
-        <div class="container">
-            <div class="row d-flex justify-content-center">
-                <div class="col-md-11">
-                    <label>O que procura?</label>
-                    <input type="text" placeholder="Procura por produto, categoria e artista...">
-                </div>
-                <div class="col-1 d-flex justify-content-end align-items-center">
-                    <div class="search-cross-btn">
-                        <i class="bi bi-x"></i>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    <div id="searchArea" class="mobile-search"></div>
 
     <!-- ========== topbar ============= -->
-    <div class="topbar">
-        <div class="topbar-left d-flex flex-row align-items-center">
-            <h6>Segue-nos</h6>
-            <ul class="topbar-social-list gap-2">
-                <li><a href="https://www.facebook.com/"><i class='bx bxl-facebook'></i></a></li>
-                <li><a href="https://www.twitter.com/"><i class='bx bxl-twitter'></i></a></li>
-                <li><a href="https://www.instagram.com/"><i class='bx bxl-instagram'></i></a></li>
-                <li><a href="https://www.pinterest.com/"><i class='bx bxl-pinterest-alt'></i></a></li>
-            </ul>
-        </div>
-        <div class="email-area">
-            <h6>Email: <a href="mailto:licita_me@ptaw.pt">licitame@ptaw.pt</a></h6>
-        </div>
-    </div>
+    <div id="topbar" class="topbar"></div>
 
     <!-- ========== header============= -->
 
-    <header class="header-area style-1">
-        <div class="header-logo">
-            <a href="index.html"><img alt="image" src="assets/images/bg/header-logo.png" ></a>
-        </div>
-        <div class="main-menu">
-            <div class="mobile-logo-area d-lg-none d-flex justify-content-between align-items-center">
-                <div class="mobile-logo-wrap ">
-                    <a href="index.html"><img alt="image" src="assets/images/bg/header-logo.png" ></a>
-
-                </div>
-                <div class="menu-close-btn">
-                    <i class="bi bi-x-lg"></i>
-                </div>
-            </div>
-            <ul class="menu-list">
-                <li>
-                    <a  href="index.html" >Página Inicial</a>
-                </li>
-                <li>
-                    <a href="about.html">Sobre Nós</a>
-                </li>
-                <li>
-                    <a href="how-works.html">Como Funciona</a>
-                </li>
-                <li>
-                    <a href="live-auction.html">Leilões</a>
-                </li>
-                <li><a href="contact.html">Contactos</a></li>
-            </ul>
-            <!-- mobile-search-area -->
-            <div class="d-lg-none d-block">
-                <form class="mobile-menu-form mb-5">
-                    <div class="input-with-btn d-flex flex-column">
-                        <input type="text" placeholder="Procurar...">
-                        <button type="submit" class="eg-btn btn--primary btn--sm">Procurar</button>
-                    </div>
-                </form>
-                <div class="eg-btn btn--primary mobile-visible header-btn" style="display: block; visibility: initial;">
-                    <a href="login.php">Conta</a>
-                </div>
-            </div>
-        </div>
-        <div class="nav-right d-flex align-items-center">
-            <div class="search-btn">
-                <i class="bi bi-search"></i>
-            </div>
-            <div class="mobile-menu-btn d-lg-none d-block">
-                <i class='bx bx-menu'></i>
-            </div>
-        </div>
+    <header id="header" class="header-area style-1">
     </header>
 
     <!-- ========== header end============= -->
@@ -214,64 +135,7 @@ if(isset($_SESSION['email'])) {
                             <button class="account-btn" id="loginButton">Entrar</button>
                         </form>
                         <div class="form-poicy-area">
-                            <p>Ao clicar no botão "Entrar", cria uma conta LICITAME, e concorda com a política de privacidade da Licita-me <a href="#myModal" data-toggle= "modal" data-target = "#myModal" id= "termosLink">Termos & Condições</a> & <a href="#">Política de privacidade.</a></p>
-                            <div id="myModal" class="modal">
-                            <div class="modal-content">
-                                <span class="close">&times;</span>
-                                <h5>Termos de Uso e Condições - Site de Leilões Online de Peças de Arte - LICITAME</h5>
-                                
-                                <script>
-                                    // Carregar o arquivo JSON
-                                    fetch("termosCondicoes.json")
-                                    .then(response => response.json())
-                                    .then(data => {
-                                        var meuTexto = data.meuTexto;
-                                        var paragrafo1 = data.paragrafo1
-                                        var paragrafo12 = data.paragrafo12
-                                        var paragrafo13 = data.paragrafo13
-                                        var paragrafo2 = data.paragrafo2
-                                        var paragrafo22 = data.paragrafo22
-                                        var paragrafo3 = data.paragrafo3
-                                        var paragrafo32= data.paragrafo32  
-                                        var paragrafo4 = data.paragrafo4
-                                        var paragrafo42 = data.paragrafo42
-                                        // Exibir o texto no elemento <p>
-                                        var textoElemento = document.getElementById("texto");
-                                        var textoElemento1 = document.getElementById("textoP1");
-                                        var textoElemento12 = document.getElementById("textoP12");
-                                        var textoElemento13 = document.getElementById("textoP13");
-                                        var textoElemento2 = document.getElementById("textoP2");
-                                        var textoElemento22 = document.getElementById("textoP22");
-                                        var textoElemento3 = document.getElementById("textoP3");
-                                        var textoElemento32 = document.getElementById("textoP32");
-                                        var textoElemento4 = document.getElementById("textoP4");
-                                        var textoElemento42 = document.getElementById("textoP42");
-
-                                        textoElemento.textContent = meuTexto;
-                                        textoElemento1.textContent = paragrafo1;
-                                        textoElemento12.textContent = paragrafo12;
-                                        textoElemento13.textContent = paragrafo13;
-                                        textoElemento2.textContent = paragrafo2;
-                                        textoElemento22.textContent = paragrafo22;
-                                        textoElemento3.textContent = paragrafo3;
-                                        textoElemento32.textContent = paragrafo32;
-                                        textoElemento4.textContent = paragrafo4;
-                                        textoElemento42.textContent = paragrafo42;
-
-                                    });
-                                </script>
-                                <p id ="texto"></p>
-                                <p id = "textoP1"></p>
-                                <p id = "textoP12"></p>
-                                <p id = "textoP13"></p>
-                                <p id = "textoP2"></p>
-                                <p id = "textoP22"></p>
-                                <p id = "textoP3"></p>
-                                <p id = "textoP32"></p>
-                                <p id = "textoP4"></p>
-                                <p id = "textoP42"></p>
-                            </div>
-                            </div>
+                            <p>Ao clicar no botão "Entrar", cria uma conta LICITAME, e concorda com a política de privacidade da Licita-me <a href="#">Termos & Condições</a> & <a href="#">Política de privacidade.</a></p>
                         </div>
                     </div>
                 </div>
@@ -283,71 +147,7 @@ if(isset($_SESSION['email'])) {
 
     <!-- =============== Footer-action-section start =============== -->
 
-    <footer>
-        <div class="footer-top">
-            <div class="container">
-                <div class="row gy-5">
-                    <div class="col-lg-3 col-md-6">
-                        <div class="footer-item">
-                            <a href="index.html"><img alt="image" src="assets/images/bg/footer-logo.png" width="200px"></a>
-                            <p>Escolha a nossa plataforma para suas compras e leilões de obras e desfrute de uma experiência excepcional de compra, licitação e venda!</p>
-                            <form>
-                                <div class="input-with-btn d-flex jusify-content-start align-items-strech">
-                                    <input type="text" placeholder="Introduza o seu Email">
-                                    <button type="submit"><img alt="image"
-                                            src="assets/images/icons/send-icon.svg"></button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 d-flex justify-content-lg-center">
-                        <div class="footer-item">
-                            <h5>Navegação</h5>
-                            <ul class="footer-list">
-                                <li><a href="live-auction.html">Todos os Leilões</a></li>
-                                <li><a href="how-works.html">Como Funciona</a></li>
-                                <li><a href="login.php">Conta</a></li>
-                                <li><a href="about.html">Sobre Nós</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 d-flex justify-content-lg-center">
-                        <div class="footer-item">
-                            <h5>Ajuda & FAQs</h5>
-                            <ul class="footer-list">
-                                <li><a href="product.html">Centro de Ajuda</a></li>
-                                <li><a href="faq.html">Cliente FAQs</a></li>
-                                <li><a href="login.html">Termos e Condições</a></li>
-                                <li><a href="about.html">Informações de Segurança</a></li>
-                                <li><a href="blog.html">Vendedor e Políticas</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <div class="container">
-                <div class="row d-flex align-items-center g-4">
-                    <div class="col-lg-6 d-flex justify-content-lg-start justify-content-center">
-                        <p>Copyright 2023 <a href="#">LICITAME</a> | Design Por <a href="#"
-                                class="egns-lab">Grupo 1</a></p>
-                    </div>
-                    <div
-                        class="col-lg-6 d-flex justify-content-lg-end justify-content-center align-items-center flex-sm-nowrap flex-wrap">
-                        <!--<p class="d-sm-flex d-none">Aceitamos:</p>
-                        <ul class="footer-logo-list">
-                            <li><a href="#"><img alt="image" src="assets/images/bg/footer-pay1.png"></a></li>
-                            <li><a href="#"><img alt="image" src="assets/images/bg/footer-pay2.png"></a></li>
-                            <li><a href="#"><img alt="image" src="assets/images/bg/footer-pay3.png"></a></li>
-                            <li><a href="#"><img alt="image" src="assets/images/bg/footer-pay4.png"></a></li>
-                            <li><a href="#"><img alt="image" src="assets/images/bg/footer-pay5.png"></a></li>
-                        </ul>
-                        -->
-                    </div>
-                </div>
-            </div>
-        </div>
+    <footer id="footer">
     </footer>
 
     <!-- =============== Footer-action-section end =============== -->
@@ -363,6 +163,8 @@ if(isset($_SESSION['email'])) {
     <script src="assets/js/odometer.min.js"></script>
     <script src="assets/js/viewport.jquery.js"></script>
     <script src="assets/js/jquery.magnific-popup.min.js"></script>
+
+    <script src="ourChanges/callCommonSections.js"></script>
     <script src="assets/js/main.js"></script>
     <script src="ourChanges/login.js"></script>
 
