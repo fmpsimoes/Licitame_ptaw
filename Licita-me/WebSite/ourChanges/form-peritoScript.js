@@ -22,6 +22,7 @@ $(document).ready(function () {
       $("#periodEstimated").val(data['periodo']);
       $("#valueBase").val(data['precobase']);
       $("#valueBuyNow").val(data['precocomprarja']);
+      $("#condition").val(data['condicao']);
       $("#description").val(data['descricao']);
       $("#images").val(data['imagem']);
       $("#certification").val(data['dircertificado']);
