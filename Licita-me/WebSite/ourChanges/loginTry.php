@@ -4,7 +4,6 @@
     $data = $_POST['data'];
 
     // connect to database
-
     $host = 'localhost';
     $port = '5433';
     $dbname = 'ptaw-2023-gr1';
@@ -13,11 +12,9 @@
 
     try {
         $pdo = new PDO("pgsql:host=$host;port=$port;dbname=$dbname;user=$user;password=$password");
-        //$pdo = new PDO("pgsql:host=$host;port=$port;dbname=$dbname;",$user,$password);
-
 
         // check if email and password are correct
-        $stmt = $pdo->prepare("SELECT email, nome, apelido, contactotelefonico, morada, porta, codigopostal, concelho, tipoUtilizador FROM utilizadores WHERE email = ? AND pass = ?");
+        $stmt = $pdo->prepare("SELECT email, nome, apelido, contactotelefonico, morada, porta, codigopostal, concelho, tipoutilizador FROM utilizadores WHERE email = ? AND pass = ?");
         $stmt->execute([$data["email"], $data["pass"]]);
         $user = $stmt->fetch();
 
@@ -31,22 +28,21 @@
             $_SESSION['porta'] = $user['porta'];
             $_SESSION['codigopostal'] = $user['codigopostal'];
             $_SESSION['concelho'] = $user['concelho'];
-            $_SESSION['tipoUtilizador'] = $user['tipoUtilizador'];
+            $_SESSION['tipoutilizador'] = $user['tipoutilizador'];
 
-            if ($user['tipoUtilizador'] == 'Administrador') {
-                echo 'dashboardAdmin.php';
-            } elseif ($user['tipoUtilizador'] == 'Utilizador') {
-                echo 'dashboard.php';
-            } elseif ($user['tipoUtilizador'] == 'Perito') {
-                echo 'dashboardPerito.php';
+            if ($user['tipoutilizador'] == 'Administrador') {
+                echo json_encode('dashboardAdmin.php');
+            } elseif ($user['tipoutilizador'] == 'Utilizador') {
+                echo json_encode('dashboard.php');
+            } elseif ($user['tipoutilizador'] == 'Perito') {
+                echo json_encode('dashboardPerito.php');
             }
         } else { //user not found
-            echo "Email ou password errada";
+            echo json_encode("Email ou password errada");
         }
 
     }catch(PDOException $e) {
-       echo "Erro: " . $e->getMessage();
+       echo json_encode("Erro: " . $e->getMessage());
     }
-    
+
 ?>
- 
