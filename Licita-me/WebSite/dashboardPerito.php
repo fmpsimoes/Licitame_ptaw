@@ -1,8 +1,8 @@
 <?php
-session_start();
-if(!isset($_SESSION['email'])) {
-    header("Location: login.php"); // redirect to login page if user not logged in
-}
+//session_start();
+//if(!isset($_SESSION['email'])) {
+//    header("Location: login.php"); // redirect to login page if user not logged in
+//}
 ?>
 
 <!DOCTYPE html>
@@ -71,90 +71,14 @@ if(!isset($_SESSION['email'])) {
     </div>
 
     <!-- search area -->
-    <div class="mobile-search">
-        <div class="container">
-            <div class="row d-flex justify-content-center">
-                <div class="col-md-11">
-                    <label>O que procura?</label>
-                    <input type="text" placeholder="Procura por produto, categoria e artista...">
-                </div>
-                <div class="col-1 d-flex justify-content-end align-items-center">
-                    <div class="search-cross-btn">
-                        <i class="bi bi-x"></i>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    <div id="searchArea" class="mobile-search"></div>
 
     <!-- ========== topbar ============= -->
-    <div class="topbar">
-        <div class="topbar-left d-flex flex-row align-items-center">
-            <h6>Segue-nos</h6>
-            <ul class="topbar-social-list gap-2">
-                <li><a href="https://www.facebook.com/"><i class='bx bxl-facebook'></i></a></li>
-                <li><a href="https://www.twitter.com/"><i class='bx bxl-twitter'></i></a></li>
-                <li><a href="https://www.instagram.com/"><i class='bx bxl-instagram'></i></a></li>
-                <li><a href="https://www.pinterest.com/"><i class='bx bxl-pinterest-alt'></i></a></li>
-            </ul>
-        </div>
-        <div class="email-area">
-            <h6>Email: <a href="mailto:licita_me@ptaw.pt">licitame@ptaw.pt</a></h6>
-        </div>
-    </div>
+    <div id="topbar" class="topbar"></div>
 
     <!-- ========== header============= -->
 
-    <header class="header-area style-1">
-        <div class="header-logo">
-            <a href="index.html"><img alt="image" src="assets/images/bg/header-logo.png"></a>
-        </div>
-        <div class="main-menu">
-            <div class="mobile-logo-area d-lg-none d-flex justify-content-between align-items-center">
-                <div class="mobile-logo-wrap ">
-                    <a href="index.html"><img alt="image" src="assets/images/bg/header-logo.png"></a>
-
-                </div>
-                <div class="menu-close-btn">
-                    <i class="bi bi-x-lg"></i>
-                </div>
-            </div>
-            <ul class="menu-list">
-                <li>
-                    <a href="index.html">Página Inicial</a>
-                </li>
-                <li>
-                    <a href="about.html">Sobre Nós</a>
-                </li>
-                <li>
-                    <a href="how-works.html">Como Funciona</a>
-                </li>
-                <li>
-                    <a href="live-auction.html">Leilões</a>
-                </li>
-                <li><a href="contact.html">Contactos</a></li>
-            </ul>
-            <!-- mobile-search-area -->
-            <div class="d-lg-none d-block">
-                <form class="mobile-menu-form mb-5">
-                    <div class="input-with-btn d-flex flex-column">
-                        <input type="text" placeholder="Procurar...">
-                        <button type="submit" class="eg-btn btn--primary btn--sm">Procurar</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-        <div class="nav-right d-flex align-items-center">
-            <div class="search-btn">
-                <i class="bi bi-search"></i>
-            </div>
-            <div class="eg-btn btn--primary header-btn">
-                <a href="login.php">Conta</a>
-            </div>
-            <div class="mobile-menu-btn d-lg-none d-block">
-                <i class='bx bx-menu'></i>
-            </div>
-        </div>
+    <header id="header" class="header-area style-1">
     </header>
 
 
@@ -523,73 +447,7 @@ if(!isset($_SESSION['email'])) {
 
     <!-- =============== Footer-action-section start =============== -->
 
-    <footer>
-        <div class="footer-top">
-            <div class="container">
-                <div class="row gy-5">
-                    <div class="col-lg-3 col-md-6">
-                        <div class="footer-item">
-                            <a href="index.html"><img alt="image" src="assets/images/bg/footer-logo.png"
-                                    width="200px"></a>
-                            <p>Escolha a nossa plataforma para suas compras e leilões de obras e desfrute de uma
-                                experiência excepcional de compra, licitação e venda!</p>
-                            <form>
-                                <div class="input-with-btn d-flex jusify-content-start align-items-strech">
-                                    <input type="text" placeholder="Introduza o seu Email">
-                                    <button type="submit"><img alt="image"
-                                            src="assets/images/icons/send-icon.svg"></button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 d-flex justify-content-lg-center">
-                        <div class="footer-item">
-                            <h5>Navegação</h5>
-                            <ul class="footer-list">
-                                <li><a href="live-auction.html">Todos os Leilões</a></li>
-                                <li><a href="how-works.html">Como Funciona</a></li>
-                                <li><a href="login.php">Conta</a></li>
-                                <li><a href="about.html">Sobre Nós</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 d-flex justify-content-lg-center">
-                        <div class="footer-item">
-                            <h5>Ajuda & FAQs</h5>
-                            <ul class="footer-list">
-                                <li><a href="product.html">Centro de Ajuda</a></li>
-                                <li><a href="faq.html">Cliente FAQs</a></li>
-                                <li><a href="login.html">Termos e Condições</a></li>
-                                <li><a href="about.html">Informações de Segurança</a></li>
-                                <li><a href="blog.html">Vendedor e Políticas</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <div class="container">
-                <div class="row d-flex align-items-center g-4">
-                    <div class="col-lg-6 d-flex justify-content-lg-start justify-content-center">
-                        <p>Copyright 2023 <a href="#">LICITAME</a> | Design Por <a href="#" class="egns-lab">Grupo 1</a>
-                        </p>
-                    </div>
-                    <div
-                        class="col-lg-6 d-flex justify-content-lg-end justify-content-center align-items-center flex-sm-nowrap flex-wrap">
-                        <!--<p class="d-sm-flex d-none">Aceitamos:</p>
-                        <ul class="footer-logo-list">
-                            <li><a href="#"><img alt="image" src="assets/images/bg/footer-pay1.png"></a></li>
-                            <li><a href="#"><img alt="image" src="assets/images/bg/footer-pay2.png"></a></li>
-                            <li><a href="#"><img alt="image" src="assets/images/bg/footer-pay3.png"></a></li>
-                            <li><a href="#"><img alt="image" src="assets/images/bg/footer-pay4.png"></a></li>
-                            <li><a href="#"><img alt="image" src="assets/images/bg/footer-pay5.png"></a></li>
-                        </ul>
-                        -->
-                    </div>
-                </div>
-            </div>
-        </div>
+    <footer id="footer">
     </footer>
 
     <!-- =============== Footer-action-section end =============== -->
@@ -608,6 +466,8 @@ if(!isset($_SESSION['email'])) {
     <script src="assets/js/odometer.min.js"></script>
     <script src="assets/js/viewport.jquery.js"></script>
     <script src="assets/js/jquery.magnific-popup.min.js"></script>
+
+    <script src="ourChanges/callCommonSections.js"></script>
     <script src="assets/js/main.js"></script>
     <script src="ourChanges/dashboardPerito.js"></script>
 </body>

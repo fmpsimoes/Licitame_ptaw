@@ -1,628 +1,760 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>LICITAME - Leilões de Peças de Arte</title>
-    <link rel="icon" href="assets/images/bg/sm-logo.png" type="image/gif" sizes="20x20">
+    <link
+      rel="icon"
+      href="assets/images/bg/sm-logo.png"
+      type="image/gif"
+      sizes="20x20"
+    />
 
-    <link rel="stylesheet" href="assets/css/animate.css">
+    <link rel="stylesheet" href="assets/css/animate.css" />
     <!-- css file link -->
-    <link rel="stylesheet" href="assets/css/all.css">
+    <link rel="stylesheet" href="assets/css/all.css" />
 
     <!-- bootstrap 5 -->
-    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
 
     <!-- box-icon -->
-    <link rel="stylesheet" href="assets/css/boxicons.min.css">
+    <link rel="stylesheet" href="assets/css/boxicons.min.css" />
 
     <!-- bootstrap icon -->
-    <link rel="stylesheet" href="assets/css/bootstrap-icons.css">
+    <link rel="stylesheet" href="assets/css/bootstrap-icons.css" />
 
     <!-- jquery ui -->
-    <link rel="stylesheet" href="assets/css/jquery-ui.css">
+    <link rel="stylesheet" href="assets/css/jquery-ui.css" />
 
     <!-- swiper-slide -->
-    <link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
+    <link rel="stylesheet" href="assets/css/swiper-bundle.min.css" />
 
     <!-- slick-slide -->
-    <link rel="stylesheet" href="assets/css/slick-theme.css">
-    <link rel="stylesheet" href="assets/css/slick.css">
+    <link rel="stylesheet" href="assets/css/slick-theme.css" />
+    <link rel="stylesheet" href="assets/css/slick.css" />
 
     <!-- select 2 -->
-    <link rel="stylesheet" href="assets/css/nice-select.css">
+    <link rel="stylesheet" href="assets/css/nice-select.css" />
 
     <!-- animate css -->
-    <link rel="stylesheet" href="assets/css/magnific-popup.css">
+    <link rel="stylesheet" href="assets/css/magnific-popup.css" />
 
     <!-- odometer css -->
-    <link rel="stylesheet" href="assets/css/odometer.css">
+    <link rel="stylesheet" href="assets/css/odometer.css" />
 
     <!-- style css -->
-    <link rel="stylesheet" href="assets/css/style.css">
-</head>
+    <link rel="stylesheet" href="assets/css/style.css" />
+  </head>
 
-<body>
+  <body>
     <!-- preloader -->
     <div class="preloader">
-        <div class="loader">
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
+      <div class="loader">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
     </div>
 
     <!-- =============== search-area start =============== -->
 
-    <div class="mobile-search">
-        <div class="container">
-            <div class="row d-flex justify-content-center">
-                <div class="col-md-11">
-                    <label>O que procura?</label>
-                    <input type="text" placeholder="Procura por produto, categoria e artista...">
-                </div>
-                <div class="col-1 d-flex justify-content-end align-items-center">
-                    <div class="search-cross-btn">
-                        <i class="bi bi-x"></i>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    <div id="searchArea" class="mobile-search"></div>
 
     <!-- =============== search-area end  =============== -->
 
     <!-- ========== topbar ============= -->
-    <div class="topbar">
-        <div class="topbar-left d-flex flex-row align-items-center">
-            <h6>Segue-nos</h6>
-            <ul class="topbar-social-list gap-2">
-                <li><a href="https://www.facebook.com/"><i class='bx bxl-facebook'></i></a></li>
-                <li><a href="https://www.twitter.com/"><i class='bx bxl-twitter'></i></a></li>
-                <li><a href="https://www.instagram.com/"><i class='bx bxl-instagram'></i></a></li>
-                <li><a href="https://www.pinterest.com/"><i class='bx bxl-pinterest-alt'></i></a></li>
-            </ul>
-        </div>
-        <div class="email-area">
-            <h6>Email: <a href="mailto:licitame@ptaw.pt">licitame@ptaw.pt</a></h6>
-        </div>
-    </div>
+    <div id="topbar" class="topbar"></div>
 
     <!-- ========== header============= -->
+    <header id="header" class="header-area style-1"></header>
 
-    <header class="header-area style-1">
-        <div class="header-logo">
-            <a href="index.html"><img alt="image" src="assets/images/bg/header-logo.png"></a>
+    <!-- <header class="header-area style-1">
+      <div class="header-logo">
+        <a href="index.html"
+          ><img alt="image" src="assets/images/bg/header-logo.png"
+        /></a>
+      </div>
+      <div class="main-menu">
+        <div
+          class="mobile-logo-area d-lg-none d-flex justify-content-between align-items-center"
+        >
+          <div class="mobile-logo-wrap">
+            <a href="index.html"
+              ><img alt="image" src="assets/images/bg/header-logo.png"
+            /></a>
+          </div>
+          <div class="menu-close-btn">
+            <i class="bi bi-x-lg"></i>
+          </div>
         </div>
-        <div class="main-menu">
-            <div class="mobile-logo-area d-lg-none d-flex justify-content-between align-items-center">
-                <div class="mobile-logo-wrap ">
-                    <a href="index.html"><img alt="image" src="assets/images/bg/header-logo.png"></a>
-
-                </div>
-                <div class="menu-close-btn">
-                    <i class="bi bi-x-lg"></i>
-                </div>
+        <ul class="menu-list">
+          <li>
+            <a href="index.html">Página Inicial</a>
+          </li>
+          <li>
+            <a href="about.html">Sobre Nós</a>
+          </li>
+          <li>
+            <a href="how-works.html">Como Funciona</a>
+          </li>
+          <li>
+            <a href="live-auction.html">Leilões</a>
+          </li>
+          <li><a href="contact.html">Contactos</a></li>
+        </ul> -->
+    <!-- mobile-search-area -->
+    <!--
+        <div class="d-lg-none d-block">
+          <form class="mobile-menu-form mb-5">
+            <div class="input-with-btn d-flex flex-column">
+              <input type="text" placeholder="Procurar..." />
+              <button type="submit" class="eg-btn btn--primary btn--sm">
+                Procurar
+              </button>
             </div>
-            <ul class="menu-list">
-                <li>
-                    <a href="index.html">Página Inicial</a>
-                </li>
-                <li>
-                    <a href="about.html">Sobre Nós</a>
-                </li>
-                <li>
-                    <a href="how-works.html">Como Funciona</a>
-                </li>
-                <li>
-                    <a href="live-auction.html">Leilões</a>
-                </li>
-                <li><a href="contact.html">Contactos</a></li>
-            </ul>
-            <!-- mobile-search-area -->
-            <div class="d-lg-none d-block">
-                <form class="mobile-menu-form mb-5">
-                    <div class="input-with-btn d-flex flex-column">
-                        <input type="text" placeholder="Procurar...">
-                        <button type="submit" class="eg-btn btn--primary btn--sm">Procurar</button>
-                    </div>
-                </form>
-                <div class="eg-btn btn--primary mobile-visible header-btn" style="display: block; visibility: initial;">
-                    <a href="login.php">Conta</a>
-                </div>
-            </div>
+          </form>
+          <div
+            class="eg-btn btn--primary mobile-visible header-btn"
+            style="display: block; visibility: initial"
+          >
+            <a href="login.php">Conta</a>
+          </div>
         </div>
-        <div class="nav-right d-flex align-items-center">
-            <div class="search-btn">
-                <i class="bi bi-search"></i>
-            </div>
-            <div class="eg-btn btn--primary header-btn">
-                <a href="login.php">Conta</a>
-            </div>
-            <div class="mobile-menu-btn d-lg-none d-block">
-                <i class='bx bx-menu'></i>
-            </div>
+      </div>
+      <div class="nav-right d-flex align-items-center">
+        <div class="search-btn">
+          <i class="bi bi-search"></i>
         </div>
-    </header>
+        <div class="eg-btn btn--primary header-btn">
+          <a href="login.php">Conta</a>
+        </div>
+        <div class="mobile-menu-btn d-lg-none d-block">
+          <i class="bx bx-menu"></i>
+        </div>
+      </div>
+    </header> -->
 
     <!-- ========== header end============= -->
 
     <!-- ========== banner-area============= -->
 
     <div class="hero-area hero-style-one">
-        <div class="hero-main-wrapper position-relative">
-            <div class="swiper banner1">
-                <div class="swiper-wrapper">
-                    <div class="swiper-slide">
-                        <div class="slider-bg-1">
-                            <div class="container">
-                                <div class="row d-flex justify-content-center align-items-center">
-                                    <div class="col-xl-10 col-lg-10">
-                                        <div class="banner1-content">
-                                            <span>Bem-vindo ao LICITAME</span>
-                                            <h1>Licita, vende e compra arte.</h1>
-                                            <p>
-                                                Explora e participa em leilões emocionantes em tempo real e desfruta de
-                                                uma experiência de confiança e segura.
-                                            </p>
-                                            <a href="live-auction.html" class="eg-btn btn--primary btn--lg">Começa
-                                                já</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+      <div class="hero-main-wrapper position-relative">
+        <div class="swiper banner1">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <div class="slider-bg-1">
+                <div class="container">
+                  <div
+                    class="row d-flex justify-content-center align-items-center"
+                  >
+                    <div class="col-xl-10 col-lg-10">
+                      <div class="banner1-content">
+                        <span>Bem-vindo ao LICITAME</span>
+                        <h1>Licita, vende e compra arte.</h1>
+                        <p>
+                          Explora e participa em leilões emocionantes em tempo
+                          real e desfruta de uma experiência de confiança e
+                          segura.
+                        </p>
+                        <a
+                          href="live-auction.html"
+                          class="eg-btn btn--primary btn--lg"
+                          >Começa já</a
+                        >
+                      </div>
                     </div>
-                    <div class="swiper-slide">
-                        <div class="slider-bg-2">
-                            <div class="container">
-                                <div class="row d-flex justify-content-center align-items-center">
-                                    <div class="col-xl-10 col-lg-10">
-                                        <div class="banner1-content">
-                                            <span>Bem-vindo ao LICITAME</span>
-                                            <h2>Compra as tuas artes favoritas.</h2>
-                                            <p>
-                                                Com uma ampla seleção de obras de arte de alta qualidade, os nossos
-                                                clientes podem
-                                                participar em leilões emocionantes e adquirir peças exclusivas para as
-                                                suas coleções.
-                                            </p>
-                                            <a href="live-auction.html" class="eg-btn btn--primary btn--lg">Começa
-                                                já</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                  </div>
                 </div>
+              </div>
             </div>
-            <div class="hero-one-pagination d-flex justify-content-center flex-column align-items-center gap-3"></div>
+            <div class="swiper-slide">
+              <div class="slider-bg-2">
+                <div class="container">
+                  <div
+                    class="row d-flex justify-content-center align-items-center"
+                  >
+                    <div class="col-xl-10 col-lg-10">
+                      <div class="banner1-content">
+                        <span>Bem-vindo ao LICITAME</span>
+                        <h2>Compra as tuas artes favoritas.</h2>
+                        <p>
+                          Com uma ampla seleção de obras de arte de alta
+                          qualidade, os nossos clientes podem participar em
+                          leilões emocionantes e adquirir peças exclusivas para
+                          as suas coleções.
+                        </p>
+                        <a
+                          href="live-auction.html"
+                          class="eg-btn btn--primary btn--lg"
+                          >Começa já</a
+                        >
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
+        <div
+          class="hero-one-pagination d-flex justify-content-center flex-column align-items-center gap-3"
+        ></div>
+      </div>
     </div>
     <!-- ===============  Hero area end=============== -->
 
     <!-- =============== Leilões mais licitados=============== -->
-    <br><br><br>
+    <br /><br /><br />
     <div class="live-auction pb-120">
-        <img alt="image" src="assets/images/bg/section-bg.png" class="img-fluid section-bg">
-        <div class="container position-relative">
-            <img alt="image" src="assets/images/bg/dotted1.png" class="dotted1">
-            <img alt="image" src="assets/images/bg/dotted1.png" class="dotted2">
-            <div class="row d-flex justify-content-center">
-                <div class="col-sm-12 col-md-10 col-lg-8 col-xl-6">
-                    <div class="section-title1">
-                        <h2>Leilões mais licitados</h2>
-                        <p class="mb-0">
-                            Os leilões mais licitadoes são eventos com alta participação e interesse,
-                            com uma grande competição entre os licitantes por obras de arte, recebedem muitas licitações
-                            e atraindo uma vasta base de interessados.
-                        </p>
-                    </div>
-                </div>
+      <img
+        alt="image"
+        src="assets/images/bg/section-bg.png"
+        class="img-fluid section-bg"
+      />
+      <div class="container position-relative">
+        <img alt="image" src="assets/images/bg/dotted1.png" class="dotted1" />
+        <img alt="image" src="assets/images/bg/dotted1.png" class="dotted2" />
+        <div class="row d-flex justify-content-center">
+          <div class="col-sm-12 col-md-10 col-lg-8 col-xl-6">
+            <div class="section-title1">
+              <h2>Leilões mais licitados</h2>
+              <p class="mb-0">
+                Os leilões mais licitadoes são eventos com alta participação e
+                interesse, com uma grande competição entre os licitantes por
+                obras de arte, recebedem muitas licitações e atraindo uma vasta
+                base de interessados.
+              </p>
             </div>
-            <div class="row gy-4 mb-60 d-flex justify-content-center">
-                <div class="col-md-3 col-sm-10 ">
-                    <div data-wow-duration="1.5s" data-wow-delay="0.2s"
-                        class="eg-card auction-card1 wow animate fadeInDown">
-                        <div class="auction-img">
-                            <img alt="image" src="assets/images/bg/live-auc1.png">
-                            <div class="auction-timer">
-                                <div class="countdown" id="timer1">
-                                    <h5 style="margin: 0;"><span id="hours1">05</span>H : <span id="minutes1">52</span>M
-                                        : <span id="seconds1">32</span>S</h5>
-                                </div>
-                            </div>
-
-                        </div>
-                        <div class="auction-content">
-                            <h4><a href="auction-details.html">Novo royal Enfield 250 CC para venda</a></h4>
-                            <p>Preço Atual : <span><span>85,90€</span></span></p>
-                            <div class="auction-card-bttm">
-                                <a href="auction-details.html" class="eg-btn btn--primary btn--sm">Licitar</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3 col-sm-10 ">
-                    <div data-wow-duration="1.5s" data-wow-delay="0.4s"
-                        class="eg-card auction-card1 wow animate fadeInDown">
-                        <div class="auction-img">
-                            <img alt="image" src="assets/images/bg/live-auc2.png">
-                            <div class="auction-timer">
-                                <div class="countdown" id="timer2">
-                                    <h5 style="margin: 0;"><span id="hours2">05</span>H : <span id="minutes2">52</span>M
-                                        : <span id="seconds2">32</span>S</h5>
-                                </div>
-                            </div>
-
-                        </div>
-                        <div class="auction-content">
-                            <h4><a href="auction-details.html">Anel Casal Exclusivo Especial de Casamento (S2022)</a>
-                            </h4>
-                            <p>Preço Atual : <span>85,90€</span></p>
-                            <div class="auction-card-bttm">
-                                <a href="auction-details.html" class="eg-btn btn--primary btn--sm">Licitar</a>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-                <div class="col-md-3 col-sm-10 ">
-                    <div data-wow-duration="1.5s" data-wow-delay="0.6s"
-                        class="eg-card auction-card1 wow animate fadeInDown">
-                        <div class="auction-img">
-                            <img alt="image" src="assets/images/bg/live-auc3.png">
-                            <div class="auction-timer">
-                                <div class="countdown" id="timer3">
-                                    <h5 style="margin: 0;"><span id="hours3">05</span>H : <span id="minutes3">52</span>M
-                                        : <span id="seconds3">32</span>S</h5>
-                                </div>
-                            </div>
-
-                        </div>
-                        <div class="auction-content">
-                            <h4><a href="auction-details.html">Nova Honda CBR 600 RR para venda especial (2022)</a></h4>
-                            <p>Preço Atual : <span>85,90€</span></p>
-                            <div class="auction-card-bttm">
-                                <a href="auction-details.html" class="eg-btn btn--primary btn--sm">Licitar</a>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-                <div class="col-md-3 col-sm-10 ">
-                    <div data-wow-duration="1.5s" data-wow-delay="0.2s"
-                        class="eg-card auction-card1 wow animate fadeInDown">
-                        <div class="auction-img">
-                            <img alt="image" src="assets/images/bg/live-auc1.png">
-                            <div class="auction-timer">
-                                <div class="countdown" id="timer1">
-                                    <h5 style="margin: 0;"><span id="hours1">05</span>H : <span id="minutes1">52</span>M
-                                        : <span id="seconds1">32</span>S</h5>
-                                </div>
-                            </div>
-
-                        </div>
-                        <div class="auction-content">
-                            <h4><a href="auction-details.html">Novo royal Enfield 250 CC para venda</a></h4>
-                            <p>Preço Atual : <span><span>85,90€</span></span></p>
-                            <div class="auction-card-bttm">
-                                <a href="auction-details.html" class="eg-btn btn--primary btn--sm">Licitar</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row d-flex justify-content-center">
-                <div class="col-md-4 text-center">
-                    <a href="live-auction.html" class="eg-btn btn--primary btn--md mx-auto">Ver todos</a>
-                </div>
-            </div>
+          </div>
         </div>
+        <div class="row gy-4 mb-60 d-flex justify-content-center">
+          <div class="col-md-3 col-sm-10">
+            <div
+              data-wow-duration="1.5s"
+              data-wow-delay="0.2s"
+              class="eg-card auction-card1 wow animate fadeInDown"
+            >
+              <div class="auction-img">
+                <img alt="image" src="assets/images/bg/live-auc1.png" />
+                <div class="auction-timer">
+                  <div class="countdown" id="timer1">
+                    <h5 style="margin: 0">
+                      <span id="hours1">05</span>H :
+                      <span id="minutes1">52</span>M :
+                      <span id="seconds1">32</span>S
+                    </h5>
+                  </div>
+                </div>
+              </div>
+              <div class="auction-content">
+                <h4>
+                  <a href="auction-details.html"
+                    >Novo royal Enfield 250 CC para venda</a
+                  >
+                </h4>
+                <p>
+                  Preço Atual : <span><span>85,90€</span></span>
+                </p>
+                <div class="auction-card-bttm">
+                  <a
+                    href="auction-details.html"
+                    class="eg-btn btn--primary btn--sm"
+                    >Licitar</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3 col-sm-10">
+            <div
+              data-wow-duration="1.5s"
+              data-wow-delay="0.4s"
+              class="eg-card auction-card1 wow animate fadeInDown"
+            >
+              <div class="auction-img">
+                <img alt="image" src="assets/images/bg/live-auc2.png" />
+                <div class="auction-timer">
+                  <div class="countdown" id="timer2">
+                    <h5 style="margin: 0">
+                      <span id="hours2">05</span>H :
+                      <span id="minutes2">52</span>M :
+                      <span id="seconds2">32</span>S
+                    </h5>
+                  </div>
+                </div>
+              </div>
+              <div class="auction-content">
+                <h4>
+                  <a href="auction-details.html"
+                    >Anel Casal Exclusivo Especial de Casamento (S2022)</a
+                  >
+                </h4>
+                <p>Preço Atual : <span>85,90€</span></p>
+                <div class="auction-card-bttm">
+                  <a
+                    href="auction-details.html"
+                    class="eg-btn btn--primary btn--sm"
+                    >Licitar</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3 col-sm-10">
+            <div
+              data-wow-duration="1.5s"
+              data-wow-delay="0.6s"
+              class="eg-card auction-card1 wow animate fadeInDown"
+            >
+              <div class="auction-img">
+                <img alt="image" src="assets/images/bg/live-auc3.png" />
+                <div class="auction-timer">
+                  <div class="countdown" id="timer3">
+                    <h5 style="margin: 0">
+                      <span id="hours3">05</span>H :
+                      <span id="minutes3">52</span>M :
+                      <span id="seconds3">32</span>S
+                    </h5>
+                  </div>
+                </div>
+              </div>
+              <div class="auction-content">
+                <h4>
+                  <a href="auction-details.html"
+                    >Nova Honda CBR 600 RR para venda especial (2022)</a
+                  >
+                </h4>
+                <p>Preço Atual : <span>85,90€</span></p>
+                <div class="auction-card-bttm">
+                  <a
+                    href="auction-details.html"
+                    class="eg-btn btn--primary btn--sm"
+                    >Licitar</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3 col-sm-10">
+            <div
+              data-wow-duration="1.5s"
+              data-wow-delay="0.2s"
+              class="eg-card auction-card1 wow animate fadeInDown"
+            >
+              <div class="auction-img">
+                <img alt="image" src="assets/images/bg/live-auc1.png" />
+                <div class="auction-timer">
+                  <div class="countdown" id="timer1">
+                    <h5 style="margin: 0">
+                      <span id="hours1">05</span>H :
+                      <span id="minutes1">52</span>M :
+                      <span id="seconds1">32</span>S
+                    </h5>
+                  </div>
+                </div>
+              </div>
+              <div class="auction-content">
+                <h4>
+                  <a href="auction-details.html"
+                    >Novo royal Enfield 250 CC para venda</a
+                  >
+                </h4>
+                <p>
+                  Preço Atual : <span><span>85,90€</span></span>
+                </p>
+                <div class="auction-card-bttm">
+                  <a
+                    href="auction-details.html"
+                    class="eg-btn btn--primary btn--sm"
+                    >Licitar</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row d-flex justify-content-center">
+          <div class="col-md-4 text-center">
+            <a
+              href="live-auction.html"
+              class="eg-btn btn--primary btn--md mx-auto"
+              >Ver todos</a
+            >
+          </div>
+        </div>
+      </div>
     </div>
 
     <!-- =============== Leilões a terminar =============== -->
     <div class="live-auction pb-120">
-        <img alt="image" src="assets/images/bg/section-bg.png" class="img-fluid section-bg">
-        <div class="container position-relative">
-            <img alt="image" src="assets/images/bg/dotted1.png" class="dotted1">
-            <img alt="image" src="assets/images/bg/dotted1.png" class="dotted2">
-            <div class="row d-flex justify-content-center">
-                <div class="col-sm-12 col-md-10 col-lg-8 col-xl-6">
-                    <div class="section-title1">
-                        <h2>Leilões a terminar</h2>
-                        <p class="mb-0">Leilões a terminar são eventos em que as obras de arte apresentadas estão
-                            prestes a serem vendidas.
-                            Permitindo assim que os participantes realizem licitações até ao último minuto do leilão.
-                        </p>
-                    </div>
-                </div>
+      <img
+        alt="image"
+        src="assets/images/bg/section-bg.png"
+        class="img-fluid section-bg"
+      />
+      <div class="container position-relative">
+        <img alt="image" src="assets/images/bg/dotted1.png" class="dotted1" />
+        <img alt="image" src="assets/images/bg/dotted1.png" class="dotted2" />
+        <div class="row d-flex justify-content-center">
+          <div class="col-sm-12 col-md-10 col-lg-8 col-xl-6">
+            <div class="section-title1">
+              <h2>Leilões a terminar</h2>
+              <p class="mb-0">
+                Leilões a terminar são eventos em que as obras de arte
+                apresentadas estão prestes a serem vendidas. Permitindo assim
+                que os participantes realizem licitações até ao último minuto do
+                leilão.
+              </p>
             </div>
-            <div class="row gy-4 mb-60 d-flex justify-content-center">
-                <div class="col-lg-3 col-sm-10 ">
-                    <div data-wow-duration="1.5s" data-wow-delay="0.2s"
-                        class="eg-card auction-card1 wow animate fadeInDown">
-                        <div class="auction-img">
-                            <img alt="image" src="assets/images/bg/live-auc1.png">
-                            <div class="auction-timer">
-                                <div class="countdown" id="timer1">
-                                    <h5 style="margin: 0;"><span id="hours1">05</span>H : <span id="minutes1">52</span>M
-                                        : <span id="seconds1">32</span>S</h5>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="auction-content">
-                            <h4><a href="auction-details.html">Novo royal Enfield 250 CC para venda</a></h4>
-                            <p>Preço Atual : <span><span>85,90€</span></span></p>
-                            <div class="auction-card-bttm">
-                                <a href="auction-details.html" class="eg-btn btn--primary btn--sm">Licitar</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-sm-10 ">
-                    <div data-wow-duration="1.5s" data-wow-delay="0.4s"
-                        class="eg-card auction-card1 wow animate fadeInDown">
-                        <div class="auction-img">
-                            <img alt="image" src="assets/images/bg/live-auc2.png">
-                            <div class="auction-timer">
-                                <div class="countdown" id="timer2">
-                                    <h5 style="margin: 0;"><span id="hours2">05</span>H : <span id="minutes2">52</span>M
-                                        : <span id="seconds2">32</span>S</h5>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="auction-content">
-                            <h4><a href="auction-details.html">Anel Cupple exclusivo especial de casamento (S2022)</a>
-                            </h4>
-                            <p>Preço Atual : <span>85,90€</span></p>
-                            <div class="auction-card-bttm">
-                                <a href="auction-details.html" class="eg-btn btn--primary btn--sm">Licitar</a>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-                <div class="col-lg-3  col-sm-10 ">
-                    <div data-wow-duration="1.5s" data-wow-delay="0.6s"
-                        class="eg-card auction-card1 wow animate fadeInDown">
-                        <div class="auction-img">
-                            <img alt="image" src="assets/images/bg/live-auc3.png">
-                            <div class="auction-timer">
-                                <div class="countdown" id="timer3">
-                                    <h5 style="margin: 0;"><span id="hours3">05</span>H : <span id="minutes3">52</span>M
-                                        : <span id="seconds3">32</span>S</h5>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="auction-content">
-                            <h4><a href="auction-details.html">Nova Honda CBR 600 RR para venda especial (2022)</a></h4>
-                            <p>Preço Atual : <span>85,90€</span></p>
-                            <div class="auction-card-bttm">
-                                <a href="auction-details.html" class="eg-btn btn--primary btn--sm">Licitar</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-sm-10 ">
-                    <div data-wow-duration="1.5s" data-wow-delay="0.2s"
-                        class="eg-card auction-card1 wow animate fadeInDown">
-                        <div class="auction-img">
-                            <img alt="image" src="assets/images/bg/live-auc1.png">
-                            <div class="auction-timer">
-                                <div class="countdown" id="timer1">
-                                    <h5 style="margin: 0;"><span id="hours1">05</span>H : <span id="minutes1">52</span>M
-                                        : <span id="seconds1">32</span>S</h5>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="auction-content">
-                            <h4><a href="auction-details.html">Novo royal Enfield 250 CC para venda</a></h4>
-                            <p>Preço Atual : <span><span>85,90€</span></span></p>
-                            <div class="auction-card-bttm">
-                                <a href="auction-details.html" class="eg-btn btn--primary btn--sm">Licitar</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row d-flex justify-content-center">
-                <div class="col-md-4 text-center">
-                    <a href="live-auction.html" class="eg-btn btn--primary btn--md mx-auto">Ver todos</a>
-                </div>
-            </div>
+          </div>
         </div>
+        <div class="row gy-4 mb-60 d-flex justify-content-center">
+          <div class="col-lg-3 col-sm-10">
+            <div
+              data-wow-duration="1.5s"
+              data-wow-delay="0.2s"
+              class="eg-card auction-card1 wow animate fadeInDown"
+            >
+              <div class="auction-img">
+                <img alt="image" src="assets/images/bg/live-auc1.png" />
+                <div class="auction-timer">
+                  <div class="countdown" id="timer1">
+                    <h5 style="margin: 0">
+                      <span id="hours1">05</span>H :
+                      <span id="minutes1">52</span>M :
+                      <span id="seconds1">32</span>S
+                    </h5>
+                  </div>
+                </div>
+              </div>
+              <div class="auction-content">
+                <h4>
+                  <a href="auction-details.html"
+                    >Novo royal Enfield 250 CC para venda</a
+                  >
+                </h4>
+                <p>
+                  Preço Atual : <span><span>85,90€</span></span>
+                </p>
+                <div class="auction-card-bttm">
+                  <a
+                    href="auction-details.html"
+                    class="eg-btn btn--primary btn--sm"
+                    >Licitar</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-sm-10">
+            <div
+              data-wow-duration="1.5s"
+              data-wow-delay="0.4s"
+              class="eg-card auction-card1 wow animate fadeInDown"
+            >
+              <div class="auction-img">
+                <img alt="image" src="assets/images/bg/live-auc2.png" />
+                <div class="auction-timer">
+                  <div class="countdown" id="timer2">
+                    <h5 style="margin: 0">
+                      <span id="hours2">05</span>H :
+                      <span id="minutes2">52</span>M :
+                      <span id="seconds2">32</span>S
+                    </h5>
+                  </div>
+                </div>
+              </div>
+              <div class="auction-content">
+                <h4>
+                  <a href="auction-details.html"
+                    >Anel Cupple exclusivo especial de casamento (S2022)</a
+                  >
+                </h4>
+                <p>Preço Atual : <span>85,90€</span></p>
+                <div class="auction-card-bttm">
+                  <a
+                    href="auction-details.html"
+                    class="eg-btn btn--primary btn--sm"
+                    >Licitar</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-sm-10">
+            <div
+              data-wow-duration="1.5s"
+              data-wow-delay="0.6s"
+              class="eg-card auction-card1 wow animate fadeInDown"
+            >
+              <div class="auction-img">
+                <img alt="image" src="assets/images/bg/live-auc3.png" />
+                <div class="auction-timer">
+                  <div class="countdown" id="timer3">
+                    <h5 style="margin: 0">
+                      <span id="hours3">05</span>H :
+                      <span id="minutes3">52</span>M :
+                      <span id="seconds3">32</span>S
+                    </h5>
+                  </div>
+                </div>
+              </div>
+              <div class="auction-content">
+                <h4>
+                  <a href="auction-details.html"
+                    >Nova Honda CBR 600 RR para venda especial (2022)</a
+                  >
+                </h4>
+                <p>Preço Atual : <span>85,90€</span></p>
+                <div class="auction-card-bttm">
+                  <a
+                    href="auction-details.html"
+                    class="eg-btn btn--primary btn--sm"
+                    >Licitar</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-sm-10">
+            <div
+              data-wow-duration="1.5s"
+              data-wow-delay="0.2s"
+              class="eg-card auction-card1 wow animate fadeInDown"
+            >
+              <div class="auction-img">
+                <img alt="image" src="assets/images/bg/live-auc1.png" />
+                <div class="auction-timer">
+                  <div class="countdown" id="timer1">
+                    <h5 style="margin: 0">
+                      <span id="hours1">05</span>H :
+                      <span id="minutes1">52</span>M :
+                      <span id="seconds1">32</span>S
+                    </h5>
+                  </div>
+                </div>
+              </div>
+              <div class="auction-content">
+                <h4>
+                  <a href="auction-details.html"
+                    >Novo royal Enfield 250 CC para venda</a
+                  >
+                </h4>
+                <p>
+                  Preço Atual : <span><span>85,90€</span></span>
+                </p>
+                <div class="auction-card-bttm">
+                  <a
+                    href="auction-details.html"
+                    class="eg-btn btn--primary btn--sm"
+                    >Licitar</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row d-flex justify-content-center">
+          <div class="col-md-4 text-center">
+            <a
+              href="live-auction.html"
+              class="eg-btn btn--primary btn--md mx-auto"
+              >Ver todos</a
+            >
+          </div>
+        </div>
+      </div>
     </div>
     <!-- =============== Leilões mais recentes =============== -->
 
     <div class="live-auction pb-120">
-        <img alt="image" src="assets/images/bg/section-bg.png" class="img-fluid section-bg">
-        <div class="container position-relative">
-            <img alt="image" src="assets/images/bg/dotted1.png" class="dotted1">
-            <img alt="image" src="assets/images/bg/dotted1.png" class="dotted2">
-            <div class="row d-flex justify-content-center">
-                <div class="col-sm-12 col-md-10 col-lg-8 col-xl-6">
-                    <div class="section-title1">
-                        <h2>Leilões mais recentes</h2>
-                        <p class="mb-0"> Os leilões mais recentes são os eventos em que as licitações já foram abertas e
-                            estão em andamento,
-                            permitindo assim, que os participantes façam as sua licitações remotamente em tempo real.
-                        </p>
-                    </div>
-                </div>
+      <img
+        alt="image"
+        src="assets/images/bg/section-bg.png"
+        class="img-fluid section-bg"
+      />
+      <div class="container position-relative">
+        <img alt="image" src="assets/images/bg/dotted1.png" class="dotted1" />
+        <img alt="image" src="assets/images/bg/dotted1.png" class="dotted2" />
+        <div class="row d-flex justify-content-center">
+          <div class="col-sm-12 col-md-10 col-lg-8 col-xl-6">
+            <div class="section-title1">
+              <h2>Leilões mais recentes</h2>
+              <p class="mb-0">
+                Os leilões mais recentes são os eventos em que as licitações já
+                foram abertas e estão em andamento, permitindo assim, que os
+                participantes façam as sua licitações remotamente em tempo real.
+              </p>
             </div>
-            <div class="row gy-4 mb-60 d-flex justify-content-center">
-                <div class="col-lg-3 col-sm-10 ">
-                    <div data-wow-duration="1.5s" data-wow-delay="0.2s"
-                        class="eg-card auction-card1 wow animate fadeInDown">
-                        <div class="auction-img">
-                            <img alt="image" src="assets/images/bg/live-auc1.png">
-                            <div class="auction-timer">
-                                <div class="countdown" id="timer1">
-                                    <h5 style="margin: 0;"><span id="hours1">05</span>H : <span id="minutes1">52</span>M
-                                        : <span id="seconds1">32</span>S</h5>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="auction-content">
-                            <h4><a href="auction-details.html">Novo royal Enfield 250 CC para venda</a></h4>
-                            <p>Preço Atual : <span><span>85,90€</span></span></p>
-                            <div class="auction-card-bttm">
-                                <a href="auction-details.html" class="eg-btn btn--primary btn--sm">Licitar</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-sm-10 ">
-                    <div data-wow-duration="1.5s" data-wow-delay="0.4s"
-                        class="eg-card auction-card1 wow animate fadeInDown">
-                        <div class="auction-img">
-                            <img alt="image" src="assets/images/bg/live-auc2.png">
-                            <div class="auction-timer">
-                                <div class="countdown" id="timer2">
-                                    <h5 style="margin: 0;"><span id="hours2">05</span>H : <span id="minutes2">52</span>M
-                                        : <span id="seconds2">32</span>S</h5>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="auction-content">
-                            <h4><a href="auction-details.html">Anel Cupple exclusivo especial de casamento (S2022)</a>
-                            </h4>
-                            <p>Preço Atual : <span>85,90€</span></p>
-                            <div class="auction-card-bttm">
-                                <a href="auction-details.html" class="eg-btn btn--primary btn--sm">Licitar</a>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-                <div class="col-lg-3  col-sm-10 ">
-                    <div data-wow-duration="1.5s" data-wow-delay="0.6s"
-                        class="eg-card auction-card1 wow animate fadeInDown">
-                        <div class="auction-img">
-                            <img alt="image" src="assets/images/bg/live-auc3.png">
-                            <div class="auction-timer">
-                                <div class="countdown" id="timer3">
-                                    <h5 style="margin: 0;"><span id="hours3">05</span>H : <span id="minutes3">52</span>M
-                                        : <span id="seconds3">32</span>S</h5>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="auction-content">
-                            <h4><a href="auction-details.html">Nova Honda CBR 600 RR para venda especial (2022)</a></h4>
-                            <p>Preço Atual : <span>85,90€</span></p>
-                            <div class="auction-card-bttm">
-                                <a href="auction-details.html" class="eg-btn btn--primary btn--sm">Licitar</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-sm-10 ">
-                    <div data-wow-duration="1.5s" data-wow-delay="0.2s"
-                        class="eg-card auction-card1 wow animate fadeInDown">
-                        <div class="auction-img">
-                            <img alt="image" src="assets/images/bg/live-auc1.png">
-                            <div class="auction-timer">
-                                <div class="countdown" id="timer1">
-                                    <h5 style="margin: 0;"><span id="hours1">05</span>H : <span id="minutes1">52</span>M
-                                        : <span id="seconds1">32</span>S</h5>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="auction-content">
-                            <h4><a href="auction-details.html">Novo royal Enfield 250 CC para venda</a></h4>
-                            <p>Preço Atual : <span><span>85,90€</span></span></p>
-                            <div class="auction-card-bttm">
-                                <a href="auction-details.html" class="eg-btn btn--primary btn--sm">Licitar</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row d-flex justify-content-center">
-                <div class="col-md-4 text-center">
-                    <a href="live-auction.html" class="eg-btn btn--primary btn--md mx-auto">Ver todos</a>
-                </div>
-            </div>
+          </div>
         </div>
+        <div class="row gy-4 mb-60 d-flex justify-content-center">
+          <div class="col-lg-3 col-sm-10">
+            <div
+              data-wow-duration="1.5s"
+              data-wow-delay="0.2s"
+              class="eg-card auction-card1 wow animate fadeInDown"
+            >
+              <div class="auction-img">
+                <img alt="image" src="assets/images/bg/live-auc1.png" />
+                <div class="auction-timer">
+                  <div class="countdown" id="timer1">
+                    <h5 style="margin: 0">
+                      <span id="hours1">05</span>H :
+                      <span id="minutes1">52</span>M :
+                      <span id="seconds1">32</span>S
+                    </h5>
+                  </div>
+                </div>
+              </div>
+              <div class="auction-content">
+                <h4>
+                  <a href="auction-details.html"
+                    >Novo royal Enfield 250 CC para venda</a
+                  >
+                </h4>
+                <p>
+                  Preço Atual : <span><span>85,90€</span></span>
+                </p>
+                <div class="auction-card-bttm">
+                  <a
+                    href="auction-details.html"
+                    class="eg-btn btn--primary btn--sm"
+                    >Licitar</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-sm-10">
+            <div
+              data-wow-duration="1.5s"
+              data-wow-delay="0.4s"
+              class="eg-card auction-card1 wow animate fadeInDown"
+            >
+              <div class="auction-img">
+                <img alt="image" src="assets/images/bg/live-auc2.png" />
+                <div class="auction-timer">
+                  <div class="countdown" id="timer2">
+                    <h5 style="margin: 0">
+                      <span id="hours2">05</span>H :
+                      <span id="minutes2">52</span>M :
+                      <span id="seconds2">32</span>S
+                    </h5>
+                  </div>
+                </div>
+              </div>
+              <div class="auction-content">
+                <h4>
+                  <a href="auction-details.html"
+                    >Anel Cupple exclusivo especial de casamento (S2022)</a
+                  >
+                </h4>
+                <p>Preço Atual : <span>85,90€</span></p>
+                <div class="auction-card-bttm">
+                  <a
+                    href="auction-details.html"
+                    class="eg-btn btn--primary btn--sm"
+                    >Licitar</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-sm-10">
+            <div
+              data-wow-duration="1.5s"
+              data-wow-delay="0.6s"
+              class="eg-card auction-card1 wow animate fadeInDown"
+            >
+              <div class="auction-img">
+                <img alt="image" src="assets/images/bg/live-auc3.png" />
+                <div class="auction-timer">
+                  <div class="countdown" id="timer3">
+                    <h5 style="margin: 0">
+                      <span id="hours3">05</span>H :
+                      <span id="minutes3">52</span>M :
+                      <span id="seconds3">32</span>S
+                    </h5>
+                  </div>
+                </div>
+              </div>
+              <div class="auction-content">
+                <h4>
+                  <a href="auction-details.html"
+                    >Nova Honda CBR 600 RR para venda especial (2022)</a
+                  >
+                </h4>
+                <p>Preço Atual : <span>85,90€</span></p>
+                <div class="auction-card-bttm">
+                  <a
+                    href="auction-details.html"
+                    class="eg-btn btn--primary btn--sm"
+                    >Licitar</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-sm-10">
+            <div
+              data-wow-duration="1.5s"
+              data-wow-delay="0.2s"
+              class="eg-card auction-card1 wow animate fadeInDown"
+            >
+              <div class="auction-img">
+                <img alt="image" src="assets/images/bg/live-auc1.png" />
+                <div class="auction-timer">
+                  <div class="countdown" id="timer1">
+                    <h5 style="margin: 0">
+                      <span id="hours1">05</span>H :
+                      <span id="minutes1">52</span>M :
+                      <span id="seconds1">32</span>S
+                    </h5>
+                  </div>
+                </div>
+              </div>
+              <div class="auction-content">
+                <h4>
+                  <a href="auction-details.html"
+                    >Novo royal Enfield 250 CC para venda</a
+                  >
+                </h4>
+                <p>
+                  Preço Atual : <span><span>85,90€</span></span>
+                </p>
+                <div class="auction-card-bttm">
+                  <a
+                    href="auction-details.html"
+                    class="eg-btn btn--primary btn--sm"
+                    >Licitar</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row d-flex justify-content-center">
+          <div class="col-md-4 text-center">
+            <a
+              href="live-auction.html"
+              class="eg-btn btn--primary btn--md mx-auto"
+              >Ver todos</a
+            >
+          </div>
+        </div>
+      </div>
     </div>
 
     <!-- =============== upcoming-action-section end =============== -->
 
     <!-- =============== Footer-action-section start =============== -->
 
-    <footer>
-        <div class="footer-top">
-            <div class="container">
-                <div class="row gy-5">
-                    <div class="col-lg-3 col-md-6">
-                        <div class="footer-item">
-                            <a href="index.html"><img alt="image" src="assets/images/bg/footer-logo.png"
-                                    width="200px"></a>
-                            <p>Escolha a nossa plataforma para suas compras e leilões de obras e desfrute de uma
-                                experiência excepcional de compra, licitação e venda!</p>
-                            <form>
-                                <div class="input-with-btn d-flex jusify-content-start align-items-strech">
-                                    <input type="text" placeholder="Introduza o seu Email">
-                                    <button type="submit"><img alt="image"
-                                            src="assets/images/icons/send-icon.svg"></button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 d-flex justify-content-lg-center">
-                        <div class="footer-item">
-                            <h5>Navegação</h5>
-                            <ul class="footer-list">
-                                <li><a href="live-auction.html">Todos os Leilões</a></li>
-                                <li><a href="how-works.html">Como Funciona</a></li>
-                                <li><a href="login.php">Conta</a></li>
-                                <li><a href="about.html">Sobre Nós</a></li>
-                                <!-- <li><a href="blog.html">Our News Feed</a></li>-->
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 d-flex justify-content-lg-center">
-                        <div class="footer-item">
-                            <h5>Ajuda & FAQs</h5>
-                            <ul class="footer-list">
-                                <li><a href="product.html">Centro de Ajuda</a></li>
-                                <li><a href="faq.html">Cliente FAQs</a></li>
-                                <li><a href="login.html">Termos e condições</a></li>
-                                <li><a href="about.html">Informações de segurança</a></li>
-                                <li><a href="blog.html">Vendedor e Políticas</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <div class="container">
-                <div class="row d-flex align-items-center g-4">
-                    <div class="col-lg-6 d-flex justify-content-lg-start justify-content-center">
-                        <p>Copyright 2023 <a href="#">LICITAME</a> | Design Por <a href="#" class="egns-lab">Grupo 1</a>
-                        </p>
-                    </div>
-                    <div class="col-lg-6 d-flex justify-content-lg-end justify-content-center align-items-center flex-sm-nowrap flex-wrap">
-                        <!--<p class="d-sm-flex d-none">Aceitamos:</p>
-                        <ul class="footer-logo-list">
-                            <li><a href="#"><img alt="image" src="assets/images/bg/footer-pay1.png"></a></li>
-                            <li><a href="#"><img alt="image" src="assets/images/bg/footer-pay2.png"></a></li>
-                            <li><a href="#"><img alt="image" src="assets/images/bg/footer-pay3.png"></a></li>
-                            <li><a href="#"><img alt="image" src="assets/images/bg/footer-pay4.png"></a></li>
-                            <li><a href="#"><img alt="image" src="assets/images/bg/footer-pay5.png"></a></li>
-                        </ul>
-                        -->
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
+    <footer id="footer"></footer>
 
     <!-- =============== Footer-action-section end =============== -->
 
@@ -637,8 +769,8 @@
     <script src="assets/js/odometer.min.js"></script>
     <script src="assets/js/viewport.jquery.js"></script>
     <script src="assets/js/jquery.magnific-popup.min.js"></script>
+
+    <script src="ourChanges/callCommonSections.js"></script>
     <script src="assets/js/main.js"></script>
-
-</body>
-
+  </body>
 </html>

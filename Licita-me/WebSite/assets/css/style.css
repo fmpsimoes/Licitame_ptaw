@@ -1184,7 +1184,8 @@ header.style-1 .header-btn:hover a {
   color: #fff;
 }
 
-@media (max-width: 1199px) {
+
+@media (max-width: 991px) { /*@media (max-width: 1199px) { */
   header.style-1 .header-btn {
     display: none;
     visibility: hidden;
@@ -2350,19 +2351,19 @@ header.style-3 .mobile-menu-form input[type=text] {
 
 @media (min-width: 1200px) and (max-width: 1399px) {
   .hero-style-one .slider-bg-2 {
-    padding: 160px 0px;
+    padding: 40px 0px;
   }
 }
 
 @media (min-width: 992px) and (max-width: 1199px) {
   .hero-style-one .slider-bg-2 {
-    padding: 160px 0px;
+    padding: 40px 0px;
   }
 }
 
 @media (max-width: 991px) {
   .hero-style-one .slider-bg-2 {
-    padding: 120px 0px;
+    padding: 20px 0px;
   }
 }
 

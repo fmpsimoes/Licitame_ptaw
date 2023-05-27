@@ -84,6 +84,10 @@ $(document).ready(function () {
 function setAnuncio() {
   let certificationFile = document.getElementById('certification');
   const obj = {
+    primeiroNomeVendedor: $('#firstname').val(),
+    ultimoNomeVendedor: $('#lastname').val(),
+    contacto: $('#contact').val(),
+    email: $('#email').val(),
     nome: $('#nameItem').val(),
     categoria: $('#category').find(":selected").val(),
     materiais: $('#materials').val(),
@@ -95,11 +99,15 @@ function setAnuncio() {
     estado: $('#estado').val(),
     valorInicial: $('#valueBase').val(),
     valorCompraImediata: $('#valueBuyNow').val(),
-    descricao: $('#description').val()
+    descricao: $('#description').val(),
+    morada: $('#address').val(),
+    concelho: $('#concelho').val(),
+    porta: $('#porta').val(),
+    codigopostal: $('#zipcode').val()
   }
   console.log(obj);
   $.ajax({
-    url: 'ourChanges/insert-auction.php',
+    url: 'ourChanges/insert-auction-teste-emailer.php',
     type: 'POST',
     data: { data: obj },
     success: function (response) {

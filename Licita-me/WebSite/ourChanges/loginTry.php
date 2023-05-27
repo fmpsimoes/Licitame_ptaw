@@ -12,7 +12,7 @@
 
     try {
         $pdo = new PDO("pgsql:host=$host;port=$port;dbname=$dbname;user=$user;password=$password");
-        
+
         // check if email and password are correct
         $stmt = $pdo->prepare("SELECT email, nome, apelido, contactotelefonico, morada, porta, codigopostal, concelho, tipoutilizador FROM utilizadores WHERE email = ? AND pass = ?");
         $stmt->execute([$data["email"], $data["pass"]]);
@@ -44,6 +44,5 @@
     }catch(PDOException $e) {
        echo json_encode("Erro: " . $e->getMessage());
     }
-    
+
 ?>
- 

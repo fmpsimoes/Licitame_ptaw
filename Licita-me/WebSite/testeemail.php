@@ -22,7 +22,7 @@ try {
 
     $mail->isHTML(true);
     $mail->Subject='teste email server licitame';
-    $mail->Body='Corpo de mail de <b>teste</b>';
+    $mail->Body="Corpo de mail de <b>teste</b> ";
 
     $mail->send();
     

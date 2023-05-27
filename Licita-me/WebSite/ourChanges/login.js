@@ -3,26 +3,28 @@ $("#loginButton").on("click", function () {
   let password = document.getElementById("password").value;
 
   const loginDetails = {
-      email: email,
-      pass: password
-  }
+    email: email,
+    pass: password,
+  };
 
   $.ajax({
-      url: './ourChanges/loginTry.php',
-      type: 'POST',
-      data: { data: loginDetails },
-      success: function (response) {
-        let jsonResponse = JSON.parse(response);
-
-          if(jsonResponse == "dashboard.php" || jsonResponse == "dashboardAdmin.php" || jsonResponse == "dashboardPerito.php"){
-              window.location.href = jsonResponse; //redirecionar para o respetivo painel depois de inciar sessão
-          }
-          else{
-              alert(jsonResponse);
-          }
-      },
-      error: function (xhr, status, error) {
-      console.error(error);
+    url: "./ourChanges/loginTry.php",
+    type: "POST",
+    data: { data: loginDetails },
+    success: function (response) {
+      let jsonResponse = JSON.parse(response);
+      if (
+        jsonResponse == "dashboard.php" ||
+        jsonResponse == "dashboardAdmin.php" ||
+        jsonResponse == "dashboardPerito.php"
+      ) {
+        window.location.href = jsonResponse; //redirecionar para o respetivo painel depois de inciar sessão
+      } else {
+        alert(jsonResponse);
       }
+    },
+    error: function (xhr, status, error) {
+      console.error(error);
+    },
   });
 });
