@@ -13,10 +13,13 @@ try {
 
     try{
         $query = "SELECT * FROM pecasarte WHERE id= ?";
+        $queryfotos = "SELECT dirimagem FROM fotografias WHERE idpecaarte= ?";
         $statement = $pdo->prepare($query);
-        if($statement->execute(array($data))){
-            $row = $statement->fetchAll(PDO::FETCH_ASSOC);
-            echo json_encode($row);
+        $statementfotos = $pdo->prepare($queryfotos);
+        if($statement->execute(array($data)) && $statementfotos->execute(array($data))){
+            $data = $statement->fetchAll(PDO::FETCH_ASSOC);
+            $fotos = $statementfotos->fetchAll(PDO::FETCH_ASSOC);
+            echo json_encode(["data" => $data, "fotos" => $fotos]);
         }else{
             echo "Erro ao carregar dados de leilão";
         }

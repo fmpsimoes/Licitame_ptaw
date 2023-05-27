@@ -103,10 +103,15 @@ function setAnuncio() {
     type: 'POST',
     data: { data: obj },
     success: function (response) {
-      alert("Anuncio publicado sem fotos");
-      //Insere fotos para o anuncio colocado apos receber o id do anuncio colocado
-      insertPhotos(JSON.parse(response));
-      insertCertificado(JSON.parse(response));
+      alert("Leilão publicado com sucesso!");
+      //Insere fotos para o anuncio colocado apos receber o id do anuncio colocado (Provavelmente verificação irá ser inutil quando as imagens passarem a ser obrigatorias)
+      if (images.files.length > 0) {
+        insertPhotos(JSON.parse(response['idLeilao']));
+      }
+      ///Insere certificado para o anuncio colocado apos receber o id do anuncio colocado
+      if (certificationFile.files.length > 0) {
+        insertCertificado(JSON.parse(response['idLeilao']));
+      }
       window.location.href = "./dashboard.php";
     },
     error: function (xhr, status, error) {

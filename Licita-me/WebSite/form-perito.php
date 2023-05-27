@@ -190,11 +190,13 @@ if(!isset($_SESSION['email'])) {
                                 <label for="category">Categorias *</label>
                                 <select name="category" id="category" required>
                                     <option value="" selected disabled>Escolha a categoria...</option>
-                                    <option value="pintura">Pintura</option>
-                                    <option value="fotografiaNaoDigital">Fotografia não digital</option>
-                                    <option value="escultura">Escultura</option>
-                                    <option value="literatura">Literatura</option>
-                                    <option value="bandaDesenhada">Banda Desenhada</option>
+                                    <option value="Pintura">Pintura</option>
+                                    <option value="Fotografia">Fotografia não digital</option>
+                                    <option value="Escultura">Escultura</option>
+                                    <option value="Literatura">Literatura</option>
+                                    <option value="Banda desenhada">Banda Desenhada</option>
+                                    <option value="Artesanato">Artesanato</option>
+                                    <option value="Outro">Outro</option>
                                 </select>
                             </div>
                         </div>
@@ -207,22 +209,7 @@ if(!isset($_SESSION['email'])) {
                             </div>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-xl-6 col-lg-12 col-md-6">
-                            <div class="form-inner">
-                                <label for="dataStartItem">Data preferencial para início de leilão *</label>
-                                <input type="datetime-local" placeholder="Data" name="dataStartItem" id="dataStartItem"
-                                    required>
-                            </div>
-                        </div>
-                        <div class="col-xl-6 col-lg-12 col-md-6">
-                            <div class="form-inner">
-                                <label for="dataEndItem">Data preferencial para término de leilão *</label>
-                                <input type="datetime-local" placeholder="Data" name="dataEndItem" id="dataEndItem"
-                                    required>
-                            </div>
-                        </div>
-                    </div>
+                    
                     <div class="row">
                         <div class="col-xl-6 col-lg-12 col-md-6">
                             <div class="form-inner">
@@ -246,29 +233,12 @@ if(!isset($_SESSION['email'])) {
                         </div>
                         <div class="col-xl-6 col-lg-12 col-md-6">
                             <div class="form-inner">
-                                <label for="periodEstimated">Período estimado de leilão *</label>
+                                <label for="periodEstimated">Período estimado da peça *</label>
                                 <input type="text" placeholder="Período estimado" name="periodEstimated"
                                     id="periodEstimated" required>
                             </div>
                         </div>
                     </div>
-
-                    <div class="row">
-                        <div class="col-xl-6 col-lg-12 col-md-6">
-                            <div class="form-inner">
-                                <label for="valueBase">Valor Base *</label>
-                                <input type="text" placeholder="Valor Base" name="valueBase" id="valueBase" required>
-                            </div>
-                        </div>
-                        <div class="col-xl-6 col-lg-12 col-md-6">
-                            <div class="form-inner">
-                                <label for="valueBuyNow">Valor de compra imediata *</label>
-                                <input type="text" placeholder="Valor compra imediata" name="valueBuyNow"
-                                    id="valueBuyNow" required>
-                            </div>
-                        </div>
-                    </div>
-
                     <div class="row">
                         <div class="col-xl-6 col-lg-12 col-md-6">
                             <div class="form-inner">
@@ -310,23 +280,23 @@ if(!isset($_SESSION['email'])) {
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-xl-9 col-lg-12 col-md-9">
+                        <div class="col-xl-12 col-lg-12 col-md-12">
                             <div class="form-inner">
-                                <label for="certification">Certificado *</label>
-                                <input type="file" name="certification" id="certification" required multiple>
+                                <label for="certification">Certificado</label>
+                                <div id="certificadoDiv">
+                                
+                                </div>
                             </div>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-12">
                             <div class="button-group">
-                                <button type="submit" class="eg-btn profile-btn">Publicar Leilão</button>
-                                <button type="submit" class="eg-btn profile-btn2">Rejeitar Leilão</button>
+                                <button type="submit" class="eg-btn profile-btn" id="aceite">Publicar Leilão</button>
+                                <button type="submit" class="eg-btn profile-btn2" id="rejeitado">Rejeitar Leilão</button>
                                 <button class="eg-btn cancel-btn">Cancelar</button>
                             </div>
                         </div>
-                    </div>
-
             </div>
             </form>
         </div>
