@@ -190,8 +190,8 @@ if(!isset($_SESSION['email'])) {
                                         <img alt="image" src="assets/images/bg/pro-pic.png">
                                     </div>
                                     <div class="content">
-                                        <h3>João Silva</h3>
-                                        <p class="para">João Silva</p>
+                                        <h3 id="ttNome"></h3>
+                                        <p class="para" id="ttEmail"></p>
                                     </div>
                                 </div>
                                 <div class="form-wrapper">

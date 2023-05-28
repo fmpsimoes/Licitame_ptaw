@@ -48,6 +48,7 @@ if(!isset($_SESSION['email'])) {
 
     <!-- style css -->
     <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="ourChanges/ourStyles.css">
 </head>
 
 <body>
@@ -175,7 +176,11 @@ if(!isset($_SESSION['email'])) {
         <img alt="image" src="assets/images/bg/section-bg.png" class="img-fluid section-bg-bottom">
         <div class="container">
             <div class="form-wrapper">
-                <form id="form">
+                <form id="form" enctype="multipart/form-data">
+                <div class="input-field">
+                        <label class="active">Photos</label>
+                        <div class="input-images-1" style="padding-top: .5rem;"></div>
+                    </div>
                     <div class="row">
                         <h2>Dados Pessoais</h2>
                     </div>
@@ -352,7 +357,7 @@ if(!isset($_SESSION['email'])) {
                         <div class="col-xl-12 col-lg-12 col-md-12">
                             <div class="form-inner">
                                 <label for="images">Fotografias da Peça *</label>
-                                <input type="file" name="images" id="images"  multiple> <!-- required-->
+                                <input type="file" name="images" id="images"  multiple>  <!-- required-->
                             </div>
                         </div>
                     </div>

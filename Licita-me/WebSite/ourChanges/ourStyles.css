@@ -4,3 +4,31 @@
     font-weight: 600;
     display: none;
 }
+.imageThumb {
+  height: 75px;
+  width: 120px;
+  border: 1px solid #32c36c;
+  padding: 1px;
+  cursor: pointer;
+}
+.pip {
+  display: inline-block;
+  margin: 10px 10px 0 0;
+}
+.remove {
+  display: block;
+  background: #32c36c;
+  border: 1px solid #32c36c;
+  color: white;
+  text-align: center;
+  cursor: pointer;
+  margin-top: 3px;
+  border-radius: 20px;
+  transition: all 0.4s ease;
+  font-family: "Saira", sans-serif;
+  padding: 5px;
+}
+.remove:hover {
+  background: white;
+  color: #32c36c;
+}

@@ -179,3 +179,27 @@ function insertCertificado(id_certificado) {
       console.error("Error:", error);
     });
 }
+
+$("#images").on("change", function (e) { inputFilesPreview(e); });
+
+$(document).on("click", ".remove", function () {
+  $(this).parent(".pip").remove();
+});
+
+function inputFilesPreview(e) {
+  var files = e.target.files,
+    filesLength = files.length;
+  for (var i = 0; i < filesLength; i++) {
+    var f = files[i];
+    var fileReader = new FileReader();
+    fileReader.onload = (function (e) {
+      var file = e.target;
+      var imageContainer = $("<span class=\"pip\">" +
+        "<img class=\"imageThumb\" src=\"" + e.target.result + "\" title=\"" + file.name + "\"/>" +
+        "<br/><span class=\"remove\">Remover</span>" +
+        "</span>");
+      $("#images").after(imageContainer);
+    });
+    fileReader.readAsDataURL(f);
+  };
+}
