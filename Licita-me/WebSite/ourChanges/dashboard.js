@@ -8,6 +8,16 @@ $(document).ready(function () {
     //getHistoricoLicitacoes();
     //getLeiloesGanhos();
 });
+window.onload = function () {
+    var existingDiv = document.querySelector('#contabtn');
+    var existingDiv1 = document.querySelector('#contabtn1');
+
+    var anunciar = createAnunciarContainer1();
+    var anunciar1 = createAnunciarContainer2();
+
+    existingDiv.parentNode.insertBefore(anunciar, existingDiv);
+    existingDiv1.parentNode.insertBefore(anunciar1, existingDiv1);
+}
 
 function getHistoricoLicitacoes() {
     let table;
@@ -243,7 +253,6 @@ $('table').ready(function () {
 
 
 function getDataPessoal() {
-    console.log("opaa");
     $.ajax({
         type: "POST",
         url: './ourChanges/getUserData.php',
@@ -321,6 +330,43 @@ function updateDataPessoal() {
         $('#password').val("");
     }
 
+}
+
+//Add botão anunciar tamanho pequeno janela
+function createAnunciarContainer1() {
+    // Create the new div element
+    var anunciarCont = document.createElement("div");
+    anunciarCont.setAttribute("id", "AnunciarContainer");
+    anunciarCont.classList.add("eg-btn", "btn--primary", "mobile-visible", "header-btn");
+    anunciarCont.style.display = "block";
+    anunciarCont.style.visibility = "initial";
+    anunciarCont.style.margin = "0px 0px 10px 0px"
+
+    // Create the anchor element
+    var anchor = document.createElement("a");
+    anchor.setAttribute("href", "form-auction.php");
+    anchor.textContent = "Anunciar";
+
+    // Append the anchor to the contaContainer
+    anunciarCont.appendChild(anchor);
+
+    return anunciarCont;
+}
+
+//Add botão anunciar tamanho grande janela
+function createAnunciarContainer2() {
+    var anunciarCont1 = document.createElement("div");
+    anunciarCont1.classList.add("eg-btn", "btn--primary", "header-btn");
+    anunciarCont1.setAttribute("id", "contabtn1");
+    anunciarCont1.style.margin = "0px 10px 0px 0px"
+    // Create the anchor element
+    var anchor = document.createElement("a");
+    anchor.setAttribute("href", "form-auction.php");
+    anchor.textContent = "Anunciar";
+
+    // Append the anchor to the contaContainer
+    anunciarCont1.appendChild(anchor);
+    return anunciarCont1;
 }
 
 /*

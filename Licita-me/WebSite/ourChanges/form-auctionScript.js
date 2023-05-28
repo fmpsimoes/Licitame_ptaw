@@ -107,7 +107,7 @@ function setAnuncio() {
   }
   console.log(obj);
   $.ajax({
-    url: 'ourChanges/insert-auction-teste-emailer.php',
+    url: 'ourChanges/insert-auction.php',
     type: 'POST',
     data: { data: obj },
     success: function (response) {

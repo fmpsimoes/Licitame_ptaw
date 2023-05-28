@@ -56,14 +56,8 @@ function getLeilaoData(idLeilao) {
       $("#weight").val(data['peso']);
       $("#author").val(data['autor']);
       $("#periodEstimated").val(data['periodo']);
-<<<<<<< HEAD
       $("#valueBasePerito").val(data['precobase']);
       $("#valueBuyNowPerito").val(data['precocomprarja']);
-=======
-      $("#valueBase").val(data['precobase']);
-      $("#valueBuyNow").val(data['precocomprarja']);
-      $("#condition").val(data['condicao']);
->>>>>>> 563f7f58e97a04211f20a06ad6400557332fdb47
       $("#description").val(data['descricao']);
       $("#condicao").val(data['condicao']);
       setFile(data['dircertificado']);
