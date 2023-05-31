@@ -355,9 +355,14 @@ if(!isset($_SESSION['email'])) {
                     </div>
                     <div class="row">
                         <div class="col-xl-12 col-lg-12 col-md-12">
-                            <div class="form-inner">
-                                <label for="images">Fotografias da Peça *</label>
-                                <input type="file" name="images" id="images"  multiple>  <!-- required-->
+                            <div class="form-inner imagens">
+                                <label>Fotografias da Peça *</label> 
+                                <div class="card1">
+                                    <span class="select1">Adicionar Fotografias</span>
+                                        <input name="file" type="file" class="file" id="fotos" multiple>
+                                    <div class="container1">   
+                                    </div>   
+                                </div>
                             </div>
                         </div>
                     </div>

@@ -77,9 +77,49 @@ $(document).ready(function () {
       setAnuncio();
     }
   });
+  $( ".container1" ).sortable();
+
 });
 
+//Input Images
+//--------------------------------------------------------
+let files = [];
+let button = document.getElementById('upload');
+let form1 = document.querySelector('#form1');
+let container = document.querySelector('.container1');
+let text = document.querySelector('.inner1');
+let browse = document.querySelector('.select1');
+let input = document.querySelector('#fotos');
 
+browse.addEventListener('click', () => input.click());
+
+input.addEventListener('change', () => {
+  let file = input.files;
+  for (let i = 0; i < file.length; i++) {
+    if (files.every(e => e.name != file[i].name)) {
+      files.push(file[i]);
+    }
+  }
+  showImages();
+});
+
+const showImages = () => {
+  let images = '';
+  files.forEach((e, i) => {
+    images += `<div class="image1">
+        <img src="${URL.createObjectURL(e)}" alt="image"> 
+        <span onclick="delImage(${i})">&times;</span>
+        </div>`;
+  });
+  container.innerHTML = images;
+};
+
+function delImage(index) {
+  files.splice(index, 1);
+  showImages();
+}
+
+//--------------------------------------------------------
 
 function setAnuncio() {
   let certificationFile = document.getElementById('certification');
@@ -113,12 +153,12 @@ function setAnuncio() {
     success: function (response) {
       alert("Leilão publicado com sucesso!");
       //Insere fotos para o anuncio colocado apos receber o id do anuncio colocado (Provavelmente verificação irá ser inutil quando as imagens passarem a ser obrigatorias)
-      if (images.files.length > 0) {
-        insertPhotos(JSON.parse(response['idLeilao']));
+      if (files.length > 0) {
+        insertPhotos(JSON.parse(response));
       }
       ///Insere certificado para o anuncio colocado apos receber o id do anuncio colocado
       if (certificationFile.files.length > 0) {
-        insertCertificado(JSON.parse(response['idLeilao']));
+        insertCertificado(JSON.parse(response));
       }
       window.location.href = "./dashboard.php";
     },
@@ -129,30 +169,25 @@ function setAnuncio() {
 }
 
 function insertPhotos(id_leilao) {
-  const fileInput = document.querySelector("#images");
   const endpoint = "./ourChanges/insertImagesAuction.php";
   const formData = new FormData();
 
   formData.append("id_leilao", id_leilao);
 
-  for (let i = 0; i < fileInput.files.length; i++) {
-    formData.append("photos[]", fileInput.files[i]);
-  }
+  files.forEach((e, i) => formData.append(`photos[${i}]`, e));
+
   fetch(endpoint, {
     method: "post",
     body: formData
   })
     .then(response => {
-      if (response['status'] == 200) {
-        console.log("Anuncio publicado com fotos");
-      } else {
-        console.log(response)
-      };
+      console.log(response);
     })
     .catch(error => {
       console.error("Error:", error);
     });
 }
+
 
 function insertCertificado(id_certificado) {
   const fileInput = document.querySelector("#certification");
@@ -170,7 +205,7 @@ function insertCertificado(id_certificado) {
   })
     .then(response => {
       if (response['status'] == 200) {
-        console.log("Anuncio publicado com certificado");
+        console.log("Anuncio publicado com certificado"+response);
       } else {
         console.log(response)
       };
@@ -178,28 +213,4 @@ function insertCertificado(id_certificado) {
     .catch(error => {
       console.error("Error:", error);
     });
-}
-
-$("#images").on("change", function (e) { inputFilesPreview(e); });
-
-$(document).on("click", ".remove", function () {
-  $(this).parent(".pip").remove();
-});
-
-function inputFilesPreview(e) {
-  var files = e.target.files,
-    filesLength = files.length;
-  for (var i = 0; i < filesLength; i++) {
-    var f = files[i];
-    var fileReader = new FileReader();
-    fileReader.onload = (function (e) {
-      var file = e.target;
-      var imageContainer = $("<span class=\"pip\">" +
-        "<img class=\"imageThumb\" src=\"" + e.target.result + "\" title=\"" + file.name + "\"/>" +
-        "<br/><span class=\"remove\">Remover</span>" +
-        "</span>");
-      $("#images").after(imageContainer);
-    });
-    fileReader.readAsDataURL(f);
-  };
 }

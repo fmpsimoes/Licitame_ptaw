@@ -1,9 +1,11 @@
-.errorMessage{
-    color: red;
-    font-size: 16px;
-    font-weight: 600;
-    display: none;
+.errorMessage {
+  color: red;
+  font-size: 16px;
+  font-weight: 600;
+  display: none;
 }
+
+/*
 .imageThumb {
   height: 75px;
   width: 120px;
@@ -31,4 +33,149 @@
 .remove:hover {
   background: white;
   color: #32c36c;
+}*/
+
+
+::after,
+::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.card1 {
+  width: 400px;
+  height: auto;
+  padding: 15px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
+  border-radius: 5px;
+  overflow: hidden;
+  background: #fafbff;
+}
+
+.card1 .top1 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.card1 .top1 p {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #878a9a;
+}
+
+.card1 .top1 button {
+  outline: 0;
+  border: 0;
+  -webkit-apearence: none;
+  background: #5256ad;
+  color: #fff;
+  border-radius: 4px;
+  transition: 0.3s;
+  cursor: pointer;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
+  font-size: 0.8rem;
+  padding: 8px 13px;
+}
+
+.card1 .top1 button:hover {
+  opacity: 0.8;
+}
+
+.card1 .top1 button:active {
+  transform: translateY(5px);
+}
+
+#form1 {
+  width: 100%;
+  height: 160px;
+  border-radius: 5px;
+  border: 2px dashed #d5d5e1;
+  color: #c8c9dd;
+  font-size: 0.9rem;
+  font-weight: 500;
+  position: relative;
+  background-color: #dfe3f259;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  user-select: none;
+  margin-top: 20px;
+}
+form #fotos{
+  display: none;
+}
+form .select1 {
+  color: #5256ad;
+  margin-left: 7px;
+  cursor: pointer;
+}
+
+form .file {
+  display: none;
+}
+
+form .dragover {
+  border-style: solid;
+  font-size: 2rem;
+  color: #c8c9dd;
+  background: rgb(0, 0, 0, 0.34);
+}
+
+.container1 {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  position: relative;
+  height: auto;
+  margin-top: 20px;
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.container1 .image1 {
+  height: 85px;
+  width: 85px;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+  position: relative;
+  margin-bottom: 7px;
+  margin-right: 7px;
+}
+
+.container1 .image1:nth-child(4n) {
+  margin-right: 0;
+}
+
+
+.container1 .image1 img {
+  height: 100%;
+  width: 100%;
+}
+.container1 :first-child{
+  height: 150px;
+  width: 150px;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+  position: relative;
+  margin-bottom: 7px;
+  margin-right: 7px;
+}
+
+.container1 .image1 span {
+  position: absolute;
+  top: -4px;
+  right: 5px;
+  cursor: pointer;
+  font-size: 22px;
+  color: #fff;
+}
+.container1 .image1 span:hover {
+  opacity: 0.8;
 }
