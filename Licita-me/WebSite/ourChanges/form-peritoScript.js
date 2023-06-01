@@ -17,6 +17,7 @@ $(document).ready(function () {
     event.preventDefault();
     setAnuncioVerificado("Rejeitado", idLeilao);
   });
+  $( ".container1" ).sortable();
 });
 
 //Input Images
@@ -70,13 +71,10 @@ function getLeilaoData(idLeilao) {
       const auxdata = alldata['data'];
       const data = auxdata[0];
       const auxfotos = alldata['fotos'];
-      //console.log(auxfotos);
       dataInicio = data['datainicio'];
       dataTermino = data['datatermino'];
       $("#nameItem").val(data['titulo']);
-      $('#category').find(":selected").val(data['categoria'])
-      $("#category").val(data['categoria']);
-      $("#category").addClass('selected');
+      $("#category").niceSelectSelectByValue(data['categoria']);
       $("#materials").val(data['materiais']);
       $("#dimensions").val(data['dimensoes']);
       $("#weight").val(data['peso']);

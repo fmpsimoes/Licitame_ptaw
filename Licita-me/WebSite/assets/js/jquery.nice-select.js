@@ -1,8 +1,29 @@
-/*  jQuery Nice Select - v1.1.0
+/*  jQuery Nice Dinamic Select - v1.1.0
     https://github.com/hernansartorio/jquery-nice-select
     Made by Hernán Sartorio  */
  
 (function($) {
+  $.fn.niceSelectSelectByValue = function(optionValue) {
+    this.each(function() {
+      var $select = $(this);
+      var $dropdown = $select.next('.nice-select');
+      var $options = $dropdown.find('.option');
+  
+      var $option = $options.filter(function() {
+        return $(this).data('value') === optionValue;
+      });
+  
+      if ($option.length) {
+        $dropdown.find('.selected').removeClass('selected');
+        $option.addClass('selected');
+  
+        var text = $option.data('display') || $option.text();
+        $dropdown.find('.current').text(text);
+  
+        $select.val($option.data('value')).trigger('change');
+      }
+    });
+  };
 
   $.fn.niceSelect = function(method) {
     
