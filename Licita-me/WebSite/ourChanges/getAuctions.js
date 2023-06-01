@@ -20,9 +20,10 @@ $.ajax({
         html += `
               <div class="swiper-slide">
                 <div
-                  class="eg-card category-card1 wow animate fadeInDown"
+                  class="eg-card category-card1 h-100 wow animate fadeInDown "
                   data-wow-duration="1500ms"
                   data-wow-delay="${time}ms"
+                  
                 >
                   <div class="cat-icon">
                   <img src="assets/images/icons/${value.nome}.png"
@@ -31,9 +32,7 @@ $.ajax({
                     height="50"
                     />
                   </div>
-                  <a href="live-auction.html">
                     <h5>${value.nome}</h5>
-                  </a>
                 </div>
               </div>`;
         time += 200;
@@ -68,6 +67,17 @@ $.ajax({
     }
     $("#categories").html(html);
     categorySliderHandling();
+
+    $(".category-card1").click(function () {
+      var categoryName = $(this).find("h5").text();
+      // Remove background color and font color from other elements
+      $(".category-card1").not(this).css("background-color", "");
+
+      // Apply the specified style to the clicked element
+      $(this).css("background-color", "#35d876");
+
+      alert(categoryName);
+    });
   },
   error: function (xhr, status, error) {
     // Código para processar a mensagem de erro
@@ -80,10 +90,52 @@ $.ajax({
   },
 });
 
+$(".nav-link").click(function () {
+  /*
+  // Get the category card with background-color of #6de58a
+  var selectedCard = $(".category-card1").filter(function () {
+    return $(this).css("background-color") === "#35d876";
+  });
+
+  // Check if a card with the desired background color is found
+  if (selectedCard.length > 0) {
+    // Do something with the selected card
+    console.log("Selected card:", selectedCard);
+  } else {
+    // No card with the desired background color found
+    console.log("No card with the specified background color found");
+  }
+  */
+  var value = $(this).val();
+  var tab = $(this).attr("data-bs-target");
+  // Add your code here based on the button's value and tab
+  console.log("Button clicked. Value: " + value + ", Tab: " + tab);
+});
+
+// Buscar todos os leilões ativos~
+carregaLeiloes("ascendant", "all");
+
+function carregaLeiloes(orderbyParam, catParam) {
+  $.ajax({
+    url: "./ourChanges/getAllActiveAutions.php",
+    type: "POST",
+    dataType: "json",
+    data: { orderby: orderbyParam, cat: catParam },
+    success: function (response) {
+      console.log(response);
+    },
+    error: function (xhr, status, error) {
+      // Código para processar a mensagem de erro
+      console.log("Error:", error);
+      console.log("Status:", status);
+      console.log("Response:", xhr.responseText);
+    },
+  });
+}
+
 // All js related to category slider
 function categorySliderHandling() {
   // Home-1 banner slider
-  console.log("Carregou funcoes das cat");
   var heroSliderTwo = new Swiper(".banner1", {
     slidesPerView: 1,
     speed: 1500,
@@ -451,3 +503,6 @@ function categorySliderHandling() {
     ],
   });
 }
+
+// Função para ir buscar todos os leilões
+function getAllAuctions() {}
