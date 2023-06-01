@@ -154,6 +154,7 @@ function setAnuncio() {
       alert("Leilão publicado com sucesso!");
       //Insere fotos para o anuncio colocado apos receber o id do anuncio colocado (Provavelmente verificação irá ser inutil quando as imagens passarem a ser obrigatorias)
       if (files.length > 0) {
+        console.log(JSON.parse(response))
         insertPhotos(JSON.parse(response));
       }
       ///Insere certificado para o anuncio colocado apos receber o id do anuncio colocado

@@ -19,7 +19,7 @@ try {
     $mail->CharSet = "UTF-8";
 
     $mail->setFrom('noreply.licitame@gmail.com','LICITAME');
-    $mail->addAddress('raul.silva@ua.pt','Transportadora');
+    $mail->addAddress('miguelmvieira@ua.pt','Transportadora');
 
     $mail->isHTML(true);
     $mail->Subject='Novo pedido de recolha Vendedor -> Armazém';
@@ -29,7 +29,7 @@ try {
     <span style='color:#029e7c;'>Contacto:</span> {$data['contacto']}<br><br>
     <span style='color:#029e7c;'>Email:</span> <b>{$data['email']}</b><br><br>
     <span style='color:#029e7c;'>Nome da Peça:</span> {$data['nome']}<br><br>
-    <span style='color:#029e7c;'>Morada do Vendedor (Origem):</span> <b>{$data['morada']} {$data['porta']}, {$data['zipcode']} {$data['concelho']}</b><br><br>
+    <span style='color:#029e7c;'>Morada do Vendedor (Origem):</span> <b>{$data['morada']} {$data['porta']}, {$data['codigopostal']} {$data['concelho']}</b><br><br>
     <span style='color:#029e7c;'>Morada do Armazém (Destino):</span> <b>R. Cmte. Pinho e Freitas 28, 3750-127 Águeda</b><br><br>
     <span style='color:#029e7c;'>Categoria:</span> <b>{$data['categoria']}</b><br><br>
     <span style='color:#029e7c;'>Materiais:</span> <b>{$data['materiais']}</b><br><br>

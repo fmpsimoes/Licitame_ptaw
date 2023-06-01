@@ -31,10 +31,10 @@ try {
     } else {
         echo "Erro ao inserir leilão";
     }
+    include './emails/emailTransporteVendedorParaArmazem.php';
 }catch (PDOException $e) {
     echo 'Connection failed: ' . $e->getMessage();
     exit;
 }
-
 
 ?>
