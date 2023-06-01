@@ -31,7 +31,7 @@ function getRevistos() {
     $.ajax({
         url: './ourChanges/getLeiloesPerito.php',
         type: 'POST',
-        data: { modalidade: 'Aprovado' },
+        data: { modalidade: ['Aprovado', 'Rejeitado', 'Decorrer', 'Finalizado'] },
         success: function (response) {
             var data = JSON.parse(response);
             data.forEach(element => {
@@ -102,7 +102,7 @@ function getPorRever() {
     $.ajax({
         url: './ourChanges/getLeiloesPerito.php',
         type: 'POST',
-        data: { modalidade: 'Pendente' },
+        data: { modalidade: ['Pendente'] },
         success: function (response) {
             var data = new Array();
             data = JSON.parse(response)

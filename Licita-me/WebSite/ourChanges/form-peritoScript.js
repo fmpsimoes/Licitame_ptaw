@@ -19,6 +19,47 @@ $(document).ready(function () {
   });
 });
 
+//Input Images
+//--------------------------------------------------------
+let files = [];
+let button = document.getElementById('upload');
+let form1 = document.querySelector('#form1');
+let container = document.querySelector('.container1');
+let text = document.querySelector('.inner1');
+let browse = document.querySelector('.select1');
+let input = document.querySelector('#fotos');
+
+browse.addEventListener('click', () => input.click());
+
+input.addEventListener('change', () => {
+
+  let file = input.files;
+  for (let i = 0; i < file.length; i++) {
+    if (files.every(e => e.name != file[i].name)) {
+      files.push(file[i]);
+    }
+  }
+  console.log(files);
+  showImages();
+});
+
+const showImages = () => {
+  let images = '';
+  files.forEach((e, i) => {
+    images += `<div class="image1">
+        <img src="${URL.createObjectURL(e)}" alt="image"> 
+        <span onclick="delImage(${i})">&times;</span>
+        </div>`;
+  });
+  container.innerHTML = images;
+};
+
+function delImage(index) {
+  files.splice(index, 1);
+  showImages();
+}
+
+let dirCertificado;
 function getLeilaoData(idLeilao) {
   $.ajax({
     url: './ourchanges/getLeilaoData.php',
@@ -29,9 +70,11 @@ function getLeilaoData(idLeilao) {
       const auxdata = alldata['data'];
       const data = auxdata[0];
       const auxfotos = alldata['fotos'];
+      //console.log(auxfotos);
       dataInicio = data['datainicio'];
       dataTermino = data['datatermino'];
       $("#nameItem").val(data['titulo']);
+      $('#category').find(":selected").val(data['categoria'])
       $("#category").val(data['categoria']);
       $("#category").addClass('selected');
       $("#materials").val(data['materiais']);
@@ -43,20 +86,13 @@ function getLeilaoData(idLeilao) {
       $("#valueBuyNowPerito").val(data['precocomprarja']);
       $("#description").val(data['descricao']);
       $("#condicao").val(data['condicao']);
+      dirCertificado = data['dircertificado'];
       if (data['dircertificado'] == null) {
         createInputFile();
       } else {
         setFile(data['dircertificado']);
       }
-      const filesInput = document.getElementById("images");
-      while (filesInput.firstChild) {
-        filesInput.removeChild(filesInput.firstChild);
-      }
-      auxfotos.forEach(element => {
-        let foto = element['dirimagem'];
-        console.log(foto);
-        setImage(foto);
-      });
+      setImages(auxfotos);
     },
     error: function (xhr, status, error) {
       console.error(error);
@@ -64,20 +100,36 @@ function getLeilaoData(idLeilao) {
   });
 }
 
-function setImage(path) {
-  const body = document.getElementById("nada");
-  const a = document.createElement("img");
-  a.href = path;
-  a.download = "image1.jpg";
-  a.text = "nada";
-  body.appendChild(a);
+function setImages(auxfotos) {
+  const fetchPromises = auxfotos.map(auxfotos => {
+    const filePath = auxfotos.dirimagem.substring(1);
+    return fetch(filePath)
+      .then(response => response.blob())
+      .then(blob => new File([blob], auxfotos.dirimagem.substring(11)));
+  });
 
+  Promise.all(fetchPromises)
+    .then(fetchedFiles => {
+      files.push(...fetchedFiles);
+      console.log(files); // You can access the files array here or perform further operations
+      let images = '';
+      files.forEach((e, i) => {
+        images += `<div class="image1">
+        <img src="${URL.createObjectURL(e)}" alt="image"> 
+        <span onclick="delImage(${i})">&times;</span>
+        </div>`;
+      });
+      container.innerHTML = images;
+    })
+    .catch(error => {
+      console.error('Error fetching the files:', error);
+    });
 }
 
 function setFile(path) {
   const body = document.getElementById("certificadoDiv");
   const a = document.createElement("a");
-  a.href = path;
+  a.href = path.substring(1);
   a.download = "certificado.pdf";
   a.text = "Download Certificado";
   body.appendChild(a);
@@ -104,33 +156,33 @@ function setAnuncioVerificado(estado, idLeilao) { // Falta o verificação de se
     datafim: datasCorrigidas.dataFim
   }
   console.log(obj);
+
   $.ajax({
     url: 'ourChanges/insertAuctionPerito.php',
     type: 'POST',
     data: { data: obj },
     success: function (response) {
       alert(response);
-      //insertPhotos(JSON.parse(response));
-      //insertCertificado(JSON.parse(response));
+      insertPhotos(idLeilao);
+      if (dirCertificado == null) {
+        insertCertificado(idLeilao);
+      }
       window.location.href = "./dashboardPerito.php";
     },
     error: function (xhr, status, error) {
       console.error(error);
     }
   });
-
 }
 
 function insertPhotos(id_leilao) {
-  const fileInput = document.querySelector("#images");
   const endpoint = "./ourChanges/insertImagesAuction.php";
   const formData = new FormData();
 
   formData.append("id_leilao", id_leilao);
 
-  for (let i = 0; i < fileInput.files.length; i++) {
-    formData.append("photos[]", fileInput.files[i]);
-  }
+  files.forEach((e, i) => formData.append(`photos[${i}]`, e));
+
   fetch(endpoint, {
     method: "post",
     body: formData

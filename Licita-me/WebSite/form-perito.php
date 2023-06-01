@@ -50,6 +50,7 @@ if(!isset($_SESSION['email'])) {
 
     <!-- style css -->
     <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="./ourChanges/ourStyles.css">
 </head>
 
 <body>
@@ -275,7 +276,12 @@ if(!isset($_SESSION['email'])) {
                         <div class="col-xl-12 col-lg-12 col-md-12">
                             <div class="form-inner">
                                 <label for="images">Fotografias da Peça *</label>
-                                <input type="file" name="images" id="images" required multiple>
+                                <div class="card1">
+                                    <span class="select1">Adicionar Fotografias</span>
+                                        <input name="file" type="file" class="file" id="fotos" multiple>
+                                    <div class="container1">   
+                                    </div>   
+                                </div>
                             </div>
                         </div>
                     </div>
