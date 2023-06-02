@@ -182,7 +182,7 @@ $.ajax({
   },
 });
 
-// Carrega os Leilões perto de terminar
+// Carrega os Leilões mais Recentes
 $.ajax({
   url: "./ourChanges/getMostRecentIndex.php",
   type: "POST",
@@ -210,12 +210,8 @@ $.ajax({
                             value.id
                           }">
                               <h5 style="margin: 0">
-                              <span id="daysToMostRecent${
-                                value.id
-                              }">05</span>D :
-                              <span id="hoursToMostRecent${
-                                value.id
-                              }">05</span>H :
+                              <span id="daysMostRecent${value.id}">05</span>D :
+                              <span id="hoursMostRecent${value.id}">05</span>H :
                               <span id="minutesMostRecent${
                                 value.id
                               }">52</span>M :
