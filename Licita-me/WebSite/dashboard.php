@@ -54,6 +54,7 @@ if(!isset($_SESSION['email'])) {
     <link href="https://cdn.datatables.net/v/se/dt-1.13.4/b-2.3.6/fc-4.2.2/sp-2.1.2/datatables.min.css" rel="stylesheet"/>
 
     <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="./ourChanges/ourStyles.css">
 </head>
 
 <body>
@@ -195,7 +196,7 @@ if(!isset($_SESSION['email'])) {
                                     </div>
                                 </div>
                                 <div class="form-wrapper">
-                                <form action="#">
+                                <form method="POST" id="form12" enctype="multipart/form-data" >
                                         <div class="row">
                                             <div class="col-xl-6 col-lg-12 col-md-6">
                                                 <div class="form-inner">
@@ -218,7 +219,7 @@ if(!isset($_SESSION['email'])) {
                                             <div class="col-xl-6 col-lg-12 col-md-6">
                                                 <div class="form-inner">
                                                     <label for="email">Email</label>
-                                                    <input type="text" placeholder="Email" name="email" id="email" disable>
+                                                    <input type="text" placeholder="Email" name="email" id="email" disabled>
                                                 </div>
                                             </div>
                                             <div class="col-8">
@@ -271,7 +272,7 @@ if(!isset($_SESSION['email'])) {
                                                 <div class="button-group">
                                                     <button type="submit" class="eg-btn profile-btn" id="actualizar">Actualizar
                                                         Perfil</button>
-                                                    <button class="eg-btn cancel-btn">Cancelar</button>
+                                                    <button type="button" class="eg-btn cancel-btn">Cancelar</button>
                                                 </div>
                                             </div>
                                         </div>

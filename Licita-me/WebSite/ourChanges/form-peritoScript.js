@@ -1,21 +1,28 @@
 var dataInicio;
 var dataTermino;
+var dataInicioAux;
 
 
 $(document).ready(function () {
   var currentUrl = window.location.href;
+  let form = document.getElementById("form");
   var idLeilao = currentUrl.substring(currentUrl.lastIndexOf('=') + 1);
-
   getLeilaoData(idLeilao);
 
-  $("#aceite").on('click', function (event) {
-    event.preventDefault();
-    setAnuncioVerificado("Aprovado", idLeilao);
-  });
-
-  $("#rejeitado").on('click', function (event) {
-    event.preventDefault();
+  $( "#rejeitado" ).on( "click", function() {
     setAnuncioVerificado("Rejeitado", idLeilao);
+  } );
+
+
+
+  form.addEventListener('submit', function(event) {
+    event.preventDefault();
+    var clickedButtonValue = event.submitter.value;
+
+    if (clickedButtonValue === "button1") {
+        setAnuncioVerificado("Aprovado", idLeilao);
+    }
+
   });
   $( ".container1" ).sortable();
 });
@@ -29,6 +36,7 @@ let container = document.querySelector('.container1');
 let text = document.querySelector('.inner1');
 let browse = document.querySelector('.select1');
 let input = document.querySelector('#fotos');
+let card = document.querySelector('#card1');
 
 browse.addEventListener('click', () => input.click());
 
@@ -59,6 +67,30 @@ function delImage(index) {
   files.splice(index, 1);
   showImages();
 }
+card.addEventListener('dragover', e =>{
+  e.preventDefault();
+  card.classList.add('dragover');
+})
+
+card.addEventListener('dragleave', e =>{
+  e.preventDefault();
+  card.classList.remove('dragover');
+})
+
+card.addEventListener('drop', e =>{
+  e.preventDefault();
+
+  card.classList.remove('dragover');
+  let file = e.dataTransfer.files;
+  for (let i = 0; i < file.length; i++) {
+    if (files.every(e => e.name != file[i].name)) {
+      files.push(file[i]);
+    }
+  }
+  showImages();
+
+})
+//----------------------------------------------------
 
 let dirCertificado;
 function getLeilaoData(idLeilao) {
@@ -72,7 +104,8 @@ function getLeilaoData(idLeilao) {
       const data = auxdata[0];
       const auxfotos = alldata['fotos'];
       dataInicio = data['datainicio'];
-      dataTermino = data['datatermino'];
+      dataInicioAux= data['datainicio'];
+      dataTermino = data['datafim'];
       $("#nameItem").val(data['titulo']);
       $("#category").niceSelectSelectByValue(data['categoria']);
       $("#materials").val(data['materiais']);
@@ -135,6 +168,9 @@ function setFile(path) {
 
 function setAnuncioVerificado(estado, idLeilao) { // Falta o verificação de se a verificação for feita apos a data pretendida pelo cliente
   const datasCorrigidas = ajustarDatas(dataInicio, getCurrentDate(), dataTermino);
+  if(datasCorrigidas.estado && estado==="Aprovado"){
+    estado="Ativo";
+  }
   const obj = {
     idpeca: idLeilao,
     nome: $('#nameItem').val(),
@@ -246,6 +282,7 @@ function createInputFile() {
   inputElement.setAttribute("id", "certification");
   inputElement.setAttribute("accept", "application/pdf");
   inputElement.setAttribute("multiple", "");
+  inputElement.setAttribute('required', '');
 
   // Append the created <input> element to the existing <div id="certificadoDiv">
   var certificadoDiv = document.getElementById("certificadoDiv");
@@ -256,7 +293,7 @@ function ajustarDatas(datainicio, dataactual, datafim) {
   var dataInicio = new Date(datainicio);
   var dataAtual = new Date(dataactual);
   var dataFim = new Date(datafim);
-
+  var estado = false;
   dataInicio.setUTCHours(dataInicio.getUTCHours() + 1); // Para Colocar no Fuso horario de portugal
   dataAtual.setUTCHours(dataAtual.getUTCHours() + 1); // Para Colocar no Fuso horario de portugal
   dataFim.setUTCHours(dataFim.getUTCHours() + 1); // Para Colocar no Fuso horario de portugal
@@ -265,9 +302,11 @@ function ajustarDatas(datainicio, dataactual, datafim) {
     dataInicio = dataAtual;
     dataFim = new Date(dataInicio);
     dataFim.setDate(dataFim.getDate() + 7);
+    estado=true;
   }
 
   return {
+    estado:estado,
     dataInicio: dataInicio.toISOString(),
     dataFim: dataFim.toISOString()
   };

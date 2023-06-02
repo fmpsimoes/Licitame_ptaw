@@ -1,4 +1,9 @@
 $(document).ready(function () {
+    getDataPessoal();
+    let form = document.getElementById("form12");
+    form.addEventListener("submit", function (event) {
+        updateDataPessoal();
+    });
     getPorRever();
     getRevistos();
 });
@@ -6,7 +11,7 @@ $(document).ready(function () {
 
 function getRevistos() {
     let table = document.createElement("table");
-    table.classList.add('ui', 'celled', 'table');
+    table.classList.add('eg-table', 'order-table', 'table', 'mb-0', 'display');
     table.id = "tabelaRevista";
     let thead = document.createElement('thead');
     thead.id = "theadRev";
@@ -31,7 +36,7 @@ function getRevistos() {
     $.ajax({
         url: './ourChanges/getLeiloesPerito.php',
         type: 'POST',
-        data: { modalidade: ['Aprovado', 'Rejeitado', 'Decorrer', 'Finalizado'] },
+        data: { modalidade: ['Aprovado', 'Rejeitado', 'Ativo', 'Vendido', 'Expirado'] },
         success: function (response) {
             var data = JSON.parse(response);
             data.forEach(element => {
@@ -77,7 +82,7 @@ function getRevistos() {
 
 function getPorRever() {
     let table = document.createElement("table");
-    table.classList.add('ui', 'celled', 'table');
+    table.classList.add('eg-table', 'order-table', 'table', 'mb-0', 'display');
     table.id = "tabelaPorRever";
     let thead = document.createElement('thead');
     thead.id = "theadRev";
@@ -168,3 +173,72 @@ function logout() {
     });
 }
 
+function getDataPessoal() {
+    $.ajax({
+        type: "POST",
+        url: './ourChanges/getUserData.php',
+        success: function (response) {
+            const data = JSON.parse(response);
+            console.log(data);
+            $('#firstname').val(data['nome']);
+            $('#lastname').val(data['apelido']);
+            $("#contact").val(data['contactotelefonico']);
+            $('#email').val(data['email']);
+            $("#ttNome").html(data['nome'] + " " + data['apelido']);
+            $("#ttEmail").html(data['email']);
+        },
+        error: function (xhr, status, error) {
+            console.error(error);
+        }
+    });
+}
+function updateDataPessoal() {
+    const obj = {
+        nome: $('#firstname').val(),
+        apelido: $('#lastname').val(),
+        contacto: $("#contact").val(),
+        email: $('#email').val(),
+        pass1: $('#password').val(),
+        pass2: $('#password2').val(),
+    }
+    if (obj['pass1'] == obj['pass2']) {
+        $.ajax({
+            type: "POST",
+            url: './ourChanges/setUserData.php',
+            data: { data: obj },
+            success: function (response) {
+                console.log(response)
+                alert(JSON.parse(response));
+                const loginDetails = {
+                    email: obj['email'],
+                    pass: obj['pass1']
+                }
+                $.ajax({
+                    url: './ourChanges/loginTry.php',
+                    type: 'POST',
+                    data: { data: loginDetails },
+                    success: function (response) {
+                        let jsonResponse = JSON.parse(response);
+
+                        if (jsonResponse == "dashboard.php" || jsonResponse == "dashboardAdmin.php" || jsonResponse == "dashboardPerito.php") {
+                            window.location.href = jsonResponse; //redirecionar para o respetivo painel depois de inciar sessão
+                        }
+                        else {
+                            alert(jsonResponse);
+                        }
+                    },
+                    error: function (xhr, status, error) {
+                        console.error(error);
+                    }
+                });
+            },
+            error: function (xhr, status, error) {
+                console.error(error);
+            }
+        });
+    } else {
+        alert("As novas passwords não coincidem");
+        $('#password').val("");
+        $('#password').val("");
+    }
+}

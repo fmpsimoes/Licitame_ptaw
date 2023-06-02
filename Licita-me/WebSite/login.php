@@ -111,7 +111,7 @@ if(isset($_SESSION['email'])) {
                             <h3>Entrar</h3>
                             <p>Novo membro? <a href="signup.html">Cria conta aqui</a></p>
                         </div>
-                        <form class="w-100" enctype="multipart/form-data" id="form12">
+                        <form class="w-100" method= "POST" enctype="multipart/form-data" id="form12">
                             <div class="row">
                                 <div class="col-12">
                                     <div class="form-inner">

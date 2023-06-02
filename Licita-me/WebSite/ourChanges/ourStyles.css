@@ -53,6 +53,7 @@
   background: #f9fff9;
   margin: auto;
   border: #32c36c dashed 2px;
+  align-items: center;
 }
 
 .card1 .top1 {
@@ -93,9 +94,11 @@
   display: none;
 }
 .select1 {
+  display: flex;
   color: #32c36c;
-  margin-left: 7px;
+  margin: auto;
   cursor: pointer;
+  align-items: center;
 }
 
 .card1 .file {
@@ -163,4 +166,32 @@
 }
 .container1 .image1 span:hover {
   opacity: 0.8;
+}
+.card1.dragover{
+  border-style: solid;
+  color:#caddc8;
+}
+
+#addPhoto{
+  margin: auto;
+  border-radius: 30px;
+  border: none;
+  outline: none;
+  padding: 13px 20px;
+  background-color: #32c36c;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+  font-family: "Saira", sans-serif;
+  transition: all 0.42s ease-in-out;
+  border: 1px solid #32c36c;
+  text-align: center;
+}
+#addPhoto:hover {
+  background-color: #fff;
+  color: #32c36c;
+
+}
+table.dataTable.table>tbody>tr{
+  background-color: white;
 }

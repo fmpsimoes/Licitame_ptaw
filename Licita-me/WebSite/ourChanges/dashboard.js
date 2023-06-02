@@ -1,14 +1,18 @@
 $(document).ready(function () {
     getDataPessoal();
-
-    $("#actualizar").on("click", function () {
+    let form = document.getElementById("form12");
+    form.addEventListener("submit", function (event) {
         updateDataPessoal();
     });
-    //getLeiloesGanhosTESTE();
+    getLeiloesGanhosTESTE();
     //getHistoricoLicitacoes();
-    //getLeiloesGanhos();
-    //getMeusLeiloes();
+    getLeiloesGanhos();
+    getMeusLeiloes();
 });
+
+//COMENTAR ESTILOS DE TABELAS
+
+
 window.onload = function () {
     var existingDiv = document.querySelector('#contabtn');
     var existingDiv1 = document.querySelector('#contabtn1');
@@ -26,7 +30,7 @@ function getMeusLeiloes(){
     div = document.getElementById("tableosmeusleiloes");
     table = document.createElement("table");
     table.classList.add('eg-table', 'order-table', 'table', 'mb-0', 'display');
-    table.id = "tabelaPorRever";
+    table.id = "tabelameusleiloes";
     let thead = document.createElement('thead');
     thead.id = "theadRev";
     let tr2 = document.createElement('tr');
@@ -39,7 +43,7 @@ function getMeusLeiloes(){
     let th4 = document.createElement('th');
     th4.textContent = "Categoria";
     let th5 = document.createElement('th');
-    th5.textContent = "Condição";
+    th5.textContent = "Estado";
     tr2.appendChild(th1);
     tr2.appendChild(th2);
     tr2.appendChild(th3);
@@ -48,14 +52,14 @@ function getMeusLeiloes(){
     thead.appendChild(tr2);
     let tbody = document.createElement('tbody');
     $.ajax({
-        url: '*.php',
+        url: './ourChanges/getMeusLeiloes.php',
         type: 'POST',
-        //data: { data:},
         success: function (response) {
-            //let tbody = document.createElement('tbody');
-            for (let i = 0; i < tamarr; i++) {
+            var data = JSON.parse(response);
+            data.forEach(element => {
                 let tr = document.createElement('tr');
-                tr.id = 'row';
+                tr.id = 'row_' + element['id'];
+                //tr.onclick = getRowId;
                 let td1 = document.createElement('td');
                 let img = document.createElement('img');
                 img.classList.add('img-fluid');
@@ -63,30 +67,30 @@ function getMeusLeiloes(){
                 img.alt = '#';
                 td1.appendChild(img);
                 let td2 = document.createElement('td');
-                //td2.textContent = response['pecasarte'][i]["titulo"];
+                td2.textContent = element["titulo"];
                 let td3 = document.createElement('td');
-                //td3.textContent = response['pecasarte'][i]["datatermino"];
+                td3.textContent = element["datafim"];
                 let td4 = document.createElement('td');
-                //td4.textContent = response['pecasarte'][i]["categoria"];
+                td4.textContent = element["categoria"];
                 let td5 = document.createElement('td');
-                //td5.textContent = //response['pecasarte'][i]["condicao"];
+                td5.textContent = element["estado"];
                 tr.appendChild(td1);
                 tr.appendChild(td2);
                 tr.appendChild(td3);
                 tr.appendChild(td4);
                 tr.appendChild(td5);
-                tbody.appendChild(tr)
-            }
+                tbody.appendChild(tr);
+            });
+
             table.appendChild(thead);
             table.appendChild(tbody);
             div.appendChild(table);
-            let row = document.getElementById("row")
-            row.addEventListener("click", function () {
-                alert("Clicável");
-            });
+
+            $(table).DataTable();
         },
         error: function (xhr, status, error) {
             console.error(error);
+            table.appendChild(tbody);
             div.appendChild(table);
         }
     });  
@@ -168,7 +172,7 @@ function getLeiloesGanhos() {
     let div;
     div = document.getElementById("tableLeiloesGanhos");
     table = document.createElement("table");
-    table.classList.add('eg-table', 'order-table', 'table', 'mb-0', 'display');
+    table.classList.add('eg-table', 'order-table', 'table', 'mb-0', 'display'); 
     table.id = "tabelaLeiloesGanhos";
     let thead = document.createElement('thead');
     thead.id = "theadRev";
@@ -191,14 +195,14 @@ function getLeiloesGanhos() {
     thead.appendChild(tr2);
     let tbody = document.createElement('tbody');
     $.ajax({
-        url: '*.php',
+        url: './ourChanges/getLeiloesGanhos.php',
         type: 'POST',
-        data: { data: obj}, //
         success: function (response) {
-            //let tbody = document.createElement('tbody');
-            for (let i = 0; i < tamarr; i++) {
+            var data = JSON.parse(response);
+            data.forEach(element => {
                 let tr = document.createElement('tr');
-                tr.id = 'row';
+                tr.id = 'row_' + element['id'];
+                //tr.onclick = getRowId;
                 let td1 = document.createElement('td');
                 let img = document.createElement('img');
                 img.classList.add('img-fluid');
@@ -206,31 +210,30 @@ function getLeiloesGanhos() {
                 img.alt = '#';
                 td1.appendChild(img);
                 let td2 = document.createElement('td');
-                //td2.textContent = response['utilizadores'][i]["nome"];
+                td2.textContent = element["titulo"];
                 let td3 = document.createElement('td');
-                //td3.textContent = response['utilizadores'][i]["idade"];
+                td3.textContent = element["precobase"];//Depois trocar pelo valor ao qual foi comprado
                 let td4 = document.createElement('td');
-                //td4.textContent = response['utilizadores'][i]["idade"]; //
+                td4.textContent = element["estado"];
                 let td5 = document.createElement('td');
-                //td5.textContent = //response['utilizadores'][i]["categoria"]; 
-                //let td = response['utilizadores'][i]["categoria"]; //
+                td5.textContent = "Pagar Aqui";
                 tr.appendChild(td1);
                 tr.appendChild(td2);
                 tr.appendChild(td3);
                 tr.appendChild(td4);
                 tr.appendChild(td5);
-                tbody.appendChild(tr)
-            }
+                tbody.appendChild(tr);
+            });
+
             table.appendChild(thead);
             table.appendChild(tbody);
             div.appendChild(table);
-            let row = document.getElementById("row")
-            row.addEventListener("click", function () {
-                alert("Clicável");
-            });
+
+            $(table).DataTable();
         },
         error: function (xhr, status, error) {
             console.error(error);
+            table.appendChild(tbody);
             div.appendChild(table);
         }
     });
@@ -441,18 +444,3 @@ function createAnunciarContainer2() {
     anunciarCont1.appendChild(anchor);
     return anunciarCont1;
 }
-
-/*
-const obj = {
-    nome: response['nome'],
-    apelido: password['apelido'],
-    contacto: password['contactotelefonico'],
-    email: password['email'],
-    morada: password['morada'],
-    porta: password['porta'],
-    concelho: password['concelho'],
-    codigopostal: password['codigopostal'],
-    password: password['pass']
-};
-return obj;
-*/
