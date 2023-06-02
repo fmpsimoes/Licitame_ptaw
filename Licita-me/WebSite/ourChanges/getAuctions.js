@@ -38,6 +38,25 @@ $.ajax({
         time += 200;
       });
       html += `
+      <div class="swiper-slide">
+        <div
+          class="eg-card category-card1 h-100 wow animate fadeInDown selected "
+          data-wow-duration="1500ms"
+          data-wow-delay="${time}ms"
+          
+        >
+          <div class="cat-icon">
+          <img src="assets/images/icons/all.png"
+        
+            width="50"
+            height="50"
+            />
+          </div>
+            <h5>Todas</h5>
+        </div>
+      </div>`;
+
+      html += `
             </div>
           </div>
         </div>
@@ -68,6 +87,7 @@ $.ajax({
     $("#categories").html(html);
     categorySliderHandling();
 
+    /*
     $(".category-card1").click(function () {
       var categoryName = $(this).find("h5").text();
       // Remove background color and font color from other elements
@@ -78,6 +98,7 @@ $.ajax({
 
       alert(categoryName);
     });
+    */
   },
   error: function (xhr, status, error) {
     // Código para processar a mensagem de erro
@@ -90,6 +111,7 @@ $.ajax({
   },
 });
 
+/*
 $(".nav-link").click(function () {
   /*
   // Get the category card with background-color of #6de58a
@@ -106,12 +128,14 @@ $(".nav-link").click(function () {
     console.log("No card with the specified background color found");
   }
   */
+/*
   var value = $(this).val();
   var tab = $(this).attr("data-bs-target");
   // Add your code here based on the button's value and tab
   console.log("Button clicked. Value: " + value + ", Tab: " + tab);
 });
 
+/*
 // Buscar todos os leilões ativos~
 carregaLeiloes("ascendant", "all");
 
@@ -122,7 +146,7 @@ function carregaLeiloes(orderbyParam, catParam) {
     dataType: "json",
     data: { orderby: orderbyParam, cat: catParam },
     success: function (response) {
-      console.log(response);
+      //console.log(response);
     },
     error: function (xhr, status, error) {
       // Código para processar a mensagem de erro
@@ -132,7 +156,7 @@ function carregaLeiloes(orderbyParam, catParam) {
     },
   });
 }
-
+*/
 // All js related to category slider
 function categorySliderHandling() {
   // Home-1 banner slider

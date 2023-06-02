@@ -63,7 +63,7 @@ $.ajax({
         timeEffect += 0.2;
         $("#mostPopular").append(html);
 
-        var endDateAuction = value.datatermino;
+        var endDateAuction = value.datafim;
         var preID = "MostPopular";
         setInterval(function () {
           makeTimer(preID, `${value.id}`, endDateAuction);
@@ -90,7 +90,7 @@ $.ajax({
     console.log("Status:", status);
     console.log("Response:", xhr.responseText);
     let errorMsg = `<h2 style="text-align: center; color: red;" >${xhr.responseText}</h2>`;
-    $("#mostBids").html(errorMsg);
+    $("#mostPopular").html(errorMsg);
   },
 });
 
@@ -151,7 +151,7 @@ $.ajax({
         timeEffect += 0.2;
         $("#toFinish").append(html);
 
-        var endDateAuction = value.datatermino;
+        var endDateAuction = value.datafim;
         var preID = "ToFinish";
         setInterval(function () {
           makeTimer(preID, `${value.id}`, endDateAuction);
@@ -243,7 +243,7 @@ $.ajax({
         timeEffect += 0.2;
         $("#mostRecent").append(html);
 
-        var endDateAuction = value.datatermino;
+        var endDateAuction = value.datafim;
         var preID = "MostRecent";
         setInterval(function () {
           makeTimer(preID, `${value.id}`, endDateAuction);

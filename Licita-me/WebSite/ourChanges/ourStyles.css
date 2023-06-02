@@ -5,6 +5,9 @@
   display: none;
 }
 
+.selected {
+  background-color: #35d876;
+}
 /*
 .imageThumb {
   height: 75px;
