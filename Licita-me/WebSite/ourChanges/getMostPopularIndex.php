@@ -12,7 +12,7 @@
 
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-        $query = "SELECT pecasarte.id, pecasarte.titulo, pecasarte.datatermino, fotografias.dirimagem, COALESCE(licitacoes.valorlicitacao, pecasarte.valorapreciacaoprecobase) AS precoAtual
+        $query = "SELECT pecasarte.id, pecasarte.titulo, pecasarte.datafim, fotografias.dirimagem, COALESCE(licitacoes.valorlicitacao, pecasarte.valorapreciacaoprecobase) AS precoAtual
                     FROM pecasarte
                     INNER JOIN (
                         SELECT idpecaarte, dirimagem,
@@ -25,7 +25,7 @@
                         ORDER BY valorlicitacao DESC
                         LIMIT 1
                     ) licitacoes ON pecasarte.id = licitacoes.pecaarte
-                    WHERE pecasarte.estado = 'Decorrer'
+                    WHERE pecasarte.estado = 'Ativo'
                     ORDER BY (
                         SELECT COUNT(*)
                         FROM licitacoes
