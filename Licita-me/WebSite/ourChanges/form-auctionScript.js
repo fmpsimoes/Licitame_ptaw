@@ -67,17 +67,24 @@ $(document).ready(function () {
     var data1 = new Date(dataStartItem.value);
     var data2 = new Date(dataEndItem.value);
     var diferencaDias = (data2 - data1) / (1000 * 60 * 60 * 24);
-    // Verifica se a diferença do minimo de 7 dias e do maximo de 30
-    if (diferencaDias < 7 || diferencaDias > 30) {
-      event.preventDefault(); // impede o envio do formulário
-      alert("As datas devem ter uma diferença mínima de 7 dias e máxima de 30 dias");
-    } else {
-      //Insere anuncio
+
+    
+    var currentCategory = document.querySelector('.nice-select .current').textContent;
+    if (currentCategory === "Escolha a categoria...") {
       event.preventDefault();
-      setAnuncio();
+      alert("Selecione uma categoria válida!");
+    } else {
+      if (diferencaDias < 7 || diferencaDias > 30) {
+        event.preventDefault(); // impede o envio do formulário
+        alert("As datas devem ter uma diferença mínima de 7 dias e máxima de 30 dias");
+      } else {
+        //Insere anuncio
+        setAnuncio();
+      }
     }
+
   });
-  $( ".container1" ).sortable();
+  $(".container1").sortable();
 
 });
 
@@ -90,6 +97,7 @@ let container = document.querySelector('.container1');
 let text = document.querySelector('.inner1');
 let browse = document.querySelector('.select1');
 let input = document.querySelector('#fotos');
+let card = document.querySelector('#card1');
 
 browse.addEventListener('click', () => input.click());
 
@@ -118,6 +126,32 @@ function delImage(index) {
   files.splice(index, 1);
   showImages();
 }
+
+card.addEventListener('dragover', e => {
+  e.preventDefault();
+  card.classList.add('dragover');
+})
+
+card.addEventListener('dragleave', e => {
+  e.preventDefault();
+  card.classList.remove('dragover');
+})
+
+card.addEventListener('drop', e => {
+  e.preventDefault();
+
+  card.classList.remove('dragover');
+  let file = e.dataTransfer.files;
+  for (let i = 0; i < file.length; i++) {
+    if (files.every(e => e.name != file[i].name)) {
+      files.push(file[i]);
+    }
+  }
+  showImages();
+
+})
+
+
 
 //--------------------------------------------------------
 
@@ -206,7 +240,7 @@ function insertCertificado(id_certificado) {
   })
     .then(response => {
       if (response['status'] == 200) {
-        console.log("Anuncio publicado com certificado"+response);
+        console.log("Anuncio publicado com certificado" + response);
       } else {
         console.log(response)
       };

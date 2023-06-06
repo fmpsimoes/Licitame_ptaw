@@ -55,6 +55,7 @@ if(!isset($_SESSION['email'])) {
     <link href="https://cdn.datatables.net/v/se/dt-1.13.4/b-2.3.6/fc-4.2.2/sp-2.1.2/datatables.min.css" rel="stylesheet"/>
 
     <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="./ourChanges/ourStyles.css">
 
     
 </head>
@@ -318,71 +319,35 @@ if(!isset($_SESSION['email'])) {
                                         <img alt="image" src="assets/images/bg/pro-pic.png">
                                     </div>
                                     <div class="content">
-                                        <h3>João Silva</h3>
-                                        <p class="para">João Silva</p>
+                                        <h3 id="ttNome"></h3>
+                                        <p class="para" id="ttEmail"></p>
                                     </div>
                                 </div>
                                 <div class="form-wrapper">
-                                    <form action="#">
+                                    <form method="POST" id="form12" enctype="multipart/form-data" >
                                         <div class="row">
                                             <div class="col-xl-6 col-lg-12 col-md-6">
                                                 <div class="form-inner">
                                                     <label for="firstname">Primeiro Nome *</label>
-                                                    <input type="text" placeholder="Primeiro Nome" name="firstname">
+                                                    <input type="text" placeholder="Primeiro Nome" name="firstname" id="firstname">
                                                 </div>
                                             </div>
                                             <div class="col-xl-6 col-lg-12 col-md-6">
                                                 <div class="form-inner">
                                                     <label for="lastname">Último Nome *</label>
-                                                    <input type="text" placeholder="Último nome" name="lastname">
+                                                    <input type="text" placeholder="Último nome" name="lastname" id="lastname">
                                                 </div>
                                             </div>
                                             <div class="col-xl-6 col-lg-12 col-md-6">
                                                 <div class="form-inner">
                                                     <label for="contact">Contacto Telefónico</label>
-                                                    <input type="text" placeholder="+354 9xx xxx xxx" name="contact">
+                                                    <input type="text" placeholder="+354 9xx xxx xxx" name="contact" id="contact">
                                                 </div>
                                             </div>
                                             <div class="col-xl-6 col-lg-12 col-md-6">
                                                 <div class="form-inner">
                                                     <label for="email">Email</label>
-                                                    <input type="text" placeholder="Email" name="email">
-                                                </div>
-                                            </div>
-                                            <div class="col-12">
-                                                <div class="form-inner">
-                                                    <label for="address">Morada</label>
-                                                    <input type="text" name="address"
-                                                        placeholder="Rua/Av. , Nº , Bairro, Andar...">
-                                                </div>
-                                            </div>
-                                            <div class="col-xl-6 col-lg-12 col-md-6">
-                                                <div class="form-inner">
-                                                    <label for="city">Cidade</label>
-                                                    <select id="city" name="city">
-                                                        <option value="aveiro">Aveiro</option>
-                                                        <option value="lisboa">Lisboa</option>
-                                                        <option value="coimbra">Coimbra</option>
-                                                        <option value="porto">Porto</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                            <div class="col-xl-6 col-lg-12 col-md-6">
-                                                <div class="form-inner">
-                                                    <label for="freguesia">Freguesia</label>
-                                                    <input type="text" name="freguesia" placeholder="Freguesia">
-                                                </div>
-                                            </div>
-                                            <div class="col-xl-6 col-lg-12 col-md-6">
-                                                <div class="form-inner">
-                                                    <label for="zipcode">Código Postal</label>
-                                                    <input type="text" placeholder="00000" name="zipcode">
-                                                </div>
-                                            </div>
-                                            <div class="col-xl-6 col-lg-12 col-md-6">
-                                                <div class="form-inner">
-                                                    <label for="pais">Pais</label>
-                                                    <input type="text" placeholder="Portugal" name="pais" disabled>
+                                                    <input type="text" placeholder="Email" name="email" id="email" disabled>
                                                 </div>
                                             </div>
                                             <div class="col-12">
@@ -403,9 +368,9 @@ if(!isset($_SESSION['email'])) {
                                             </div>
                                             <div class="col-12">
                                                 <div class="button-group">
-                                                    <button type="submit" class="eg-btn profile-btn">Actualizar
+                                                    <button type="submit" class="eg-btn profile-btn" id="actualizar">Actualizar
                                                         Perfil</button>
-                                                    <button class="eg-btn cancel-btn">Cancelar</button>
+                                                    <button type="button"class="eg-btn cancel-btn">Cancelar</button>
                                                 </div>
                                             </div>
                                         </div>

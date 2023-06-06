@@ -475,6 +475,8 @@
     ],
   });
   */
+
+  /*
   // timer start
   function makeTimer() {
     var endTime = new Date("June 01, 2022 00:00:00");
@@ -657,7 +659,7 @@
   setInterval(function () {
     countDownTimer(cdd9, "countdown-timer-9");
   }, 1000);
-
+  */
   // password-hide and show
 
   const togglePassword = document.querySelector("#togglePassword");

@@ -175,7 +175,7 @@ if(!isset($_SESSION['email'])) {
         <img alt="image" src="assets/images/bg/section-bg.png" class="img-fluid section-bg-bottom">
         <div class="container">
             <div class="form-wrapper">
-                <form id="form">
+                <form id="form" enctype="multipart/form-data">
                     <div class="row">
                         <h2>Dados da Arte</h2>
                     </div>
@@ -276,9 +276,9 @@ if(!isset($_SESSION['email'])) {
                         <div class="col-xl-12 col-lg-12 col-md-12">
                             <div class="form-inner">
                                 <label for="images">Fotografias da Peça *</label>
-                                <div class="card1">
-                                    <span class="select1">Adicionar Fotografias</span>
-                                        <input name="file" type="file" class="file" id="fotos" multiple>
+                                <div class="card1" id="card1" class="dragover">
+                                <span class="select1"><button type="button" id="addPhoto">Adicionar Imagens</button></span>
+                                        <input name="file" type="file" class="file" id="fotos" multiple required>
                                     <div class="container1">   
                                     </div>   
                                 </div>
@@ -298,15 +298,15 @@ if(!isset($_SESSION['email'])) {
                     <div class="row">
                         <div class="col-12">
                             <div class="button-group">
-                                <button type="submit" class="eg-btn profile-btn" id="aceite">Publicar Leilão</button>
-                                <button type="submit" class="eg-btn profile-btn2" id="rejeitado">Rejeitar Leilão</button>
-                                <button class="eg-btn cancel-btn">Cancelar</button>
+                                <button type="submit" value="button1" name ="aceite" class="eg-btn profile-btn" id="aceite">Publicar Leilão</button>
+                                <button type="button" value="button2" name="rejeitado" class="eg-btn profile-btn2" id="rejeitado">Rejeitar Leilão</button>
+                                <a href="dashboardPerito.php"><button type="button" class="eg-btn cancel-btn">Cancelar</button></a>
                             </div>
                         </div>
+                    </div>
+                </form>
             </div>
-            </form>
         </div>
-    </div>
     </div>
 
 

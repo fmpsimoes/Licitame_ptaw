@@ -58,6 +58,9 @@ if(isset($_SESSION['email'])) {
 
         <!-- style css -->
         <link rel="stylesheet" href="assets/css/modal.css">
+
+        <!-- style css -->
+        <link rel="stylesheet" href="assets/css/password.css">
     </head>
 
 <body>
@@ -111,7 +114,7 @@ if(isset($_SESSION['email'])) {
                             <h3>Entrar</h3>
                             <p>Novo membro? <a href="signup.html">Cria conta aqui</a></p>
                         </div>
-                        <form class="w-100" enctype="multipart/form-data" id="form12">
+                        <form class="w-100" method= "POST" enctype="multipart/form-data" id="form12">
                             <div class="row">
                                 <div class="col-12">
                                     <div class="form-inner">
@@ -131,12 +134,28 @@ if(isset($_SESSION['email'])) {
                                         <div class="form-group">
                                             
                                         </div>
-                                        <a href="#" class="forgot-pass">Esqueci-me da palavra-passe</a>
+                                        <a href="#password" class="forgot-pass">Esqueci-me da palavra-passe</a>
                                     </div>
                                 </div>
                             </div>
                             <button class="account-btn" id="loginButton">Entrar</button>
                         </form>
+
+                        <div class="popup" id="forgotPasswordPopup">
+                            <div class="popup-content">
+                                <form onSubmit="return false" enctype="multipart/form-data" id="formForgotPassword">
+                                    <span class="close" id="closePopup">&times;</span>
+                                    <h3>Redefinir palavra-passe</h3>
+                                    <p>Insira seu email para redefinir sua palavra-passe:</p>
+                                    <input type="email" id="emailInput" name="emailInput" placeholder="Digite seu email" required>
+                                    <div class = "popup-reset-button-container">
+                                        <button class="popup-reset-button">Enviar email</button>
+                                        <p id="result-message"></p>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+
                         <div class="form-poicy-area">
                             <p>Ao clicar no botão "Entrar", cria uma conta LICITAME, e concorda com a política de privacidade da Licita-me <a href="#myModal" data-toggle= "modal" data-target = "#myModal" id= "termosLink">Termos & Condições</a> & <a href="#privacyModal" data-toggle="modal" data-target="#privacyModal" id = "privacyLink">Política de privacidade.</a></p>
                             <div id="myModal" class="modal">
@@ -203,9 +222,11 @@ if(isset($_SESSION['email'])) {
     <script src="assets/js/viewport.jquery.js"></script>
     <script src="assets/js/jquery.magnific-popup.min.js"></script>
     <script src="assets/js/modal.js"></script>
+    <script src="assets/js/password.js"></script>
     <script src="ourChanges/callCommonSections.js"></script>
     <script src="assets/js/main.js"></script>
     <script src="ourChanges/login.js"></script>
+    
 
 </body>
 

@@ -36,6 +36,8 @@
                 echo json_encode('dashboard.php');
             } elseif ($user['tipoutilizador'] == 'Perito') {
                 echo json_encode('dashboardPerito.php');
+            }else{
+                echo json_encode("Email ou password errada");
             }
         } else { //user not found
             echo json_encode("Email ou password errada");

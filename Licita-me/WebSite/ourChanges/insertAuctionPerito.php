@@ -9,9 +9,17 @@ $dbname = 'ptaw-2023-gr1';
 $userbd = 'ptaw-2023-gr1';
 $password = 'ptaw-2023-gr1';
 
+foreach ($data as $key => $value) {
+    // Check if the value is an empty string
+    if ($value === '') {
+      // Set the value to NULL
+      $data[$key] = NULL;
+    }
+  }
+
 try {
     $pdo = new PDO("pgsql:host=$host;port=$port;dbname=$dbname;user=$userbd;password=$password");
-    $query = "UPDATE pecasarte SET emailperito= ?, titulo=?, descricao=?, categoria=?, materiais=?, dimensoes=?, peso=?, autor=?, periodo=?, estado=?, valorapreciacaoprecobase=?, valorapreciacaocompraja=?, datacertificacao=?, condicao=?, datainicio=?, datatermino=? WHERE id= ?";
+    $query = "UPDATE pecasarte SET emailperito= ?, titulo=?, descricao=?, categoria=?, materiais=?, dimensoes=?, peso=?, autor=?, periodo=?, estado=?, valorapreciacaoprecobase=?, valorapreciacaocompraja=?, datacertificacao=?, condicao=?, datainicio=?, datafim=? WHERE id= ?";
     $query1 = "DELETE FROM fotografias WHERE idpecaarte=?;";
     $statement = $pdo->prepare($query);
     $statement1 = $pdo->prepare($query1);

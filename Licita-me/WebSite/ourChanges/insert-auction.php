@@ -21,7 +21,7 @@ try {
     } else {
         $valorCompraImediata = $data['valorCompraImediata'];
     }
-    $query = "INSERT INTO pecasarte (emailvendedor, titulo, categoria, materiais, datainicio, datatermino, dimensoes, peso, autor, condicao, precobase, precocomprarja, descricao, estado) 
+    $query = "INSERT INTO pecasarte (emailvendedor, titulo, categoria, materiais, datainicio, datafim, dimensoes, peso, autor, condicao, precobase, precocomprarja, descricao, estado) 
                 values (?,?,?,?,?,?,?,?,?,?,?,?,?, 'Pendente') RETURNING id";
     $statement = $pdo->prepare($query);
     

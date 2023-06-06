@@ -99,171 +99,7 @@
 
     <!-- =============== category-section start  =============== -->
 
-    <div id="categories" class="category-section pt-120">
-      <!-- 
-      <div class="container position-relative">
-        <div class="row d-flex justify-content-center">
-          <div class="swiper category1-slider">
-            <div class="swiper-wrapper">
-              <div class="swiper-slide">
-                <div
-                  class="eg-card category-card1 wow animate fadeInDown"
-                  data-wow-duration="1500ms"
-                  data-wow-delay="200ms"
-                >
-                  <div class="cat-icon">
-                    <img
-                      src="img_girl.jpg"
-                      alt="Girl in a jacket"
-                      width="500"
-                      height="600"
-                    />
-                  </div>
-                  <a href="live-auction.html">
-                    <h5>Banda Desenhada</h5>
-                  </a>
-                </div>
-              </div>
-              <div class="swiper-slide">
-                <div
-                  class="eg-card category-card1 wow animate fadeInDown"
-                  data-wow-duration="1500ms"
-                  data-wow-delay="400ms"
-                >
-                  <div class="cat-icon">
-                    <img
-                      src="img_girl.jpg"
-                      alt="Girl in a jacket"
-                      width="500"
-                      height="600"
-                    />
-                  </div>
-
-                  <a href="live-auction.html">
-                    <h5>Escultura</h5>
-                  </a>
-                </div>
-              </div>
-              <div class="swiper-slide">
-                <div
-                  class="eg-card category-card1 wow animate fadeInDown"
-                  data-wow-duration="1500ms"
-                  data-wow-delay="600ms"
-                >
-                  <div class="cat-icon">
-                    <img
-                      src="img_girl.jpg"
-                      alt="Girl in a jacket"
-                      width="500"
-                      height="600"
-                    />
-                  </div>
-                  <a href="live-auction.html">
-                    <h5>Foto não digital</h5>
-                  </a>
-                </div>
-              </div>
-              <div class="swiper-slide">
-                <div
-                  class="eg-card category-card1 wow animate fadeInDown"
-                  data-wow-duration="1500ms"
-                  data-wow-delay="800ms"
-                >
-                  <div class="cat-icon">
-                    <img
-                      src="img_girl.jpg"
-                      alt="Girl in a jacket"
-                      width="500"
-                      height="600"
-                    />
-                  </div>
-                  <a href="live-auction.html">
-                    <h5>Literatura</h5>
-                  </a>
-                </div>
-              </div>
-              <div class="swiper-slide">
-                <div
-                  class="eg-card category-card1 wow animate fadeInDown"
-                  data-wow-duration="1500ms"
-                  data-wow-delay="1000ms"
-                >
-                  <div class="cat-icon">
-                    <img
-                      src="img_girl.jpg"
-                      alt="Girl in a jacket"
-                      width="500"
-                      height="600"
-                    />
-                  </div>
-                  <a href="live-auction.html">
-                    <h5>Outro</h5>
-                  </a>
-                </div>
-              </div>
-              <div class="swiper-slide">
-                <div
-                  class="eg-card category-card1 wow animate fadeInDown"
-                  data-wow-duration="1500ms"
-                  data-wow-delay="1200ms"
-                >
-                  <div class="cat-icon">
-                    <img
-                      src="img_girl.jpg"
-                      alt="Girl in a jacket"
-                      width="500"
-                      height="600"
-                    />
-                  </div>
-                  <a href="live-auction.html">
-                    <h5>Pintura</h5>
-                  </a>
-                </div>
-              </div>
-              <div class="swiper-slide">
-                <div
-                  class="eg-card category-card1 wow animate fadeInDown"
-                  data-wow-duration="1500ms"
-                  data-wow-delay="1400ms"
-                >
-                  <div class="cat-icon">
-                    <img
-                      src="img_girl.jpg"
-                      alt="Girl in a jacket"
-                      width="500"
-                      height="600"
-                    />
-                  </div>
-                  <a href="live-auction.html">
-                    <h5>Artesanato</h5>
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div
-          class="slider-arrows text-center d-xl-flex d-none justify-content-end"
-        >
-          <div
-            class="category-prev1 swiper-prev-arrow"
-            tabindex="0"
-            role="button"
-            aria-label="Previous slide"
-          >
-            <i class="bx bx-chevron-left"></i>
-          </div>
-          <div
-            class="category-next1 swiper-next-arrow"
-            tabindex="0"
-            role="button"
-            aria-label="Next slide"
-          >
-            <i class="bx bx-chevron-right"></i>
-          </div>
-        </div>
-      </div>-->
-    </div>
+    <div id="categories" class="category-section pt-120"></div>
 
     <div class="dashboard-section pt-120 pb-120">
       <img
@@ -296,6 +132,7 @@
                 role="tab"
                 aria-controls="v-pills-dashboard"
                 aria-selected="true"
+                value="all"
               >
                 Ver todos
               </button>
@@ -308,6 +145,7 @@
                 role="tab"
                 aria-controls="v-pills-profile"
                 aria-selected="true"
+                value="morePopular"
               >
                 Mais Licitados
               </button>
@@ -321,6 +159,7 @@
                 role="tab"
                 aria-controls="v-pills-order"
                 aria-selected="true"
+                value="almostFinish"
               >
                 A terminar
               </button>
@@ -333,12 +172,14 @@
                 role="tab"
                 aria-controls="v-pills-purchase"
                 aria-selected="true"
+                value="mostRecent"
               >
                 Mais recentes
               </button>
             </div>
           </div>
           <div class="col-lg-9">
+            <!-- Todos os leilões -->
             <div class="tab-content" id="v-pills-tabContent">
               <div
                 class="tab-pane fade show active"
@@ -397,7 +238,7 @@
                       <div class="col-lg-4 col-md-6 col-sm-10">
                         <div
                           data-wow-duration="1.5s"
-                          data-wow-delay="0.4s"
+                          data-wow-delay="0.2s"
                           class="eg-card auction-card1 wow fadeInDown"
                         >
                           <div class="auction-img">
@@ -433,7 +274,7 @@
                       <div class="col-lg-4 col-md-6 col-sm-10">
                         <div
                           data-wow-duration="1.5s"
-                          data-wow-delay="0.6s"
+                          data-wow-delay="0.2s"
                           class="eg-card auction-card1 wow fadeInDown"
                         >
                           <div class="auction-img">
@@ -471,7 +312,7 @@
                       <div class="col-lg-4 col-md-6 col-sm-10">
                         <div
                           data-wow-duration="1.5s"
-                          data-wow-delay="0.8s"
+                          data-wow-delay="0.4s"
                           class="eg-card auction-card1 wow fadeInDown"
                         >
                           <div class="auction-img">
@@ -507,7 +348,7 @@
                       <div class="col-lg-4 col-md-6 col-sm-10">
                         <div
                           data-wow-duration="1.5s"
-                          data-wow-delay="1s"
+                          data-wow-delay="0.4s"
                           class="eg-card auction-card1 wow fadeInDown"
                         >
                           <div class="auction-img">
@@ -543,7 +384,7 @@
                       <div class="col-lg-4 col-md-6 col-sm-10">
                         <div
                           data-wow-duration="1.5s"
-                          data-wow-delay="1.2s"
+                          data-wow-delay="0.4s"
                           class="eg-card auction-card1 wow fadeInDown"
                         >
                           <div class="auction-img">
@@ -581,7 +422,7 @@
                       <div class="col-lg-4 col-md-6 col-sm-10">
                         <div
                           data-wow-duration="1.5s"
-                          data-wow-delay="1.4s"
+                          data-wow-delay="0.6s"
                           class="eg-card auction-card1 wow fadeInDown"
                         >
                           <div class="auction-img">
@@ -615,7 +456,7 @@
                       <div class="col-lg-4 col-md-6 col-sm-10">
                         <div
                           data-wow-duration="1.5s"
-                          data-wow-delay="1.6s"
+                          data-wow-delay="0.6s"
                           class="eg-card auction-card1 wow fadeInDown"
                         >
                           <div class="auction-img">
@@ -651,7 +492,7 @@
                       <div class="col-lg-4 col-md-6 col-sm-10">
                         <div
                           data-wow-duration="1.5s"
-                          data-wow-delay="1.8s"
+                          data-wow-delay="0.6s"
                           class="eg-card auction-card1 wow fadeInDown"
                         >
                           <div class="auction-img">
@@ -716,6 +557,134 @@
                   </nav>
                 </div>
               </div>
+
+              <!-- mais uma parte aqui -->
+              <div
+                class="tab-pane fade"
+                id="v-pills-profile"
+                role="tabpanel"
+                aria-labelledby="v-pills-profile-tab"
+              >
+                <div class="dashboard-profile">
+                  <div class="owner">
+                    <div class="image">
+                      <img alt="image" src="assets/images/bg/pro-pic.png" />
+                    </div>
+                    <div class="content">
+                      <h3>Johan Martin SR-</h3>
+                      <p class="para">Johan Martin SR-</p>
+                    </div>
+                  </div>
+                  <div class="form-wrapper">
+                    <form action="#">
+                      <div class="row">
+                        <div class="col-xl-6 col-lg-12 col-md-6">
+                          <div class="form-inner">
+                            <label>Frist Name *</label>
+                            <input type="text" placeholder="Your first name" />
+                          </div>
+                        </div>
+                        <div class="col-xl-6 col-lg-12 col-md-6">
+                          <div class="form-inner">
+                            <label>Last Name *</label>
+                            <input type="text" placeholder="Your last name" />
+                          </div>
+                        </div>
+                        <div class="col-xl-6 col-lg-12 col-md-6">
+                          <div class="form-inner">
+                            <label>Contact Number</label>
+                            <input type="text" placeholder="+8801" />
+                          </div>
+                        </div>
+                        <div class="col-xl-6 col-lg-12 col-md-6">
+                          <div class="form-inner">
+                            <label>Email</label>
+                            <input type="text" placeholder="Your Email" />
+                          </div>
+                        </div>
+                        <div class="col-12">
+                          <div class="form-inner">
+                            <label>Address</label>
+                            <input type="text" name="message" />
+                          </div>
+                        </div>
+                        <div class="col-xl-6 col-lg-12 col-md-6">
+                          <div class="form-inner">
+                            <label>City</label>
+                            <select id="city">
+                              <option>Dhaka</option>
+                              <option>Sylhet</option>
+                              <option>Chittagong</option>
+                              <option>Rajshahi</option>
+                            </select>
+                          </div>
+                        </div>
+                        <div class="col-xl-6 col-lg-12 col-md-6">
+                          <div class="form-inner">
+                            <label>State</label>
+                            <select name="state" id="state">
+                              <option>Dhaka</option>
+                              <option>Sylhet</option>
+                              <option>Chittagong</option>
+                              <option>Rajshahi</option>
+                            </select>
+                          </div>
+                        </div>
+                        <div class="col-xl-6 col-lg-12 col-md-6">
+                          <div class="form-inner">
+                            <label>Zip Code</label>
+                            <input type="text" placeholder="00000" />
+                          </div>
+                        </div>
+                        <div class="col-xl-6 col-lg-12 col-md-6">
+                          <div class="form-inner">
+                            <label>Country</label>
+                            <select>
+                              <option>Bangladesh</option>
+                              <option>Afganistan</option>
+                              <option>India</option>
+                              <option>China</option>
+                            </select>
+                          </div>
+                        </div>
+                        <div class="col-12">
+                          <div class="form-inner">
+                            <label>Password *</label>
+                            <input
+                              type="password"
+                              name="password"
+                              id="password"
+                              placeholder="Create A Password"
+                            />
+                            <i class="bi bi-eye-slash" id="togglePassword"></i>
+                          </div>
+                        </div>
+                        <div class="col-12">
+                          <div class="form-inner mb-0">
+                            <label>Confirm Password *</label>
+                            <input
+                              type="password"
+                              name="password"
+                              id="password2"
+                              placeholder="Create A Password"
+                            />
+                            <i class="bi bi-eye-slash" id="togglePassword2"></i>
+                          </div>
+                        </div>
+                        <div class="col-12">
+                          <div class="button-group">
+                            <button type="submit" class="eg-btn profile-btn">
+                              Update Profile
+                            </button>
+                            <button class="eg-btn cancel-btn">Cancel</button>
+                          </div>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+              <!-- FIM aqui -->
             </div>
           </div>
         </div>
