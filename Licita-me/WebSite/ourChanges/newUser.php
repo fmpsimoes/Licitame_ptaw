@@ -4,17 +4,17 @@
 
     // connect to database
     $host = 'localhost';
-    $port = '5432';
+    $port = '5433';
     $dbname = 'ptaw-2023-gr1';
     $user = 'ptaw-2023-gr1';
-    $password = '-n?ZR-:$G!h-yQ,r';
+    $password = 'ptaw-2023-gr1';
 
     try {
         $pdo = new PDO("pgsql:host=$host;port=$port;dbname=$dbname;user=$user;password=$password");
 
         // insert new user
-        $stmt = $pdo->prepare("INSERT INTO utilizadores (email, nome, apelido, pass) VALUES (?, ?, ?, ?)");
-        $result = $stmt->execute([$data["email"], $data["nome"], $data["apelido"], $data["pass"]]);
+        $stmt = $pdo->prepare("INSERT INTO utilizadores (email, nome, apelido, pass, tipoutilizador) VALUES (?, ?, ?, ?, ?)");
+        $result = $stmt->execute([$data["email"], $data["nome"], $data["apelido"], $data["pass"], 'Utilizador']);
         if($result) {
             echo "Sucesso";
         } else {
