@@ -200,13 +200,13 @@ if(!isset($_SESSION['email'])) {
                                         <div class="row">
                                             <div class="col-xl-6 col-lg-12 col-md-6">
                                                 <div class="form-inner">
-                                                    <label for="firstname">Primeiro Nome *</label>
+                                                    <label for="firstname">Primeiro Nome </label>
                                                     <input type="text" placeholder="Primeiro Nome" name="firstname"  id="firstname">
                                                 </div>
                                             </div>
                                             <div class="col-xl-6 col-lg-12 col-md-6">
                                                 <div class="form-inner">
-                                                    <label for="lastname">Último Nome *</label>
+                                                    <label for="lastname">Último Nome </label>
                                                     <input type="text" placeholder="Último nome" name="lastname" id="lastname">
                                                 </div>
                                             </div>

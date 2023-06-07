@@ -1,8 +1,8 @@
 $(document).ready(function () {
     getDataPessoal();
-    let form = document.getElementById("form12");
+    let form = document.getElementById("form123");
     form.addEventListener("submit", function (event) {
-        updateDataPessoal();
+        updateDataPessoal(event);
     });
     getPorRever();
     getRevistos();
@@ -46,7 +46,16 @@ function getRevistos() {
                 let td1 = document.createElement('td');
                 let img = document.createElement('img');
                 img.classList.add('img-fluid');
-                img.src = '#';
+                (async function() {
+                    const imagePath = await getFirstImage(element['id']);
+                    if (imagePath) {
+                        console.log("Imagem: " + imagePath);
+                        img.src = imagePath;
+                    } else {
+                        console.log("No matching image found.");
+                        img.src = "imagePath";
+                    }
+                  })();
                 img.alt = '#';
                 td1.appendChild(img);
                 let td2 = document.createElement('td');
@@ -70,7 +79,11 @@ function getRevistos() {
             document.getElementById("tableRevistos").appendChild(table);
 
             // Initialize DataTables on the table
-            $(table).DataTable();
+            $(table).DataTable({
+                language: {
+                    url: '//cdn.datatables.net/plug-ins/1.13.4/i18n/pt-PT.json',
+                },
+            });
         },
         error: function (xhr, status, error) {
             console.error(error);
@@ -121,7 +134,16 @@ function getPorRever() {
                 let td1 = document.createElement('td');
                 let img = document.createElement('img');
                 img.classList.add('img-fluid');
-                img.src = '#';
+                (async function() {
+                    const imagePath = await getFirstImage(element['id']);
+                    if (imagePath) {
+                        console.log("Imagem: " + imagePath);
+                        img.src = imagePath;
+                    } else {
+                        console.log("No matching image found.");
+                        img.src = "imagePath";
+                    }
+                  })();
                 img.alt = '#';
                 td1.appendChild(img);
                 let td2 = document.createElement('td');
@@ -142,9 +164,14 @@ function getPorRever() {
             table.appendChild(thead);
             table.appendChild(tbody);
             document.getElementById("tablePorRever").appendChild(table);
-        
+
             // Initialize DataTables on the table
-            $(table).DataTable();
+            $(table).DataTable({
+                language: {
+                    url: '//cdn.datatables.net/plug-ins/1.13.4/i18n/pt-PT.json',
+                },
+            });
+
         },
         error: function (xhr, status, error) {
             console.error(error);
@@ -192,7 +219,7 @@ function getDataPessoal() {
         }
     });
 }
-function updateDataPessoal() {
+function updateDataPessoal(event) {
     const obj = {
         nome: $('#firstname').val(),
         apelido: $('#lastname').val(),
@@ -207,38 +234,78 @@ function updateDataPessoal() {
             url: './ourChanges/setUserData.php',
             data: { data: obj },
             success: function (response) {
-                console.log(response)
-                alert(JSON.parse(response));
                 const loginDetails = {
                     email: obj['email'],
                     pass: obj['pass1']
                 }
-                $.ajax({
-                    url: './ourChanges/loginTry.php',
-                    type: 'POST',
-                    data: { data: loginDetails },
-                    success: function (response) {
-                        let jsonResponse = JSON.parse(response);
-
-                        if (jsonResponse == "dashboard.php" || jsonResponse == "dashboardAdmin.php" || jsonResponse == "dashboardPerito.php") {
-                            window.location.href = jsonResponse; //redirecionar para o respetivo painel depois de inciar sessão
-                        }
-                        else {
-                            alert(jsonResponse);
-                        }
-                    },
-                    error: function (xhr, status, error) {
-                        console.error(error);
-                    }
-                });
+                if(obj['pass1'] != ""){
+                    doNewLogin(loginDetails, event);
+                }else{
+                    alert(JSON.parse(response));
+                    window.location.href = "dashboardPerito.php";
+                }
             },
             error: function (xhr, status, error) {
+                event.preventDefault();
                 console.error(error);
             }
         });
     } else {
+        event.preventDefault();
         alert("As novas passwords não coincidem");
         $('#password').val("");
-        $('#password').val("");
+        $('#password2').val("");
     }
+}
+async function getFirstImage(id) {
+    const arrayImages = [];
+
+    try {
+        const response = await $.ajax({
+            type: "POST",
+            url: './ourChanges/getImagensLeilao.php',
+            data: { data: id }
+        });
+
+        const data = JSON.parse(response);
+        data.fotos.forEach(element => {
+            arrayImages.push(element.dirimagem);
+        });
+
+        for (let i = 0; i < arrayImages.length; i++) {
+            const imagePath = arrayImages[i];
+            const filename = imagePath.split('/').pop();
+            if (filename.split('.')[0].slice(-1) === '1') {
+                return imagePath.substring(1);
+            }
+        }
+
+        return null; // If no matching image is found
+    } catch (error) {
+        console.error(error);
+        return "error";
+    }
+}
+function doNewLogin(loginDetails, event) { 
+    $.ajax({
+        url: './ourChanges/loginTry.php',
+        type: 'POST',
+        data: { data: loginDetails },
+        success: function (response) {
+            let jsonResponse = JSON.parse(response);
+            
+            if (jsonResponse == "dashboard.php" || jsonResponse == "dashboardAdmin.php" || jsonResponse == "dashboardPerito.php") {
+                alert("Dados e password alterados com Sucesso!");
+                window.location.href = jsonResponse; //redirecionar para o respetivo painel depois de inciar sessão
+            }
+            else {
+                event.preventDefault();
+                alert(jsonResponse);
+            }
+        },
+        error: function (xhr, status, error) {
+            event.preventDefault();
+            console.error(error);
+        }
+    })
 }

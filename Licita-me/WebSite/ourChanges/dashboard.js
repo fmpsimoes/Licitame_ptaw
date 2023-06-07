@@ -2,9 +2,9 @@ $(document).ready(function () {
     getDataPessoal();
     let form = document.getElementById("form12");
     form.addEventListener("submit", function (event) {
-        updateDataPessoal();
+        event.preventDefault();
+        updateDataPessoal(event);
     });
-    getLeiloesGanhosTESTE();
     //getHistoricoLicitacoes();
     getLeiloesGanhos();
     getMeusLeiloes();
@@ -24,7 +24,7 @@ window.onload = function () {
     existingDiv1.parentNode.insertBefore(anunciar1, existingDiv1);
 }
 
-function getMeusLeiloes(){
+function getMeusLeiloes() {
     let table;
     let div;
     div = document.getElementById("tableosmeusleiloes");
@@ -63,7 +63,16 @@ function getMeusLeiloes(){
                 let td1 = document.createElement('td');
                 let img = document.createElement('img');
                 img.classList.add('img-fluid');
-                img.src = '#';
+                (async function () {
+                    const imagePath = await getFirstImage(element['id']);
+                    if (imagePath) {
+                        console.log("Imagem: " + imagePath);
+                        img.src = imagePath;
+                    } else {
+                        console.log("No matching image found.");
+                        img.src = "imagePath";
+                    }
+                })();
                 img.alt = '#';
                 td1.appendChild(img);
                 let td2 = document.createElement('td');
@@ -86,14 +95,18 @@ function getMeusLeiloes(){
             table.appendChild(tbody);
             div.appendChild(table);
 
-            $(table).DataTable();
+            $(table).DataTable({
+                language: {
+                    url: '//cdn.datatables.net/plug-ins/1.13.4/i18n/pt-PT.json',
+                },
+            });
         },
         error: function (xhr, status, error) {
             console.error(error);
             table.appendChild(tbody);
             div.appendChild(table);
         }
-    });  
+    });
 }
 
 function getHistoricoLicitacoes() {
@@ -172,7 +185,7 @@ function getLeiloesGanhos() {
     let div;
     div = document.getElementById("tableLeiloesGanhos");
     table = document.createElement("table");
-    table.classList.add('eg-table', 'order-table', 'table', 'mb-0', 'display'); 
+    table.classList.add('eg-table', 'order-table', 'table', 'mb-0', 'display');
     table.id = "tabelaLeiloesGanhos";
     let thead = document.createElement('thead');
     thead.id = "theadRev";
@@ -206,7 +219,16 @@ function getLeiloesGanhos() {
                 let td1 = document.createElement('td');
                 let img = document.createElement('img');
                 img.classList.add('img-fluid');
-                img.src = '#';
+                (async function () {
+                    const imagePath = await getFirstImage(element['id']);
+                    if (imagePath) {
+                        console.log("Imagem: " + imagePath);
+                        img.src = imagePath;
+                    } else {
+                        console.log("No matching image found.");
+                        img.src = "imagePath";
+                    }
+                })();
                 img.alt = '#';
                 td1.appendChild(img);
                 let td2 = document.createElement('td');
@@ -229,7 +251,11 @@ function getLeiloesGanhos() {
             table.appendChild(tbody);
             div.appendChild(table);
 
-            $(table).DataTable();
+            $(table).DataTable({
+                language: {
+                    url: '//cdn.datatables.net/plug-ins/1.13.4/i18n/pt-PT.json',
+                },
+            });
         },
         error: function (xhr, status, error) {
             console.error(error);
@@ -240,76 +266,6 @@ function getLeiloesGanhos() {
 }
 
 
-function getLeiloesGanhosTESTE() {
-    let table;
-    let div;
-    div = document.getElementById("tablelicitacoes");
-    table = document.createElement("table");
-    table.classList.add('eg-table', 'order-table', 'table', 'mb-0', 'display');
-    table.id = "tabelaPorRever";
-    let thead = document.createElement('thead');
-    thead.id = "theadRev";
-    let tr2 = document.createElement('tr');
-    let th1 = document.createElement('th');
-    th1.textContent = "Imagem";
-    let th2 = document.createElement('th');
-    th2.textContent = "Título";
-    let th3 = document.createElement('th');
-    th3.textContent = "Data Prevista Inicio";
-    let th4 = document.createElement('th');
-    th4.textContent = "Categoria";
-    let th5 = document.createElement('th');
-    th5.textContent = "Status";
-    tr2.appendChild(th1);
-    tr2.appendChild(th2);
-    tr2.appendChild(th3);
-    tr2.appendChild(th4);
-    tr2.appendChild(th5);
-    thead.appendChild(tr2);
-    let tbody = document.createElement('tbody');
-    let tr = document.createElement('tr');
-    tr.id = 'row';
-    let td1 = document.createElement('td');
-    let img = document.createElement('img');
-    img.classList.add('img-fluid');
-    img.src = '#';
-    img.alt = '#';
-    //td1.setAttribute('data-label', 'Image');
-    td1.appendChild(img);
-    let td2 = document.createElement('td');
-    //td2.setAttribute('data-label', 'titulo');
-    td2.textContent = "Quim Barreiros";
-    let td3 = document.createElement('td');
-    //td3.setAttribute('data-label', 'DataPrevistaInicio');
-    td3.textContent = "23-13-1223";
-    let td4 = document.createElement('td');
-    //td4.setAttribute('data-label', 'Categoria');
-    td4.textContent = "Musica";
-    let td5 = document.createElement('td');
-    //td5.setAttribute('data-label', 'Status');
-    td5.textContent = "Aprovado";
-    let id = 1;
-    tr.appendChild(td1);
-    tr.appendChild(td2);
-    tr.appendChild(td3);
-    tr.appendChild(td4);
-    tr.appendChild(td5);
-    tbody.appendChild(tr);
-    /*
-    let row = document.getElementById("row")
-    row.addEventListener("click", function () {
-        alert("Clicável");
-    });
-    */
-    table.appendChild(thead);
-    table.appendChild(tbody);
-    div.appendChild(table);
-    let row = document.getElementById("row")
-    row.addEventListener("click", function () {
-        alert("Clicável");
-        //window.location.href = `getLeilaoData.php?idLeilao=${id}`;
-    });
-}
 
 function logout() {
     $.ajax({
@@ -352,7 +308,7 @@ function getDataPessoal() {
     });
 }
 
-function updateDataPessoal() {
+function updateDataPessoal(event) {
     const obj = {
         nome: $('#firstname').val(),
         apelido: $('#lastname').val(),
@@ -371,39 +327,27 @@ function updateDataPessoal() {
             url: './ourChanges/setUserData.php',
             data: { data: obj },
             success: function (response) {
-                console.log(response)
-                alert(JSON.parse(response));
                 const loginDetails = {
                     email: obj['email'],
-                    pass: obj['pass1']
+                    pass: obj['pass1'],
                 }
-                $.ajax({
-                    url: './ourChanges/loginTry.php',
-                    type: 'POST',
-                    data: { data: loginDetails },
-                    success: function (response) {
-                        let jsonResponse = JSON.parse(response);
-
-                        if (jsonResponse == "dashboard.php" || jsonResponse == "dashboardAdmin.php" || jsonResponse == "dashboardPerito.php") {
-                            window.location.href = jsonResponse; //redirecionar para o respetivo painel depois de inciar sessão
-                        }
-                        else {
-                            alert(jsonResponse);
-                        }
-                    },
-                    error: function (xhr, status, error) {
-                        console.error(error);
-                    }
-                });
+                if (obj['pass1'] != "") {
+                    doNewLogin(loginDetails, event);
+                } else {
+                    alert(JSON.parse(response));
+                    window.location.href = "dashboard.php";
+                }
             },
             error: function (xhr, status, error) {
+                event.preventDefault();
                 console.error(error);
             }
         });
     } else {
+        event.preventDefault();
         alert("As novas passwords não coincidem");
         $('#password').val("");
-        $('#password').val("");
+        $('#password2').val("");
     }
 
 }
@@ -443,4 +387,56 @@ function createAnunciarContainer2() {
     // Append the anchor to the contaContainer
     anunciarCont1.appendChild(anchor);
     return anunciarCont1;
+}
+
+async function getFirstImage(id) {
+    const arrayImages = [];
+
+    try {
+        const response = await $.ajax({
+            type: "POST",
+            url: './ourChanges/getImagensLeilao.php',
+            data: { data: id }
+        });
+
+        const data = JSON.parse(response);
+        data.fotos.forEach(element => {
+            arrayImages.push(element.dirimagem);
+        });
+
+        for (let i = 0; i < arrayImages.length; i++) {
+            const imagePath = arrayImages[i];
+            const filename = imagePath.split('/').pop();
+            if (filename.split('.')[0].slice(-1) === '1') {
+                return imagePath.substring(1);
+            }
+        }
+
+        return null; // If no matching image is found
+    } catch (error) {
+        console.error(error);
+        return "error";
+    }
+}
+
+function doNewLogin(loginDetails, event) {
+    $.ajax({
+        url: './ourChanges/loginTry.php',
+        type: 'POST',
+        data: { data: loginDetails },
+        success: function (response) {
+            let jsonResponse = JSON.parse(response);
+            if (jsonResponse == "dashboard.php" || jsonResponse == "dashboardAdmin.php" || jsonResponse == "dashboardPerito.php") {
+                alert("Dados e password alterados com Sucesso!");
+                window.location.href = jsonResponse; //redirecionar para o respetivo painel depois de inciar sessão
+            }
+            else {
+                alert(jsonResponse);
+            }
+        },
+        error: function (xhr, status, error) {
+            event.preventDefault();
+            console.error(error);
+        }
+    })
 }

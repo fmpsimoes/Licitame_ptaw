@@ -175,7 +175,7 @@ if(!isset($_SESSION['email'])) {
         <img alt="image" src="assets/images/bg/section-bg.png" class="img-fluid section-bg-bottom">
         <div class="container">
             <div class="form-wrapper">
-                <form id="form" enctype="multipart/form-data">
+                <form id="form" enctype="multipart/form-data" method="POST">
                     <div class="row">
                         <h2>Dados da Arte</h2>
                     </div>
@@ -278,7 +278,7 @@ if(!isset($_SESSION['email'])) {
                                 <label for="images">Fotografias da Peça *</label>
                                 <div class="card1" id="card1" class="dragover">
                                 <span class="select1"><button type="button" id="addPhoto">Adicionar Imagens</button></span>
-                                        <input name="file" type="file" class="file" id="fotos" multiple required>
+                                        <input name="file" type="file" class="file" id="fotos" accept="image/*" multiple>
                                     <div class="container1">   
                                     </div>   
                                 </div>

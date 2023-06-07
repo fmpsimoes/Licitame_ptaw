@@ -61,31 +61,36 @@ $(document).ready(function () {
       certifyCheckbox.disabled = false;
     }
   });
-  // Adiciona um evento de envio do formulário
+
+
   form.addEventListener("submit", function (event) {
     // Calcula a diferença em dias entre as datas
+    $("#eviar").disabled="true";
     var data1 = new Date(dataStartItem.value);
     var data2 = new Date(dataEndItem.value);
     var diferencaDias = (data2 - data1) / (1000 * 60 * 60 * 24);
 
-    
     var currentCategory = document.querySelector('.nice-select .current').textContent;
-    if (currentCategory === "Escolha a categoria...") {
-      event.preventDefault();
-      alert("Selecione uma categoria válida!");
-    } else {
-      if (diferencaDias < 7 || diferencaDias > 30) {
-        event.preventDefault(); // impede o envio do formulário
-        alert("As datas devem ter uma diferença mínima de 7 dias e máxima de 30 dias");
+    var container = document.querySelector(".container1");
+    
+      if (currentCategory === "Escolha a categoria...") {
+        event.preventDefault();
+        alert("Selecione uma categoria válida!");
       } else {
-        //Insere anuncio
-        setAnuncio();
+        if (diferencaDias < 7 || diferencaDias > 30) {
+          event.preventDefault(); // impede o envio do formulário
+          alert("As datas devem ter uma diferença mínima de 7 dias e máxima de 30 dias!");
+        } else {
+          if (container.childElementCount === 0) {
+            event.preventDefault(); // Prevent the form from submitting
+            alert("Adicione o mínimo de uma imagem ao anúncio!");
+          } else {
+          setAnuncio();
+        }
       }
     }
-
   });
   $(".container1").sortable();
-
 });
 
 //Input Images
@@ -185,16 +190,14 @@ function setAnuncio() {
     type: 'POST',
     data: { data: obj },
     success: function (response) {
-      alert("Leilão publicado com sucesso!");
-      //Insere fotos para o anuncio colocado apos receber o id do anuncio colocado (Provavelmente verificação irá ser inutil quando as imagens passarem a ser obrigatorias)
-      if (files.length > 0) {
-        console.log(JSON.parse(response))
+        alert("Leilão publicado com sucesso!");
         insertPhotos(JSON.parse(response));
-      }
+
       ///Insere certificado para o anuncio colocado apos receber o id do anuncio colocado
       if (certificationFile.files.length > 0) {
         insertCertificado(JSON.parse(response));
       }
+
       window.location.href = "./dashboard.php";
     },
     error: function (xhr, status, error) {

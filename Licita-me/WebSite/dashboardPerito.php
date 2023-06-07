@@ -324,24 +324,24 @@ if(!isset($_SESSION['email'])) {
                                     </div>
                                 </div>
                                 <div class="form-wrapper">
-                                    <form method="POST" id="form12" enctype="multipart/form-data" >
+                                    <form method="POST" id="form123" enctype="multipart/form-data" >
                                         <div class="row">
                                             <div class="col-xl-6 col-lg-12 col-md-6">
                                                 <div class="form-inner">
-                                                    <label for="firstname">Primeiro Nome *</label>
-                                                    <input type="text" placeholder="Primeiro Nome" name="firstname" id="firstname">
+                                                    <label for="firstname">Primeiro Nome</label>
+                                                    <input type="text" placeholder="Primeiro Nome" name="firstname" id="firstname" required>
                                                 </div>
                                             </div>
                                             <div class="col-xl-6 col-lg-12 col-md-6">
                                                 <div class="form-inner">
-                                                    <label for="lastname">Último Nome *</label>
-                                                    <input type="text" placeholder="Último nome" name="lastname" id="lastname">
+                                                    <label for="lastname">Último Nome</label>
+                                                    <input type="text" placeholder="Último nome" name="lastname" id="lastname" required>
                                                 </div>
                                             </div>
                                             <div class="col-xl-6 col-lg-12 col-md-6">
                                                 <div class="form-inner">
                                                     <label for="contact">Contacto Telefónico</label>
-                                                    <input type="text" placeholder="+354 9xx xxx xxx" name="contact" id="contact">
+                                                    <input type="text" placeholder="+354 9xx xxx xxx" name="contact" id="contact" required>
                                                 </div>
                                             </div>
                                             <div class="col-xl-6 col-lg-12 col-md-6">
@@ -352,7 +352,7 @@ if(!isset($_SESSION['email'])) {
                                             </div>
                                             <div class="col-12">
                                                 <div class="form-inner">
-                                                    <label for="password">Password *</label>
+                                                    <label for="password">Password</label>
                                                     <input type="password" name="password" id="password"
                                                         placeholder="Password" />
                                                     <i class="bi bi-eye-slash" id="togglePassword"></i>
@@ -360,7 +360,7 @@ if(!isset($_SESSION['email'])) {
                                             </div>
                                             <div class="col-12">
                                                 <div class="form-inner mb-0">
-                                                    <label for="password2">Confirmar Password *</label>
+                                                    <label for="password2">Confirmar Password</label>
                                                     <input type="password" name="password2" id="password2"
                                                         placeholder="Password" />
                                                     <i class="bi bi-eye-slash" id="togglePassword2"></i>

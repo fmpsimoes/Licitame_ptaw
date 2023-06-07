@@ -24,6 +24,7 @@ $(document).ready(function () {
           window.location.href = jsonResponse; //redirecionar para o respetivo painel depois de inciar sessão
         } else {
           alert(jsonResponse);
+          $("#password").val("");
         }
       },
       error: function (xhr, status, error) {

@@ -9,22 +9,27 @@ $(document).ready(function () {
   var idLeilao = currentUrl.substring(currentUrl.lastIndexOf('=') + 1);
   getLeilaoData(idLeilao);
 
-  $( "#rejeitado" ).on( "click", function() {
+  $("#rejeitado").on("click", function () {
     setAnuncioVerificado("Rejeitado", idLeilao);
-  } );
+  });
 
 
 
-  form.addEventListener('submit', function(event) {
+  form.addEventListener('submit', function (event) {
     event.preventDefault();
     var clickedButtonValue = event.submitter.value;
 
     if (clickedButtonValue === "button1") {
+      var container = document.querySelector(".container1");
+      if (container.childElementCount === 0) {
+        event.preventDefault(); // Prevent the form from submitting
+        alert("Adicione o mínimo de uma imagem ao anúncio!");
+      } else {
         setAnuncioVerificado("Aprovado", idLeilao);
+      }
     }
-
   });
-  $( ".container1" ).sortable();
+  $(".container1").sortable();
 });
 
 //Input Images
@@ -67,17 +72,17 @@ function delImage(index) {
   files.splice(index, 1);
   showImages();
 }
-card.addEventListener('dragover', e =>{
+card.addEventListener('dragover', e => {
   e.preventDefault();
   card.classList.add('dragover');
 })
 
-card.addEventListener('dragleave', e =>{
+card.addEventListener('dragleave', e => {
   e.preventDefault();
   card.classList.remove('dragover');
 })
 
-card.addEventListener('drop', e =>{
+card.addEventListener('drop', e => {
   e.preventDefault();
 
   card.classList.remove('dragover');
@@ -104,7 +109,7 @@ function getLeilaoData(idLeilao) {
       const data = auxdata[0];
       const auxfotos = alldata['fotos'];
       dataInicio = data['datainicio'];
-      dataInicioAux= data['datainicio'];
+      dataInicioAux = data['datainicio'];
       dataTermino = data['datafim'];
       $("#nameItem").val(data['titulo']);
       $("#category").niceSelectSelectByValue(data['categoria']);
@@ -168,8 +173,8 @@ function setFile(path) {
 
 function setAnuncioVerificado(estado, idLeilao) { // Falta o verificação de se a verificação for feita apos a data pretendida pelo cliente
   const datasCorrigidas = ajustarDatas(dataInicio, getCurrentDate(), dataTermino);
-  if(datasCorrigidas.estado && estado==="Aprovado"){
-    estado="Ativo";
+  if (datasCorrigidas.estado && estado === "Aprovado") {
+    estado = "Ativo";
   }
   const obj = {
     idpeca: idLeilao,
@@ -302,11 +307,11 @@ function ajustarDatas(datainicio, dataactual, datafim) {
     dataInicio = dataAtual;
     dataFim = new Date(dataInicio);
     dataFim.setDate(dataFim.getDate() + 7);
-    estado=true;
+    estado = true;
   }
 
   return {
-    estado:estado,
+    estado: estado,
     dataInicio: dataInicio.toISOString(),
     dataFim: dataFim.toISOString()
   };
