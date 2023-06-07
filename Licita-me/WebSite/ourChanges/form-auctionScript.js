@@ -85,7 +85,7 @@ $(document).ready(function () {
             event.preventDefault(); // Prevent the form from submitting
             alert("Adicione o mínimo de uma imagem ao anúncio!");
           } else {
-          setAnuncio();
+          setAnuncio(event);
         }
       }
     }
@@ -160,7 +160,7 @@ card.addEventListener('drop', e => {
 
 //--------------------------------------------------------
 
-function setAnuncio() {
+function setAnuncio(event) {
   let certificationFile = document.getElementById('certification');
   const obj = {
     primeiroNomeVendedor: $('#firstname').val(),
@@ -190,17 +190,19 @@ function setAnuncio() {
     type: 'POST',
     data: { data: obj },
     success: function (response) {
-        alert("Leilão publicado com sucesso!");
+      console.log(files);
+        
         insertPhotos(JSON.parse(response));
 
       ///Insere certificado para o anuncio colocado apos receber o id do anuncio colocado
       if (certificationFile.files.length > 0) {
         insertCertificado(JSON.parse(response));
       }
-
+      alert("Leilão publicado com sucesso!");
       window.location.href = "./dashboard.php";
     },
     error: function (xhr, status, error) {
+      event.preventDefault();
       console.error(error);
     }
   });

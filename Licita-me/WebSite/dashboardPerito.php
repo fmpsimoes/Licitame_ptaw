@@ -329,19 +329,19 @@ if(!isset($_SESSION['email'])) {
                                             <div class="col-xl-6 col-lg-12 col-md-6">
                                                 <div class="form-inner">
                                                     <label for="firstname">Primeiro Nome</label>
-                                                    <input type="text" placeholder="Primeiro Nome" name="firstname" id="firstname" required>
+                                                    <input type="text" maxlength="15" placeholder="Primeiro Nome" name="firstname" id="firstname" required>
                                                 </div>
                                             </div>
                                             <div class="col-xl-6 col-lg-12 col-md-6">
                                                 <div class="form-inner">
                                                     <label for="lastname">Último Nome</label>
-                                                    <input type="text" placeholder="Último nome" name="lastname" id="lastname" required>
+                                                    <input type="text" maxlength="15" placeholder="Último nome" name="lastname" id="lastname" required>
                                                 </div>
                                             </div>
                                             <div class="col-xl-6 col-lg-12 col-md-6">
                                                 <div class="form-inner">
                                                     <label for="contact">Contacto Telefónico</label>
-                                                    <input type="text" placeholder="+354 9xx xxx xxx" name="contact" id="contact" required>
+                                                    <input type="number" maxlength="9" placeholder="9xx xxx xxx" name="contact" id="contact" required>
                                                 </div>
                                             </div>
                                             <div class="col-xl-6 col-lg-12 col-md-6">

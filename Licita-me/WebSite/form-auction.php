@@ -193,13 +193,13 @@ if(!isset($_SESSION['email'])) {
                         <div class="col-xl-6 col-lg-12 col-md-6">
                             <div class="form-inner">
                                 <label for="firstname">Primeiro Nome *</label>
-                                <input type="text" placeholder="Primeiro Nome" name="firstname" id="firstname" required>
+                                <input type="text" placeholder="Primeiro Nome" name="firstname" maxlength="15" id="firstname" required>
                             </div>
                         </div>
                         <div class="col-xl-6 col-lg-12 col-md-6">
                             <div class="form-inner">
                                 <label for="lastname">Último Nome *</label>
-                                <input type="text" placeholder="Último nome" name="lastname" id="lastname" required>
+                                <input type="text" placeholder="Último nome" name="lastname" id="lastname" maxlength="15" required>
                             </div>
                         </div>
                     </div>
@@ -207,13 +207,13 @@ if(!isset($_SESSION['email'])) {
                         <div class="col-xl-6 col-lg-12 col-md-6">
                             <div class="form-inner">
                                 <label for="contact">Contacto Telefónico *</label>
-                                <input type="text" placeholder="+354 9xx xxx xxx" name="contact" id="contact" required>
+                                <input type="number" placeholder="9xx xxx xxx" name="contact" id="contact" maxlength="9" required>
                             </div>
                         </div>
                         <div class="col-xl-6 col-lg-12 col-md-6">
                             <div class="form-inner">
                                 <label for="email">Email *</label>
-                                <input type="text" placeholder="Email" name="email" id="email" required>
+                                <input type="text" placeholder="Email" name="email" id="email" maxlength="80" required>
                             </div>
                         </div>
                     </div>
@@ -222,7 +222,7 @@ if(!isset($_SESSION['email'])) {
                             <div class="form-inner">
                                 <label for="address">Morada *</label>
                                 <input type="text" name="address" id="address"
-                                    placeholder="Rua/Av. , Nº , Bairro, Andar..." required>
+                                    placeholder="Rua/Av. , Nº , Bairro, Andar..." maxlength="50" required>
                             </div>
                         </div>
                     </div>
@@ -230,19 +230,19 @@ if(!isset($_SESSION['email'])) {
                         <div class="col-xl-6 col-lg-12 col-md-6">
                             <div class="form-inner">
                                 <label for="concelho">Concelho *</label>
-                                <input type="text" name="concelho" id="concelho" placeholder="Concelho" required>
+                                <input type="text" name="concelho" id="concelho" placeholder="Concelho" maxlength="50" required>
                             </div>
                         </div>
                         <div class="col-xl-2 col-lg-12 col-md-6">
                             <div class="form-inner">
                                 <label for="porta">Porta *</label>
-                                <input type="text" name="porta" id="porta" placeholder="Porta" required>
+                                <input type="text" name="porta" id="porta" placeholder="Porta" maxlength="10" required>
                             </div>
                         </div>
                         <div class="col-xl-4 col-lg-12 col-md-6">
                             <div class="form-inner">
                                 <label for="zipcode">Código Postal *</label>
-                                <input type="text" placeholder="00000" name="zipcode" id="zipcode" required>
+                                <input type="text" placeholder="0000-000" name="zipcode" maxlength="8" id="zipcode" required>
                             </div>
                         </div>
                     </div>
@@ -254,7 +254,7 @@ if(!isset($_SESSION['email'])) {
                         <div class="col-xl-6 col-lg-12 col-md-6">
                             <div class="form-inner">
                                 <label for="nameItem">Nome da peça *</label>
-                                <input type="text" placeholder="Nome" name="nameItem" id="nameItem" required>
+                                <input type="text" placeholder="Nome" name="nameItem"  maxlength="50" id="nameItem" required>
                             </div>
                         </div>
                         <div class="col-xl-6 col-lg-12 col-md-6">
@@ -277,7 +277,7 @@ if(!isset($_SESSION['email'])) {
                         <div class="col-xl-12 col-lg-12 col-md-12">
                             <div class="form-inner">
                                 <label for="materials">Materiais *</label>
-                                <input type="text" placeholder="Materiais" name="materials" id="materials"
+                                <input type="text" placeholder="Materiais" name="materials" maxlength="255" id="materials"
                                     required>
                             </div>
                         </div>
@@ -301,13 +301,13 @@ if(!isset($_SESSION['email'])) {
                         <div class="col-xl-6 col-lg-12 col-md-6">
                             <div class="form-inner">
                                 <label for="dimensions">Dimensões *</label>
-                                <input type="text" placeholder="Dimensões" name="dimensions" id="dimensions" required>
+                                <input type="text" placeholder="Dimensões" name="dimensions" id="dimensions" maxlength="20" required>
                             </div>
                         </div>
                         <div class="col-xl-6 col-lg-12 col-md-6">
                             <div class="form-inner">
                                 <label for="weight">Peso *</label>
-                                <input type="text" placeholder="Peso" name="weight" id="weight" required>
+                                <input type="number" step="any" placeholder="Peso" name="weight" id="weight" required>
                             </div>
                         </div>
                     </div>
@@ -315,13 +315,13 @@ if(!isset($_SESSION['email'])) {
                         <div class="col-xl-6 col-lg-12 col-md-6">
                             <div class="form-inner">
                                 <label for="author">Autor</label>
-                                <input type="text" placeholder="Autor" name="author" id="author">
+                                <input type="text" placeholder="Autor" name="author" maxlength="30" id="author">
                             </div>
                         </div>
                         <div class="col-xl-6 col-lg-12 col-md-6">
                             <div class="form-inner">
-                                <label for="estado">Estado</label>
-                                <input type="text" placeholder="Estado da peça" name="estado"
+                                <label for="estado">Condição</label>
+                                <input type="text" placeholder="Condiçao da peça" maxlength="30" name="estado"
                                     id="estado">
                             </div>
                         </div>
@@ -330,13 +330,13 @@ if(!isset($_SESSION['email'])) {
                         <div class="col-xl-6 col-lg-12 col-md-6">
                             <div class="form-inner">
                                 <label for="valueBase">Valor Base</label>
-                                <input type="text" placeholder="Valor Base" name="valueBase" id="valueBase">
+                                <input type="number" step="any" placeholder="Valor Base" name="valueBase" id="valueBase">
                             </div>
                         </div>
                         <div class="col-xl-6 col-lg-12 col-md-6">
                             <div class="form-inner">
                                 <label for="valueBuyNow">Valor de compra imediata</label>
-                                <input type="text" placeholder="Valor compra imediata" name="valueBuyNow"
+                                <input type="number" step="any" placeholder="Valor compra imediata" name="valueBuyNow"
                                     id="valueBuyNow">
                             </div>
                         </div>
@@ -345,7 +345,7 @@ if(!isset($_SESSION['email'])) {
                         <div class="col-12">
                             <div class="form-inner">
                                 <label for="description">Descrição *</label>
-                                <textarea  name="description" id="description" placeholder="Descrição da arte" rows="4" cols="50" required ></textarea>
+                                <textarea  name="description" id="description" placeholder="Descrição da arte" rows="4" maxlength="500" cols="50"  required ></textarea>
                             </div>
                         </div>
                     </div>

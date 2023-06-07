@@ -1,4 +1,13 @@
 $(document).ready(function () {
+    var existingDiv = document.querySelector('#contabtn');
+    var existingDiv1 = document.querySelector('#contabtn1');
+
+    var anunciar = createAnunciarContainer1();
+    var anunciar1 = createAnunciarContainer2();
+
+    existingDiv.parentNode.insertBefore(anunciar, existingDiv);
+    existingDiv1.parentNode.insertBefore(anunciar1, existingDiv1);
+
     getDataPessoal();
     let form = document.getElementById("form12");
     form.addEventListener("submit", function (event) {
@@ -12,17 +21,6 @@ $(document).ready(function () {
 
 //COMENTAR ESTILOS DE TABELAS
 
-
-window.onload = function () {
-    var existingDiv = document.querySelector('#contabtn');
-    var existingDiv1 = document.querySelector('#contabtn1');
-
-    var anunciar = createAnunciarContainer1();
-    var anunciar1 = createAnunciarContainer2();
-
-    existingDiv.parentNode.insertBefore(anunciar, existingDiv);
-    existingDiv1.parentNode.insertBefore(anunciar1, existingDiv1);
-}
 
 function getMeusLeiloes() {
     let table;

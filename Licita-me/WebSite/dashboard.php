@@ -201,19 +201,19 @@ if(!isset($_SESSION['email'])) {
                                             <div class="col-xl-6 col-lg-12 col-md-6">
                                                 <div class="form-inner">
                                                     <label for="firstname">Primeiro Nome </label>
-                                                    <input type="text" placeholder="Primeiro Nome" name="firstname"  id="firstname">
+                                                    <input type="text" maxlength="15" placeholder="Primeiro Nome" name="firstname"  id="firstname">
                                                 </div>
                                             </div>
                                             <div class="col-xl-6 col-lg-12 col-md-6">
                                                 <div class="form-inner">
                                                     <label for="lastname">Último Nome </label>
-                                                    <input type="text" placeholder="Último nome" name="lastname" id="lastname">
+                                                    <input type="text"  maxlength="15" placeholder="Último nome" name="lastname" id="lastname">
                                                 </div>
                                             </div>
                                             <div class="col-xl-6 col-lg-12 col-md-6">
                                                 <div class="form-inner">
                                                     <label for="contact">Contacto Telefónico</label>
-                                                    <input type="text" placeholder="+354 9xx xxx xxx" name="contact" id="contact">
+                                                    <input type="number"  maxlength="9" placeholder="+354 9xx xxx xxx" name="contact" id="contact">
                                                 </div>
                                             </div>
                                             <div class="col-xl-6 col-lg-12 col-md-6">
@@ -225,25 +225,25 @@ if(!isset($_SESSION['email'])) {
                                             <div class="col-8">
                                                 <div class="form-inner">
                                                     <label for="address">Morada</label>
-                                                    <input type="text" name="address" placeholder="Rua/Av. , Nº , Bairro, Andar..." id="address">
+                                                    <input type="text" maxlength="50" name="address" placeholder="Rua/Av. , Nº , Bairro, Andar..." id="address">
                                                 </div>
                                             </div>
                                             <div class="col-4">
                                                 <div class="form-inner">
                                                     <label for="porta">Porta</label>
-                                                    <input type="text" name="porta" placeholder="Nº Porta" id="porta">
+                                                    <input type="number" maxlength="10" name="porta" placeholder="Nº Porta" id="porta">
                                                 </div>
                                             </div>
                                             <div class="col-12">
                                                 <div class="form-inner">
                                                 <label for="concelho">Concelho</label>
-                                                    <input type="text" name="concelho" id="concelho" placeholder="Concelho" >
+                                                    <input type="text" maxlength="50" name="concelho" id="concelho" placeholder="Concelho" >
                                                 </div>
                                             </div>
                                             <div class="col-xl-6 col-lg-12 col-md-6">
                                                 <div class="form-inner">
                                                     <label for="zipcode">Código Postal</label>
-                                                    <input type="text" placeholder="00000" name="zipcode" id="zipcode">
+                                                    <input type="text" maxlength="8" placeholder="0000-000" name="zipcode" id="zipcode">
                                                 </div>
                                             </div>
                                             <div class="col-xl-6 col-lg-12 col-md-6">
