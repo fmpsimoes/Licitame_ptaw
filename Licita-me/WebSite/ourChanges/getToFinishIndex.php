@@ -16,7 +16,7 @@
                     FROM pecasarte
                         INNER JOIN (
                             SELECT idpecaarte, dirimagem,
-                            ROW_NUMBER() OVER (PARTITION BY idpecaarte ) AS rn
+                            ROW_NUMBER() OVER (PARTITION BY idpecaarte ORDER BY dirimagem) AS rn
                             FROM fotografias
                         ) fotografias ON pecasarte.id = fotografias.idpecaarte AND fotografias.rn = 1
                         LEFT JOIN (

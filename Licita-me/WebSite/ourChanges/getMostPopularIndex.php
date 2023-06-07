@@ -16,8 +16,8 @@
                     FROM pecasarte
                     INNER JOIN (
                         SELECT idpecaarte, dirimagem,
-                        ROW_NUMBER() OVER (PARTITION BY idpecaarte ) AS rn
-                        FROM fotografias
+                        ROW_NUMBER() OVER (PARTITION BY idpecaarte ORDER BY dirimagem) AS rn
+                        FROM fotografias 
                     ) fotografias ON pecasarte.id = fotografias.idpecaarte AND fotografias.rn = 1
                     LEFT JOIN (
                         SELECT pecaarte, valorlicitacao
@@ -25,11 +25,11 @@
                         ORDER BY valorlicitacao DESC
                         LIMIT 1
                     ) licitacoes ON pecasarte.id = licitacoes.pecaarte
-                    WHERE pecasarte.estado = 'Ativo'
-                    ORDER BY (
-                        SELECT COUNT(*)
-                        FROM licitacoes
-                        WHERE licitacoes.pecaarte = pecasarte.id
+                        WHERE pecasarte.estado = 'Ativo'
+                        ORDER BY (
+                            SELECT COUNT(*)
+                            FROM licitacoes
+                            WHERE licitacoes.pecaarte = pecasarte.id
                     ) DESC
                     LIMIT 4;";
 

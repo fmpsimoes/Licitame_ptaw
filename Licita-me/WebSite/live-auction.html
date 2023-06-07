@@ -125,12 +125,12 @@
             >
               <button
                 class="nav-link active nav-btn-style mx-auto mb-20"
-                id="v-pills-dashboard-tab"
+                id="v-pills-viewAll-tab"
                 data-bs-toggle="pill"
-                data-bs-target="#v-pills-dashboard"
+                data-bs-target="#v-pills-viewAll"
                 type="button"
                 role="tab"
-                aria-controls="v-pills-dashboard"
+                aria-controls="v-pills-viewAll"
                 aria-selected="true"
                 value="all"
               >
@@ -138,12 +138,12 @@
               </button>
               <button
                 class="nav-link nav-btn-style mx-auto mb-20"
-                id="v-pills-profile-tab"
+                id="v-pills-mostPopular-tab"
                 data-bs-toggle="pill"
-                data-bs-target="#v-pills-profile"
+                data-bs-target="#v-pills-mostPopular"
                 type="button"
                 role="tab"
-                aria-controls="v-pills-profile"
+                aria-controls="v-pills-mostPopular"
                 aria-selected="true"
                 value="morePopular"
               >
@@ -152,25 +152,26 @@
 
               <button
                 class="nav-link nav-btn-style mx-auto mb-20"
-                id="v-pills-publish-tab"
+                id="v-pills-almostFinish-tab"
                 data-bs-toggle="pill"
-                data-bs-target="#v-pills-order"
+                data-bs-target="#v-pills-almostFinish"
                 type="button"
                 role="tab"
-                aria-controls="v-pills-order"
+                aria-controls="v-pills-almostFinish"
                 aria-selected="true"
                 value="almostFinish"
               >
                 A terminar
               </button>
+
               <button
                 class="nav-link nav-btn-style mx-auto"
-                id="v-pills-purchase-tab"
+                id="v-pills-mostRecent-tab"
                 data-bs-toggle="pill"
-                data-bs-target="#v-pills-purchase"
+                data-bs-target="#v-pills-mostRecent"
                 type="button"
                 role="tab"
-                aria-controls="v-pills-purchase"
+                aria-controls="v-pills-mostRecent"
                 aria-selected="true"
                 value="mostRecent"
               >
@@ -183,351 +184,27 @@
             <div class="tab-content" id="v-pills-tabContent">
               <div
                 class="tab-pane fade show active"
-                id="v-pills-dashboard"
+                id="v-pills-viewAll"
                 role="tabpanel"
-                aria-labelledby="v-pills-dashboard-tab"
+                aria-labelledby="v-pills-viewAll-tab"
               >
                 <!-- table title-->
                 <div class="table-title-area">
                   <h3>Lista de Todos os Leilões</h3>
 
                   <select>
-                    <option value="01">Ordenar por: Mais barato</option>
-                    <option value="02">Ordenar por: Mais caro</option>
+                    <option value="ASC">Ordenar por: Mais barato</option>
+                    <option value="DESC">Ordenar por: Mais caro</option>
                   </select>
                 </div>
 
                 <!-- table -->
                 <div class="table-wrapper">
                   <div class="container">
-                    <div class="row gy-4 mb-60 d-flex justify-content-center">
-                      <div class="col-lg-4 col-md-6 col-sm-10">
-                        <div
-                          data-wow-duration="1.5s"
-                          data-wow-delay="0.2s"
-                          class="eg-card auction-card1 wow fadeInDown"
-                        >
-                          <div class="auction-img">
-                            <img
-                              alt="image"
-                              src="assets/images/bg/live-auc1.png"
-                            />
-                            <div class="auction-timer">
-                              <div class="countdown" id="timer1">
-                                <h5 style="margin: 0">
-                                  <span id="hours1">05</span>H :
-                                  <span id="minutes1">52</span>M :
-                                  <span id="seconds1">32</span>S
-                                </h5>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="auction-content">
-                            <h4><a href="auction-details.html">Relógio</a></h4>
-                            <p>Preço Atual : <span>85,90€</span></p>
-                            <div class="auction-card-bttm">
-                              <a
-                                href="auction-details.html"
-                                class="eg-btn btn--primary btn--sm"
-                                >Licitar</a
-                              >
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-lg-4 col-md-6 col-sm-10">
-                        <div
-                          data-wow-duration="1.5s"
-                          data-wow-delay="0.2s"
-                          class="eg-card auction-card1 wow fadeInDown"
-                        >
-                          <div class="auction-img">
-                            <img
-                              alt="image"
-                              src="assets/images/bg/live-auc2.png"
-                            />
-                            <div class="auction-timer">
-                              <div class="countdown" id="timer2">
-                                <h5 style="margin: 0">
-                                  <span id="hours2">05</span>H :
-                                  <span id="minutes2">52</span>M :
-                                  <span id="seconds2">32</span>S
-                                </h5>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="auction-content">
-                            <h4>
-                              <a href="auction-details.html">Anel 2022</a>
-                            </h4>
-                            <p>Preço Atual : <span>85,90€</span></p>
-                            <div class="auction-card-bttm">
-                              <a
-                                href="auction-details.html"
-                                class="eg-btn btn--primary btn--sm"
-                                >Licitar</a
-                              >
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-lg-4 col-md-6 col-sm-10">
-                        <div
-                          data-wow-duration="1.5s"
-                          data-wow-delay="0.2s"
-                          class="eg-card auction-card1 wow fadeInDown"
-                        >
-                          <div class="auction-img">
-                            <img
-                              alt="image"
-                              src="assets/images/bg/live-auc3.png"
-                            />
-                            <div class="auction-timer">
-                              <div class="countdown" id="timer3">
-                                <h5 style="margin: 0">
-                                  <span id="hours3">05</span>H :
-                                  <span id="minutes3">52</span>M :
-                                  <span id="seconds3">32</span>S
-                                </h5>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="auction-content">
-                            <h4>
-                              <a href="auction-details.html"
-                                >Honda CBR 600 RR</a
-                              >
-                            </h4>
-                            <p>Preço Atual : <span>85,90€</span></p>
-                            <div class="auction-card-bttm">
-                              <a
-                                href="auction-details.html"
-                                class="eg-btn btn--primary btn--sm"
-                                >Licitar</a
-                              >
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-lg-4 col-md-6 col-sm-10">
-                        <div
-                          data-wow-duration="1.5s"
-                          data-wow-delay="0.4s"
-                          class="eg-card auction-card1 wow fadeInDown"
-                        >
-                          <div class="auction-img">
-                            <img
-                              alt="image"
-                              src="assets/images/bg/live-auc4.png"
-                            />
-                            <div class="auction-timer">
-                              <div class="countdown" id="timer4">
-                                <h5 style="margin: 0">
-                                  <span id="hours4">05</span>H :
-                                  <span id="minutes4">52</span>M :
-                                  <span id="seconds4">32</span>S
-                                </h5>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="auction-content">
-                            <h4>
-                              <a href="auction-details.html">Toyota AIGID</a>
-                            </h4>
-                            <p>Preço Atual : <span>85,90€</span></p>
-                            <div class="auction-card-bttm">
-                              <a
-                                href="auction-details.html"
-                                class="eg-btn btn--primary btn--sm"
-                                >Licitar</a
-                              >
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-lg-4 col-md-6 col-sm-10">
-                        <div
-                          data-wow-duration="1.5s"
-                          data-wow-delay="0.4s"
-                          class="eg-card auction-card1 wow fadeInDown"
-                        >
-                          <div class="auction-img">
-                            <img
-                              alt="image"
-                              src="assets/images/bg/live-auc5.png"
-                            />
-                            <div class="auction-timer">
-                              <div class="countdown" id="timer5">
-                                <h5 style="margin: 0">
-                                  <span id="hours5">05</span>H :
-                                  <span id="minutes5">52</span>M :
-                                  <span id="seconds5">32</span>S
-                                </h5>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="auction-content">
-                            <h4>
-                              <a href="auction-details.html">Havit HV-G61</a>
-                            </h4>
-                            <p>Preço Atual : <span>85,90€</span></p>
-                            <div class="auction-card-bttm">
-                              <a
-                                href="auction-details.html"
-                                class="eg-btn btn--primary btn--sm"
-                                >Licitar</a
-                              >
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-lg-4 col-md-6 col-sm-10">
-                        <div
-                          data-wow-duration="1.5s"
-                          data-wow-delay="0.4s"
-                          class="eg-card auction-card1 wow fadeInDown"
-                        >
-                          <div class="auction-img">
-                            <img
-                              alt="image"
-                              src="assets/images/bg/live-auc6.png"
-                            />
-                            <div class="auction-timer">
-                              <div class="countdown" id="timer6">
-                                <h5 style="margin: 0">
-                                  <span id="hours6">05</span>H :
-                                  <span id="minutes6">52</span>M :
-                                  <span id="seconds6">32</span>S
-                                </h5>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="auction-content">
-                            <h4>
-                              <a href="auction-details.html"
-                                >IPhone 11 Pro Max</a
-                              >
-                            </h4>
-                            <p>Preço Atual : <span>85,90€</span></p>
-                            <div class="auction-card-bttm">
-                              <a
-                                href="auction-details.html"
-                                class="eg-btn btn--primary btn--sm"
-                                >Licitar</a
-                              >
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-lg-4 col-md-6 col-sm-10">
-                        <div
-                          data-wow-duration="1.5s"
-                          data-wow-delay="0.6s"
-                          class="eg-card auction-card1 wow fadeInDown"
-                        >
-                          <div class="auction-img">
-                            <img
-                              alt="image"
-                              src="assets/images/bg/live-auc7.png"
-                            />
-                            <div class="auction-timer">
-                              <div class="countdown" id="timer7">
-                                <h5 style="margin: 0">
-                                  <span id="hours7">05</span>H :
-                                  <span id="minutes7">52</span>M :
-                                  <span id="seconds7">32</span>S
-                                </h5>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="auction-content">
-                            <h4><a href="auction-details.html">Blue ray</a></h4>
-                            <p>Preço Atual : <span>85,90€</span></p>
-                            <div class="auction-card-bttm">
-                              <a
-                                href="auction-details.html"
-                                class="eg-btn btn--primary btn--sm"
-                                >Licitar</a
-                              >
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-lg-4 col-md-6 col-sm-10">
-                        <div
-                          data-wow-duration="1.5s"
-                          data-wow-delay="0.6s"
-                          class="eg-card auction-card1 wow fadeInDown"
-                        >
-                          <div class="auction-img">
-                            <img
-                              alt="image"
-                              src="assets/images/bg/live-auc8.png"
-                            />
-                            <div class="auction-timer">
-                              <div class="countdown" id="timer8">
-                                <h5 style="margin: 0">
-                                  <span id="hours8">05</span>H :
-                                  <span id="minutes8">52</span>M :
-                                  <span id="seconds8">32</span>S
-                                </h5>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="auction-content">
-                            <h4>
-                              <a href="auction-details.html">Pele Pura</a>
-                            </h4>
-                            <p>Preço Atual : <span>85,90€</span></p>
-                            <div class="auction-card-bttm">
-                              <a
-                                href="auction-details.html"
-                                class="eg-btn btn--primary btn--sm"
-                                >Licitar</a
-                              >
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-lg-4 col-md-6 col-sm-10">
-                        <div
-                          data-wow-duration="1.5s"
-                          data-wow-delay="0.6s"
-                          class="eg-card auction-card1 wow fadeInDown"
-                        >
-                          <div class="auction-img">
-                            <img
-                              alt="image"
-                              src="assets/images/bg/live-auc9.png"
-                            />
-                            <div class="auction-timer">
-                              <div class="countdown" id="timer9">
-                                <h5 style="margin: 0">
-                                  <span id="hours9">05</span>H :
-                                  <span id="minutes9">52</span>M :
-                                  <span id="seconds9">32</span>S
-                                </h5>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="auction-content">
-                            <h4>
-                              <a href="auction-details.html"
-                                >Resistente a Água</a
-                              >
-                            </h4>
-                            <p>Preço Atual : <span>85,90€</span></p>
-                            <div class="auction-card-bttm">
-                              <a
-                                href="auction-details.html"
-                                class="eg-btn btn--primary btn--sm"
-                                >Licitar</a
-                              >
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
+                    <div
+                      id="showAll"
+                      class="row gy-4 mb-60 d-flex justify-content-center"
+                    ></div>
                   </div>
                 </div>
 
@@ -558,133 +235,179 @@
                 </div>
               </div>
 
-              <!-- mais uma parte aqui -->
+              <!-- Mais Licitados -->
               <div
                 class="tab-pane fade"
-                id="v-pills-profile"
+                id="v-pills-mostPopular"
                 role="tabpanel"
-                aria-labelledby="v-pills-profile-tab"
+                aria-labelledby="v-pills-mostPopular-tab"
               >
-                <div class="dashboard-profile">
-                  <div class="owner">
-                    <div class="image">
-                      <img alt="image" src="assets/images/bg/pro-pic.png" />
-                    </div>
-                    <div class="content">
-                      <h3>Johan Martin SR-</h3>
-                      <p class="para">Johan Martin SR-</p>
-                    </div>
-                  </div>
-                  <div class="form-wrapper">
-                    <form action="#">
-                      <div class="row">
-                        <div class="col-xl-6 col-lg-12 col-md-6">
-                          <div class="form-inner">
-                            <label>Frist Name *</label>
-                            <input type="text" placeholder="Your first name" />
-                          </div>
-                        </div>
-                        <div class="col-xl-6 col-lg-12 col-md-6">
-                          <div class="form-inner">
-                            <label>Last Name *</label>
-                            <input type="text" placeholder="Your last name" />
-                          </div>
-                        </div>
-                        <div class="col-xl-6 col-lg-12 col-md-6">
-                          <div class="form-inner">
-                            <label>Contact Number</label>
-                            <input type="text" placeholder="+8801" />
-                          </div>
-                        </div>
-                        <div class="col-xl-6 col-lg-12 col-md-6">
-                          <div class="form-inner">
-                            <label>Email</label>
-                            <input type="text" placeholder="Your Email" />
-                          </div>
-                        </div>
-                        <div class="col-12">
-                          <div class="form-inner">
-                            <label>Address</label>
-                            <input type="text" name="message" />
-                          </div>
-                        </div>
-                        <div class="col-xl-6 col-lg-12 col-md-6">
-                          <div class="form-inner">
-                            <label>City</label>
-                            <select id="city">
-                              <option>Dhaka</option>
-                              <option>Sylhet</option>
-                              <option>Chittagong</option>
-                              <option>Rajshahi</option>
-                            </select>
-                          </div>
-                        </div>
-                        <div class="col-xl-6 col-lg-12 col-md-6">
-                          <div class="form-inner">
-                            <label>State</label>
-                            <select name="state" id="state">
-                              <option>Dhaka</option>
-                              <option>Sylhet</option>
-                              <option>Chittagong</option>
-                              <option>Rajshahi</option>
-                            </select>
-                          </div>
-                        </div>
-                        <div class="col-xl-6 col-lg-12 col-md-6">
-                          <div class="form-inner">
-                            <label>Zip Code</label>
-                            <input type="text" placeholder="00000" />
-                          </div>
-                        </div>
-                        <div class="col-xl-6 col-lg-12 col-md-6">
-                          <div class="form-inner">
-                            <label>Country</label>
-                            <select>
-                              <option>Bangladesh</option>
-                              <option>Afganistan</option>
-                              <option>India</option>
-                              <option>China</option>
-                            </select>
-                          </div>
-                        </div>
-                        <div class="col-12">
-                          <div class="form-inner">
-                            <label>Password *</label>
-                            <input
-                              type="password"
-                              name="password"
-                              id="password"
-                              placeholder="Create A Password"
-                            />
-                            <i class="bi bi-eye-slash" id="togglePassword"></i>
-                          </div>
-                        </div>
-                        <div class="col-12">
-                          <div class="form-inner mb-0">
-                            <label>Confirm Password *</label>
-                            <input
-                              type="password"
-                              name="password"
-                              id="password2"
-                              placeholder="Create A Password"
-                            />
-                            <i class="bi bi-eye-slash" id="togglePassword2"></i>
-                          </div>
-                        </div>
-                        <div class="col-12">
-                          <div class="button-group">
-                            <button type="submit" class="eg-btn profile-btn">
-                              Update Profile
-                            </button>
-                            <button class="eg-btn cancel-btn">Cancel</button>
-                          </div>
-                        </div>
-                      </div>
-                    </form>
+                <!-- table title-->
+                <div class="table-title-area">
+                  <h3>Lista dos Leilões Mais Licitados</h3>
+
+                  <select>
+                    <option value="ASC">
+                      Ordenar por: Licitações e mais barato
+                    </option>
+                    <option value="DESC">
+                      Ordenar por: Licitações e mais caro
+                    </option>
+                  </select>
+                </div>
+
+                <!-- table -->
+                <div class="table-wrapper">
+                  <div class="container">
+                    <div
+                      id="mostPopular"
+                      class="row gy-4 mb-60 d-flex justify-content-center"
+                    ></div>
                   </div>
                 </div>
+
+                <!-- pagination area -->
+                <div class="table-pagination">
+                  <p>Mostrar 10 a 20 de 1 entradas</p>
+                  <nav class="pagination-wrap">
+                    <ul
+                      class="pagination style-two d-flex justify-content-center gap-md-3 gap-2"
+                    >
+                      <li class="page-item">
+                        <a class="page-link" href="#" tabindex="-1">Anterior</a>
+                      </li>
+                      <li class="page-item active" aria-current="page">
+                        <a class="page-link" href="#">01</a>
+                      </li>
+                      <li class="page-item">
+                        <a class="page-link" href="#">02</a>
+                      </li>
+                      <li class="page-item">
+                        <a class="page-link" href="#">03</a>
+                      </li>
+                      <li class="page-item">
+                        <a class="page-link" href="#">Próximo</a>
+                      </li>
+                    </ul>
+                  </nav>
+                </div>
               </div>
-              <!-- FIM aqui -->
+
+              <!-- A terminar -->
+              <div
+                class="tab-pane fade"
+                id="v-pills-almostFinish"
+                role="tabpanel"
+                aria-labelledby="v-pills-almostFinish"
+              >
+                <!-- table title-->
+                <div class="table-title-area">
+                  <h3>Lista dos Leilões a Terminar</h3>
+
+                  <select>
+                    <option value="ASC">
+                      Ordenar por: A Terminar e mais barato
+                    </option>
+                    <option value="DESC">
+                      Ordenar por: A Terminar e mais caro
+                    </option>
+                  </select>
+                </div>
+
+                <!-- table -->
+                <div class="table-wrapper">
+                  <div class="container">
+                    <div
+                      id="almostFinish"
+                      class="row gy-4 mb-60 d-flex justify-content-center"
+                    ></div>
+                  </div>
+                </div>
+
+                <!-- pagination area -->
+                <div class="table-pagination">
+                  <p>Mostrar 10 a 20 de 1 entradas</p>
+                  <nav class="pagination-wrap">
+                    <ul
+                      class="pagination style-two d-flex justify-content-center gap-md-3 gap-2"
+                    >
+                      <li class="page-item">
+                        <a class="page-link" href="#" tabindex="-1">Anterior</a>
+                      </li>
+                      <li class="page-item active" aria-current="page">
+                        <a class="page-link" href="#">01</a>
+                      </li>
+                      <li class="page-item">
+                        <a class="page-link" href="#">02</a>
+                      </li>
+                      <li class="page-item">
+                        <a class="page-link" href="#">03</a>
+                      </li>
+                      <li class="page-item">
+                        <a class="page-link" href="#">Próximo</a>
+                      </li>
+                    </ul>
+                  </nav>
+                </div>
+              </div>
+
+              <!-- Mais recentes -->
+              <div
+                class="tab-pane fade"
+                id="v-pills-mostRecent"
+                role="tabpanel"
+                aria-labelledby="v-pills-mostRecent"
+              >
+                <!-- table title-->
+                <div class="table-title-area">
+                  <h3>Lista dos Leilões mais Recentes</h3>
+
+                  <select>
+                    <option value="ASC">
+                      Ordenar por: Recentes e mais barato
+                    </option>
+                    <option value="DESC">
+                      Ordenar por: Recentes e mais caro
+                    </option>
+                  </select>
+                </div>
+
+                <!-- table -->
+                <div class="table-wrapper">
+                  <div class="container">
+                    <div
+                      id="mostRecent"
+                      class="row gy-4 mb-60 d-flex justify-content-center"
+                    ></div>
+                  </div>
+                </div>
+
+                <!-- pagination area -->
+                <div class="table-pagination">
+                  <p>Mostrar 10 a 20 de 1 entradas</p>
+                  <nav class="pagination-wrap">
+                    <ul
+                      class="pagination style-two d-flex justify-content-center gap-md-3 gap-2"
+                    >
+                      <li class="page-item">
+                        <a class="page-link" href="#" tabindex="-1">Anterior</a>
+                      </li>
+                      <li class="page-item active" aria-current="page">
+                        <a class="page-link" href="#">01</a>
+                      </li>
+                      <li class="page-item">
+                        <a class="page-link" href="#">02</a>
+                      </li>
+                      <li class="page-item">
+                        <a class="page-link" href="#">03</a>
+                      </li>
+                      <li class="page-item">
+                        <a class="page-link" href="#">Próximo</a>
+                      </li>
+                    </ul>
+                  </nav>
+                </div>
+              </div>
             </div>
           </div>
         </div>
