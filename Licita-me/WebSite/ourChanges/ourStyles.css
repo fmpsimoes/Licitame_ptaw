@@ -198,3 +198,18 @@
 table.dataTable.table>tbody>tr{
   background-color: white;
 }
+
+#tabelaPorRever tbody tr:hover{
+  background-color: #c1ffd8;
+  cursor: pointer;
+}
+.pointer:hover path {
+  fill: #32c36c; 
+  transition: all 0.42s ease-in-out;
+}
+#icon-svg1 path {
+  fill: #32c36c; 
+}
+.pointer{
+  cursor: pointer;;
+}

@@ -182,7 +182,11 @@ function getPorRever() {
 }
 
 function getRowId(event) {
-    var row = event.target.parentNode;
+    if (event.target.tagName === 'IMG') {
+        event.stopPropagation();
+    }
+
+    var row = event.currentTarget;  // Use currentTarget instead of target
     var rowId = row.id;
     window.location.href = `form-perito.php?idLeilao=${rowId.substring(4)}`;
 }
