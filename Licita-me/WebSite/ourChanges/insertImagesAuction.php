@@ -71,7 +71,6 @@ try {
             $extension = pathinfo($filename, PATHINFO_EXTENSION);
             $targetPath = $targetDir . "img_" . $id_leilao . "_" . $i . "." . $extension;
             if (move_uploaded_file($tmpName, $targetPath)) {
-                chmod($target_path, 0755);
                 $uploadedFiles[] = $targetPath;
                 $query2 = "INSERT INTO fotografias (idpecaarte, dirimagem) VALUES ('$id_leilao' , '$targetPath');";
                 $statement2 = $pdo->prepare($query2);
