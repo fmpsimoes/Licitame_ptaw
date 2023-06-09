@@ -221,12 +221,11 @@ if(isset($_SESSION['email'])) {
     <script src="assets/js/odometer.min.js"></script>
     <script src="assets/js/viewport.jquery.js"></script>
     <script src="assets/js/jquery.magnific-popup.min.js"></script>
-    <script src="assets/js/modal.js"></script>
-    <script src="assets/js/password.js"></script>
+    <script src="ourChanges/password.js"></script>
     <script src="ourChanges/callCommonSections.js"></script>
     <script src="assets/js/main.js"></script>
+    <script src="assets/js/modal.js"></script>
     <script src="ourChanges/login.js"></script>
-    
 
 </body>
 

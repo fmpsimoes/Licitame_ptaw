@@ -39,6 +39,7 @@ try {
 
         $response = array("success" => true, "message" => "Senha alterada com sucesso!");
         echo json_encode($response);
+        include './emails/recuperacaoPass.php';
 
         //$response = array("newPassword" => generateRandomPassword());
         //echo json_encode($response);

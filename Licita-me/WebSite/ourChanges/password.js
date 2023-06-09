@@ -35,18 +35,25 @@ document.addEventListener("DOMContentLoaded", function() {
       if (xhr.readyState === XMLHttpRequest.DONE) {
         if (xhr.status === 200) {
           var response = JSON.parse(xhr.responseText);
-          //var newPassword = response.newPassword;
-          //console.log("Nova senha gerada:", newPassword);
-          //if (response.success) {
-            // O e-mail existe na base de dados
-            //console.log("O e-mail existe na base de dados");
-            //console.log("Nova pass: " + newPassword);
-            // Resto do código para redefinir a senha e enviar o e-mail
-          //} else {
+          if (response.success) {
+            var xhrEmail = new XMLHttpRequest();
+            xhrEmail.open("Post", "./ourChanges/emails/recuperacaoPass.php", true);
+            xhrEmail.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+            xhrEmail.onreadystatechange = function(){
+              if(xhrEmail.readyState == XMLHttpRequest.DONE){
+                if(xhrEmail.status === 200){
+                 alert("Email enviado com sucesso, verifique o seu email para obter a nova password");
+                }else{
+                 alert("Erro ao enviar email", xhrEmail.status);
+                }
+              }
+            };
+            xhrEmail.send("data=" + encodeURIComponent(JSON.stringify(response)));
+          } else {
             // O e-mail não existe na base de dados
-            //console.log("O e-mail não existe na base de dados");
-            //resultMessage.textContent = "O e-mail fornecido não está registrado.";
-          //}
+            alert("O e-mail não existe na base de dados");
+
+          }
         } else {
           console.error("Erro na solicitação AJAX:", xhr.status);
         }

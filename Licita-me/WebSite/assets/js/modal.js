@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", function() {
     var button = document.getElementById("termosLink");
     var modal = document.getElementById("myModal");
-    var closeBtn = document.getElementsByClassName("close")[0];
+    var closeBtn = modal.getElementsByClassName("close")[0];
   
     button.addEventListener("click", function() {
       modal.style.display = "block";

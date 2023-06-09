@@ -42,6 +42,9 @@
     
         <!-- style css -->
         <link rel="stylesheet" href="assets/css/style.css">
+
+        <!-- style css -->
+        <link rel="stylesheet" href="assets/css/modal.css">
     </head>
 
 <body>
@@ -171,7 +174,7 @@
                             <h3>Criar conta</h3>
                             <p>Já tem uma conta? <a href="login.php">Entrar aqui</a></p>
                         </div>
-                        <form class="w-100" enctype="multipart/form-data" id="form12">
+                        <form class="w-100" enctype="multipart/form-data" id="form12" z-index: 1>
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-inner">
@@ -210,8 +213,102 @@
                             <button class="account-btn" id="newUser">Criar conta</button>
                         </form>
                         <div class="form-poicy-area">
-                            <p>Ao clicar no botão "Criar conta", cria uma conta LICITAME, e concorda com a política de privacidade da LICITAME <a href="#">Termos & Condições</a> & <a href="#">Política de privacidade.</a></p>
+                            <p>Ao clicar no botão "Entrar", cria uma conta LICITAME, e concorda com a política de privacidade da Licita-me <a href="#myModal" data-toggle= "modal" data-target = "#myModal" id= "termosLink">Termos & Condições</a> & <a href="#privacyModal" data-toggle="modal" data-target="#privacyModal" id = "privacyLink">Política de privacidade.</a></p>
+                            <div id="myModal" class="modal">
+                            <div class="modal-content">
+                                <span class="close">&times;</span>
+                                <h5>Termos de Uso e Condições - Site de Leilões Online de Peças de Arte - LICITAME</h5>
+
+                                <p id="texto"></p>
+                                <p id="textoP1"></p>
+                                <p id="textoP12"></p>
+                                <p id="textoP13"></p>
+                                <p id="textoP2"></p>
+                                <p id="textoP22"></p>
+                                <p id="textoP3"></p>
+                                <p id="textoP32"></p>
+                                <p id="textoP4"></p>
+                                <p id="textoP42"></p>
+                                </div>
+                            </div>
+
+                            <div id="privacyModal" class="modal">
+                            <div class="modal-content">
+                                <span class="close">&times;</span>
+                                <h5>Política de Privacidade - Site de Leilões Online de Peças de Arte</h5>
+                                
+                                <p id ="textoPrivacy"></p>
+                                <p id = "textoPrivacyP1"></p>
+                                <p id = "textoPrivacyP12"></p>
+                                <p id = "textoPrivacyP2"></p>
+                                <p id = "textoPrivacyP22"></p>
+                                <p id = "textoPrivacyP3"></p>
+                                <p id = "textoPrivacyP32"></p>
+                                <p id = "textoPrivacyP4"></p>
+                                <p id = "textoPrivacyP42"></p>
+                                <p id = "textoPrivacyP5"></p>
+
+                            </div>
+                            </div>
                         </div>
+
+                        <style>
+                            .warning-popup {
+                              position: absolute;
+                              background-color: #ffdddd;
+                              color: #000;
+                              padding: 5px;
+                              border: 1px solid #f00;
+                              border-radius: 4px;
+                              font-size: 14px;
+                              z-index: 2;
+                            }
+                          </style>
+
+                        <script>
+                            document.getElementById("newUser").addEventListener("click", function() {
+                              var checkbox = document.getElementById("html");
+                          
+                              if (!checkbox.checked) {
+                                var existingPopup = document.querySelector(".warning-popup");
+                                if (!existingPopup) {
+                                  var popup = document.createElement("div");
+                                  popup.textContent = "Por favor, selecione a checkbox.";
+                                  popup.classList.add("warning-popup");
+                          
+                                  var checkboxRect = checkbox.getBoundingClientRect();
+                                  var popupLeft = checkboxRect.right + window.pageXOffset + 730;
+                                  var popupTop = checkboxRect.top + window.pageYOffset + 460;
+                          
+                                  popup.style.left = popupLeft + "px";
+                                  popup.style.top = popupTop + "px";
+                          
+                                  document.body.appendChild(popup);
+                          
+                                  checkbox.focus();
+                          
+                                  setTimeout(function() {
+                                    popup.remove();
+                                  }, 3000);
+                                }
+                              }
+                            });
+                          
+                            document.addEventListener("click", function(event) {
+                              var existingPopup = document.querySelector(".warning-popup");
+                              if (existingPopup && event.target !== existingPopup && !event.target.closest("#newUser")) {
+                                existingPopup.remove();
+                              }
+                            });
+                          
+                            document.getElementById("htmlTermos").addEventListener("click", function() {
+                              var existingPopup = document.querySelector(".warning-popup");
+                              if (existingPopup) {
+                                existingPopup.remove();
+                              }
+                            });
+                          </script>
+                          
                     </div>
                 </div>
             </div>
@@ -302,6 +399,7 @@
     <script src="assets/js/viewport.jquery.js"></script>
     <script src="assets/js/jquery.magnific-popup.min.js"></script>
     <script src="assets/js/main.js"></script>
+    <script src="assets/js/modal.js"></script>
     <script src="ourChanges/register.js"></script>
 
 </body>
