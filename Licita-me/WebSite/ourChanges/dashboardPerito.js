@@ -1,7 +1,11 @@
+
+
+
 $(document).ready(function () {
     getDataPessoal();
     let form = document.getElementById("form123");
     form.addEventListener("submit", function (event) {
+        event.preventDefault();
         updateDataPessoal(event);
     });
     getPorRever();
@@ -10,6 +14,8 @@ $(document).ready(function () {
 
 
 function getRevistos() {
+    let countAprovados = 0;
+    let countRejeitados = 0;
     let table = document.createElement("table");
     table.classList.add('eg-table', 'order-table', 'table', 'mb-0', 'display');
     table.id = "tabelaRevista";
@@ -40,13 +46,25 @@ function getRevistos() {
         success: function (response) {
             var data = JSON.parse(response);
             data.forEach(element => {
+                //Calculo das estatisticas
+                if (element["estado"] == 'Aprovado' || element["estado"] == 'Ativo' || element["estado"] == 'Vendido' || element["estado"] == 'Expirado') {
+                    countAprovados= countAprovados+1;   
+                } else {
+                    if (element["estado"] == 'Rejeitado') {
+                        countRejeitados= countRejeitados+1;
+                    }
+                }
+                $("#countAprovados").text(formatToFourDigits(countAprovados));
+                $("#countRejeitados").text(formatToFourDigits(countRejeitados));
+                $("#countTaxaAprov").text((countAprovados/(countRejeitados+countAprovados))*100);
+                //Criação de Head da tabela
                 let tr = document.createElement('tr');
                 tr.id = 'row_' + element['id'];
                 //tr.onclick = getRowId;
                 let td1 = document.createElement('td');
                 let img = document.createElement('img');
                 img.classList.add('img-fluid');
-                (async function() {
+                (async function () {
                     const imagePath = await getFirstImage(element['id']);
                     if (imagePath) {
                         console.log("Imagem: " + imagePath);
@@ -55,7 +73,7 @@ function getRevistos() {
                         console.log("No matching image found.");
                         img.src = "imagePath";
                     }
-                  })();
+                })();
                 img.alt = '#';
                 td1.appendChild(img);
                 let td2 = document.createElement('td');
@@ -124,8 +142,9 @@ function getPorRever() {
         success: function (response) {
             var data = new Array();
             data = JSON.parse(response)
-            console.log(data);
-            console.log(data.length);
+            //console.log(data);
+            //console.log(data.length);
+            $("#countPendentes").text(formatToFourDigits(data.length));
             data.forEach(element => {
                 console.log(element['titulo'] + "");
                 let tr = document.createElement('tr');
@@ -134,7 +153,7 @@ function getPorRever() {
                 let td1 = document.createElement('td');
                 let img = document.createElement('img');
                 img.classList.add('img-fluid');
-                (async function() {
+                (async function () {
                     const imagePath = await getFirstImage(element['id']);
                     if (imagePath) {
                         console.log("Imagem: " + imagePath);
@@ -143,7 +162,7 @@ function getPorRever() {
                         console.log("No matching image found.");
                         img.src = "imagePath";
                     }
-                  })();
+                })();
                 img.alt = '#';
                 td1.appendChild(img);
                 let td2 = document.createElement('td');
@@ -242,9 +261,9 @@ function updateDataPessoal(event) {
                     email: obj['email'],
                     pass: obj['pass1']
                 }
-                if(obj['pass1'] != ""){
+                if (obj['pass1'] != "") {
                     doNewLogin(loginDetails, event);
-                }else{
+                } else {
                     alert(JSON.parse(response));
                     window.location.href = "dashboardPerito.php";
                 }
@@ -290,14 +309,14 @@ async function getFirstImage(id) {
         return "error";
     }
 }
-function doNewLogin(loginDetails, event) { 
+function doNewLogin(loginDetails, event) {
     $.ajax({
         url: './ourChanges/loginTry.php',
         type: 'POST',
         data: { data: loginDetails },
         success: function (response) {
             let jsonResponse = JSON.parse(response);
-            
+
             if (jsonResponse == "dashboard.php" || jsonResponse == "dashboardAdmin.php" || jsonResponse == "dashboardPerito.php") {
                 alert("Dados e password alterados com Sucesso!");
                 window.location.href = jsonResponse; //redirecionar para o respetivo painel depois de inciar sessão
@@ -312,4 +331,12 @@ function doNewLogin(loginDetails, event) {
             console.error(error);
         }
     })
+}
+function formatToFourDigits(number) {
+    const numberString = number.toString();
+    if (numberString.length === 3) {
+        return numberString;
+    } else {
+        return numberString.padStart(2, '0');
+    }
 }
