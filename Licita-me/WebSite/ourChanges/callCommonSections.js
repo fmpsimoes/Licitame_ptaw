@@ -20,6 +20,8 @@ $.ajax({
   success: function (headerHtml) {
     $("#header").html(headerHtml);
     headerHandling();
+    $('#contabtn').before(createAnunciarContainer1());
+    $('#contabtn1').before(createAnunciarContainer2());
   },
 });
 
