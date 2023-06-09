@@ -4,9 +4,8 @@ var dataInicioAux;
 
 
 $(document).ready(function () {
-  var currentUrl = window.location.href;
   let form = document.getElementById("form");
-  var idLeilao = currentUrl.substring(currentUrl.lastIndexOf('=') + 1);
+  var idLeilao = sessionStorage.getItem('id_leilao');
   getLeilaoData(idLeilao);
 
   $("#rejeitado").on("click", function () {

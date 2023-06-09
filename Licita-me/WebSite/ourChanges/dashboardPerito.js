@@ -60,7 +60,11 @@ function getRevistos() {
                 //Criação de Head da tabela
                 let tr = document.createElement('tr');
                 tr.id = 'row_' + element['id'];
-                //tr.onclick = getRowId;
+                if (element["estado"] == "Ativo") {
+                    tr.onclick = function () {
+                        pagLicitar(element['id']);
+                    };
+                }
                 let td1 = document.createElement('td');
                 let img = document.createElement('img');
                 img.classList.add('img-fluid');
@@ -149,7 +153,9 @@ function getPorRever() {
                 console.log(element['titulo'] + "");
                 let tr = document.createElement('tr');
                 tr.id = 'row_' + element['id'];
-                tr.onclick = getRowId;
+                tr.onclick = function () {
+                    revisarLeilao(element['id']);
+                };
                 let td1 = document.createElement('td');
                 let img = document.createElement('img');
                 img.classList.add('img-fluid');
@@ -340,3 +346,7 @@ function formatToFourDigits(number) {
         return numberString.padStart(2, '0');
     }
 }
+function revisarLeilao(id_leilao){
+    sessionStorage.setItem('id_leilao', id_leilao);
+    window.location.href = './form-perito.php';
+    }

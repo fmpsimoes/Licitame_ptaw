@@ -48,7 +48,11 @@ function getMeusLeiloes() {
             data.forEach(element => {
                 let tr = document.createElement('tr');
                 tr.id = 'row_' + element['id'];
-                //tr.onclick = getRowId;
+                if (element["estado"] == "Ativo") {
+                    tr.onclick = function () {
+                        pagLicitar(element['id']);
+                    };
+                }
                 let td1 = document.createElement('td');
                 let img = document.createElement('img');
                 img.classList.add('img-fluid');
