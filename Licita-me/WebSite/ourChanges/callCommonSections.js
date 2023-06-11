@@ -20,8 +20,8 @@ $.ajax({
   success: function (headerHtml) {
     $("#header").html(headerHtml);
     headerHandling();
-    $('#contabtn').before(createAnunciarContainer1());
-    $('#contabtn1').before(createAnunciarContainer2());
+    $("#contabtn").before(createAnunciarContainer1());
+    $("#contabtn1").before(createAnunciarContainer2());
   },
 });
 
@@ -50,6 +50,51 @@ function headerHandling() {
 
   $(".search-cross-btn").on("click", function () {
     $(".mobile-search").removeClass("slide");
+  });
+
+  $("#form-search-auction").on("submit", (event) => {
+    event.preventDefault();
+    let search = $("#input-search-auction").val();
+    if (search.length < 4) {
+      alert("O campo de pesquisa tem de conter pelo menos 4 caracteres!");
+    } else {
+      $.ajax({
+        url: "./ourChanges/searchAuctions.php",
+        type: "GET",
+        dataType: "json",
+        data: {
+          search: search,
+        },
+
+        success: function (response) {
+          console.log(response.ErrorMessage);
+
+          if (response.ErrorMessage != undefined) {
+            alert("Não existem resultados para a sua pesquisa.");
+          } else {
+            var dataToStore = {
+              search: search,
+              response: response,
+            };
+
+            // Storing the response data in local storage
+            localStorage.setItem("responseData", JSON.stringify(dataToStore));
+
+            // Redirecting to the other page
+            window.location.href = "./search-auction.html";
+          }
+          //$("#footer").html(footerHtml);
+        },
+        error: function (xhr, status, error) {
+          // Código para processar a mensagem de erro
+          console.log("Error:", error);
+          console.log("Status:", status);
+          console.log("Response:", xhr.responseText);
+          //let errorMsg = `<h2 style="text-align: center; color: red;" >${xhr.responseText}</h2>`;
+          //$("#mostRecent").html(errorMsg);
+        },
+      });
+    }
   });
 
   // scroll button

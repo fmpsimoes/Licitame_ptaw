@@ -571,9 +571,9 @@ $(document).ready(function () {
                 class="eg-card auction-card1 wow fadeInDown h-100"
               >
               <div class="auction-img">
-              <img alt="Imagem do Leilão" src="${value.dirimagem.substring(
-              1
-            )}"  />
+              <img class="auction-img-live" alt="Imagem do Leilão" src="${value.dirimagem.substring(
+                1
+              )}"  />
                 <div class="auction-timer w-75">
                 <div class="countdown" id="timerShowAll${value.id}">
                     <h5 style="margin: 0">
@@ -594,7 +594,9 @@ $(document).ready(function () {
                   Preço Atual : <span><span>${value.precoatual} €</span></span>
                 </p>
                 <div class="auction-card-bttm">
-                  <a onclick="pagLicitar(${value.id})" class="eg-btn btn--primary btn--sm" >Licitar</a>
+                  <a onclick="pagLicitar(${
+                    value.id
+                  })" class="eg-btn btn--primary btn--sm" >Licitar</a>
                 </div>
               </div>
             </div></div>
@@ -648,9 +650,12 @@ $(document).ready(function () {
                 class="eg-card auction-card1 wow fadeInDown h-100"
               >
               <div class="auction-img">
+              <img auction-img-live alt="Imagem do Leilão" src="${value.dirimagem.substring(
+                1
+              )}"  />
               <img alt="Imagem do Leilão" src="${value.dirimagem.substring(
-              1
-            )}"  />
+                1
+              )}"  />
                 <div class="auction-timer w-75">
                 <div class="countdown" id="timerMostPopular${value.id}">
                     <h5 style="margin: 0">
@@ -671,7 +676,9 @@ $(document).ready(function () {
                   Preço Atual : <span><span>${value.precoatual} €</span></span>
                 </p>
                 <div class="auction-card-bttm">
-                  <a onclick="pagLicitar(${value.id})" class="eg-btn btn--primary btn--sm" >Licitar</a>
+                  <a onclick="pagLicitar(${
+                    value.id
+                  })" class="eg-btn btn--primary btn--sm" >Licitar</a>
                 </div>
               </div>
             </div></div>
@@ -725,9 +732,9 @@ $(document).ready(function () {
                 class="eg-card auction-card1 wow fadeInDown h-100"
               >
               <div class="auction-img">
-              <img alt="Imagem do Leilão" src="${value.dirimagem.substring(
-              1
-            )}"  />
+              <img class="auction-img-live" alt="Imagem do Leilão" src="${value.dirimagem.substring(
+                1
+              )}"  />
                 <div class="auction-timer w-75">
                 <div class="countdown" id="timerAlmostFinish${value.id}">
                     <h5 style="margin: 0">
@@ -748,7 +755,9 @@ $(document).ready(function () {
                   Preço Atual : <span><span>${value.precoatual} €</span></span>
                 </p>
                 <div class="auction-card-bttm">
-                  <a onclick="pagLicitar(${value.id})" class="eg-btn btn--primary btn--sm" >Licitar</a>
+                  <a onclick="pagLicitar(${
+                    value.id
+                  })" class="eg-btn btn--primary btn--sm" >Licitar</a>
                 </div>
               </div>
             </div></div>
@@ -801,9 +810,12 @@ $(document).ready(function () {
                 class="eg-card auction-card1 wow fadeInDown h-100"
               >
               <div class="auction-img">
+              <img auction-img-live alt="Imagem do Leilão" src="${value.dirimagem.substring(
+                1
+              )}"  />
               <img alt="Imagem do Leilão" src="${value.dirimagem.substring(
-              1
-            )}"  />
+                1
+              )}"  />
                 <div class="auction-timer w-75">
                 <div class="countdown" id="timerMostRecent${value.id}">
                     <h5 style="margin: 0">
@@ -824,7 +836,9 @@ $(document).ready(function () {
                   Preço Atual : <span><span>${value.precoatual} €</span></span>
                 </p>
                 <div class="auction-card-bttm">
-                  <a onclick="pagLicitar(${value.id})" class="eg-btn btn--primary btn--sm" >Licitar</a>
+                  <a onclick="pagLicitar(${
+                    value.id
+                  })" class="eg-btn btn--primary btn--sm" >Licitar</a>
                 </div>
               </div>
             </div></div>
