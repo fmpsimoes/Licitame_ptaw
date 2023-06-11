@@ -20,8 +20,13 @@ $.ajax({
   success: function (headerHtml) {
     $("#header").html(headerHtml);
     headerHandling();
-    $("#contabtn").before(createAnunciarContainer1());
-    $("#contabtn1").before(createAnunciarContainer2());
+    const url = window.location.href;
+    const parts = url.split("/");
+    const lastPart = parts.pop();
+    if(lastPart == "dashboard.php"){
+      $('#contabtn').before(createAnunciarContainer1());
+      $('#contabtn1').before(createAnunciarContainer2());
+    }
   },
 });
 
