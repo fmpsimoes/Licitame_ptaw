@@ -3242,12 +3242,21 @@ header.style-3 .mobile-menu-form input[type=text] {
 .auction-card1 .auction-img {
   position: relative;
   overflow: hidden;
+  display: flex;
+  justify-content: center;
 }
 
 .auction-card1 .auction-img img {
-  width: 100%;
   border-radius: 5px 5px 0px 0px;
   transition: all 0.65s ease;
+  height: 30vh;
+
+}
+
+.auction-img-live{
+  border-radius: 5px 5px 0px 0px;
+  transition: all 0.65s ease;
+  height: 15vh;
 }
 
 .auction-card1 .auction-img .auction-timer {
@@ -6370,10 +6379,11 @@ footer.style-3 .footer-bottom .footer-logo-list li:hover img {
 
 .inner-banner {
   min-height: 200px;
-  background: rgba(12, 3, 33, 0.9);
+  /* background: rgba(12, 3, 33, 0.9); */
+  background: rgb(0 0 0 / 75%);
   position: relative;
   overflow: hidden;
-  z-index: 1;
+  /* z-index: 1; */
   display: flex;
   justify-content: start;
   align-items: center;
@@ -9093,6 +9103,26 @@ live-auction Page
 
 .toggle-switchArea {
   margin: 10px 0 10px 0;
+}
+
+#search-auction{
+  margin: auto;
+  border-radius: 30px;
+  border: none;
+  outline: none;
+  padding: 13px 20px;
+  background-color: #32c36c;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+  font-family: "Saira", sans-serif;
+  transition: all 0.42s ease-in-out;
+  border: 1px solid #32c36c;
+  text-align: center;
+}
+#search-auction:hover {
+  background-color: #fff;
+  color: #32c36c;
 }
 
 /*# sourceMappingURL=style.css.map */

@@ -571,7 +571,7 @@ $(document).ready(function () {
                 class="eg-card auction-card1 wow fadeInDown h-100"
               >
               <div class="auction-img">
-              <img alt="Imagem do Leilão" src="${value.dirimagem.substring(
+              <img class="auction-img-live" alt="Imagem do Leilão" src="${value.dirimagem.substring(
                 1
               )}"  />
                 <div class="auction-timer w-75">
@@ -650,7 +650,7 @@ $(document).ready(function () {
                 class="eg-card auction-card1 wow fadeInDown h-100"
               >
               <div class="auction-img">
-              <img alt="Imagem do Leilão" src="${value.dirimagem.substring(
+              <img auction-img-live alt="Imagem do Leilão" src="${value.dirimagem.substring(
                 1
               )}"  />
                 <div class="auction-timer w-75">
@@ -729,7 +729,7 @@ $(document).ready(function () {
                 class="eg-card auction-card1 wow fadeInDown h-100"
               >
               <div class="auction-img">
-              <img alt="Imagem do Leilão" src="${value.dirimagem.substring(
+              <img auction-img-live alt="Imagem do Leilão" src="${value.dirimagem.substring(
                 1
               )}"  />
                 <div class="auction-timer w-75">
@@ -807,7 +807,7 @@ $(document).ready(function () {
                 class="eg-card auction-card1 wow fadeInDown h-100"
               >
               <div class="auction-img">
-              <img alt="Imagem do Leilão" src="${value.dirimagem.substring(
+              <img auction-img-live alt="Imagem do Leilão" src="${value.dirimagem.substring(
                 1
               )}"  />
                 <div class="auction-timer w-75">
