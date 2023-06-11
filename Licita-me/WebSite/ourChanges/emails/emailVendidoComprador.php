@@ -19,23 +19,23 @@ try {
     $mail->CharSet = "UTF-8";
 
     $mail->setFrom('noreply.licitame@gmail.com','LICITAME');
-    $mail->addAddress("{$data['email']}",'Vendedor');
+    $mail->addAddress("{$row['emailvendedor']}",'Vendedor');
 
     $mail->isHTML(true);
-    $mail->Subject="Ganhou a Peça: {$data['nome']}";
+    $mail->Subject="Ganhou a Peça: {$row['titulo']}";
     $mail->Body="Parabéns, é o licitador vencedor da seguinte peça:<br><br>
     <div style='border: solid 2px #32c36c;border-radius:20px;padding:10px'>
-    <span style='color:#029e7c;'>Nome da Peça:</span> {$data['titulo']}<br><br>
-    <span style='color:#029e7c;'>Categoria:</span> {$data['categoria']}<br><br>
-    <span style='color:#029e7c;'>Materiais:</span> {$data['materiais']}<br><br>
-    <span style='color:#029e7c;'>Data de Fim:</span> {$data['datatermino']}<br><br>
-    <span style='color:#029e7c;'>Dimensões:</span> {$data['dimensoes']}<br><br>
-    <span style='color:#029e7c;'>Peso:</span> {$data['peso']}<br><br>
-    <span style='color:#029e7c;'>Autor:</span> {$data['autor']}<br><br>
-    <span style='color:#029e7c;'>Período Estimado:</span> {$data['periodo']}<br><br>
-    <span style='color:#029e7c;'>Valor:</span> <b>{$data['valor']}</b><br><br> "/* data['valor'] placeholder mudar */+"
-    <span style='color:#029e7c;'>Condição:</span> {$data['condicao']}<br><br>
-    <span style='color:#029e7c;'>Descrição:</span> {$data['descricao']}
+    <span style='color:#029e7c;'>Nome da Peça:</span> {$row['titulo']}<br><br>
+    <span style='color:#029e7c;'>Categoria:</span> {$row['categoria']}<br><br>
+    <span style='color:#029e7c;'>Materiais:</span> {$row['materiais']}<br><br>
+    <span style='color:#029e7c;'>Data de Fim:</span> {$row['datafim']}<br><br>
+    <span style='color:#029e7c;'>Dimensões:</span> {$row['dimensoes']}<br><br>
+    <span style='color:#029e7c;'>Peso:</span> {$row['peso']}<br><br>
+    <span style='color:#029e7c;'>Autor:</span> {$row['autor']}<br><br>
+    <span style='color:#029e7c;'>Período Estimado:</span> {$row['periodo']}<br><br>
+    <span style='color:#029e7c;'>Valor:</span> <b>{$rowBid['valorlicitacao']}</b><br><br>
+    <span style='color:#029e7c;'>Condição:</span> {$row['condicao']}<br><br>
+    <span style='color:#029e7c;'>Descrição:</span> {$row['descricao']}
     <span style='color:#029e7c;'>Certificado:</span> Em Anexo}
     </div><br>
 

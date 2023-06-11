@@ -25,18 +25,18 @@ try {
     $mail->Subject='Novo pedido de entrega Armazém -> Vendedor';
     $mail->Body="Pedimos que faça a entrega da seguinte peça de arte de volta para o vendedor:<br><br>
     <div style='border: solid 2px #32c36c;border-radius:20px;padding:10px'>
-    <span style='color:#029e7c;'>Nome do Vendedor:</span> <b>{$data['primeiroNomeVendedor']} {$data['ultimoNomeVendedor']}</b><br><br>
-    <span style='color:#029e7c;'>Contacto:</span> {$data['contacto']}<br><br>
-    <span style='color:#029e7c;'>Email:</span> <b>{$data['email']}</b><br><br>
-    <span style='color:#029e7c;'>Nome da Peça:</span> {$data['nome']}<br><br>
+    <span style='color:#029e7c;'>Nome do Vendedor:</span> <b>{$rowSeller['nome']} {$data['apelido']}</b><br><br>
+    <span style='color:#029e7c;'>Contacto:</span> {$rowSeller['contactotelefonico']}<br><br>
+    <span style='color:#029e7c;'>Email:</span> <b>{$rowSeller['emailvendedor']}</b><br><br>
+    <span style='color:#029e7c;'>Nome da Peça:</span> {$rowSeller['titulo']}<br><br>
     <span style='color:#029e7c;'>Morada do Armazém (Origem):</span> <b>R. Cmte. Pinho e Freitas 28, 3750-127 Águeda</b><br><br>
-    <span style='color:#029e7c;'>Morada do Vendedor (Destino):</span> <b>{$data['morada']} {$data['porta']}, {$data['codigopostal']} {$data['concelho']}</b><br><br>
-    <span style='color:#029e7c;'>Categoria:</span> <b>{$data['categoria']}</b><br><br>
-    <span style='color:#029e7c;'>Materiais:</span> <b>{$data['materiais']}</b><br><br>
-    <span style='color:#029e7c;'>Dimensões:</span> <b>{$data['dimensoes']}</b><br><br>
-    <span style='color:#029e7c;'>Peso:</span> <b>{$data['peso']}</b><br><br>
-    <span style='color:#029e7c;'>Estado:</span> {$data['estado']}<br><br>
-    <span style='color:#029e7c;'>Descrição:</span> {$data['descricao']}
+    <span style='color:#029e7c;'>Morada do Vendedor (Destino):</span> <b>{$rowSeller['morada']} {$rowSeller['porta']}, {$rowSeller['codigopostal']} {$rowSeller['concelho']}</b><br><br>
+    <span style='color:#029e7c;'>Categoria:</span> <b>{$rowSeller['categoria']}</b><br><br>
+    <span style='color:#029e7c;'>Materiais:</span> <b>{$rowSeller['materiais']}</b><br><br>
+    <span style='color:#029e7c;'>Dimensões:</span> <b>{$rowSeller['dimensoes']}</b><br><br>
+    <span style='color:#029e7c;'>Peso:</span> <b>{$rowSeller['peso']}</b><br><br>
+    <span style='color:#029e7c;'>Estado:</span> {$rowSeller['condicao']}<br><br>
+    <span style='color:#029e7c;'>Descrição:</span> {$rowSeller['descricao']}
     </div><br>
 
     <img alt='logo licitame' src='https://i.imgur.com/negCNil.png' width='200px' height='45px' style='background:#32c36c;margin:auto;display:block;'/>";

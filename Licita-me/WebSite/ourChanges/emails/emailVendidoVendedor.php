@@ -19,19 +19,19 @@ try {
     $mail->CharSet = "UTF-8";
 
     $mail->setFrom('noreply.licitame@gmail.com','LICITAME');
-    $mail->addAddress("{$data['email']}",'Vendedor');
+    $mail->addAddress("{$row['emailvendedor']}",'Vendedor');
 
     $mail->isHTML(true);
-    $mail->Subject="Vendou a Peça: {$data['nome']}";
-    $mail->Body="Parabéns, a sua peça foi vendida por {$data['valor']}.<br><br>
+    $mail->Subject="Vendou a Peça: {$row['titulo']}";
+    $mail->Body="Parabéns, a sua peça foi vendida por {$rowBid['valorlicitacao']}.<br><br>
     <div style='border: solid 2px #32c36c;border-radius:20px;padding:10px'>
-    <span style='color:#029e7c;'>Nome da Peça:</span> {$data['titulo']}<br><br>
-    <span style='color:#029e7c;'>Categoria:</span> {$data['categoria']}<br><br>
-    <span style='color:#029e7c;'>Data de Fim:</span> {$data['datatermino']}<br><br>
-    <span style='color:#029e7c;'>Autor:</span> {$data['autor']}<br><br>
-    <span style='color:#029e7c;'>Período Estimado:</span> {$data['periodo']}<br><br>
-    <span style='color:#029e7c;'>Valor:</span> <b>{$data['valor']}</b><br><br> "/* data['valor'] placeholder mudar */+"
-    <span style='color:#029e7c;'>Descrição:</span> {$data['descricao']}
+    <span style='color:#029e7c;'>Nome da Peça:</span> {$row['titulo']}<br><br>
+    <span style='color:#029e7c;'>Categoria:</span> {$row['categoria']}<br><br>
+    <span style='color:#029e7c;'>Data de Fim:</span> {$row['datafim']}<br><br>
+    <span style='color:#029e7c;'>Autor:</span> {$row['autor']}<br><br>
+    <span style='color:#029e7c;'>Período Estimado:</span> {$row['periodo']}<br><br>
+    <span style='color:#029e7c;'>Valor:</span> <b>{$row['valor']}</b><br><br> "/* data['valor'] placeholder mudar */+"
+    <span style='color:#029e7c;'>Descrição:</span> {$row['descricao']}
     </div><br>
 
     <img alt='logo licitame' src='https://i.imgur.com/negCNil.png' width='200px' height='45px' style='background:#32c36c;margin:auto;display:block;'/>";
