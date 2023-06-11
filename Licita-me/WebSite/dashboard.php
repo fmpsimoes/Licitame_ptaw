@@ -187,8 +187,11 @@ if(!isset($_SESSION['email'])) {
                             aria-labelledby="v-pills-profile-tab">
                             <div class="dashboard-profile">
                                 <div class="owner">
-                                    <div class="image">
+                                    <div class="image" id="divimage">
                                         <img alt="image" src="assets/images/bg/pro-pic.png">
+                                        <div class="edit-message">
+                                            <input type="file" id="profile-pic-input" style="display: none;">
+                                        </div>
                                     </div>
                                     <div class="content">
                                         <h3 id="ttNome"></h3>

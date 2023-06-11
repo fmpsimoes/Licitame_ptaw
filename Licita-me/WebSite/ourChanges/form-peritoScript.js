@@ -59,12 +59,21 @@ input.addEventListener('change', () => {
 const showImages = () => {
   let images = '';
   files.forEach((e, i) => {
-    images += `<div class="image1">
+    images += `<div class="image1" data-index="${i}">
         <img src="${URL.createObjectURL(e)}" alt="image"> 
         <span onclick="delImage(${i})">&times;</span>
         </div>`;
   });
   container.innerHTML = images;
+};
+const orderFiles = () => {
+  const orderedFiles = [];
+  const imageDivs = document.querySelectorAll('.image1');
+  imageDivs.forEach((div) => {
+    const index = div.getAttribute('data-index');
+    orderedFiles.push(files[index]);
+  });
+  files = orderedFiles;
 };
 
 function delImage(index) {
@@ -149,7 +158,7 @@ function setImages(auxfotos) {
       console.log(files); // You can access the files array here or perform further operations
       let images = '';
       files.forEach((e, i) => {
-        images += `<div class="image1">
+        images += `<div class="image1" data-index="${i}">
         <img src="${URL.createObjectURL(e)}" alt="image"> 
         <span onclick="delImage(${i})">&times;</span>
         </div>`;
@@ -218,7 +227,7 @@ function insertPhotos(id_leilao) {
   const formData = new FormData();
 
   formData.append("id_leilao", id_leilao);
-
+  orderFiles();
   files.forEach((e, i) => formData.append(`photos[${i}]`, e));
 
   fetch(endpoint, {

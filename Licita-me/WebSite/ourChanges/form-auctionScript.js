@@ -119,12 +119,22 @@ input.addEventListener('change', () => {
 const showImages = () => {
   let images = '';
   files.forEach((e, i) => {
-    images += `<div class="image1">
+    images += `<div class="image1" data-index="${i}">
         <img src="${URL.createObjectURL(e)}" alt="image"> 
         <span onclick="delImage(${i})">&times;</span>
         </div>`;
   });
   container.innerHTML = images;
+};
+
+const orderFiles = () => {
+  const orderedFiles = [];
+  const imageDivs = document.querySelectorAll('.image1');
+  imageDivs.forEach((div) => {
+    const index = div.getAttribute('data-index');
+    orderedFiles.push(files[index]);
+  });
+  files = orderedFiles;
 };
 
 function delImage(index) {
@@ -192,11 +202,11 @@ function setAnuncio(event) {
     success: function (response) {
       console.log(files);
         
-        insertPhotos(JSON.parse(response));
+        insertPhotos(JSON.parse(response), event);
 
       ///Insere certificado para o anuncio colocado apos receber o id do anuncio colocado
       if (certificationFile.files.length > 0) {
-        insertCertificado(JSON.parse(response));
+        insertCertificado(JSON.parse(response), event);
       }
       alert("Leilão publicado com sucesso!");
       window.location.href = "./dashboard.php";
@@ -208,12 +218,12 @@ function setAnuncio(event) {
   });
 }
 
-function insertPhotos(id_leilao) {
+function insertPhotos(id_leilao, event) {
   const endpoint = "./ourChanges/insertImagesAuction.php";
   const formData = new FormData();
 
   formData.append("id_leilao", id_leilao);
-
+  orderFiles();
   files.forEach((e, i) => formData.append(`photos[${i}]`, e));
 
   fetch(endpoint, {
@@ -224,12 +234,13 @@ function insertPhotos(id_leilao) {
       console.log(response);
     })
     .catch(error => {
+      event.preventDefault();
       console.error("Error:", error);
     });
 }
 
 
-function insertCertificado(id_certificado) {
+function insertCertificado(id_certificado, event) {
   const fileInput = document.querySelector("#certification");
   const endpoint = "./ourChanges/insertCertificadoAuction.php";
   const formData = new FormData();
@@ -251,6 +262,7 @@ function insertCertificado(id_certificado) {
       };
     })
     .catch(error => {
+      event.preventDefault();
       console.error("Error:", error);
     });
 }

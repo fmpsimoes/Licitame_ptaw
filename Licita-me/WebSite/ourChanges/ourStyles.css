@@ -224,3 +224,31 @@ table.dataTable.table>tbody>tr{
 .pointer{
   cursor: pointer;;
 }
+.edit-message {
+  display: none;
+}
+#divimage:hover{
+  opacity: 0.6;
+}
+#divimage{
+  position: relative;
+  
+}
+#profile-pic-input{
+  border-radius: 50%;
+}
+
+.edit-message {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: 20px;
+  transform: translate(-50%, -50%);
+  color: black;
+  width: 80%;
+  text-align: center;
+  display: none;
+}
+.image:hover input[type="file"] {
+  display: block;
+}

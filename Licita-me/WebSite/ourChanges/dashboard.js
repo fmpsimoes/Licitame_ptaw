@@ -5,7 +5,7 @@ $(document).ready(function () {
         event.preventDefault();
         updateDataPessoal(event);
     });
-    //getHistoricoLicitacoes();
+    getHistoricoLicitacoes();
     getLeiloesGanhos();
     getMeusLeiloes();
 });
@@ -92,6 +92,7 @@ function getMeusLeiloes() {
                 language: {
                     url: '//cdn.datatables.net/plug-ins/1.13.4/i18n/pt-PT.json',
                 },
+                "lengthChange": false,
             });
         },
         error: function (xhr, status, error) {
@@ -130,41 +131,57 @@ function getHistoricoLicitacoes() {
     thead.appendChild(tr2);
     let tbody = document.createElement('tbody');
     $.ajax({
-        url: '*.php',
+        url: './ourChanges/getMinhasLicitacoes.php',
         type: 'POST',
-        //data: { data:},
         success: function (response) {
-            //let tbody = document.createElement('tbody');
-            for (let i = 0; i < tamarr; i++) {
+            var data = JSON.parse(response);
+            data.forEach(element => {
                 let tr = document.createElement('tr');
-                tr.id = 'row';
+                tr.id = 'row_' + element['id'];
+                if (element["estado"] == "Ativo") {
+                    tr.onclick = function () {
+                        pagLicitar(element['id']);
+                    };
+                }
                 let td1 = document.createElement('td');
                 let img = document.createElement('img');
                 img.classList.add('img-fluid');
-                img.src = '#';
+                (async function () {
+                    const imagePath = await getFirstImage(element['id']);
+                    if (imagePath) {
+                        console.log("Imagem: " + imagePath);
+                        img.src = imagePath;
+                    } else {
+                        console.log("No matching image found.");
+                        img.src = "imagePath";
+                    }
+                })();
                 img.alt = '#';
                 td1.appendChild(img);
                 let td2 = document.createElement('td');
-                //td2.textContent = response['utilizadores'][i]["nome"];
+                td2.textContent = element["titulo"];
                 let td3 = document.createElement('td');
-                //td3.textContent = response['utilizadores'][i]["idade"];
+                td3.textContent = element["valorlicitacao"];
                 let td4 = document.createElement('td');
-                //td4.textContent = response['utilizadores'][i]["idade"];
+                td4.textContent = element["valoratualleilao"];
                 let td5 = document.createElement('td');
-                //td5.textContent = //response['utilizadores'][i]["categoria"];
+                td5.textContent = element["estado"];
                 tr.appendChild(td1);
                 tr.appendChild(td2);
                 tr.appendChild(td3);
                 tr.appendChild(td4);
                 tr.appendChild(td5);
                 tbody.appendChild(tr)
-            }
+            });
             table.appendChild(thead);
             table.appendChild(tbody);
             div.appendChild(table);
-            let row = document.getElementById("row")
-            row.addEventListener("click", function () {
-                alert("Clicável");
+
+            $(table).DataTable({
+                language: {
+                    url: '//cdn.datatables.net/plug-ins/1.13.4/i18n/pt-PT.json',
+                },
+                "lengthChange": false,
             });
         },
         error: function (xhr, status, error) {
@@ -267,6 +284,7 @@ function getLeiloesGanhos() {
                 language: {
                     url: '//cdn.datatables.net/plug-ins/1.13.4/i18n/pt-PT.json',
                 },
+                "lengthChange": false,
             });
         },
         error: function (xhr, status, error) {
