@@ -572,8 +572,8 @@ $(document).ready(function () {
               >
               <div class="auction-img">
               <img alt="Imagem do Leilão" src="${value.dirimagem.substring(
-                1
-              )}"  />
+              1
+            )}"  />
                 <div class="auction-timer w-75">
                 <div class="countdown" id="timerShowAll${value.id}">
                     <h5 style="margin: 0">
@@ -587,16 +587,14 @@ $(document).ready(function () {
               </div>
               <div class="auction-content">
                 <h4 style="min-height: 9vh;">
-                <a href="auction-details.html?id=${value.id}"
+                <a onclick="pagLicitar(${value.id})"
                     >${value.titulo}</a>
                 </h4>
                 <p>
                   Preço Atual : <span><span>${value.precoatual} €</span></span>
                 </p>
                 <div class="auction-card-bttm">
-                  <a href="auction-details.html?id=${
-                    value.id
-                  }" class="eg-btn btn--primary btn--sm" >Licitar</a>
+                  <a onclick="pagLicitar(${value.id})" class="eg-btn btn--primary btn--sm" >Licitar</a>
                 </div>
               </div>
             </div></div>
@@ -651,8 +649,8 @@ $(document).ready(function () {
               >
               <div class="auction-img">
               <img alt="Imagem do Leilão" src="${value.dirimagem.substring(
-                1
-              )}"  />
+              1
+            )}"  />
                 <div class="auction-timer w-75">
                 <div class="countdown" id="timerMostPopular${value.id}">
                     <h5 style="margin: 0">
@@ -666,16 +664,14 @@ $(document).ready(function () {
               </div>
               <div class="auction-content">
                 <h4 style="min-height: 9vh;">
-                <a href="auction-details.html?id=${value.id}"
+                <a onclick="pagLicitar(${value.id})"
                     >${value.titulo}</a>
                 </h4>
                 <p>
                   Preço Atual : <span><span>${value.precoatual} €</span></span>
                 </p>
                 <div class="auction-card-bttm">
-                  <a href="auction-details.html?id=${
-                    value.id
-                  }" class="eg-btn btn--primary btn--sm" >Licitar</a>
+                  <a onclick="pagLicitar(${value.id})" class="eg-btn btn--primary btn--sm" >Licitar</a>
                 </div>
               </div>
             </div></div>
@@ -730,8 +726,8 @@ $(document).ready(function () {
               >
               <div class="auction-img">
               <img alt="Imagem do Leilão" src="${value.dirimagem.substring(
-                1
-              )}"  />
+              1
+            )}"  />
                 <div class="auction-timer w-75">
                 <div class="countdown" id="timerAlmostFinish${value.id}">
                     <h5 style="margin: 0">
@@ -745,16 +741,14 @@ $(document).ready(function () {
               </div>
               <div class="auction-content">
                 <h4 style="min-height: 9vh;">
-                <a href="auction-details.html?id=${value.id}"
+                <a onclick="pagLicitar(${value.id})"
                     >${value.titulo}</a>
                 </h4>
                 <p>
                   Preço Atual : <span><span>${value.precoatual} €</span></span>
                 </p>
                 <div class="auction-card-bttm">
-                  <a href="auction-details.html?id=${
-                    value.id
-                  }" class="eg-btn btn--primary btn--sm" >Licitar</a>
+                  <a onclick="pagLicitar(${value.id})" class="eg-btn btn--primary btn--sm" >Licitar</a>
                 </div>
               </div>
             </div></div>
@@ -808,8 +802,8 @@ $(document).ready(function () {
               >
               <div class="auction-img">
               <img alt="Imagem do Leilão" src="${value.dirimagem.substring(
-                1
-              )}"  />
+              1
+            )}"  />
                 <div class="auction-timer w-75">
                 <div class="countdown" id="timerMostRecent${value.id}">
                     <h5 style="margin: 0">
@@ -823,16 +817,14 @@ $(document).ready(function () {
               </div>
               <div class="auction-content">
                 <h4 style="min-height: 9vh;">
-                <a href="auction-details.html?id=${value.id}"
+                <a onclick="pagLicitar(${value.id})"
                     >${value.titulo}</a>
                 </h4>
                 <p>
                   Preço Atual : <span><span>${value.precoatual} €</span></span>
                 </p>
                 <div class="auction-card-bttm">
-                  <a href="auction-details.html?id=${
-                    value.id
-                  }" class="eg-btn btn--primary btn--sm" >Licitar</a>
+                  <a onclick="pagLicitar(${value.id})" class="eg-btn btn--primary btn--sm" >Licitar</a>
                 </div>
               </div>
             </div></div>
@@ -858,47 +850,4 @@ $(document).ready(function () {
       },
     });
   }
-
-  // Timer para o tempo restante do leilão
-  function makeTimer(beforeId, id, endDate) {
-    var endTime = new Date(endDate);
-    var endTime = Date.parse(endTime) / 1000; //replace these two lines with the unix timestamp from the server
-
-    var now = new Date();
-    var now = Date.parse(now) / 1000;
-
-    var timeLeft = endTime - now;
-
-    var days = Math.floor(timeLeft / 86400);
-    var hours = Math.floor((timeLeft - days * 86400) / 3600);
-    var minutes = Math.floor((timeLeft - days * 86400 - hours * 3600) / 60);
-    var seconds = Math.floor(
-      timeLeft - days * 86400 - hours * 3600 - minutes * 60
-    );
-
-    if (days < "10") {
-      days = "0" + days;
-    }
-    if (hours < "10") {
-      hours = "0" + hours;
-    }
-    if (minutes < "10") {
-      minutes = "0" + minutes;
-    }
-    if (seconds < "10") {
-      seconds = "0" + seconds;
-    }
-
-    // Find the IDs of the spans inside the specified timer element
-    let daysId = `#days${beforeId}${id}`;
-    let hoursId = `#hours${beforeId}${id}`;
-    let minutesId = `#minutes${beforeId}${id}`;
-    let secondsId = `#seconds${beforeId}${id}`;
-
-    $(daysId).text(days);
-    $(hoursId).text(hours);
-    $(minutesId).text(minutes);
-    $(secondsId).text(seconds);
-  }
-  // timer end
 });

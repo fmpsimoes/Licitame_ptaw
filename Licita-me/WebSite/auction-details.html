@@ -1,618 +1,426 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Detalhes do Leilão</title>
-    <link
-      rel="icon"
-      href="assets/images/bg/sm-logo.png"
-      type="image/gif"
-      sizes="20x20"
-    />
 
-    <link rel="stylesheet" href="assets/css/animate.css" />
-    <!-- css file link -->
-    <link rel="stylesheet" href="assets/css/all.css" />
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Detalhes do Leilão</title>
+  <link rel="icon" href="assets/images/bg/sm-logo.png" type="image/gif" sizes="20x20" />
 
-    <!-- bootstrap 5 -->
-    <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="assets/css/animate.css" />
+  <!-- css file link -->
+  <link rel="stylesheet" href="assets/css/all.css" />
 
-    <!-- box-icon -->
-    <link rel="stylesheet" href="assets/css/boxicons.min.css" />
+  <!-- bootstrap 5 -->
+  <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
 
-    <!-- bootstrap icon -->
-    <link rel="stylesheet" href="assets/css/bootstrap-icons.css" />
+  <!-- box-icon -->
+  <link rel="stylesheet" href="assets/css/boxicons.min.css" />
 
-    <!-- jquery ui -->
-    <link rel="stylesheet" href="assets/css/jquery-ui.css" />
+  <!-- bootstrap icon -->
+  <link rel="stylesheet" href="assets/css/bootstrap-icons.css" />
 
-    <!-- swiper-slide -->
-    <link rel="stylesheet" href="assets/css/swiper-bundle.min.css" />
+  <!-- jquery ui -->
+  <link rel="stylesheet" href="assets/css/jquery-ui.css" />
 
-    <!-- slick-slide -->
-    <link rel="stylesheet" href="assets/css/slick-theme.css" />
-    <link rel="stylesheet" href="assets/css/slick.css" />
+  <!-- swiper-slide -->
+  <link rel="stylesheet" href="assets/css/swiper-bundle.min.css" />
 
-    <!-- select 2 -->
-    <link rel="stylesheet" href="assets/css/nice-select.css" />
+  <!-- slick-slide -->
+  <link rel="stylesheet" href="assets/css/slick-theme.css" />
+  <link rel="stylesheet" href="assets/css/slick.css" />
 
-    <!-- animate css -->
-    <link rel="stylesheet" href="assets/css/magnific-popup.css" />
+  <!-- select 2 -->
+  <link rel="stylesheet" href="assets/css/nice-select.css" />
 
-    <!-- odometer css -->
-    <link rel="stylesheet" href="assets/css/odometer.css" />
+  <!-- animate css -->
+  <link rel="stylesheet" href="assets/css/magnific-popup.css" />
 
-    <!-- style css -->
-    <link rel="stylesheet" href="assets/css/style.css" />
+  <!-- odometer css -->
+  <link rel="stylesheet" href="assets/css/odometer.css" />
 
-    <script src="assets/js/jquery-3.6.0.min.js"></script>
-    <script src="ourChanges/callCommonSections.js"></script>
-  </head>
+  <!-- style css -->
+  <link rel="stylesheet" href="assets/css/style.css" />
 
-  <body>
-    <!-- preloader -->
-    <div class="preloader">
-      <div class="loader">
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
+  <script src="assets/js/jquery-3.6.0.min.js"></script>
+  <script src="ourChanges/callCommonSections.js"></script>
+</head>
+
+<body>
+  <!-- preloader -->
+  <div class="preloader">
+    <div class="loader">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
     </div>
+  </div>
 
-    <!-- search area -->
-    <div class="mobile-search">
-      <div class="container">
-        <div class="row d-flex justify-content-center">
-          <div class="col-md-11">
-            <label>O que procura?</label>
-            <input
-              type="text"
-              placeholder="Procura por produto, categoria e artista..."
-            />
-          </div>
-          <div class="col-1 d-flex justify-content-end align-items-center">
-            <div class="search-cross-btn">
-              <i class="bi bi-x"></i>
-            </div>
+  <!-- search area -->
+  <div class="mobile-search">
+    <div class="container">
+      <div class="row d-flex justify-content-center">
+        <div class="col-md-11">
+          <label>O que procura?</label>
+          <input type="text" placeholder="Procura por produto, categoria e artista..." />
+        </div>
+        <div class="col-1 d-flex justify-content-end align-items-center">
+          <div class="search-cross-btn">
+            <i class="bi bi-x"></i>
           </div>
         </div>
       </div>
     </div>
+  </div>
 
-    <!-- ========== topbar ============= -->
-    <div id="topbar" class="topbar"></div>
+  <!-- ========== topbar ============= -->
+  <div id="topbar" class="topbar"></div>
 
-    <!-- ========== header============= -->
+  <!-- ========== header============= -->
 
-    <header id="header" class="header-area style-1"></header>
+  <header id="header" class="header-area style-1"></header>
 
-    <!-- ========== header end============= -->
+  <!-- ========== header end============= -->
 
-    <!-- ========== inner-page-banner start ============= -->
+  <!-- ========== inner-page-banner start ============= -->
 
-    <div class="inner-banner">
-      <div class="container">
-        <h2
-          class="inner-banner-title wow fadeInLeft"
-          data-wow-duration="1.5s"
-          data-wow-delay=".4s"
-        >
-          Detalhes do Leilão
-        </h2>
-        <nav aria-label="breadcrumb">
-          <ol class="breadcrumb">
-            <li class="breadcrumb-item">
-              <a href="index.html">Página Inicial</a>
+  <div class="inner-banner">
+    <div class="container">
+      <h2 class="inner-banner-title wow fadeInLeft" data-wow-duration="1.5s" data-wow-delay=".4s">
+        Detalhes do Leilão
+      </h2>
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item">
+            <a href="index.html">Página Inicial</a>
+          </li>
+          <li class="breadcrumb-item active" aria-current="page">
+            Detalhes do Leilão
+          </li>
+        </ol>
+      </nav>
+    </div>
+  </div>
+
+  <!-- ========== inner-page-banner end ============= -->
+
+  <!-- ========== auction-details start ============= -->
+
+  <div class="auction-details-section pt-120">
+    <img alt="image" src="assets/images/bg/section-bg.png" class="img-fluid section-bg-top" />
+    <img alt="image" src="assets/images/bg/section-bg.png" class="img-fluid section-bg-bottom" />
+    <div class="container" id="auction-details-container">
+      <div class="row g-4 mb-50">
+        <div
+          class="col-xl-6 col-lg-7 d-flex flex-row align-items-start justify-content-lg-start justify-content-center flex-md-nowrap flex-wrap gap-4">
+          <ul class="nav small-image-list d-flex flex-row justify-content-center gap-4 wow fadeInDown"
+            data-wow-duration="1.5s" data-wow-delay=".4s" style="overflow-y: scroll; height: 400px; width:150px" id="smallImgDisplay">
+            <!--<li class="nav-item">
+              <div id="details-img1" data-bs-toggle="pill" data-bs-target="#gallery-img1" aria-controls="gallery-img1">
+                <img alt="image" src="assets/images/bg/prod-gallery1.png" class="img-fluid" />
+              </div>
             </li>
-            <li class="breadcrumb-item active" aria-current="page">
-              Detalhes do Leilão
+            <li class="nav-item">
+              <div id="details-img2" data-bs-toggle="pill" data-bs-target="#gallery-img2" aria-controls="gallery-img2">
+                <img alt="image" src="assets/images/bg/prod-gallery2.png" class="img-fluid" />
+              </div>
             </li>
-          </ol>
-        </nav>
-      </div>
-    </div>
-
-    <!-- ========== inner-page-banner end ============= -->
-
-    <!-- ========== auction-details start ============= -->
-
-    <div class="auction-details-section pt-120">
-      <img
-        alt="image"
-        src="assets/images/bg/section-bg.png"
-        class="img-fluid section-bg-top"
-      />
-      <img
-        alt="image"
-        src="assets/images/bg/section-bg.png"
-        class="img-fluid section-bg-bottom"
-      />
-      <div class="container" id="auction-details-container">
-        <div class="row g-4 mb-50">
-          <div
-            class="col-xl-6 col-lg-7 d-flex flex-row align-items-start justify-content-lg-start justify-content-center flex-md-nowrap flex-wrap gap-4"
-          >
-            <ul
-              class="nav small-image-list d-flex flex-md-column flex-row justify-content-center gap-4 wow fadeInDown"
-              data-wow-duration="1.5s"
-              data-wow-delay=".4s"
-            >
-              <li class="nav-item">
-                <div
-                  id="details-img1"
-                  data-bs-toggle="pill"
-                  data-bs-target="#gallery-img1"
-                  aria-controls="gallery-img1"
-                >
-                  <img
-                    alt="image"
-                    src="assets/images/bg/prod-gallery1.png"
-                    class="img-fluid"
-                  />
-                </div>
-              </li>
-              <li class="nav-item">
-                <div
-                  id="details-img2"
-                  data-bs-toggle="pill"
-                  data-bs-target="#gallery-img2"
-                  aria-controls="gallery-img2"
-                >
-                  <img
-                    alt="image"
-                    src="assets/images/bg/prod-gallery2.png"
-                    class="img-fluid"
-                  />
-                </div>
-              </li>
-              <li class="nav-item">
-                <div
-                  id="details-img3"
-                  data-bs-toggle="pill"
-                  data-bs-target="#gallery-img3"
-                  aria-controls="gallery-img3"
-                >
-                  <img
-                    alt="image"
-                    src="assets/images/bg/prod-gallery3.png"
-                    class="img-fluid"
-                  />
-                </div>
-              </li>
-            </ul>
-            <div
-              class="tab-content mb-4 d-flex justify-content-lg-start justify-content-center wow fadeInUp"
-              data-wow-duration="1.5s"
-              data-wow-delay=".4s"
-            >
-              <div
-                class="tab-pane big-image fade show active"
-                id="gallery-img1"
-              >
-                <div
-                  class="auction-gallery-timer d-flex align-items-center justify-content-center flex-wrap"
-                >
-                  <h3 id="countdown-timer-1">&nbsp;</h3>
-                </div>
-                <img
-                  alt="image"
-                  src="assets/images/bg/prod-gallery1.png"
-                  class="img-fluid"
-                />
+            <li class="nav-item">
+              <div id="details-img3" data-bs-toggle="pill" data-bs-target="#gallery-img3" aria-controls="gallery-img3">
+                <img alt="image" src="assets/images/bg/prod-gallery3.png" class="img-fluid" />
               </div>
-              <div class="tab-pane big-image fade" id="gallery-img2">
-                <div
-                  class="auction-gallery-timer d-flex align-items-center justify-content-center"
-                >
-                  <h3 id="countdown-timer-2">&nbsp;</h3>
-                </div>
-                <img
-                  alt="image"
-                  src="assets/images/bg/prod-gallery2.png"
-                  class="img-fluid"
-                />
+            </li>-->
+          </ul>
+          <div class="tab-content mb-4 d-flex justify-content-lg-start justify-content-center wow fadeInUp"
+            data-wow-duration="1.5s" data-wow-delay=".4s" id="largeImgDisplay">
+            <!--<div class="tab-pane big-image fade show active" id="gallery-img1">
+              <div id="countdown-timer-1" class="auction-gallery-timer d-flex align-items-center justify-content-center flex-wrap" style="color: white;">
+                
               </div>
-              <div class="tab-pane big-image fade" id="gallery-img3">
-                <div
-                  class="auction-gallery-timer d-flex align-items-center justify-content-center"
-                >
-                  <h3 id="countdown-timer-3">&nbsp;</h3>
-                </div>
-                <img
-                  alt="image"
-                  src="assets/images/bg/prod-gallery3.png"
-                  class="img-fluid"
-                />
-              </div>
+              <img alt="image" src="assets/images/bg/prod-gallery1.png" class="img-fluid" />
             </div>
-          </div>
-          <div class="col-xl-6 col-lg-5">
-            <div
-              class="product-details-right wow fadeInDown"
-              data-wow-duration="1.5s"
-              data-wow-delay=".2s"
-            >
-              <h3>Peça de Arte 1</h3>
-              <h4>Preço Atual: <span>465,00€</span></h4>
-              <h6>Estimativas: <span>400,00€ - 600,00€</span></h6>
-              <div id="licitar_form"></div>
+            <div class="tab-pane big-image fade" id="gallery-img2">
+              <div class="auction-gallery-timer d-flex align-items-center justify-content-center">
+                <h3 id="countdown-timer-2">&nbsp;</h3>
+              </div>
+              <img alt="image" src="assets/images/bg/prod-gallery2.png" class="img-fluid" />
             </div>
+            <div class="tab-pane big-image fade" id="gallery-img3">
+              <div class="auction-gallery-timer d-flex align-items-center justify-content-center">
+                <h3 id="countdown-timer-3">&nbsp;</h3>
+              </div>
+              <img alt="image" src="assets/images/bg/prod-gallery3.png" class="img-fluid" />
+            </div>-->
           </div>
         </div>
-        <div class="row d-flex justify-content-center g-4">
-          <div class="col-lg-12">
-            <ul
-              class="nav nav-pills d-flex flex-row justify-content-start gap-sm-4 gap-3 mb-45 wow fadeInDown"
-              data-wow-duration="1.5s"
-              data-wow-delay=".2s"
-              id="pills-tab"
-              role="tablist"
-            >
-              <li class="nav-item" role="presentation">
-                <button
-                  class="nav-link active details-tab-btn"
-                  id="pills-home-tab"
-                  data-bs-toggle="pill"
-                  data-bs-target="#pills-home"
-                  type="button"
-                  role="tab"
-                  aria-controls="pills-home"
-                  aria-selected="true"
-                >
-                  Descrição
-                </button>
-              </li>
-              <li class="nav-item" role="presentation">
-                <button
-                  class="nav-link details-tab-btn"
-                  id="pills-features-tab"
-                  data-bs-toggle="pill"
-                  data-bs-target="#pills-features"
-                  type="button"
-                  role="tab"
-                  aria-controls="pills-feautures"
-                  aria-selected="false"
-                >
-                  Características
-                </button>
-              </li>
-              <li class="nav-item" role="presentation">
-                <button
-                  class="nav-link details-tab-btn"
-                  id="pills-bid-tab"
-                  data-bs-toggle="pill"
-                  data-bs-target="#pills-bid"
-                  type="button"
-                  role="tab"
-                  aria-controls="pills-bid"
-                  aria-selected="false"
-                >
-                  Licitações
-                </button>
-              </li>
-              <li class="nav-item" role="presentation">
-                <button
-                  class="nav-link details-tab-btn"
-                  id="pills-contact-tab"
-                  data-bs-toggle="pill"
-                  data-bs-target="#pills-contact"
-                  type="button"
-                  role="tab"
-                  aria-controls="pills-contact"
-                  aria-selected="false"
-                >
-                  Outros Leilões
-                </button>
-              </li>
-            </ul>
-            <div class="tab-content" id="pills-tabContent">
-              <div
-                class="tab-pane fade show active wow fadeInUp"
-                data-wow-duration="1.5s"
-                data-wow-delay=".2s"
-                id="pills-home"
-                role="tabpanel"
-                aria-labelledby="pills-home-tab"
-              >
-                <div class="describe-content">
-                  <h4>Peça de arte 1, único no mundo</h4>
-                  <p class="para">Artigo Completamente novo.</p>
+        <div class="col-xl-6 col-lg-5">
+          <div class="product-details-right wow fadeInDown" data-wow-duration="1.5s" data-wow-delay=".2s">
+            <h3 id="titulo">Peça de Arte 1</h3>
+            <h4>Preço Atual: <span id="preco"></span></h4>
+            <h6>Estimativas: <span id="estimado"></span></h6>
+            <div id="licitar_form"></div>
+          </div>
+        </div>
+      </div>
+      <div class="row d-flex justify-content-center g-4">
+        <div class="col-lg-12">
+          <ul class="nav nav-pills d-flex flex-row justify-content-start gap-sm-4 gap-3 mb-45 wow fadeInDown"
+            data-wow-duration="1.5s" data-wow-delay=".2s" id="pills-tab" role="tablist">
+            <li class="nav-item" role="presentation">
+              <button class="nav-link active details-tab-btn" id="pills-home-tab" data-bs-toggle="pill"
+                data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">
+                Descrição
+              </button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button class="nav-link details-tab-btn" id="pills-features-tab" data-bs-toggle="pill"
+                data-bs-target="#pills-features" type="button" role="tab" aria-controls="pills-feautures"
+                aria-selected="false">
+                Características
+              </button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button class="nav-link details-tab-btn" id="pills-bid-tab" data-bs-toggle="pill"
+                data-bs-target="#pills-bid" type="button" role="tab" aria-controls="pills-bid" aria-selected="false">
+                Licitações
+              </button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button class="nav-link details-tab-btn" id="pills-contact-tab" data-bs-toggle="pill"
+                data-bs-target="#pills-contact" type="button" role="tab" aria-controls="pills-contact"
+                aria-selected="false">
+                Outros Leilões
+              </button>
+            </li>
+          </ul>
+          <div class="tab-content" id="pills-tabContent">
+            <div class="tab-pane fade show active wow fadeInUp" data-wow-duration="1.5s" data-wow-delay=".2s"
+              id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+              <div class="describe-content">
+                <p id="descricao" class="para">Artigo Completamente novo.</p>
+              </div>
+            </div>
+            <div class="tab-pane fade" id="pills-features" role="tabpanel" aria-labelledby="pills-features-tab">
+              <div class="describe-content">
+                <div class="container" id="details-leilao">
+                  
                 </div>
               </div>
-              <div
-                class="tab-pane fade"
-                id="pills-features"
-                role="tabpanel"
-                aria-labelledby="pills-features-tab"
-              >
-                <div class="describe-content">
-                  <div class="container">
-                    <div class="row">
-                      <div class="col-sm-3">Condição</div>
-                      <div class="col-sm-9">Novo</div>
+            </div>
+            <div class="tab-pane fade" id="pills-bid" role="tabpanel" aria-labelledby="pills-bid-tab">
+              <div class="bid-list-area">
+                <ul class="bid-list" id="bid-list">
+                  <!--<li>
+                    <div class="row d-flex align-items-center">
+                      <div class="col-7">
+                        <div class="bidder-area">
+                          <div class="bidder-img">
+                            <img alt="image" src="assets/images/bg/bidder1.png" />
+                          </div>
+                          <div class="bidder-content">
+                            <a href="#">
+                              <h6>Roberto Silva</h6>
+                            </a>
+                            <p>24,50€</p>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-5 text-end">
+                        <div class="bid-time">
+                          <p>Há 4 Horas</p>
+                        </div>
+                      </div>
                     </div>
-                    <div class="row">
-                      <div class="col-sm-3">Materiais</div>
-                      <div class="col-sm-9">Metal</div>
+                  </li>
+                  <li>
+                    <div class="row d-flex align-items-center">
+                      <div class="col-7">
+                        <div class="bidder-area">
+                          <div class="bidder-img">
+                            <img alt="image" src="assets/images/bg/bidder2.png" />
+                          </div>
+                          <div class="bidder-content">
+                            <a href="#">
+                              <h6>Jéssica Andrade</h6>
+                            </a>
+                            <p>224,50€</p>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-5 text-end">
+                        <div class="bid-time">
+                          <p>Há 5 Horas</p>
+                        </div>
+                      </div>
                     </div>
-                    <div class="row">
-                      <div class="col-sm-3">Dimensões</div>
-                      <div class="col-sm-9">500x300</div>
+                  </li>
+                  <li>
+                    <div class="row d-flex align-items-center">
+                      <div class="col-7">
+                        <div class="bidder-area">
+                          <div class="bidder-img">
+                            <img alt="image" src="assets/images/bg/bidder3.png" />
+                          </div>
+                          <div class="bidder-content">
+                            <a href="#">
+                              <h6>Guilherme Martins</h6>
+                            </a>
+                            <p>34,50€</p>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-5 text-end">
+                        <div class="bid-time">
+                          <p>Há 6 Horas e 45 minutos</p>
+                        </div>
+                      </div>
                     </div>
-                    <div class="row">
-                      <div class="col-sm-3">Autor</div>
-                      <div class="col-sm-9">Picasso</div>
+                  </li>
+                  <li>
+                    <div class="row d-flex align-items-center">
+                      <div class="col-7">
+                        <div class="bidder-area">
+                          <div class="bidder-img">
+                            <img alt="image" src="assets/images/bg/bidder1.png" />
+                          </div>
+                          <div class="bidder-content">
+                            <a href="#">
+                              <h6>Roberto Silva</h6>
+                            </a>
+                            <p>24,50€</p>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-5 text-end">
+                        <div class="bid-time">
+                          <p>Há 4 Horas</p>
+                        </div>
+                      </div>
                     </div>
-                    <div class="row">
-                      <div class="col-sm-3">Período Estimado</div>
-                      <div class="col-sm-9">Século XX</div>
+                  </li>
+                  <li>
+                    <div class="row d-flex align-items-center">
+                      <div class="col-7">
+                        <div class="bidder-area">
+                          <div class="bidder-img">
+                            <img alt="image" src="assets/images/bg/bidder2.png" />
+                          </div>
+                          <div class="bidder-content">
+                            <a href="#">
+                              <h6>Roberto Silva</h6>
+                            </a>
+                            <p>24.50 ETH</p>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-5 text-end">
+                        <div class="bid-time">
+                          <p>Há 4 Horas</p>
+                        </div>
+                      </div>
                     </div>
-                    <div class="row">
-                      <div class="col-sm-3">Certificado</div>
-                      <div class="col-sm-9">
-                        <a href="" target="_blank">Descarregar</a>
+                  </li>-->
+                </ul>
+              </div>
+            </div>
+            <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
+              <div class="row d-flex justify-content-center g-4">
+                <div class="col-lg-3 col-md-3 col-sm-3">
+                  <div class="eg-card auction-card1">
+                    <div class="auction-img">
+                      <img alt="image" src="assets/images/bg/live-auc1.png" />
+                      <div class="auction-timer">
+                        <div class="countdown" id="timer1">
+                          <h5 style="margin: 0">
+                            <span id="hours1">05</span>H :
+                            <span id="minutes1">52</span>M :
+                            <span id="seconds1">32</span>S
+                          </h5>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="auction-content">
+                      <h4>
+                        <a href="auction-details.html">Enfield 250 CC</a>
+                      </h4>
+                      <p>Preço Atual : <span>85,90€</span></p>
+                      <div class="auction-card-bttm">
+                        <a href="auction-details.html" class="eg-btn btn--primary btn--sm">Ver Peça</a>
                       </div>
                     </div>
                   </div>
                 </div>
-              </div>
-              <div
-                class="tab-pane fade"
-                id="pills-bid"
-                role="tabpanel"
-                aria-labelledby="pills-bid-tab"
-              >
-                <div class="bid-list-area">
-                  <ul class="bid-list">
-                    <li>
-                      <div class="row d-flex align-items-center">
-                        <div class="col-7">
-                          <div class="bidder-area">
-                            <div class="bidder-img">
-                              <img
-                                alt="image"
-                                src="assets/images/bg/bidder1.png"
-                              />
-                            </div>
-                            <div class="bidder-content">
-                              <a href="#">
-                                <h6>Roberto Silva</h6>
-                              </a>
-                              <p>24,50€</p>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="col-5 text-end">
-                          <div class="bid-time">
-                            <p>Há 4 Horas</p>
-                          </div>
+                <div class="col-lg-3 col-md-3 col-sm-3">
+                  <div class="eg-card auction-card1 wow">
+                    <div class="auction-img">
+                      <img alt="image" src="assets/images/bg/live-auc2.png" />
+                      <div class="auction-timer">
+                        <div class="countdown" id="timer1">
+                          <h5 style="margin: 0">
+                            <span id="hours1">05</span>H :
+                            <span id="minutes1">52</span>M :
+                            <span id="seconds1">32</span>S
+                          </h5>
                         </div>
                       </div>
-                    </li>
-                    <li>
-                      <div class="row d-flex align-items-center">
-                        <div class="col-7">
-                          <div class="bidder-area">
-                            <div class="bidder-img">
-                              <img
-                                alt="image"
-                                src="assets/images/bg/bidder2.png"
-                              />
-                            </div>
-                            <div class="bidder-content">
-                              <a href="#">
-                                <h6>Jéssica Andrade</h6>
-                              </a>
-                              <p>224,50€</p>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="col-5 text-end">
-                          <div class="bid-time">
-                            <p>Há 5 Horas</p>
-                          </div>
-                        </div>
+                    </div>
+                    <div class="auction-content">
+                      <h4><a href="auction-details.html">Anel</a></h4>
+                      <p>Preço Atual : <span>85,90€</span></p>
+                      <div class="auction-card-bttm">
+                        <a href="auction-details.html" class="eg-btn btn--primary btn--sm">Ver Peça</a>
                       </div>
-                    </li>
-                    <li>
-                      <div class="row d-flex align-items-center">
-                        <div class="col-7">
-                          <div class="bidder-area">
-                            <div class="bidder-img">
-                              <img
-                                alt="image"
-                                src="assets/images/bg/bidder3.png"
-                              />
-                            </div>
-                            <div class="bidder-content">
-                              <a href="#">
-                                <h6>Guilherme Martins</h6>
-                              </a>
-                              <p>34,50€</p>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="col-5 text-end">
-                          <div class="bid-time">
-                            <p>Há 6 Horas e 45 minutos</p>
-                          </div>
-                        </div>
-                      </div>
-                    </li>
-                    <li>
-                      <div class="row d-flex align-items-center">
-                        <div class="col-7">
-                          <div class="bidder-area">
-                            <div class="bidder-img">
-                              <img
-                                alt="image"
-                                src="assets/images/bg/bidder1.png"
-                              />
-                            </div>
-                            <div class="bidder-content">
-                              <a href="#">
-                                <h6>Roberto Silva</h6>
-                              </a>
-                              <p>24,50€</p>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="col-5 text-end">
-                          <div class="bid-time">
-                            <p>Há 4 Horas</p>
-                          </div>
-                        </div>
-                      </div>
-                    </li>
-                    <li>
-                      <div class="row d-flex align-items-center">
-                        <div class="col-7">
-                          <div class="bidder-area">
-                            <div class="bidder-img">
-                              <img
-                                alt="image"
-                                src="assets/images/bg/bidder2.png"
-                              />
-                            </div>
-                            <div class="bidder-content">
-                              <a href="#">
-                                <h6>Roberto Silva</h6>
-                              </a>
-                              <p>24.50 ETH</p>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="col-5 text-end">
-                          <div class="bid-time">
-                            <p>Há 4 Horas</p>
-                          </div>
-                        </div>
-                      </div>
-                    </li>
-                  </ul>
+                    </div>
+                  </div>
                 </div>
-              </div>
-              <div
-                class="tab-pane fade"
-                id="pills-contact"
-                role="tabpanel"
-                aria-labelledby="pills-contact-tab"
-              >
-                <div class="row d-flex justify-content-center g-4">
-                  <div class="col-lg-3 col-md-3 col-sm-3">
-                    <div class="eg-card auction-card1">
-                      <div class="auction-img">
-                        <img alt="image" src="assets/images/bg/live-auc1.png" />
-                        <div class="auction-timer">
-                          <div class="countdown" id="timer1">
-                            <h5 style="margin: 0">
-                              <span id="hours1">05</span>H :
-                              <span id="minutes1">52</span>M :
-                              <span id="seconds1">32</span>S
-                            </h5>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="auction-content">
-                        <h4>
-                          <a href="auction-details.html">Enfield 250 CC</a>
-                        </h4>
-                        <p>Preço Atual : <span>85,90€</span></p>
-                        <div class="auction-card-bttm">
-                          <a
-                            href="auction-details.html"
-                            class="eg-btn btn--primary btn--sm"
-                            >Ver Peça</a
-                          >
+                <div class="col-lg-3 col-md-3 col-sm-3">
+                  <div class="eg-card auction-card1">
+                    <div class="auction-img">
+                      <img alt="image" src="assets/images/bg/live-auc1.png" />
+                      <div class="auction-timer">
+                        <div class="countdown" id="timer1">
+                          <h5 style="margin: 0">
+                            <span id="hours1">05</span>H :
+                            <span id="minutes1">52</span>M :
+                            <span id="seconds1">32</span>S
+                          </h5>
                         </div>
                       </div>
                     </div>
-                  </div>
-                  <div class="col-lg-3 col-md-3 col-sm-3">
-                    <div class="eg-card auction-card1 wow fadeInDown">
-                      <div class="auction-img">
-                        <img alt="image" src="assets/images/bg/live-auc2.png" />
-                        <div class="auction-timer">
-                          <div class="countdown" id="timer1">
-                            <h5 style="margin: 0">
-                              <span id="hours1">05</span>H :
-                              <span id="minutes1">52</span>M :
-                              <span id="seconds1">32</span>S
-                            </h5>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="auction-content">
-                        <h4><a href="auction-details.html">Anel</a></h4>
-                        <p>Preço Atual : <span>85,90€</span></p>
-                        <div class="auction-card-bttm">
-                          <a
-                            href="auction-details.html"
-                            class="eg-btn btn--primary btn--sm"
-                            >Ver Peça</a
-                          >
-                        </div>
+                    <div class="auction-content">
+                      <h4>
+                        <a href="auction-details.html">Enfield 250 CC</a>
+                      </h4>
+                      <p>Preço Atual : <span>85,90€</span></p>
+                      <div class="auction-card-bttm">
+                        <a href="auction-details.html" class="eg-btn btn--primary btn--sm">Ver Peça</a>
                       </div>
                     </div>
                   </div>
-                  <div class="col-lg-3 col-md-3 col-sm-3">
-                    <div class="eg-card auction-card1">
-                      <div class="auction-img">
-                        <img alt="image" src="assets/images/bg/live-auc1.png" />
-                        <div class="auction-timer">
-                          <div class="countdown" id="timer1">
-                            <h5 style="margin: 0">
-                              <span id="hours1">05</span>H :
-                              <span id="minutes1">52</span>M :
-                              <span id="seconds1">32</span>S
-                            </h5>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="auction-content">
-                        <h4>
-                          <a href="auction-details.html">Enfield 250 CC</a>
-                        </h4>
-                        <p>Preço Atual : <span>85,90€</span></p>
-                        <div class="auction-card-bttm">
-                          <a
-                            href="auction-details.html"
-                            class="eg-btn btn--primary btn--sm"
-                            >Ver Peça</a
-                          >
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-3">
+                  <div class="eg-card auction-card1">
+                    <div class="auction-img">
+                      <img alt="image" src="assets/images/bg/live-auc1.png" />
+                      <div class="auction-timer">
+                        <div class="countdown" id="timer1">
+                          <h5 style="margin: 0">
+                            <span id="hours1">05</span>H :
+                            <span id="minutes1">52</span>M :
+                            <span id="seconds1">32</span>S
+                          </h5>
                         </div>
                       </div>
                     </div>
-                  </div>
-                  <div class="col-lg-3 col-md-3 col-sm-3">
-                    <div class="eg-card auction-card1">
-                      <div class="auction-img">
-                        <img alt="image" src="assets/images/bg/live-auc1.png" />
-                        <div class="auction-timer">
-                          <div class="countdown" id="timer1">
-                            <h5 style="margin: 0">
-                              <span id="hours1">05</span>H :
-                              <span id="minutes1">52</span>M :
-                              <span id="seconds1">32</span>S
-                            </h5>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="auction-content">
-                        <h4>
-                          <a href="auction-details.html">Enfield 250 CC</a>
-                        </h4>
-                        <p>Preço Atual : <span>85,90€</span></p>
-                        <div class="auction-card-bttm">
-                          <a
-                            href="auction-details.html"
-                            class="eg-btn btn--primary btn--sm"
-                            >Ver Peça</a
-                          >
-                        </div>
+                    <div class="auction-content">
+                      <h4>
+                        <a href="auction-details.html">Enfield 250 CC</a>
+                      </h4>
+                      <p>Preço Atual : <span>85,90€</span></p>
+                      <div class="auction-card-bttm">
+                        <a href="auction-details.html" class="eg-btn btn--primary btn--sm">Ver Peça</a>
                       </div>
                     </div>
                   </div>
@@ -623,39 +431,32 @@
         </div>
       </div>
     </div>
+  </div>
 
-    <!-- ========== auction-details end ============= -->
+  <!-- ========== auction-details end ============= -->
 
-    <!-- About-us-counter section End -->
+  <!-- About-us-counter section End -->
 
-    <!-- =============== counter-section end =============== -->
+  <!-- =============== counter-section end =============== -->
 
-    <!-- =============== Footer-action-section start =============== -->
+  <!-- =============== Footer-action-section start =============== -->
 
-    <footer id="footer"></footer>
+  <footer id="footer"></footer>
 
-    <!-- =============== Footer-action-section end =============== -->
+  <!-- =============== Footer-action-section end =============== -->
 
-    <!-- js file link -->
-    <script src="assets/js/jquery-ui.js"></script>
-    <script src="assets/js/bootstrap.bundle.min.js"></script>
-    <script src="assets/js/wow.min.js"></script>
-    <script src="assets/js/swiper-bundle.min.js"></script>
-    <script src="assets/js/slick.js"></script>
-    <script src="assets/js/jquery.nice-select.js"></script>
-    <script src="assets/js/odometer.min.js"></script>
-    <script src="assets/js/viewport.jquery.js"></script>
-    <script src="assets/js/jquery.magnific-popup.min.js"></script>
-    <script src="assets/js/main.js"></script>
-    <script src="ourChanges/auction-details.js"></script>
-    <script>
-      // Initialize tooltips
-      var tooltipTriggerList = [].slice.call(
-        document.querySelectorAll('[data-bs-toggle="tooltip"]')
-      );
-      var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
-        return new bootstrap.Tooltip(tooltipTriggerEl);
-      });
-    </script>
-  </body>
+  <!-- js file link -->
+  <script src="assets/js/jquery-ui.js"></script>
+  <script src="assets/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/wow.min.js"></script>
+  <script src="assets/js/swiper-bundle.min.js"></script>
+  <script src="assets/js/slick.js"></script>
+  <script src="assets/js/jquery.nice-select.js"></script>
+  <script src="assets/js/odometer.min.js"></script>
+  <script src="assets/js/viewport.jquery.js"></script>
+  <script src="assets/js/jquery.magnific-popup.min.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script src="ourChanges/auction-details.js"></script>
+</body>
+
 </html>
