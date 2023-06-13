@@ -11,6 +11,39 @@ $(document).ready(function () {
     if (isLoggedIn) {
       $("#licitar_form").append(gerform());
       iniTooltips();
+      let form=document.getElementById("formBid");
+      form.addEventListener('submit', function (event) {
+        event.preventDefault();
+        var clickedButtonValue = event.submitter.value;
+    
+        if (clickedButtonValue === "bid") {
+          if($("#bidnormal").val()!=null){
+            bidAction($("#bidnormal").val(),clickedButtonValue);
+          }
+          else{
+            alert("Licitação normal sem valor atribuido");
+          }
+        }
+        else if(clickedButtonValue === "bidcomprarja"){
+          if($("#bidcomprarja").val()!=null){
+            bidAction($("#bidcomprarja").val(),clickedButtonValue);
+          }
+          else{
+            alert("Não altere o preço de licitar!!!");
+          }
+        }
+        else if(clickedButtonValue === "bidauto"){
+          if(document.getElementById("switch").checked){
+            if($("#bidauto").val()!=null){
+              bidAction($("#bidauto").val(),clickedButtonValue);
+            }
+            else{
+              alert("Defina o valor maximo da licitação automatica!");
+              $("#switch").checked=false;
+            }
+          }
+        }
+      });
     }
   });
   idLeilao = sessionStorage.getItem('id_leilao');
@@ -64,12 +97,14 @@ function gerformtitle() {
 
 function gerformbody() {
   let forminput = document.createElement("input");
-  forminput.setAttribute("type", "text");
+  forminput.setAttribute("type", "number");
   forminput.setAttribute("id", "bidnormal");
   let formbut = document.createElement("button");
   formbut.setAttribute("type", "submit");
   formbut.setAttribute("class", "eg-btn btn--primary3 btn--sm");
-  formbut.setAttribute("value", "licitar");
+  //formbut.setAttribute("value", "licitar");
+  formbut.setAttribute("id","bid");
+  formbut.setAttribute("value","bid");
   formbut.innerHTML = "Licitar";
   let forminner = document.createElement("div");
   forminner.setAttribute("class", "form-inner gap-2");
@@ -82,12 +117,14 @@ function gerformbody() {
   rowdiv.setAttribute("class", "row");
   rowdiv.append(coldiv);
   let forminputcj = document.createElement("input");
-  forminputcj.setAttribute("type", "text");
+  forminputcj.setAttribute("type", "number");
   forminputcj.setAttribute("disabled", "disabled");
   forminputcj.setAttribute("id", "bidcomprarja");
   let formbutcj = document.createElement("button");
   formbutcj.setAttribute("type", "submit");
   formbutcj.setAttribute("class", "eg-btn btn--primary2 btn--sm");
+  formbutcj.setAttribute("id","bidcomprarjabut");
+  formbutcj.setAttribute("value","bidcomprarja");
   formbutcj.innerHTML = "Comprar já";
   let forminnercj = document.createElement("div");
   forminnercj.setAttribute("class", "form-inner gap-2");
@@ -100,6 +137,9 @@ function gerformbody() {
   rowdiv2.setAttribute("class", "row");
   rowdiv2.append(coldiv2);
   let formbody = document.createElement("form");
+  formbody.setAttribute("enctype","multipart/form-data");
+  formbody.setAttribute("method","POST");
+  formbody.setAttribute("id","formBid");
   formbody.append(rowdiv);
   formbody.append(document.createElement("br"));
   //accordion
@@ -166,7 +206,7 @@ function gerformbody() {
   accordionbody.append(titleauto);
   accordionbody.append(rowdiv5);
   let forminputcj2 = document.createElement("input");
-  forminputcj2.setAttribute("type", "text");
+  forminputcj2.setAttribute("type", "number");
   forminputcj2.setAttribute("id", "bidauto");
   let divswit = document.createElement("div");
   divswit.setAttribute("class", "form-check form-switch switchToggle");
@@ -175,6 +215,8 @@ function gerformbody() {
   formswitcj.setAttribute("type", "checkbox");
   formswitcj.setAttribute("role", "switch");
   formswitcj.setAttribute("class", "form-check-input");
+  formswitcj.setAttribute("onchange","this.form.submit()");
+  formswitcj.setAttribute("value","bidauto");
   divswit.append(formswitcj);
   let labelswit = document.createElement("label");
   labelswit.setAttribute("for", "switch");
@@ -222,6 +264,10 @@ function getLeilaoData(idLeilao) {
       const auxdata = alldata['data'];
       const data = auxdata[0];
       const auxfotos = alldata['fotos'];
+      if(data['estado']!="Ativo"){
+        alert("Leilao está desativo!");
+        window.location.href="./index.html";
+      }
       base_bid = Number(data['valorapreciacaoprecobase']);
       avaliacao_perito = data['valorapreciacaocompraja'];
       if(data['precocomprarja']!=null){
@@ -385,9 +431,56 @@ function displayNewBid(bid) {
 
 function newBid (valor){
   cur_bid=Number(valor);
-  $('#preco').html(valor+"€");
+  $('#preco').html(valor);
   $('#minimo').html(minbid());
   $('#bidnormal').val(minbid());
+  $('#bidnormal').attr("min",minbid());
   $('#bidcomprarja').val(precocomprarja());
   $('#bidauto').attr("placeholder","Valor limite (min.:" + (Number(minbid())+ (base_bid * 0.05)) + "€)");
+  $('#bidauto').attr("min",(Number(minbid())+ (base_bid * 0.05)));
+}
+
+function bidAction(valor,bidType) {
+  const obj = {
+    idLeilao: idLeilao,
+    tipo: bidType,
+    date: getCurrentDate(),
+    valor: valor
+  }
+  console.log(obj);
+
+  $.ajax({
+    url: 'ourChanges/insertBid.php',
+    type: 'POST',
+    data: { data: obj },
+    success: function (response) {
+      response=JSON.parse(response);
+      alert(response['message']);
+      if(response['message']=="Leilao invalido"||response['message']=="Peca comprada com sucesso"){
+        window.location.href="./index.html";
+      }
+      if(response['valor']!=null){
+        newBid(response['valor']);
+      }
+    },
+    error: function (xhr, status, error) {
+      console.error(error);
+    }
+  });
+}
+
+function getCurrentDate() {
+  var currentDate = new Date();
+
+  var year = currentDate.getFullYear();
+  var month = String(currentDate.getMonth() + 1).padStart(2, "0"); // Month is zero-based
+  var day = String(currentDate.getDate()).padStart(2, "0");
+
+  var hours = String(currentDate.getHours()).padStart(2, "0");
+  var minutes = String(currentDate.getMinutes()).padStart(2, "0");
+  var seconds = String(currentDate.getSeconds()).padStart(2, "0");
+
+  var formattedDate = year + "-" + month + "-" + day + " " + hours + ":" + minutes + ":" + seconds;
+
+  return formattedDate;
 }
