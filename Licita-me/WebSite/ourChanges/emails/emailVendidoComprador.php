@@ -14,7 +14,7 @@ try {
     $mail->CharSet = "UTF-8";
 
     $mail->setFrom('noreply.licitame@gmail.com','LICITAME');
-    $mail->addAddress("{$rowBid['licitador']}",'Vendedor');
+    $mail->addAddress("{$rowBid['licitador']}",'Comprador');
 
     $mail->isHTML(true);
     $mail->Subject="Ganhou a Peça: {$row['titulo']}";

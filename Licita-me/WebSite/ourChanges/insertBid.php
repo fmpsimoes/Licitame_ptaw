@@ -1,4 +1,7 @@
 <?php
+require '../PHPMailer/src/PHPMailer.php';
+require '../PHPMailer/src/Exception.php';
+require '../PHPMailer/src/SMTP.php';
 session_start();
 
 $data = $_POST['data'];
@@ -11,7 +14,7 @@ $userbd = 'ptaw-2023-gr1';
 $password = 'ptaw-2023-gr1';
 $min_bid;
 $cur_bid;
-
+$bid_bd2;
 try {
     $pdo = new PDO("pgsql:host=$host;port=$port;dbname=$dbname;user=$userbd;password=$password");
     $q = "SELECT valorlicitacao, licitador
@@ -85,7 +88,6 @@ try {
     $statementbid->bindParam(':valor', $data['valor']);
     $statementbid->bindParam(':email', $_SESSION['email']);
     $statementbid->bindParam(':idLeilao', $idLeilao);
-
     if ($statementbid->execute()) {
         if ($data['tipo'] == "bidcomprarja") {
             $queryja = "UPDATE pecasarte SET estado = 'Vendido', emailcomprador = :email WHERE id = :idLeilao;";
@@ -93,14 +95,16 @@ try {
             $statementja->bindParam(':idLeilao', $idLeilao);
             $statementja->bindParam(':email', $_SESSION['email']);
             if ($statementja->execute()) {
-                $row=$bid_bd2;
-                $row['emailcomprador']=$_SESSION['email'];
-                $rowBid['valorlicitacao']=$data['valor'];
-                include './emails/phpMailer.php';
+                $row = $bid_bd2[0];
+                $row['emailcomprador'] = $_SESSION['email'];
+                $rowBid['valorlicitacao'] = $data['valor'];
+                $rowBid['licitador'] = $_SESSION['email'];
+                //include './emails/testeemail.php';
                 include './emails/emailVendidoComprador.php';
                 include './emails/emailVendidoVendedor.php';
-                $rowWinner=$_SESSION;
-                include './emails/emailTransporteArmazemComprador.php';
+                $rowWinner = $_SESSION;
+                include './emails/emailTransporteArmazemParaComprador.php';
+                //$response['message'] = $rowWinner;
                 $response['message'] = "Peca comprada com sucesso";
                 echo json_encode($response);
                 exit;
@@ -109,8 +113,8 @@ try {
                 echo json_encode($response);
                 exit;
             }
-            
-            
+
+
 
 
         }

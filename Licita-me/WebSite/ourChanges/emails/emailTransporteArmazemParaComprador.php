@@ -23,7 +23,7 @@ try {
     <span style='color:#029e7c;'>Nome do Comprador:</span> <b>{$rowWinner['nome']} {$rowWinner['apelido']}</b><br><br>
     <span style='color:#029e7c;'>Contacto:</span> {$rowWinner['contactotelefonico']}<br><br>
     <span style='color:#029e7c;'>Email:</span> <b>{$rowWinner['email']}</b><br><br>
-    <span style='color:#029e7c;'>Nome da Peça:</span> {$rowWinner['nome']}<br><br>
+    <span style='color:#029e7c;'>Nome da Peça:</span> {$row['titulo']}<br><br>
     <span style='color:#029e7c;'>Morada do Armazém (Origem):</span> <b>R. Cmte. Pinho e Freitas 28, 3750-127 Águeda</b><br><br>
     <span style='color:#029e7c;'>Morada do Comprador (Destino):</span> <b>{$rowWinner['morada']} {$rowWinner['porta']}, {$rowWinner['codigopostal']} {$rowWinner['concelho']}</b><br><br>
     <span style='color:#029e7c;'>Categoria:</span> <b>{$row['categoria']}</b><br><br>
