@@ -18,7 +18,7 @@ try {
     $mail->Port=587;
 
     $mail->setFrom('noreply.licitame@gmail.com','LICITAME');
-    $mail->addAddress('raul.silva@ua.pt','Raul');
+    $mail->addAddress('miguelmvieira@ua.pt','Miguel');
 
     $mail->isHTML(true);
     $mail->Subject='teste email server licitame';
