@@ -1,5 +1,7 @@
 <?php
-include './emails/phpMailer.php';
+require '../PHPMailer/src/PHPMailer.php';
+require '../PHPMailer/src/Exception.php';
+require '../PHPMailer/src/SMTP.php';
 
 $host = 'localhost';
 $port = '5433';
@@ -56,7 +58,7 @@ while ($row = $selectAtivoStmt->fetch(PDO::FETCH_ASSOC)) {
             include './emails/emailTransporteArmazemParaComprador.php'; //email para transportadora levar a peca para o comprador
         } else { //Se nao houverem licitacoes
             // Situacao mudar o estado de 'Ativo' para 'Expirado'
-            $ativoStmt->execute(['estado' => 'Expirado', 'id' => $row['id']]);
+            $ativoStmt->execute(['estado' => 'Expirado', 'id' => $row['id'], 'emailcomprador' => null]);
 
             include './emails/emailExpiradoVendedor.php'; //email para vendedor
 
