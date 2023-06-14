@@ -6543,7 +6543,7 @@ footer.style-3 .footer-bottom .footer-logo-list li:hover img {
 }
 
 .form-wrapper input[type=checkbox] {
-  border: 1px solid #EEEEEE;
+  border: 2px solid #32c36c;
   height: 20px;
   width: 20px;
   padding: 0px 0px;

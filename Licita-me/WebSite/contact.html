@@ -136,8 +136,8 @@
               </div>
               <div class="text">
                 <h4>Telefone</h4>
-                <a href="tel:+880171-770000">+02 135498 26649</a>
-                <a href="tel:+8801761111456">+8801761111456</a>
+                <a href="tel:+880171-770000">Principal: 912 345 678</a><br>
+                <a href="tel:+8801761111456">Secundário: 933 987 654</a>
               </div>
             </div>
           </div>
@@ -172,55 +172,42 @@
                   esclarecer quaisquer dúvidas.
                 </p>
               </div>
-              <form action="#">
+              <form id="form12" enctype="multipart/form-data">
                 <div class="row">
                   <div class="col-xl-6 col-lg-12 col-md-6">
                     <div class="form-inner">
-                      <input type="text" placeholder="Nome " />
+                      <input id="nomeConstactos" type="text" placeholder="Nome " required/>
                     </div>
                   </div>
                   <div class="col-xl-6 col-lg-12 col-md-6">
                     <div class="form-inner">
-                      <input type="email" placeholder="Email " />
+                      <input id="emailConstactos" type="email" placeholder="Email " required/>
                     </div>
                   </div>
                   <div class="col-xl-6 col-lg-12 col-md-6">
                     <div class="form-inner">
-                      <input type="text" placeholder="Telemóvel " />
+                      <input id="telemovelContactos" type="text" placeholder="Telemóvel " required/>
                     </div>
                   </div>
                   <div class="col-xl-6 col-lg-12 col-md-6">
                     <div class="form-inner">
-                      <input type="text" placeholder="Assunto " />
+                      <input id="assuntoConstactos" type="text" placeholder="Assunto " required/>
                     </div>
                   </div>
                   <div class="col-12">
-                    <textarea
-                      name="message"
-                      placeholder="Mensagem "
-                      rows="12"
-                    ></textarea>
+                    <textarea id="mensagemContactos" name="message" placeholder="Mensagem " required rows="12" ></textarea>
                   </div>
                   <div class="col-12">
-                    <button
-                      type="submit"
-                      class="eg-btn btn--primary btn--md form--btn"
-                    >
-                      Enviar
-                    </button>
+                    <button type="submit"class="eg-btn btn--primary btn--md form--btn">Enviar</button>
                   </div>
                 </div>
               </form>
             </div>
           </div>
           <div class="col-lg-6">
-            <div
-              class="map-area wow fadeInUp"
-              data-wow-duration="1.5s"
-              data-wow-delay=".4s"
-            >
+            <div class="map-area wow fadeInUp" data-wow-duration="1.5s" data-wow-delay=".4s">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6255252.31904332!2d-106.08810052683293!3d40.04590513383155!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x54eab584e432360b%3A0x1c3bb99243deb742!2sUnited%20States!5e0!3m2!1sen!2sbd!4v1650355365902!5m2!1sen!2sbd"
+                src="https://maps.google.com/maps?width=100%25&amp;height=585&amp;hl=en&amp;q=R.%20Cmte.%20Pinho%20e%20Freitas%2028,%203750-127%20%C3%81gueda+(LICITAME)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"
                 style="border: 0"
                 allowfullscreen=""
                 loading="lazy"
@@ -231,6 +218,8 @@
         </div>
       </div>
     </div>
+
+
 
     <!-- ===============  Hero area end=============== -->
 
@@ -258,6 +247,8 @@
     <script src="assets/js/viewport.jquery.js"></script>
     <script src="assets/js/jquery.magnific-popup.min.js"></script>
     <script src="ourChanges/callCommonSections.js"></script>
+    <script src="ourChanges/contact.js"></script>
+
 
     <script src="assets/js/main.js"></script>
   </body>

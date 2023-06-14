@@ -182,7 +182,7 @@ function gerformbody() {
   infoicon2.setAttribute("class", "bi-info-circle-fill");
   infoicon2.setAttribute("data-bs-toggle", "tooltip");
   infoicon2.setAttribute("data-bs-placement", "bottom");
-  infoicon2.setAttribute("title", "descricao funcionalidade");
+  infoicon2.setAttribute("title", "Ao clicar no botão ´Comprar Já´, a peça será automaticamente sua pelo valor apresentado");
   titlenow.append(infoicon2);
   accordionbody.append(titlenow);
   accordionbody.append(rowdiv4);
@@ -194,7 +194,7 @@ function gerformbody() {
   infoicon.setAttribute("class", "bi-info-circle-fill");
   infoicon.setAttribute("data-bs-toggle", "tooltip");
   infoicon.setAttribute("data-bs-placement", "bottom");
-  infoicon.setAttribute("title", "descricao funcionalidade");
+  infoicon.setAttribute("title", "Ao ligar a ´Licitação Automática´, será introduzida de forma imediata uma licitação, até ao valor escolhido por si, sempre que algum utilizador supere a sua licitação anterior");
   titleauto.append(infoicon);
   let p2 = document.createElement("p");
   p2.setAttribute("id", "p3");
