@@ -26,8 +26,18 @@ try {
     if(($statement->execute([$_SESSION['email'], $data['nome'], $data['descricao'], $data['categoria'] , $data['materiais'], $data['dimensoes'], $data['peso'],  $data['autor'], $data['periodo'], $data['estado'], $data['valorInicialPerito'], $data['valorCompraImediataPerito'], $data['datacertificacao'], $data['condicao'], $data['datainicio'], $data['datafim'], $data['idpeca']])) && ($statement1->execute([$data['idpeca']]))){
         if( $data['estado'] == "Aprovado" || $data['estado'] == "Ativo"){
             echo ("Leilão aprovado com sucesso!");
+            if($data['estado']=="Aprovado"){
+                include './emails/emailAprovadoVendedor.php';
+            }
+            else{
+                include './emails/emailAtivoVendedor.php';
+            }
+            
         }if($data['estado'] == "Rejeitado"){
             echo ("Leilão rejeitado!");
+            include './emails/phpMailer.php';
+            include './emails/emailRejeitadoVendedor.php';
+            include './emails/emailRejeitadoArmazemParaVendedor.php';
         }
     }else{
         echo "Erro ao inserir leilão";
