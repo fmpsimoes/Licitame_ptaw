@@ -44,7 +44,7 @@ try {
     <img alt='logo licitame' src='https://i.imgur.com/negCNil.png' width='200px' height='45px' style='background:#32c36c;margin:auto;display:block;'/>";
 
     //Anexar o certificado
-    $attachmentPath = '../certificados/certificado_37_1.pdf';
+    $attachmentPath = $data['dircertificado'];
     $mail -> addAttachment($attachmentPath);
 
     $mail->send();

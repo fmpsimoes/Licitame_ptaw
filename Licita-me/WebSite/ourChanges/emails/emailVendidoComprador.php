@@ -1,11 +1,4 @@
 <?php
-use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\Exception;
-
-require '../PHPMailer/src/PHPMailer.php';
-require '../PHPMailer/src/Exception.php';
-require '../PHPMailer/src/SMTP.php';
-
 
 $mail=new PHPMailer(true);
 try {
@@ -19,7 +12,7 @@ try {
     $mail->CharSet = "UTF-8";
 
     $mail->setFrom('noreply.licitame@gmail.com','LICITAME');
-    $mail->addAddress("{$row['emailvendedor']}",'Vendedor');
+    $mail->addAddress("{$row['emailcomprador']}",'Vendedor');
 
     $mail->isHTML(true);
     $mail->Subject="Ganhou a Peça: {$row['titulo']}";

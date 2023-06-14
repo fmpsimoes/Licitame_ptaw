@@ -1,11 +1,4 @@
 <?php
-use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\Exception;
-
-require '../PHPMailer/src/PHPMailer.php';
-require '../PHPMailer/src/Exception.php';
-require '../PHPMailer/src/SMTP.php';
-
 
 $mail=new PHPMailer(true);
 try {
@@ -30,7 +23,7 @@ try {
     <span style='color:#029e7c;'>Data de Fim:</span> {$row['datafim']}<br><br>
     <span style='color:#029e7c;'>Autor:</span> {$row['autor']}<br><br>
     <span style='color:#029e7c;'>Período Estimado:</span> {$row['periodo']}<br><br>
-    <span style='color:#029e7c;'>Valor:</span> <b>{$row['valor']}</b><br><br> "/* data['valor'] placeholder mudar */+"
+    <span style='color:#029e7c;'>Valor:</span> <b>{$rowBid['valorlicitacao']}</b><br><br>
     <span style='color:#029e7c;'>Descrição:</span> {$row['descricao']}
     </div><br>
 
