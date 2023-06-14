@@ -7374,6 +7374,23 @@ live-auction Page
   border: 1px solid #32c36c;
 }
 
+.product-details-right .bid-form .form-inner input[type="number"] {
+  width: 100%;
+  border-radius: 5px;
+  border: 1px solid #EEEEEE;
+  padding: 11px 15px;
+  transition: all 0.42s ease;
+}
+
+.product-details-right .bid-form .form-inner input[type="number"]::placeholder {
+  font-size: 16px;
+  font-weight: 500;
+  color: #696969;
+}
+
+.product-details-right .bid-form .form-inner input[type="number"]:focus {
+  border: 1px solid #32c36c;
+}
 .product-details-right .bid-form .form-inner button {
   outline: none;
   border: none;
@@ -9124,5 +9141,19 @@ live-auction Page
   background-color: #fff;
   color: #32c36c;
 }
+::-webkit-scrollbar {
+  width: 6px;
+}
 
+::-webkit-scrollbar-track {
+  border-radius: 8px;
+  background-color: #e7e7e7;
+  border: 1px solid #cacaca;
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 8px;
+  background-color: #32c36c;
+}
 /*# sourceMappingURL=style.css.map */

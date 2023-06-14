@@ -11,7 +11,7 @@ try {
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
     try{
-            $query = "SELECT licitacoes.pecaarte as id, licitacoes.valorlicitacao,  pecasarte.titulo, (SELECT MAX(valorlicitacao) FROM licitacoes WHERE licitacoes.pecaarte=pecasarte.id) AS valoratualleilao FROM licitacoes INNER JOIN pecasarte ON licitacoes.pecaarte=pecasarte.id
+            $query = "SELECT licitacoes.pecaarte as id, licitacoes.valorlicitacao,  pecasarte.titulo, pecasarte.estado, (SELECT MAX(valorlicitacao) FROM licitacoes WHERE licitacoes.pecaarte=pecasarte.id) AS valoratualleilao FROM licitacoes INNER JOIN pecasarte ON licitacoes.pecaarte=pecasarte.id
             WHERE licitacoes.licitador = ?";
             $statement = $pdo->prepare($query );
             if($statement->execute([$_SESSION['email']])){

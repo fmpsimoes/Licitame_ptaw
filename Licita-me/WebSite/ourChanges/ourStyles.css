@@ -213,6 +213,14 @@ table.dataTable.table>tbody>tr{
   cursor: pointer;
 }
 
+#tabelaHistoricoLicitacoes tbody tr:hover{
+  background-color: #c1ffd8;
+  cursor: pointer;
+}
+#tabelameusleiloes tbody tr:hover{
+  background-color: #c1ffd8;
+  cursor: pointer;
+}
 
 .pointer:hover path {
   fill: #32c36c; 

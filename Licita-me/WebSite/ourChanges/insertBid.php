@@ -88,11 +88,11 @@ try {
 
     if ($statementbid->execute()) {
         if ($data['tipo'] == "bidcomprarja") {
-            $queryja = "UPDATE pecasarte SET estado = 'Vendido', datafim = :datah WHERE id = :idLeilao;";
+            $queryja = "UPDATE pecasarte SET estado = 'Vendido', datafim = :datah, emailcomprador = :email WHERE id = :idLeilao;";
             $statementja = $pdo->prepare($queryja);
             $statementja->bindParam(':datah', $data['date']);
             $statementja->bindParam(':idLeilao', $idLeilao);
-            
+            $statementja->bindParam(':email', $_SESSION['email']);
             if ($statementja->execute()) {
                 //include './emails/emailVendidoComprador.php';
                 //include './emails/emailVendidoVendedor.php';
