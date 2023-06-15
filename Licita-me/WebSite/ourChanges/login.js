@@ -18,7 +18,6 @@ $(document).ready(function () {
         let jsonResponse = JSON.parse(response);
         if (
           jsonResponse == "dashboard.php" ||
-          jsonResponse == "dashboardAdmin.php" ||
           jsonResponse == "dashboardPerito.php"
         ) {
           window.location.href = "index.html"; //redirecionar para o respetivo painel depois de inciar sessão

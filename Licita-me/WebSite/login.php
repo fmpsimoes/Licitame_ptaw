@@ -3,9 +3,7 @@ session_start();
 if(isset($_SESSION['email'])) {
     if($_SESSION['tipoutilizador'] == 'Utilizador'){ // redirect to dashboard if user already logged in
         header("Location: dashboard.php");
-    } elseif($_SESSION['tipoutilizador'] == 'Administrador'){
-        header("Location: dashboardAdmin.php");
-    } elseif($_SESSION['tipoutilizador'] == 'Perito'){
+    }elseif($_SESSION['tipoutilizador'] == 'Perito'){
         header("Location: dashboardPerito.php");
     }
 }
