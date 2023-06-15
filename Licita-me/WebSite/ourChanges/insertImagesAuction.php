@@ -5,7 +5,7 @@ $id_leilao = $_POST["id_leilao"];
 
 header('content-type: application/json; charset=utf-8');
 $host = 'localhost';
-$port = '5433';
+$port = '5432';
 $dbname = 'ptaw-2023-gr1';
 $userbd = 'ptaw-2023-gr1';
 $password = 'ptaw-2023-gr1';

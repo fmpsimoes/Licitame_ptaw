@@ -12,7 +12,7 @@ function generateRandomPassword($length = 4) {
 
 // connect to database
 $host = 'localhost';
-$port = '5433';
+$port = '5432';
 $dbname = 'ptaw-2023-gr1';
 $user = 'ptaw-2023-gr1';
 $password = 'ptaw-2023-gr1';

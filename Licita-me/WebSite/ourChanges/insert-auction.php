@@ -5,7 +5,7 @@ session_start();
 $data = $_POST['data'];
 $null = null;
 $host = 'localhost';
-$port = '5433';
+$port = '5432';
 $dbname = 'ptaw-2023-gr1';
 $userbd = 'ptaw-2023-gr1';
 $password = 'ptaw-2023-gr1';
