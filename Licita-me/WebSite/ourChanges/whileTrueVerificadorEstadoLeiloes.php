@@ -4,6 +4,6 @@ require '../PHPMailer/src/Exception.php';
 require '../PHPMailer/src/SMTP.php';
 while(true){
     include 'verificarEstadoLeiloes.php';
-    usleep(1000000);
+    usleep(60000000);
 }
 ?>
