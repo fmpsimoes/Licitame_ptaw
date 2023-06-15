@@ -48,9 +48,12 @@ $(document).ready(function () {
         }
       });
     }
+    else{let h4 = document.createElement("h4");
+    h4.innerHTML = '<a href="login.php" style="color:#32c36c;">Inicie a sessão</a>, para poder licitar esta peça!';
+    $("#licitar_form").append(h4);}
   }).catch(function (error) {
     let h4 = document.createElement("h4");
-    h4.innerHTML = "Inicie a sessão no botão Conta, para poder licitar esta peça!!!";
+    h4.innerHTML = '<a href="login.php">Inicie a sessão</a>, para poder licitar esta peça!';
     $("#licitar_form").append(h4);
     console.log(error); // Handle any errors from the checkLoggedIn() function
   });
