@@ -9157,3 +9157,61 @@ live-auction Page
   background-color: #32c36c;
 }
 /*# sourceMappingURL=style.css.map */
+
+#loader{
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 1;
+  border-radius: 50%;
+  border-top: 16px solid #32c36c;
+  margin: -76px 0 0 -76px;
+  width: 120px;
+  height: 120px;
+  -webkit-animation: spin 2s linear infinite; /* Safari */
+  animation: spin 2s linear infinite;
+}
+
+/* Safari */
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+#loader-container {
+  background-color:rgba(0, 0, 0, 0.4);
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.09);
+  width: 100%;
+  height: 100%;
+  border-radius: 4px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-items: center;
+  align-items: center;
+  position: fixed;
+  transform: scale(0);
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  opacity: 0;
+  visibility: hidden;
+  transition: .25s ease;
+  padding: 35px 100px;
+}
+
+@media (max-width: 767px) {
+  #loader-container {
+    padding: 20px 20px;
+  }
+}
+
+#loader-container.slide {
+  transform: scale(1);
+  opacity: 1;
+  visibility: visible;
+}

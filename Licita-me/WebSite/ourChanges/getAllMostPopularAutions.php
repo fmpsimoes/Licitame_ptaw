@@ -14,7 +14,7 @@
 
         if ($_GET["category"] != "Todas") {
             // Do something if category is not "Todos"
-            $query = "SELECT pecasarte.id, pecasarte.titulo, pecasarte.datafim, fotografias.dirimagem, COALESCE(licitacoes.valorlicitacao, pecasarte.valorapreciacaoprecobase) AS precoAtual
+            $query = "SELECT pecasarte.id, pecasarte.titulo, pecasarte.datafim, fotografias.dirimagem, GREATEST(COALESCE(licitacoes.valorlicitacao, pecasarte.valorapreciacaoprecobase),COALESCE(pecasarte.valorapreciacaoprecobase, licitacoes.valorlicitacao)) AS precoAtual
                     FROM pecasarte
                     INNER JOIN (
                         SELECT idpecaarte, dirimagem,
@@ -22,10 +22,9 @@
                         FROM fotografias 
                     ) fotografias ON pecasarte.id = fotografias.idpecaarte AND fotografias.rn = 1
                     LEFT JOIN (
-                        SELECT pecaarte, valorlicitacao
-                        FROM licitacoes
-                        ORDER BY valorlicitacao DESC
-                        LIMIT 1
+                        SELECT pecaarte, MAX(valorlicitacao) AS valorlicitacao
+     FROM licitacoes
+     GROUP BY pecaarte
                     ) licitacoes ON pecasarte.id = licitacoes.pecaarte
                         WHERE pecasarte.estado = 'Ativo' AND pecasarte.categoria = '" . $_GET["category"] . "'
                         ORDER BY (
@@ -36,7 +35,7 @@
         } else {
             // Do something if category is <> than "Todos"
 
-            $query = "SELECT pecasarte.id, pecasarte.titulo, pecasarte.datafim, fotografias.dirimagem, COALESCE(licitacoes.valorlicitacao, pecasarte.valorapreciacaoprecobase) AS precoAtual
+            $query = "SELECT pecasarte.id, pecasarte.titulo, pecasarte.datafim, fotografias.dirimagem, GREATEST(COALESCE(licitacoes.valorlicitacao, pecasarte.valorapreciacaoprecobase),COALESCE(pecasarte.valorapreciacaoprecobase, licitacoes.valorlicitacao)) AS precoAtual
             FROM pecasarte
             INNER JOIN (
                 SELECT idpecaarte, dirimagem,
@@ -44,10 +43,9 @@
                 FROM fotografias 
             ) fotografias ON pecasarte.id = fotografias.idpecaarte AND fotografias.rn = 1
             LEFT JOIN (
-                SELECT pecaarte, valorlicitacao
-                FROM licitacoes
-                ORDER BY valorlicitacao DESC
-                LIMIT 1
+                SELECT pecaarte, MAX(valorlicitacao) AS valorlicitacao
+     FROM licitacoes
+     GROUP BY pecaarte
             ) licitacoes ON pecasarte.id = licitacoes.pecaarte
                 WHERE pecasarte.estado = 'Ativo'
                 ORDER BY (

@@ -18,6 +18,7 @@ $(document).ready(function () {
     
         if (clickedButtonValue === "bid") {
           if($("#bidnormal").val()!=null){
+            $('#loader-container').addClass("slide");
             bidAction($("#bidnormal").val(),clickedButtonValue);
           }
           else{
@@ -26,6 +27,7 @@ $(document).ready(function () {
         }
         else if(clickedButtonValue === "bidcomprarja"){
           if($("#bidcomprarja").val()!=null){
+            $('#loader-container').addClass("slide");
             bidAction($("#bidcomprarja").val(),clickedButtonValue);
           }
           else{
@@ -454,6 +456,7 @@ function bidAction(valor,bidType) {
     type: 'POST',
     data: { data: obj },
     success: function (response) {
+      $('#loader-container').removeClass("slide");
       response=JSON.parse(response);
       alert(response['message']);
       if(response['message']=="Leilao invalido"||response['message']=="Peca comprada com sucesso"){

@@ -11,31 +11,17 @@ $.ajax({
       $.each(response, function (key, value) {
         html = `
             <div class="col-lg-3 col-sm-10">
-                <div
-                data-wow-duration="1.5s"
-                data-wow-delay="${timeEffect}s"
-                class="eg-card auction-card1 wow animate fadeInDown h-100"
-                >
+                <div data-wow-duration="1.5s" data-wow-delay="${timeEffect}s"
+                class="eg-card auction-card1 wow animate fadeInDown h-100">
                     <div class="auction-img">
-                        <img alt="Imagem do Leilão" src="${value.dirimagem.substring(
-                          1
-                        )}"  />
-                        
+                        <img alt="Imagem do Leilão" src="${value.dirimagem.substring(1)}"/>
                         <div class="auction-timer w-75">
-                          <div class="countdown" id="timerMostPopular${
-                            value.id
-                          }">
+                          <div class="countdown" id="timerMostPopular${value.id}">
                               <h5 style="margin: 0">
                               <span id="daysMostPopular${value.id}">05</span>D :
-                              <span id="hoursMostPopular${
-                                value.id
-                              }">05</span>H :
-                              <span id="minutesMostPopular${
-                                value.id
-                              }">52</span>M :
-                              <span id="secondsMostPopular${
-                                value.id
-                              }">32</span>S
+                              <span id="hoursMostPopular${value.id}">05</span>H :
+                              <span id="minutesMostPopular${value.id}">52</span>M :
+                              <span id="secondsMostPopular${value.id}">32</span>S
                               </h5>
                           </div>
                         </div>
@@ -47,9 +33,7 @@ $.ajax({
                         >
                         </h4>
                         <p>
-                        Preço Atual : <span><span>${
-                          value.precoatual
-                        } €</span></span>
+                        Preço Atual : <span><span>${value.precoatual} €</span></span>
                         </p>
                         <div class="auction-card-bttm">
                         <a onclick="pagLicitar(${value.id})" class="eg-btn btn--primary btn--sm" >Licitar</a
@@ -112,8 +96,8 @@ $.ajax({
                 >
                     <div class="auction-img">
                         <img alt="Imagem do Leilão" src="${value.dirimagem.substring(
-                          1
-                        )}"  />
+          1
+        )}"  />
                         
                         <div class="auction-timer w-75">
                           <div class="countdown" id="timerToFinish${value.id}">
@@ -133,9 +117,8 @@ $.ajax({
                         >
                         </h4>
                         <p>
-                        Preço Atual : <span><span>${
-                          value.precoatual
-                        } €</span></span>
+                        Preço Atual : <span><span>${value.precoatual
+          } €</span></span>
                         </p>
                         <div class="auction-card-bttm">
                         <a onclick="pagLicitar(${value.id})" class="eg-btn btn--primary btn--sm" >Licitar</a
@@ -198,19 +181,17 @@ $.ajax({
                 >
                     <div class="auction-img">
                         <img alt="Imagem do Leilão" src="${value.dirimagem.substring(
-                          1
-                        )}"  />
+          1
+        )}"  />
                         
                         <div class="auction-timer w-75">
-                          <div class="countdown" id="timerMostRecent${
-                            value.id
-                          }">
+                          <div class="countdown" id="timerMostRecent${value.id
+          }">
                               <h5 style="margin: 0">
                               <span id="daysMostRecent${value.id}">05</span>D :
                               <span id="hoursMostRecent${value.id}">05</span>H :
-                              <span id="minutesMostRecent${
-                                value.id
-                              }">52</span>M :
+                              <span id="minutesMostRecent${value.id
+          }">52</span>M :
                               <span id="secondsMostRecent${value.id}">32</span>S
                               </h5>
                           </div>
@@ -223,9 +204,8 @@ $.ajax({
                         >
                         </h4>
                         <p>
-                        Preço Atual : <span><span>${
-                          value.precoatual
-                        } €</span></span>
+                        Preço Atual : <span><span>${value.precoatual
+          } €</span></span>
                         </p>
                         <div class="auction-card-bttm">
                         <a onclick="pagLicitar(${value.id})" class="eg-btn btn--primary btn--sm" >Licitar</a
