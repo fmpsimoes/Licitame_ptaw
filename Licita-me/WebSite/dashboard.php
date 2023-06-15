@@ -188,7 +188,7 @@ if(!isset($_SESSION['email'])) {
                             <div class="dashboard-profile">
                                 <div class="owner">
                                     <div class="image" id="divimage">
-                                        <img alt="image" src="assets/images/bg/pro-pic.png">
+                                    <img alt="image" src="assets/images/icons/admin.svg" style="width: 200px; height: 200px;">
                                         <div class="edit-message">
                                             <input type="file" id="profile-pic-input" style="display: none;">
                                         </div>
