@@ -1,7 +1,5 @@
 <?php 
-require '../../PHPMailer/src/PHPMailer.php';
-require '../../PHPMailer/src/Exception.php';
-require '../../PHPMailer/src/SMTP.php';
+
 session_start();
 
 $data = $_POST['data'];
@@ -30,11 +28,13 @@ try {
     
     if ($statement->execute([$_SESSION['email'], $data['nome'], $data['categoria'], $data['materiais'], $data['dataPrefeInicio'], $data['dataPrefeTermino'], $data['dimensoes'], $data['peso'], $data['autor'],  $data['estado'], $valorInicial, $valorCompraImediata, $data['descricao']])) {
         $row = $statement->fetchColumn();
+
         echo json_encode($row);
+        exit;
     } else {
         echo "Erro ao inserir leilão";
     }
-    include './emails/emailTransporteVendedorParaArmazem.php';
+
 }catch (PDOException $e) {
     echo 'Connection failed: ' . $e->getMessage();
     exit;

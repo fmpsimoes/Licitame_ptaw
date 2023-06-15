@@ -1,6 +1,6 @@
 <?php
 session_start();
-if(!isset($_SESSION['email'])) {
+if (!isset($_SESSION['email'])) {
     header("Location: login.php"); // redirect to login page if user not logged in
 }
 ?>
@@ -75,6 +75,13 @@ if(!isset($_SESSION['email'])) {
                         <i class="bi bi-x"></i>
                     </div>
                 </div>
+            </div>
+        </div>
+    </div>
+    <div id="loader-container">
+        <div class="container">
+            <div class="row d-flex justify-content-center">
+                <div id="loader"></div>
             </div>
         </div>
     </div>
@@ -193,13 +200,15 @@ if(!isset($_SESSION['email'])) {
                         <div class="col-xl-6 col-lg-12 col-md-6">
                             <div class="form-inner">
                                 <label for="firstname">Primeiro Nome *</label>
-                                <input type="text" placeholder="Primeiro Nome" name="firstname" maxlength="15" id="firstname" required>
+                                <input type="text" placeholder="Primeiro Nome" name="firstname" maxlength="15"
+                                    id="firstname" required>
                             </div>
                         </div>
                         <div class="col-xl-6 col-lg-12 col-md-6">
                             <div class="form-inner">
                                 <label for="lastname">Último Nome *</label>
-                                <input type="text" placeholder="Último nome" name="lastname" id="lastname" maxlength="15" required>
+                                <input type="text" placeholder="Último nome" name="lastname" id="lastname"
+                                    maxlength="15" required>
                             </div>
                         </div>
                     </div>
@@ -207,7 +216,8 @@ if(!isset($_SESSION['email'])) {
                         <div class="col-xl-6 col-lg-12 col-md-6">
                             <div class="form-inner">
                                 <label for="contact">Contacto Telefónico *</label>
-                                <input type="number" placeholder="9xx xxx xxx" name="contact" id="contact" maxlength="9" required>
+                                <input type="number" placeholder="9xx xxx xxx" name="contact" id="contact" maxlength="9"
+                                    required>
                             </div>
                         </div>
                         <div class="col-xl-6 col-lg-12 col-md-6">
@@ -230,7 +240,8 @@ if(!isset($_SESSION['email'])) {
                         <div class="col-xl-6 col-lg-12 col-md-6">
                             <div class="form-inner">
                                 <label for="concelho">Concelho *</label>
-                                <input type="text" name="concelho" id="concelho" placeholder="Concelho" maxlength="50" required>
+                                <input type="text" name="concelho" id="concelho" placeholder="Concelho" maxlength="50"
+                                    required>
                             </div>
                         </div>
                         <div class="col-xl-2 col-lg-12 col-md-6">
@@ -242,11 +253,12 @@ if(!isset($_SESSION['email'])) {
                         <div class="col-xl-4 col-lg-12 col-md-6">
                             <div class="form-inner">
                                 <label for="zipcode">Código Postal *</label>
-                                <input type="text" placeholder="0000-000" name="zipcode" maxlength="8" id="zipcode" required>
+                                <input type="text" placeholder="0000-000" name="zipcode" maxlength="8" id="zipcode"
+                                    required>
                             </div>
                         </div>
                     </div>
-             
+
                     <div class="row">
                         <h2>Dados da Arte</h2>
                     </div>
@@ -254,7 +266,8 @@ if(!isset($_SESSION['email'])) {
                         <div class="col-xl-6 col-lg-12 col-md-6">
                             <div class="form-inner">
                                 <label for="nameItem">Nome da peça *</label>
-                                <input type="text" placeholder="Nome" name="nameItem"  maxlength="50" id="nameItem" required>
+                                <input type="text" placeholder="Nome" name="nameItem" maxlength="50" id="nameItem"
+                                    required>
                             </div>
                         </div>
                         <div class="col-xl-6 col-lg-12 col-md-6">
@@ -277,11 +290,11 @@ if(!isset($_SESSION['email'])) {
                         <div class="col-xl-12 col-lg-12 col-md-12">
                             <div class="form-inner">
                                 <label for="materials">Materiais *</label>
-                                <input type="text" placeholder="Materiais" name="materials" maxlength="255" id="materials"
-                                    required>
+                                <input type="text" placeholder="Materiais" name="materials" maxlength="255"
+                                    id="materials" required>
                             </div>
                         </div>
-                    </div>   
+                    </div>
                     <div class="row">
                         <div class="col-xl-6 col-lg-12 col-md-6">
                             <div class="form-inner">
@@ -293,7 +306,8 @@ if(!isset($_SESSION['email'])) {
                         <div class="col-xl-6 col-lg-12 col-md-6">
                             <div class="form-inner">
                                 <label for="dataEndItem">Data preferencial para término de leilão *</label>
-                                <input type="datetime-local" placeholder="Data" name="dataEndItem" id="dataEndItem" required>
+                                <input type="datetime-local" placeholder="Data" name="dataEndItem" id="dataEndItem"
+                                    required>
                             </div>
                         </div>
                     </div>
@@ -301,7 +315,8 @@ if(!isset($_SESSION['email'])) {
                         <div class="col-xl-6 col-lg-12 col-md-6">
                             <div class="form-inner">
                                 <label for="dimensions">Dimensões *</label>
-                                <input type="text" placeholder="Dimensões" name="dimensions" id="dimensions" maxlength="20" required>
+                                <input type="text" placeholder="Dimensões" name="dimensions" id="dimensions"
+                                    maxlength="20" required>
                             </div>
                         </div>
                         <div class="col-xl-6 col-lg-12 col-md-6">
@@ -330,7 +345,8 @@ if(!isset($_SESSION['email'])) {
                         <div class="col-xl-6 col-lg-12 col-md-6">
                             <div class="form-inner">
                                 <label for="valueBase">Valor Base</label>
-                                <input type="number" step="any" placeholder="Valor Base" name="valueBase" id="valueBase">
+                                <input type="number" step="any" placeholder="Valor Base" name="valueBase"
+                                    id="valueBase">
                             </div>
                         </div>
                         <div class="col-xl-6 col-lg-12 col-md-6">
@@ -345,45 +361,50 @@ if(!isset($_SESSION['email'])) {
                         <div class="col-12">
                             <div class="form-inner">
                                 <label for="description">Descrição *</label>
-                                <textarea  name="description" id="description" placeholder="Descrição da arte" rows="4" maxlength="500" cols="50"  required ></textarea>
+                                <textarea name="description" id="description" placeholder="Descrição da arte" rows="4"
+                                    maxlength="500" cols="50" required></textarea>
                             </div>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-xl-12 col-lg-12 col-md-12">
                             <div class="form-inner imagens">
-                                <label>Fotografias da Peça *</label> 
+                                <label>Fotografias da Peça *</label>
                                 <div class="card1" id="card1" class="dragover">
-                                <span class="select1"><button type="button" id="addPhoto">Adicionar Imagens</button></span>
-                                        <input type="file" class="file" id="fotos" accept="image/*" multiple>
-                                    <div class="container1">   
-                                    </div>   
+                                    <span class="select1"><button type="button" id="addPhoto">Adicionar
+                                            Imagens</button></span>
+                                    <input type="file" class="file" id="fotos" accept="image/*" multiple>
+                                    <div class="container1">
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                        <div class="row">
-                            <div class="col-xl-9 col-lg-12 col-md-9">
-                                <div class="form-inner">
-                                    <label for="certification">Certificado (Caso já seja uma peça certificada)</label>
-                                    <input type="file" name="certification" id="certification"  accept="application/pdf" required multiple>
-                                </div>
-                            </div>
-                            <div class="col-xl-3 col-lg-12 col-md-3 align-self-center">
-                                <br>
-                                <br>
-                                <div class="form-inner">
-                                    <label for="certificationCheckBox" class="form-check-label ">Certificar (Taxa de 20€)</label>
-                                    <input class="form-check-input" value="true" type="checkbox" name="certificationCheckBox"
-                                        id="certificationCheckBox">
-                                </div>
+                    <div class="row">
+                        <div class="col-xl-9 col-lg-12 col-md-9">
+                            <div class="form-inner">
+                                <label for="certification">Certificado (Caso já seja uma peça certificada)</label>
+                                <input type="file" name="certification" id="certification" accept="application/pdf"
+                                    required multiple>
                             </div>
                         </div>
+                        <div class="col-xl-3 col-lg-12 col-md-3 align-self-center">
+                            <br>
+                            <br>
+                            <div class="form-inner">
+                                <label for="certificationCheckBox" class="form-check-label ">Certificar (Taxa de
+                                    20€)</label>
+                                <input class="form-check-input" value="true" type="checkbox"
+                                    name="certificationCheckBox" id="certificationCheckBox">
+                            </div>
+                        </div>
+                    </div>
                     <div class="row">
                         <div class="col-12">
                             <div class="button-group">
                                 <button type="submit" class="eg-btn profile-btn" id="enviar">Enviar</button>
-                                <a href="dashboard.php"><button type="button" class="eg-btn cancel-btn">Cancelar</button></a>
+                                <a href="dashboard.php"><button type="button"
+                                        class="eg-btn cancel-btn">Cancelar</button></a>
                             </div>
                         </div>
                     </div>
@@ -411,7 +432,8 @@ if(!isset($_SESSION['email'])) {
                 <div class="row gy-5">
                     <div class="col-lg-3 col-md-6">
                         <div class="footer-item">
-                            <a href="index.html"><img alt="image" src="assets/images/bg/footer-logo.png" width="200px"></a>
+                            <a href="index.html"><img alt="image" src="assets/images/bg/footer-logo.png"
+                                    width="200px"></a>
                             <p>Escolha a nossa plataforma para suas compras e leilões de obras e desfrute de uma
                                 experiência excepcional de compra, licitação e venda!</p>
                             <form>

@@ -12,7 +12,7 @@ try {
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
     try{
-        $query = "SELECT * FROM pecasarte WHERE id= ?";
+        $query = "SELECT * FROM pecasarte INNER JOIN utilizadores ON pecasarte.emailvendedor=utilizadores.email WHERE id= ?";
         $queryfotos = "SELECT dirimagem FROM fotografias WHERE idpecaarte= ?";
         $statement = $pdo->prepare($query);
         $statementfotos = $pdo->prepare($queryfotos);

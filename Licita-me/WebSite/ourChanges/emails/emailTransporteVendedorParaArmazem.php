@@ -2,7 +2,11 @@
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
+require '../../PHPMailer/src/PHPMailer.php';
+require '../../PHPMailer/src/Exception.php';
+require '../../PHPMailer/src/SMTP.php';
 
+$data=$_POST['data'];
 $mail=new PHPMailer(true);
 try {
     $mail->isSMTP();
@@ -15,7 +19,7 @@ try {
     $mail->CharSet = "UTF-8";
 
     $mail->setFrom('noreply.licitame@gmail.com','LICITAME');
-    $mail->addAddress('miguelmvieira@ua.pt','Transportadora');
+    $mail->addAddress('raul.silva@ua.pt','Transportadora');
 
     $mail->isHTML(true);
     $mail->Subject='Novo pedido de recolha Vendedor -> Armazém';
@@ -30,9 +34,9 @@ try {
     <span style='color:#029e7c;'>Categoria:</span> <b>{$data['categoria']}</b><br><br>
     <span style='color:#029e7c;'>Materiais:</span> <b>{$data['materiais']}</b><br><br>
     <span style='color:#029e7c;'>Dimensões Estimadas:</span> <b>{$data['dimensoes']}</b><br><br>
-    <span style='color:#029e7c;'>Peso Estimado:</span> <b>{$data['peso']}</b><br><br>
+    <span style='color:#029e7c;'>Peso Estimado:</span> <b>{$data['peso']} Kg</b><br><br>
     <span style='color:#029e7c;'>Estado:</span> {$data['estado']}<br><br>
-    <span style='color:#029e7c;'>Valor Inicial:</span> {$data['valorInicial']}<br><br>
+    <span style='color:#029e7c;'>Valor Inicial:</span> {$data['valorInicial']} €<br><br>
     <span style='color:#029e7c;'>Descrição:</span> {$data['descricao']}
     </div><br>
 

@@ -19,7 +19,7 @@ try {
     $mail->CharSet = "UTF-8";
 
     $mail->setFrom('noreply.licitame@gmail.com','LICITAME');
-    $mail->addAddress($email, 'Novo Password');
+    $mail->addAddress($email, 'Nova Password');
 
     $mail->isHTML(true);
     $mail->Subject = 'Envio da nova password';

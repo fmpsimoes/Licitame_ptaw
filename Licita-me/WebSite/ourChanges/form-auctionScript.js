@@ -64,6 +64,7 @@ $(document).ready(function () {
 
 
   form.addEventListener("submit", function (event) {
+    event.preventDefault();
     // Calcula a diferença em dias entre as datas
     $("#eviar").disabled="true";
     var data1 = new Date(dataStartItem.value);
@@ -85,6 +86,7 @@ $(document).ready(function () {
             event.preventDefault(); // Prevent the form from submitting
             alert("Adicione o mínimo de uma imagem ao anúncio!");
           } else {
+            $('#loader-container').addClass("slide");
           setAnuncio(event);
         }
       }
@@ -201,14 +203,29 @@ function setAnuncio(event) {
     data: { data: obj },
     success: function (response) {
       console.log(files);
-        
-        insertPhotos(JSON.parse(response), event);
-
-      ///Insere certificado para o anuncio colocado apos receber o id do anuncio colocado
-      if (certificationFile.files.length > 0) {
+        if (certificationFile.files.length > 0) {
         insertCertificado(JSON.parse(response), event);
       }
+        insertPhotos(JSON.parse(response), event,obj);
+
+      ///Insere certificado para o anuncio colocado apos receber o id do anuncio colocado
+
+    },
+    error: function (xhr, status, error) {
+      event.preventDefault();
+      console.error(error);
+    }
+  });
+}
+
+function email(obj){
+  $.ajax({
+    url: 'ourChanges/emails/emailTransporteVendedorParaArmazem.php',
+    type: 'POST',
+    data: { data: obj },
+    success: function (response) {
       alert("Leilão publicado com sucesso!");
+      $('#loader-container').removeClass("slide");
       window.location.href = "./dashboard.php";
     },
     error: function (xhr, status, error) {
@@ -218,7 +235,8 @@ function setAnuncio(event) {
   });
 }
 
-function insertPhotos(id_leilao, event) {
+
+function insertPhotos(id_leilao, event, obj) {
   const endpoint = "./ourChanges/insertImagesAuction.php";
   const formData = new FormData();
 
@@ -232,6 +250,7 @@ function insertPhotos(id_leilao, event) {
   })
     .then(response => {
       console.log(response);
+      email(obj);
     })
     .catch(error => {
       event.preventDefault();

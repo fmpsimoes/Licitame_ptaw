@@ -24,22 +24,22 @@ try {
     <span style='color:#029e7c;'>Categoria:</span> {$data['categoria']}<br><br>
     <span style='color:#029e7c;'>Materiais:</span> {$data['materiais']}<br><br>
     <span style='color:#029e7c;'>Data de Início:</span> <b>{$data['datainicio']}</b><br><br>
-    <span style='color:#029e7c;'>Data de Fim:</span> <b>{$data['datatermino']}</b><br><br>
+    <span style='color:#029e7c;'>Data de Fim:</span> <b>{$data['datafim']}</b><br><br>
     <span style='color:#029e7c;'>Dimensões:</span> {$data['dimensoes']}<br><br>
-    <span style='color:#029e7c;'>Peso:</span> {$data['peso']}<br><br>
+    <span style='color:#029e7c;'>Peso:</span> {$data['peso']} Kg<br><br>
     <span style='color:#029e7c;'>Autor:</span> {$data['autor']}<br><br>
     <span style='color:#029e7c;'>Período Estimado:</span> {$data['periodo']}<br><br>
-    <span style='color:#029e7c;'>Preço Base:</span> <b>{$data['precobase']}</b><br><br>
-    <span style='color:#029e7c;'>Preço Comprar Já:</span> <b>{$data['precocomprarja']}</b><br><br>
+    <span style='color:#029e7c;'>Preço Base:</span> <b>{$data['valorInicialPerito']} €</b><br><br>
+    <span style='color:#029e7c;'>Preço Comprar Já:</span> <b>{$data['valorCompraImediataPerito']} €</b><br><br>
     <span style='color:#029e7c;'>Condição:</span> {$data['condicao']}<br><br>
-    <span style='color:#029e7c;'>Descrição:</span> {$data['descricao']}
-    <span style='color:#029e7c;'>Certificado:</span> Em Anexo}
+    <span style='color:#029e7c;'>Descrição:</span> {$data['descricao']}<br><br>
+    <span style='color:#029e7c;'>Certificado:</span> Em Anexo
     </div><br>
 
     <img alt='logo licitame' src='https://i.imgur.com/negCNil.png' width='200px' height='45px' style='background:#32c36c;margin:auto;display:block;'/>";
 
     //Anexar o certificado
-    $attachmentPath = $data['dircertificado'];
+    $attachmentPath = '../certificados/certificado_'.$data['idpeca'].'_1.pdf';
     $mail -> addAttachment($attachmentPath);
 
     $mail->send();

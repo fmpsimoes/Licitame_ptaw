@@ -1,7 +1,15 @@
 var dataInicio;
 var dataTermino;
 var dataInicioAux;
-
+let emailvendedor;
+let nome;
+let apelido;
+let contactotelefonico;
+let titulo;
+let morada;
+let porta;
+let codigopostal;
+let concelho;
 
 $(document).ready(function () {
   let form = document.getElementById("form");
@@ -9,6 +17,7 @@ $(document).ready(function () {
   getLeilaoData(idLeilao);
 
   $("#rejeitado").on("click", function () {
+    $('#loader-container').addClass("slide");
     setAnuncioVerificado("Rejeitado", idLeilao);
   });
 
@@ -24,6 +33,7 @@ $(document).ready(function () {
         event.preventDefault(); // Prevent the form from submitting
         alert("Adicione o mínimo de uma imagem ao anúncio!");
       } else {
+        $('#loader-container').addClass("slide");
         setAnuncioVerificado("Aprovado", idLeilao);
       }
     }
@@ -104,7 +114,6 @@ card.addEventListener('drop', e => {
 
 })
 //----------------------------------------------------
-
 let dirCertificado;
 function getLeilaoData(idLeilao) {
   $.ajax({
@@ -115,6 +124,15 @@ function getLeilaoData(idLeilao) {
       const alldata = JSON.parse(response);
       const auxdata = alldata['data'];
       const data = auxdata[0];
+      emailvendedor = data.emailvendedor;
+      nome = data.nome;
+      apelido = data.apelido;
+      contactotelefonico = data.contactotelefonico;
+      titulo = data.titulo;
+      morada = data.morada;
+      porta = data.porta;
+      codigopostal = data.codigopostal;
+      concelho = data.concelho;
       const auxfotos = alldata['fotos'];
       dataInicio = data['datainicio'];
       dataInicioAux = data['datainicio'];
@@ -200,7 +218,17 @@ function setAnuncioVerificado(estado, idLeilao) { // Falta o verificação de se
     datacertificacao: getCurrentDate(),
     estado: estado,
     datainicio: datasCorrigidas.dataInicio,
-    datafim: datasCorrigidas.dataFim
+    datafim: datasCorrigidas.dataFim,
+    emailvendedor: emailvendedor,
+    email: emailvendedor,
+    nome2: nome,
+    apelido: apelido,
+    contactotelefonico: contactotelefonico,
+    titulo: titulo,
+    morada: morada,
+    porta: porta,
+    codigopostal: codigopostal,
+    concelho: concelho
   }
   console.log(obj);
 
@@ -209,12 +237,18 @@ function setAnuncioVerificado(estado, idLeilao) { // Falta o verificação de se
     type: 'POST',
     data: { data: obj },
     success: function (response) {
-      alert(response);
-      insertPhotos(idLeilao);
-      if (dirCertificado == null) {
-        insertCertificado(idLeilao);
+      if (response != "Leilão rejeitado!") {
+        if (dirCertificado == null) {
+          insertCertificado(idLeilao);
+        }
+        insertPhotos(idLeilao);
       }
-      window.location.href = "./dashboardPerito.php";
+      else{
+         $('#loader-container').removeClass("slide");
+         window.location.href = "./dashboardPerito.php";
+      }
+     
+      alert(response);
     },
     error: function (xhr, status, error) {
       console.error(error);
@@ -237,6 +271,8 @@ function insertPhotos(id_leilao) {
     .then(response => {
       if (response['status'] == 200) {
         console.log("Anuncio publicado com fotos");
+        $('#loader-container').removeClass("slide");
+        window.location.href = "./dashboardPerito.php";
       } else {
         console.log(response)
       };

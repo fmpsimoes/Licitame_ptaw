@@ -29,9 +29,9 @@ try {
     <span style='color:#029e7c;'>Categoria:</span> <b>{$row['categoria']}</b><br><br>
     <span style='color:#029e7c;'>Materiais:</span> <b>{$row['materiais']}</b><br><br>
     <span style='color:#029e7c;'>Dimensões:</span> <b>{$row['dimensoes']}</b><br><br>
-    <span style='color:#029e7c;'>Peso:</span> <b>{$row['peso']}</b><br><br>
+    <span style='color:#029e7c;'>Peso:</span> <b>{$row['peso']} Kg</b><br><br>
     <span style='color:#029e7c;'>Estado:</span> {$row['condicao']}<br><br>
-    <span style='color:#029e7c;'>Valor:</span> {$rowBid['valorlicitacao']}<br><br>
+    <span style='color:#029e7c;'>Valor:</span> {$rowBid['valorlicitacao']} €<br><br>
     <span style='color:#029e7c;'>Descrição:</span> {$row['descricao']}
     </div><br>
 

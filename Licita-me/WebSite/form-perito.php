@@ -80,6 +80,13 @@ if(!isset($_SESSION['email'])) {
             </div>
         </div>
     </div>
+    <div id="loader-container">
+    <div class="container">
+      <div class="row d-flex justify-content-center">
+        <div id="loader"></div>
+      </div>
+    </div>
+  </div>
 
     <!-- ========== topbar ============= -->
     <div class="topbar">

@@ -30,7 +30,7 @@ try {
     <span style='color:#029e7c;'>Categoria:</span> <b>{$data['categoria']}</b><br><br>
     <span style='color:#029e7c;'>Materiais:</span> <b>{$data['materiais']}</b><br><br>
     <span style='color:#029e7c;'>Dimensões Estimadas:</span> <b>{$data['dimensoes']}</b><br><br>
-    <span style='color:#029e7c;'>Peso Estimado:</span> <b>{$data['peso']}</b><br><br>
+    <span style='color:#029e7c;'>Peso Estimado:</span> <b>{$data['peso']} Kg</b><br><br>
     <span style='color:#029e7c;'>Estado:</span> {$data['estado']}<br><br>
     <span style='color:#029e7c;'>Descrição:</span> {$data['descricao']}
     </div><br>

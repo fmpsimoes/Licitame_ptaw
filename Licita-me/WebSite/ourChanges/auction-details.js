@@ -53,7 +53,7 @@ $(document).ready(function () {
     $("#licitar_form").append(h4);}
   }).catch(function (error) {
     let h4 = document.createElement("h4");
-    h4.innerHTML = '<a href="login.php">Inicie a sessão</a>, para poder licitar esta peça!';
+    h4.innerHTML = '<a href="login.php" style="color:#32c36c;">Inicie a sessão</a>, para poder licitar esta peça!';
     $("#licitar_form").append(h4);
     console.log(error); // Handle any errors from the checkLoggedIn() function
   });
@@ -105,7 +105,7 @@ function gerformtitle() {
   let lich5 = document.createElement("h5");
   lich5.innerHTML = "Licite agora";
   let licp = document.createElement("p");
-  lich5.innerHTML = 'Montante : Mínimo <span id="minimo"></span>€';
+  lich5.innerHTML = 'Montante : Mínimo <span id="minimo"></span> €';
   formtitle.append(lich5);
   formtitle.append(licp);
   return formtitle;
@@ -259,7 +259,7 @@ function gerformbody() {
 }
 
 function minbid() {
-  return Number(cur_bid) + base_bid * 0.05;
+  return Number(cur_bid) + Math.ceil(base_bid * 0.05);
 }
 
 function precocomprarja() {
@@ -267,7 +267,7 @@ function precocomprarja() {
   console.log(avaliacao_perito)
   console.log(preco_imediato_vendedor)
   console.log(cur_bid)
-  return Math.max(Number(avaliacao_perito), Number(preco_imediato_vendedor), Number(cur_bid) * 1.5);
+  return Math.max(Number(avaliacao_perito), Number(preco_imediato_vendedor), Math.ceil(Number(cur_bid) * 1.5));
 }
 
 function getLeilaoData(idLeilao) {
@@ -309,7 +309,7 @@ function getLeilaoData(idLeilao) {
       data['periodo'];*/
 
 
-      $("#estimado").html(base_bid + "€ - " + avaliacao_perito + "€");
+      $("#estimado").html(base_bid + " € - " + avaliacao_perito + " €");
       for (const [key, value] of Object.entries(data)) {
         if (key == "categoria" || key == "materiais" || key == "dimensoes" || key == "peso" || key == "autor" || key == "periodo" || key == "condicao")
           $("#details-leilao").append(createDetailsRow(key, value));
@@ -412,6 +412,12 @@ function listenLicitacoes() {
   eSource.addEventListener('error', function (event) {
     if (event.data == 0) {
       newBid(base_bid);
+      let bidli=`<li>
+      <div class="row d-flex align-items-center">
+        <h4> Ainda não existem licitações! </h4>
+      </div>
+    </li>`
+      $('#bid-list').html(bidli)
     }
     console.log(event);
   });
@@ -438,7 +444,7 @@ function displayNewBid(bid) {
                   <div class="col-7">
                     <div class="bidder-area">
                       <div class="bidder-img">
-                        <img alt="image" src="assets/images/bg/bidder1.png" />
+                        <img alt="image" src="assets/images/icons/admin.svg" style="width:5vw"/>
                       </div>
                       <div class="bidder-content">
                         <a >
@@ -467,8 +473,8 @@ function newBid(valor) {
   $('#bidnormal').val(minbid());
   $('#bidnormal').attr("min", minbid());
   $('#bidcomprarja').val(precocomprarja());
-  $('#bidauto').attr("placeholder", "Valor limite (min.:" + (Number(minbid()) + (base_bid * 0.05)) + "€)");
-  $('#bidauto').attr("min", (Number(minbid()) + (base_bid * 0.05)));
+  $('#bidauto').attr("placeholder", "Valor limite (min.:" + (Number(minbid()) + Math.ceil(base_bid * 0.05)) + "€)");
+  $('#bidauto').attr("min", (Number(minbid()) + Math.ceil(base_bid * 0.05)));
 }
 
 function bidAction(valor, bidType) {

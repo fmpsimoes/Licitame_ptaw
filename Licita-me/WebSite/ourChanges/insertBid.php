@@ -48,7 +48,7 @@ try {
             echo json_encode($response);
             exit;
         }
-        $min_bid = $bid_bd[0]['valorlicitacao'] + $bid_bd2[0]['valorapreciacaoprecobase'] * 0.05;
+        $min_bid = $bid_bd[0]['valorlicitacao'] + ceil($bid_bd2[0]['valorapreciacaoprecobase'] * 0.05);
         $cur_bid = $bid_bd[0]['valorlicitacao'];
     }
 
@@ -64,7 +64,7 @@ try {
         if ($bid_bd2[0]['precocomprarja'] != null) {
             $precojavend = $bid_bd2[0]['precocomprarja'];
         }
-        $bid_now = max($cur_bid * 1.5, $bid_bd2[0]['valorapreciacaocompraja'], $precojavend);
+        $bid_now = max(ceil($cur_bid * 1.5), $bid_bd2[0]['valorapreciacaocompraja'], $precojavend);
         if ($data["valor"] != $bid_now) {
             $response['message'] = "Valor da licitação invalido";
             echo json_encode($response);

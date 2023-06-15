@@ -1,7 +1,7 @@
 <?php
-require '../../PHPMailer/src/PHPMailer.php';
-require '../../PHPMailer/src/Exception.php';
-require '../../PHPMailer/src/SMTP.php';
+require '../PHPMailer/src/PHPMailer.php';
+require '../PHPMailer/src/Exception.php';
+require '../PHPMailer/src/SMTP.php';
 session_start();
 
 $data = $_POST['data'];
@@ -28,18 +28,36 @@ try {
     $statement1 = $pdo->prepare($query1);
     if (($statement->execute([$_SESSION['email'], $data['nome'], $data['descricao'], $data['categoria'], $data['materiais'], $data['dimensoes'], $data['peso'], $data['autor'], $data['periodo'], $data['estado'], $data['valorInicialPerito'], $data['valorCompraImediataPerito'], $data['datacertificacao'], $data['condicao'], $data['datainicio'], $data['datafim'], $data['idpeca']])) && ($statement1->execute([$data['idpeca']]))) {
         if ($data['estado'] == "Aprovado" || $data['estado'] == "Ativo") {
-            echo ("Leilão aprovado com sucesso!");
+            $dateTime = new DateTime($data['datainicio']);
+            $data['datainicio']= $dateTime->format('Y-m-d H:i:s');
+            $dateTime = new DateTime($data['datafim']);
+            $data['datafim']= $dateTime->format('Y-m-d H:i:s');
             if ($data['estado'] == "Aprovado") {
                 include './emails/emailAprovadoVendedor.php';
             } else {
+                $row=$data;
+                $row['id']=$data['idpeca'];
+                $row['titulo']=$data['nome'];
+                $row['valorapreciacaoprecobase']=$data['valorInicialPerito'];
+                $row['valorapreciacaocompraja']=$data['valorCompraImediataPerito'];
                 include './emails/emailAtivoVendedor.php';
             }
-
+            echo ("Leilão aprovado com sucesso!");
+            exit;
         }
         if ($data['estado'] == "Rejeitado") {
-            echo ("Leilão rejeitado!");
+            $data['primeiroNomeVendedor']=$data['nome2'];
+            $data['ultimoNomeVendedor']=$data['apelido'];
+            $data['contacto']=$data['contactotelefonico'];
+            $data['nome']=$data['titulo'];
+            $dateTime = new DateTime($data['datainicio']);
+            $data['datainicio']= $dateTime->format('Y-m-d H:i:s');
+            $dateTime = new DateTime($data['datafim']);
+            $data['datafim']= $dateTime->format('Y-m-d H:i:s');
             include './emails/emailRejeitadoVendedor.php';
             include './emails/emailRejeitadoArmazemParaVendedor.php';
+            echo ("Leilão rejeitado!");
+            exit;
         }
     } else {
         echo "Erro ao inserir leilão";

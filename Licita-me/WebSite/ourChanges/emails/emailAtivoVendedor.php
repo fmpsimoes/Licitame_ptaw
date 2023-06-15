@@ -26,20 +26,20 @@ try {
     <span style='color:#029e7c;'>Data de Início:</span> <b>{$row['datainicio']}</b><br><br>
     <span style='color:#029e7c;'>Data de Fim:</span> <b>{$row['datafim']}</b><br><br>
     <span style='color:#029e7c;'>Dimensões:</span> {$row['dimensoes']}<br><br>
-    <span style='color:#029e7c;'>Peso:</span> {$row['peso']}<br><br>
+    <span style='color:#029e7c;'>Peso:</span> {$row['peso']} Kg<br><br>
     <span style='color:#029e7c;'>Autor:</span> {$row['autor']}<br><br>
     <span style='color:#029e7c;'>Período Estimado:</span> {$row['periodo']}<br><br>
-    <span style='color:#029e7c;'>Preço Base:</span> <b>{$row['precobase']}</b><br><br>
-    <span style='color:#029e7c;'>Preço Comprar Já:</span> <b>{$row['precocomprarja']}</b><br><br>
+    <span style='color:#029e7c;'>Preço Base:</span> <b>{$row['valorapreciacaoprecobase']} €</b><br><br>
+    <span style='color:#029e7c;'>Preço Comprar Já:</span> <b>{$row['valorapreciacaocompraja']} €</b><br><br>
     <span style='color:#029e7c;'>Condição:</span> {$row['condicao']}<br><br>
-    <span style='color:#029e7c;'>Descrição:</span> {$row['descricao']}
-    <span style='color:#029e7c;'>Certificado:</span> Em Anexo}
+    <span style='color:#029e7c;'>Descrição:</span> {$row['descricao']}<br><br>
+    <span style='color:#029e7c;'>Certificado:</span> Em Anexo
     </div><br>
 
     <img alt='logo licitame' src='https://i.imgur.com/negCNil.png' width='200px' height='45px' style='background:#32c36c;margin:auto;display:block;'/>";
 
     //Anexar o certificado
-    $attachmentPath = $row['dircertificado'];
+    $attachmentPath = '../certificados/certificado_'.$row['id'].'_1.pdf';
     $mail -> addAttachment($attachmentPath);
 
     $mail->send();
