@@ -5,53 +5,61 @@ let preco_imediato_vendedor;
 var idLeilao;
 var dataTermino;
 var eSource;
+let emailSession;
 const displayBids = [];
 $(document).ready(function () {
   checkLoggedIn().then(function (isLoggedIn) {
     if (isLoggedIn) {
       $("#licitar_form").append(gerform());
       iniTooltips();
-      let form=document.getElementById("formBid");
+      let form = document.getElementById("formBid");
       form.addEventListener('submit', function (event) {
         event.preventDefault();
         var clickedButtonValue = event.submitter.value;
-    
+
         if (clickedButtonValue === "bid") {
-          if($("#bidnormal").val()!=null){
+          if ($("#bidnormal").val() != null) {
             $('#loader-container').addClass("slide");
-            bidAction($("#bidnormal").val(),clickedButtonValue);
+            bidAction($("#bidnormal").val(), clickedButtonValue);
           }
-          else{
+          else {
             alert("Licitação normal sem valor atribuido");
           }
         }
-        else if(clickedButtonValue === "bidcomprarja"){
-          if($("#bidcomprarja").val()!=null){
+        else if (clickedButtonValue === "bidcomprarja") {
+          if ($("#bidcomprarja").val() != null) {
             $('#loader-container').addClass("slide");
-            bidAction($("#bidcomprarja").val(),clickedButtonValue);
+            bidAction($("#bidcomprarja").val(), clickedButtonValue);
           }
-          else{
+          else {
             alert("Não altere o preço de licitar!!!");
           }
         }
-        else if(clickedButtonValue === "bidauto"){
-          if(document.getElementById("switch").checked){
-            if($("#bidauto").val()!=null){
-              bidAction($("#bidauto").val(),clickedButtonValue);
+        else if (clickedButtonValue === "bidauto") {
+          if (document.getElementById("switch").checked) {
+            if ($("#bidauto").val() != null) {
+              bidAction($("#bidauto").val(), clickedButtonValue);
             }
-            else{
+            else {
               alert("Defina o valor maximo da licitação automatica!");
-              $("#switch").checked=false;
+              $("#switch").checked = false;
             }
           }
         }
       });
     }
+  }).catch(function (error) {
+    let h4 = document.createElement("h4");
+    h4.innerHTML = "Inicie a sessão no botão Conta, para poder licitar esta peça!!!";
+    $("#licitar_form").append(h4);
+    console.log(error); // Handle any errors from the checkLoggedIn() function
   });
+
+
   idLeilao = sessionStorage.getItem('id_leilao');
   getLeilaoData(idLeilao);
 
-  
+
 });
 
 function checkLoggedIn() {
@@ -65,7 +73,9 @@ function checkLoggedIn() {
         }
       })
       .then(function (data) {
-        resolve(data);
+        console.log(data);
+        emailSession = data.email;
+        resolve(data.loggedIn);
       })
       .catch(function (error) {
         console.log('Error:', error.message);
@@ -73,6 +83,7 @@ function checkLoggedIn() {
       });
   });
 }
+
 
 
 
@@ -105,8 +116,8 @@ function gerformbody() {
   formbut.setAttribute("type", "submit");
   formbut.setAttribute("class", "eg-btn btn--primary3 btn--sm");
   //formbut.setAttribute("value", "licitar");
-  formbut.setAttribute("id","bid");
-  formbut.setAttribute("value","bid");
+  formbut.setAttribute("id", "bid");
+  formbut.setAttribute("value", "bid");
   formbut.innerHTML = "Licitar";
   let forminner = document.createElement("div");
   forminner.setAttribute("class", "form-inner gap-2");
@@ -125,8 +136,8 @@ function gerformbody() {
   let formbutcj = document.createElement("button");
   formbutcj.setAttribute("type", "submit");
   formbutcj.setAttribute("class", "eg-btn btn--primary2 btn--sm");
-  formbutcj.setAttribute("id","bidcomprarjabut");
-  formbutcj.setAttribute("value","bidcomprarja");
+  formbutcj.setAttribute("id", "bidcomprarjabut");
+  formbutcj.setAttribute("value", "bidcomprarja");
   formbutcj.innerHTML = "Comprar já";
   let forminnercj = document.createElement("div");
   forminnercj.setAttribute("class", "form-inner gap-2");
@@ -139,9 +150,9 @@ function gerformbody() {
   rowdiv2.setAttribute("class", "row");
   rowdiv2.append(coldiv2);
   let formbody = document.createElement("form");
-  formbody.setAttribute("enctype","multipart/form-data");
-  formbody.setAttribute("method","POST");
-  formbody.setAttribute("id","formBid");
+  formbody.setAttribute("enctype", "multipart/form-data");
+  formbody.setAttribute("method", "POST");
+  formbody.setAttribute("id", "formBid");
   formbody.append(rowdiv);
   formbody.append(document.createElement("br"));
   //accordion
@@ -217,8 +228,8 @@ function gerformbody() {
   formswitcj.setAttribute("type", "checkbox");
   formswitcj.setAttribute("role", "switch");
   formswitcj.setAttribute("class", "form-check-input");
-  formswitcj.setAttribute("onchange","this.form.submit()");
-  formswitcj.setAttribute("value","bidauto");
+  formswitcj.setAttribute("onchange", "this.form.submit()");
+  formswitcj.setAttribute("value", "bidauto");
   divswit.append(formswitcj);
   let labelswit = document.createElement("label");
   labelswit.setAttribute("for", "switch");
@@ -266,17 +277,17 @@ function getLeilaoData(idLeilao) {
       const auxdata = alldata['data'];
       const data = auxdata[0];
       const auxfotos = alldata['fotos'];
-      if(data['estado']!="Ativo"){
+      if (data['estado'] != "Ativo") {
         alert("Leilao está desativo!");
-        window.location.href="./index.html";
+        window.location.href = "./index.html";
       }
       base_bid = Number(data['valorapreciacaoprecobase']);
       avaliacao_perito = data['valorapreciacaocompraja'];
-      if(data['precocomprarja']!=null){
-        preco_imediato_vendedor=data['precocomprarja']
+      if (data['precocomprarja'] != null) {
+        preco_imediato_vendedor = data['precocomprarja']
       }
-      else{
-        preco_imediato_vendedor=0
+      else {
+        preco_imediato_vendedor = 0
       }
       $("#titulo").html(data['titulo']);
       $("#descricao").html(data['descricao']);
@@ -396,7 +407,7 @@ function listenLicitacoes() {
   });
 
   eSource.addEventListener('error', function (event) {
-    if(event.data==0){
+    if (event.data == 0) {
       newBid(base_bid);
     }
     console.log(event);
@@ -404,6 +415,21 @@ function listenLicitacoes() {
 }
 
 function displayNewBid(bid) {
+  console.log(emailSession);
+
+  if (emailSession !== "") {
+    if (bid.email == emailSession) {
+      $('#bid').prop('disabled', true);
+      $('#bidcomprarjabut').prop('disabled', true);
+      $('#switch').prop('disabled', true);
+    } else {
+      $('#bid').prop('disabled', false);
+      $('#bidcomprarjabut').prop('disabled', false);
+      $('#switch').prop('disabled', false);
+    }
+  }
+
+
   let bidli = `<li>
                 <div class="row d-flex align-items-center">
                   <div class="col-7">
@@ -431,18 +457,18 @@ function displayNewBid(bid) {
 
 }
 
-function newBid (valor){
-  cur_bid=Number(valor);
+function newBid(valor) {
+  cur_bid = Number(valor);
   $('#preco').html(valor);
   $('#minimo').html(minbid());
   $('#bidnormal').val(minbid());
-  $('#bidnormal').attr("min",minbid());
+  $('#bidnormal').attr("min", minbid());
   $('#bidcomprarja').val(precocomprarja());
-  $('#bidauto').attr("placeholder","Valor limite (min.:" + (Number(minbid())+ (base_bid * 0.05)) + "€)");
-  $('#bidauto').attr("min",(Number(minbid())+ (base_bid * 0.05)));
+  $('#bidauto').attr("placeholder", "Valor limite (min.:" + (Number(minbid()) + (base_bid * 0.05)) + "€)");
+  $('#bidauto').attr("min", (Number(minbid()) + (base_bid * 0.05)));
 }
 
-function bidAction(valor,bidType) {
+function bidAction(valor, bidType) {
   const obj = {
     idLeilao: idLeilao,
     tipo: bidType,
@@ -457,12 +483,12 @@ function bidAction(valor,bidType) {
     data: { data: obj },
     success: function (response) {
       $('#loader-container').removeClass("slide");
-      response=JSON.parse(response);
+      response = JSON.parse(response);
       alert(response['message']);
-      if(response['message']=="Leilao invalido"||response['message']=="Peca comprada com sucesso"){
-        window.location.href="./index.html";
+      if (response['message'] == "Leilao invalido" || response['message'] == "Peca comprada com sucesso") {
+        window.location.href = "./index.html";
       }
-      if(response['valor']!=null){
+      if (response['valor'] != null) {
         newBid(response['valor']);
       }
     },

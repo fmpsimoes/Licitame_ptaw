@@ -234,6 +234,9 @@ i.bx {
 .btn--primary:hover {
   color: #fff;
 }
+.btn--primary:disabled {
+  opacity: 0.2;
+}
 
 .btn--primary:hover::before {
   transform: rotateX(90deg);
@@ -282,6 +285,9 @@ i.bx {
 
 .btn--primary2:hover {
   color: #fff;
+}
+.btn--primary2:disabled {
+  opacity: 0.2;
 }
 
 .btn--primary2:hover::before {
@@ -333,6 +339,9 @@ i.bx {
   color: #fff;
 }
 
+.btn--primary3:disabled {
+  opacity: 0.2;
+}
 .btn--primary3:hover::before {
   transform: rotateX(90deg);
 }
@@ -9215,3 +9224,4 @@ live-auction Page
   opacity: 1;
   visibility: visible;
 }
+

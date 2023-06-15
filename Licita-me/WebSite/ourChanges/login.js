@@ -21,7 +21,7 @@ $(document).ready(function () {
           jsonResponse == "dashboardAdmin.php" ||
           jsonResponse == "dashboardPerito.php"
         ) {
-          window.location.href = jsonResponse; //redirecionar para o respetivo painel depois de inciar sessão
+          window.location.href = "index.html"; //redirecionar para o respetivo painel depois de inciar sessão
         } else {
           alert(jsonResponse);
           $("#password").val("");

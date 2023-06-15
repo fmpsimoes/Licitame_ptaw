@@ -53,7 +53,7 @@ function getNumBids($idLeilao) {
 function getLicitacoes($idLeilao) {
     global $pdo;
     try {
-        $q = "SELECT licitacoes.datalicitacao, licitacoes.valorlicitacao, utilizadores.nome, utilizadores.apelido 
+        $q = "SELECT licitacoes.datalicitacao, licitacoes.valorlicitacao, utilizadores.email, utilizadores.nome, utilizadores.apelido 
                 FROM licitacoes 
                 INNER JOIN utilizadores ON licitacoes.licitador = utilizadores.email 
                 WHERE licitacoes.pecaarte = :idLeilao
