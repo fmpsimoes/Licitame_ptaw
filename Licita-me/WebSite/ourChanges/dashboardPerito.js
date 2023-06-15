@@ -56,7 +56,9 @@ function getRevistos() {
                 }
                 $("#countAprovados").text(formatToFourDigits(countAprovados));
                 $("#countRejeitados").text(formatToFourDigits(countRejeitados));
-                $("#countTaxaAprov").text((countAprovados/(countRejeitados+countAprovados))*100);
+                var taxaAprovacao = countAprovados / (countRejeitados + countAprovados) * 100; //faz o calculo da %
+                var taxaAprovacaoFormatada = taxaAprovacao % 1 === 0 ? taxaAprovacao.toFixed(0) : taxaAprovacao.toFixed(2); //verifica se o numero é inteiro ou não
+                $("#countTaxaAprov").text(taxaAprovacaoFormatada);
                 //Criação de Head da tabela
                 let tr = document.createElement('tr');
                 tr.id = 'row_' + element['id'];

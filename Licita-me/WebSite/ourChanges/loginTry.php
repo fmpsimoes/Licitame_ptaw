@@ -30,9 +30,8 @@
             $_SESSION['concelho'] = $user['concelho'];
             $_SESSION['tipoutilizador'] = $user['tipoutilizador'];
 
-            if ($user['tipoutilizador'] == 'Administrador') {
-                echo json_encode('dashboardAdmin.php');
-            } elseif ($user['tipoutilizador'] == 'Utilizador') {
+           
+            if ($user['tipoutilizador'] == 'Utilizador') {
                 echo json_encode('dashboard.php');
             } elseif ($user['tipoutilizador'] == 'Perito') {
                 echo json_encode('dashboardPerito.php');
