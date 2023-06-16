@@ -27,8 +27,8 @@ try {
     <img alt='logo licitame' src='https://i.imgur.com/negCNil.png' width='200px' height='45px' style='background:#32c36c;margin:auto;display:block;'/>";
 
     $mail->send();
-    //echo "Sucesso";
+    echo "Sucesso";
 } catch (Exception $e) {
-    echo "erro ao enviar email!";
+    echo "Erro ao enviar email!";
 }
 ?>
