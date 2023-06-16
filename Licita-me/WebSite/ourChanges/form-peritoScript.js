@@ -117,7 +117,7 @@ card.addEventListener('drop', e => {
 let dirCertificado;
 function getLeilaoData(idLeilao) {
   $.ajax({
-    url: './ourchanges/getLeilaoData.php',
+    url: './ourChanges/getLeilaoData.php',
     type: 'POST',
     data: { data: idLeilao },
     success: function (response) {

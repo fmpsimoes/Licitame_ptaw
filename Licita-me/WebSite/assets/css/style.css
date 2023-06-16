@@ -391,6 +391,7 @@ i.bx {
   font-size: 16px;
   font-weight: 600;
   padding: 5px 12px;
+  cursor:pointer;
 }
 
 .header-btn {
@@ -3278,6 +3279,7 @@ header.style-3 .mobile-menu-form input[type=text] {
   bottom: 20px;
   background: #fff;
   min-width: 180px;
+  cursor: default;
 }
 
 .auction-card1 .auction-img .auction-timer .countdown h4 {

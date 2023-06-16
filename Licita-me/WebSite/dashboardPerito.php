@@ -259,7 +259,7 @@ if(!isset($_SESSION['email'])) {
                             <div class="dashboard-profile">
                                 <div class="owner">
                                     <div class="image">
-                                        <img alt="image" src="assets/images/bg/pro-pic.png">
+                                        <img alt="image" src="assets/images/icons/admin.svg" style="width: 200px; height: 200px;"">
                                     </div>
                                     <div class="content">
                                         <h3 id="ttNome"></h3>
