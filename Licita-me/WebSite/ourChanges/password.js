@@ -41,9 +41,7 @@ document.addEventListener("DOMContentLoaded", function() {
             xhrEmail.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
             xhrEmail.onreadystatechange = function(){
               if(xhrEmail.readyState == XMLHttpRequest.DONE){
-                if(xhrEmail.status === 200){
                  alert("Email enviado com sucesso, verifique o seu email para obter a nova password");
-                }
               }
             };
             xhrEmail.send("data=" + encodeURIComponent(JSON.stringify(response)));
