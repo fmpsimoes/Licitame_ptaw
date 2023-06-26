@@ -43,8 +43,6 @@ document.addEventListener("DOMContentLoaded", function() {
               if(xhrEmail.readyState == XMLHttpRequest.DONE){
                 if(xhrEmail.status === 200){
                  alert("Email enviado com sucesso, verifique o seu email para obter a nova password");
-                }else{
-                 alert("Erro ao enviar email", xhrEmail.status);
                 }
               }
             };
