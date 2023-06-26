@@ -107,6 +107,7 @@ function getRevistos() {
                 language: {
                     url: '//cdn.datatables.net/plug-ins/1.13.4/i18n/pt-PT.json',
                 },
+                "lengthChange": false,
             });
         },
         error: function (xhr, status, error) {
@@ -197,6 +198,7 @@ function getPorRever() {
                 language: {
                     url: '//cdn.datatables.net/plug-ins/1.13.4/i18n/pt-PT.json',
                 },
+                "lengthChange": false,
             });
 
         },
